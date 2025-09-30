@@ -1,14 +1,15 @@
 import tkinter as tk
 from tkinter import *
-import threading
 from protocol import *
+from CServerBL import *
+
 
 BTN_IMAGE = "./Images/GUI - button.png"
 BG_IMAGE = "./Images/YellowBG.png"
 FONT = "Calibri"
 FONT_BUTTON = (FONT,16)
 
-class CServerGUI():
+class CServerGUI(CServerBL):
 
     def __init__(self, host, port):
         # super().__init__(host,port)
@@ -116,5 +117,5 @@ class CServerGUI():
 
 
 if __name__ == "__main__":
-    server = CServerGUI(SERVER_HOST, PORT)
+    server = CServerGUI(CLIENT_HOST, PORT)
     server.run()

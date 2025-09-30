@@ -1,0 +1,2 @@
+2025-09-30 11:09:16,500 - INFO - [SERVER_BL] Exception in start_server fn : 'CServerGUI' object has no attribute '_host'
+2025-09-30 11:12:13,036 - INFO - [SERVER_BL] Exception in start_server fn : 'CServerGUI' object has no attribute '_host'
