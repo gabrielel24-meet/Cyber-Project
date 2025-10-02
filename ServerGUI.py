@@ -12,7 +12,7 @@ FONT_BUTTON = (FONT,16)
 class CServerGUI(CServerBL):
 
     def __init__(self, host, port):
-        # super().__init__(host,port)
+        super().__init__(host,port)
 
         # Attributes
         self._server_thread = None
@@ -117,5 +117,5 @@ class CServerGUI(CServerBL):
 
 
 if __name__ == "__main__":
-    server = CServerGUI(CLIENT_HOST, PORT)
+    server = CServerGUI(SERVER_HOST, PORT)
     server.run()

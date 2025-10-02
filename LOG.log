@@ -1,2 +1,32 @@
 2025-09-30 11:09:16,500 - INFO - [SERVER_BL] Exception in start_server fn : 'CServerGUI' object has no attribute '_host'
 2025-09-30 11:12:13,036 - INFO - [SERVER_BL] Exception in start_server fn : 'CServerGUI' object has no attribute '_host'
+2025-10-01 14:23:28,889 - INFO - [SERVER_BL] Exception in start_server fn : 'CServerGUI' object has no attribute '_host'
+2025-10-01 14:25:20,762 - INFO - [SERVER_BL] Exception in start_server fn : [WinError 10022] An invalid argument was supplied
+2025-10-01 14:25:34,801 - INFO - [SERVER_BL] Exception in start_server fn : [WinError 10022] An invalid argument was supplied
+2025-10-01 14:26:20,587 - INFO - [SERVER_BL] Exception in start_server fn : 'CServerGUI' object has no attribute '_host'
+2025-10-01 14:26:39,004 - INFO - [SERVER_BL] listening...
+2025-10-01 14:26:39,004 - INFO - [SERVER_BL] Exception in start_server fn : 'CServerGUI' object has no attribute '_is_srv_running'
+2025-10-01 14:28:02,813 - INFO - [SERVER_BL] Exception in start_server fn : 'CServerGUI' object has no attribute '_host'
+2025-10-01 14:28:31,788 - INFO - [SERVER_BL] listening...
+2025-10-01 16:16:10,167 - INFO - [SERVER_BL] listening...
+2025-10-01 16:16:33,368 - INFO - [SERVER_BL] listening...
+2025-10-01 16:19:45,529 - INFO - [SERVER_BL] Client connected <socket.socket fd=944, family=2, type=1, proto=0, laddr=('127.0.0.1', 8822), raddr=('127.0.0.1', 54915)>('127.0.0.1', 54915) 
+2025-10-01 16:19:45,543 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2025-10-01 16:19:45,543 - INFO - [CLIENT] send - sdsd
+2025-10-01 16:29:50,927 - INFO - [SERVER_BL] listening...
+2025-10-01 16:29:55,786 - INFO - [SERVER_BL] Client connected <socket.socket fd=940, family=2, type=1, proto=0, laddr=('127.0.0.1', 8822), raddr=('127.0.0.1', 52043)>('127.0.0.1', 52043) 
+2025-10-01 16:29:55,788 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2025-10-01 16:30:01,218 - INFO - [CLIENT] send - msg
+2025-10-01 16:30:22,407 - INFO - [SERVER_BL] Client connected <socket.socket fd=848, family=2, type=1, proto=0, laddr=('127.0.0.1', 8822), raddr=('127.0.0.1', 54438)>('127.0.0.1', 54438) 
+2025-10-01 16:30:22,407 - INFO - [SERVER_BL] ACTIVE CONNECTION 3
+2025-10-01 16:30:29,847 - INFO - [CLIENT] send - dfgf
+2025-10-01 16:30:52,267 - INFO - [SERVER_BL] listening...
+2025-10-01 16:30:56,970 - INFO - [SERVER_BL] Client connected <socket.socket fd=188, family=2, type=1, proto=0, laddr=('127.0.0.1', 8822), raddr=('127.0.0.1', 54445)>('127.0.0.1', 54445) 
+2025-10-01 16:30:56,971 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2025-10-01 16:31:00,776 - INFO - [CLIENT] send - gg
+2025-10-01 16:31:08,454 - INFO - [CLIENT] send - fgfg
+2025-10-01 16:31:10,679 - INFO - [CLIENT] send - j
+2025-10-01 16:31:18,780 - INFO - [CLIENT] send - jhjgjghj
+2025-10-01 16:31:27,944 - INFO - [CLIENT] send - jj
+2025-10-01 16:31:29,478 - INFO - [CLIENT] send - j
+2025-10-01 16:31:38,532 - INFO - [CLIENT] send - ghhhh

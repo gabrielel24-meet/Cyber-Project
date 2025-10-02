@@ -15,7 +15,7 @@ class CServerBL:
             self._server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self._server_socket.bind((self._host, self._port))
             self._server_socket.listen(5)
-            # write_to_log(f"[SERVER_BL] listening...")
+            write_to_log(f"[SERVER_BL] listening...")
 
             while self._is_srv_running and self._server_socket is not None:
                 # Accept socket request for connection
@@ -29,7 +29,6 @@ class CServerBL:
                 write_to_log(f"[SERVER_BL] ACTIVE CONNECTION {threading.active_count() - 1}")
 
         except Exception as e:
-            print(self._host)
             write_to_log("[SERVER_BL] Exception in start_server fn : {}".format(e))
 
 
@@ -53,9 +52,9 @@ class CClientHandler(threading.Thread):
             write_to_log("[CLIENT] send - " + msg)
 
             response = input("Enter massage: ")
-            self._client_socket.send(response.encode(1024))
+            self._client_socket.send(response.encode())
             if response == DISCONNECT_MSG:
                 connected = False
 
-            self._client_socket.close()
-            write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")
+        self._client_socket.close()
+        write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")
