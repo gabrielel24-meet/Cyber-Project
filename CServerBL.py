@@ -2,6 +2,7 @@ from protocol import *
 import socket
 class CServerBL:
 
+#Gsbi
     def __init__(self, host, port):
 
         self._host = host
