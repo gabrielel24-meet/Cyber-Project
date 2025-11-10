@@ -1,14 +1,18 @@
-import customtkinter as ctk
-from datetime import datetime
+from protocol import *
+from CClientBL import *
 
 # Set appearance mode and color theme
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
 
 
-class PurpleBankApp:
-    def __init__(self, root):
-        self.root = root
+class CClientGUI(CClientBL):
+
+    def __init__(self, host, port):
+
+        super().__init__(host, port)
+
+        self.root = ctk.CTk()
         self.root.title("Purple Trust Bank")
         self.root.geometry("400x300")
 
@@ -20,9 +24,15 @@ class PurpleBankApp:
         # Set the background color
         self.root.configure(fg_color=self.primary_color)
 
-        self.setup_ui()
+        self.create_ui()
 
-    def setup_ui(self):
+        self._entry_Port = PORT
+        self._entry_IP = socket.gethostbyname(socket.gethostname())
+
+        self._client_socket = None
+
+
+    def create_ui(self):
         # Main container
         self.main_frame = ctk.CTkFrame(self.root, fg_color=self.secondary_color)
         self.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
@@ -64,17 +74,19 @@ class PurpleBankApp:
 
         self.connection_status.pack(padx=50,pady=50)
 
+
     def update_time(self):
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self.time_label.configure(text=f"{current_time}")
         self.root.after(1000, self.update_time)  # Update every second
 
+    def run(self):
+        self.root.mainloop()
+        self._client_socket = self.connect_to_server()
+        print("Aaaa")
 
-def main():
-    root = ctk.CTk()
-    app = PurpleBankApp(root)
-    root.mainloop()
 
 
 if __name__ == "__main__":
-    main()
+    client = CClientGUI(CLIENT_HOST, PORT)
+    client.run()

@@ -52,10 +52,6 @@ class CClientHandler(threading.Thread):
             msg = self._client_socket.recv(BUFFER_SIZE).decode()
             write_to_log("[CLIENT] send - " + msg)
 
-            response = input("Enter massage: ")
-            self._client_socket.send(response.encode())
-            if response == DISCONNECT_MSG:
-                connected = False
 
         self._client_socket.close()
         write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")

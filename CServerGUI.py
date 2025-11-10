@@ -1,13 +1,13 @@
-import tkinter as tk
-from tkinter import *
 from protocol import *
 from CServerBL import *
+import tkinter as tk
+from tkinter import PhotoImage
 
 
 BTN_IMAGE = "./Images/GUI - button.png"
 BG_IMAGE = "./Images/YellowBG.png"
 FONT = "Calibri"
-FONT_BUTTON = (FONT,16)
+FONT_BUTTON = (FONT, 16)
 
 class CServerGUI(CServerBL):
 
