@@ -46,12 +46,9 @@ class CClientHandler(threading.Thread):
 
     def run(self):
         # This code run in separate thread for every client
-        connected = True
-        while connected:
-            # 1. Get message from the socket and check it
-            msg = self._client_socket.recv(BUFFER_SIZE).decode()
-            write_to_log("[CLIENT] send - " + msg)
+        try:
+            write_to_log("Hello")
 
-
-        self._client_socket.close()
-        write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")
+        except Exception as e:
+            self._client_socket.close()
+            write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")

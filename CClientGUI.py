@@ -33,8 +33,6 @@ class CClientGUI(CClientBL):
         self._entry_Port = PORT
         self._entry_IP = socket.gethostbyname(socket.gethostname())
 
-        self._client_socket = None
-        self.clients = []
 
     def create_ui(self):
         # Main container
@@ -86,7 +84,7 @@ class CClientGUI(CClientBL):
         self.root.after(1000, self.update_time)  # Update every second
 
     def run(self):
-        self._client_socket = self.connect_to_server()
+        self._client_socket = threading.Thread(target=self.connect_to_server, daemon=True).start()
         self.root.mainloop()
         print("Aaaa")
 
