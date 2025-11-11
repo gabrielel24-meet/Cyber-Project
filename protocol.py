@@ -11,6 +11,7 @@ PORT: int = 8822
 BUFFER_SIZE: int = 1024
 DISCONNECT_MSG = "bye"
 
+
 LOG_FILE = 'LOG.log'
 logging.basicConfig(filename=LOG_FILE,level=logging.INFO,format='%(asctime)s - %(levelname)s - %(message)s')
 

@@ -1,3 +1,5 @@
+import threading
+
 from protocol import *
 from CClientBL import *
 
@@ -26,11 +28,13 @@ class CClientGUI(CClientBL):
 
         self.create_ui()
 
+        self.time_thread = None
+
         self._entry_Port = PORT
         self._entry_IP = socket.gethostbyname(socket.gethostname())
 
         self._client_socket = None
-
+        self.clients = []
 
     def create_ui(self):
         # Main container
@@ -64,8 +68,9 @@ class CClientGUI(CClientBL):
         )
         self.balance_label.pack(pady=20)
 
-        # Update time initially and start the clock
-        self.update_time()
+        # # Update time initially and start the clock
+        # self.time_thread = threading.Thread(target=self.update_time)
+        # self.time_thread.start()
 
         self.connection_status = ctk.CTkLabel(
             self.main_frame,
@@ -81,8 +86,8 @@ class CClientGUI(CClientBL):
         self.root.after(1000, self.update_time)  # Update every second
 
     def run(self):
-        self.root.mainloop()
         self._client_socket = self.connect_to_server()
+        self.root.mainloop()
         print("Aaaa")
 
 
