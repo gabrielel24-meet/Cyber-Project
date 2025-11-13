@@ -9,7 +9,7 @@ class CServerBL:
         self._port = port
         self._server_socket = None
         self._is_srv_running = True
-        self._client_handlers = []
+        self._client_handlers: {str : (threading.Thread,Event)} = {}
 
     def start_server(self):
         try:
@@ -26,7 +26,9 @@ class CServerBL:
                 # Start Thread
                 cl_handler = CClientHandler(client_socket, address)
                 cl_handler.start()
-                self._client_handlers.append(cl_handler)
+                stop_event = threading.Event()
+
+                self._client_handlers[address] = (cl_handler,stop_event)
                 write_to_log(f"[SERVER_BL] ACTIVE CONNECTION {threading.active_count() - 1}")
 
         except Exception as e:

@@ -115,6 +115,9 @@ class CServerGUI(CServerBL):
 
         self.stop_server()
 
+    def stop_server(self):
+
+
 
 if __name__ == "__main__":
     server = CServerGUI(SERVER_HOST, PORT)

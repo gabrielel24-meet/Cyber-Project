@@ -66,9 +66,6 @@ class CClientGUI(CClientBL):
         )
         self.balance_label.pack(pady=20)
 
-        # # Update time initially and start the clock
-        # self.time_thread = threading.Thread(target=self.update_time)
-        # self.time_thread.start()
 
         self.connection_status = ctk.CTkLabel(
             self.main_frame,
