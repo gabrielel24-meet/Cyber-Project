@@ -50,7 +50,6 @@ class CClientHandler(threading.Thread):
         # This code run in separate thread for every client
         try:
             write_to_log("Hello")
-
         except Exception as e:
             self._client_socket.close()
             write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")
