@@ -16,7 +16,7 @@ class CClientGUI(CClientBL):
 
         self.root = ctk.CTk()
         self.root.title("Purple Trust Bank")
-        self.root.geometry("800x500")
+        self.root.geometry("700x500")
 
         # Configure purple color scheme
         self.primary_color = "#6A0DAD"  # Purple
@@ -27,14 +27,16 @@ class CClientGUI(CClientBL):
         self.root.configure(fg_color=self.primary_color)
 
         # Time updating thread
-        self.time_thread = threading.Thread(target=self.update_time, daemon=True).start()
-
+        self.time_thread = threading.Thread(target=self.update_time, daemon=True)
+        self.time_label = None
         # Client's IP and port
         self._entry_Port = PORT
         self._entry_IP = socket.gethostbyname(socket.gethostname())
 
         # Client's Money
         self._amount = None
+
+        self.create_ui()
 
 
     def create_ui(self):
@@ -74,8 +76,9 @@ class CClientGUI(CClientBL):
             self.main_frame,
             text="connected",
         )
-
-        self.connection_status.pack(padx=50,pady=50)
+        self.connection_status.pack()
+        self.connection_status.place(relx=0.01, rely=1.0, anchor="sw")
+        self.time_thread.start()
 
 
 
