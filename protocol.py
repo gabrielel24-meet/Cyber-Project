@@ -8,7 +8,7 @@ import socket
 clients :{str:(threading.Thread,Event)} = {}
 
 SERVER_HOST: str = "0.0.0.0"
-CLIENT_HOST: str = "172.0.0.1"
+CLIENT_HOST: str = "127.0.0.1"
 PORT: int = 8822
 BUFFER_SIZE: int = 1024
 DISCONNECT_MSG = "bye"

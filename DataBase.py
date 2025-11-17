@@ -1,4 +1,4 @@
-import  sqlite3
+import sqlite3
 
 # Connect to DB (if it doesn't exist it will be created)
 conn = sqlite3.connect("Bank.db")
@@ -9,8 +9,8 @@ cursor = conn.cursor()
 cursor.execute("""CREATE TABLE IF NOT EXISTS Bank (id INTEGER PRIMARY KEY, Name TEXT NOT NULL, Amount INTEGER NOT NULL)""")
 
 # Insert data record
-cursor.execute("""INSERT INTO Bank (Name) VALUES (?) """, ("geliav2008@gmail.com",))
-cursor.execute("""INSERT INTO Bank (Amount) VALUES (?) """, ("1234",))
+cursor.execute("""INSERT INTO Bank (Name, Amount) VALUES (?, ?)""", ("geliav2008@gmail.com", 1234))
+
 
 #Confirm and save data into DataBase
 conn.commit()

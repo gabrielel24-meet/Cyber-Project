@@ -27,8 +27,8 @@ class CServerBL:
                 cl_handler = CClientHandler(client_socket, address)
                 cl_handler.start()
                 stop_event = threading.Event()
-
                 self._client_handlers[address] = (cl_handler,stop_event)
+
                 write_to_log(f"[SERVER_BL] ACTIVE CONNECTION {threading.active_count() - 1}")
 
         except Exception as e:
@@ -49,7 +49,10 @@ class CClientHandler(threading.Thread):
     def run(self):
         # This code run in separate thread for every client
         try:
-            write_to_log("Hello")
+            cmd = self._client_socket.recv(1024).decode()
+            if cmd == "GET_AMOUNT":
+                self._client_socket.send(2000).encode()
+
         except Exception as e:
             self._client_socket.close()
             write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")

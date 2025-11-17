@@ -33,8 +33,6 @@ class CClientGUI(CClientBL):
         self._entry_Port = PORT
         self._entry_IP = socket.gethostbyname(socket.gethostname())
 
-        # Client's Money
-        self._amount = None
 
         self.create_ui()
 
@@ -65,7 +63,7 @@ class CClientGUI(CClientBL):
         # Currency/Balance display
         self.balance_label = ctk.CTkLabel(
             self.main_frame,
-            text="Balance: $1,000.00",
+            text=f"Balance: ${self._balance}",
             font=("Arial", 20, "bold"),
             text_color="white"
         )
