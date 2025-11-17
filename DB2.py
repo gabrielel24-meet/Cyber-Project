@@ -9,8 +9,7 @@ cursor = conn.cursor()
 cursor.execute("""CREATE TABLE IF NOT EXISTS Bank (id INTEGER PRIMARY KEY, Name TEXT NOT NULL, Amount INTEGER NOT NULL)""")
 
 # Insert data record
-cursor.execute("""INSERT INTO Bank (Name) VALUES (?) """, ("geliav2008@gmail.com",))
-cursor.execute("""INSERT INTO Bank (Amount) VALUES (?) """, ("1234",))
+# cursor.execute("""INSERT INTO Bank (Name, Amount) VALUES (?, ?)""", ("didi", 2000))
 
 #Confirm and save data into DataBase
 conn.commit()
