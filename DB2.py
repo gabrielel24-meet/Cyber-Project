@@ -10,7 +10,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS Bank (id INTEGER PRIMARY KEY, Name 
 
 # Insert data record
 # cursor.execute("""INSERT INTO Bank (Name, Amount) VALUES (?, ?)""", ("didi", 2000))
-
+cursor.execute("""DELETE FROM Bank WHERE id >2""")
 #Confirm and save data into DataBase
 conn.commit()
 

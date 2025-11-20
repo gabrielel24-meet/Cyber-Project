@@ -1,5 +1,8 @@
+from base64 import encode
 from protocol import *
 import socket
+
+
 class CServerBL:
 
 #gabababababa
@@ -51,8 +54,10 @@ class CClientHandler(threading.Thread):
         try:
             cmd = self._client_socket.recv(1024).decode()
             if cmd == "GET_AMOUNT":
-                self._client_socket.send(2000).encode()
+                balance = "10"
+                self._client_socket.send(balance.encode())
 
         except Exception as e:
+            print(e)
             self._client_socket.close()
             write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")

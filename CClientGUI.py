@@ -1,3 +1,5 @@
+import time
+
 import threading
 
 from protocol import *
@@ -34,9 +36,6 @@ class CClientGUI(CClientBL):
         self._entry_IP = socket.gethostbyname(socket.gethostname())
 
 
-        self.create_ui()
-
-
     def create_ui(self):
         # Main container
         self.main_frame = ctk.CTkFrame(self.root, fg_color=self.secondary_color)
@@ -63,7 +62,7 @@ class CClientGUI(CClientBL):
         # Currency/Balance display
         self.balance_label = ctk.CTkLabel(
             self.main_frame,
-            text=f"Balance: ${self._balance}",
+            text=f"Balance: {self._balance}₪",
             font=("Arial", 20, "bold"),
             text_color="white"
         )
@@ -79,7 +78,6 @@ class CClientGUI(CClientBL):
         self.time_thread.start()
 
 
-
     def update_time(self):
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self.time_label.configure(text=f"{current_time}")
@@ -87,6 +85,7 @@ class CClientGUI(CClientBL):
 
     def run(self):
         self._client_socket = threading.Thread(target=self.connect_to_server, daemon=True).start()
+        self.create_ui()
         self.root.mainloop()
 
 
