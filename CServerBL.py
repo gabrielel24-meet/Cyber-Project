@@ -12,7 +12,7 @@ class CServerBL:
         self._port = port
         self._server_socket = None
         self._is_srv_running = True
-        self._client_handlers: {str : (threading.Thread,Event)} = {}
+        self._client_handlers: {str : threading.Thread} = {}
 
     def start_server(self):
         try:
@@ -24,18 +24,23 @@ class CServerBL:
             while self._is_srv_running and self._server_socket is not None:
                 # Accept socket request for connection
                 client_socket, address = self._server_socket.accept()
-                write_to_log(f"[SERVER_BL] Client connected {client_socket}{address} ")
+                write_to_log(f"[SERVER_BL] Client {address} connected ")
 
                 # Start Thread
                 cl_handler = CClientHandler(client_socket, address)
                 cl_handler.start()
                 stop_event = threading.Event()
-                self._client_handlers[address] = (cl_handler,stop_event)
+                self._client_handlers[address] = cl_handler
 
-                write_to_log(f"[SERVER_BL] ACTIVE CONNECTION {threading.active_count() - 1}")
+                write_to_log(f"[SERVER_BL] ACTIVE CONNECTION {len(self._client_handlers)}")
 
         except Exception as e:
             write_to_log("[SERVER_BL] Exception in start_server fn : {}".format(e))
+
+    def stop_server(self):
+        for address in self._client_handlers:
+            self._client_handlers[address].stop()
+            write_to_log(f"[SERVER_BL] Thread closed for : {address} ")
 
 
 
@@ -52,12 +57,15 @@ class CClientHandler(threading.Thread):
     def run(self):
         # This code run in separate thread for every client
         try:
-            cmd = self._client_socket.recv(1024).decode()
-            if cmd == "GET_AMOUNT":
-                balance = "10"
-                self._client_socket.send(balance.encode())
+            while True:
+                cmd = self._client_socket.recv(1024).decode()
+                if cmd == "GET_AMOUNT":
+                    balance = "10"
+                    self._client_socket.send(balance.encode())
 
         except Exception as e:
-            print(e)
             self._client_socket.close()
             write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")
+
+    def stop(self):
+        self._client_socket.close()

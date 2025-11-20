@@ -115,9 +115,6 @@ class CServerGUI(CServerBL):
 
         self.stop_server()
 
-    def stop_server(self):
-        for client in self._client_handlers:
-            client[1].close()
 
 
 if __name__ == "__main__":

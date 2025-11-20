@@ -31,6 +31,7 @@ class CClientGUI(CClientBL):
         # Time updating thread
         self.time_thread = threading.Thread(target=self.update_time, daemon=True)
         self.time_label = None
+        
         # Client's IP and port
         self._entry_Port = PORT
         self._entry_IP = socket.gethostbyname(socket.gethostname())
