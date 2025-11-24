@@ -6,11 +6,9 @@ ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
 
 
-class CClientGUI(CClientBL):
+class CLogin:
 
-    def __init__(self, host, port):
-
-        super().__init__(host, port)
+    def __init__(self):
 
         self.root = ctk.CTk()
         self.root.title("Purple Trust Bank")
@@ -27,11 +25,10 @@ class CClientGUI(CClientBL):
         # Time updating thread
         self.time_thread = threading.Thread(target=self.update_time, daemon=True)
         self.time_label = None
-        
+
         # Client's IP and port
         self._entry_Port = PORT
         self._entry_IP = socket.gethostbyname(socket.gethostname())
-
 
     def create_ui(self):
         # Main container
@@ -41,8 +38,8 @@ class CClientGUI(CClientBL):
         # Bank name header
         self.bank_name_label = ctk.CTkLabel(
             self.main_frame,
-            text="PURPLE TRUST BANK",
-            font=("Arial", 24, "bold"),
+            text="Login",
+            font=("Arial", 20, "bold"),
             text_color="white"
         )
         self.bank_name_label.pack(pady=(40, 20))
@@ -56,15 +53,11 @@ class CClientGUI(CClientBL):
         )
         self.time_label.place(relx=0.99, rely=0.0, anchor="ne")
 
-        # Currency/Balance display
-        self.balance_label = ctk.CTkLabel(
+        self.email_box = ctk.CTkTextbox(
             self.main_frame,
-            text=f"Balance: {self._balance}₪",
-            font=("Arial", 20, "bold"),
-            text_color="white"
         )
-        self.balance_label.pack(pady=20)
 
+        self.email_box.pack()
 
         self.connection_status = ctk.CTkLabel(
             self.main_frame,
@@ -74,19 +67,16 @@ class CClientGUI(CClientBL):
         self.connection_status.place(relx=0.01, rely=1.0, anchor="sw")
         self.time_thread.start()
 
-
     def update_time(self):
         current_time = datetime.now().strftime("%H:%M:%S")
         self.time_label.configure(text=f"{current_time}")
         self.root.after(1000, self.update_time)  # Update every second
 
     def run(self):
-        self._client_socket = threading.Thread(target=self.connect_to_server, daemon=True).start()
         self.create_ui()
         self.root.mainloop()
 
 
-
 if __name__ == "__main__":
-    client = CClientGUI(CLIENT_HOST, PORT)
+    client = CLogin()
     client.run()

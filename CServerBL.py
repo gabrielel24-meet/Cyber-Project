@@ -5,7 +5,6 @@ import socket
 
 class CServerBL:
 
-#gabababababa
     def __init__(self, host, port):
 
         self._host = host
@@ -60,7 +59,7 @@ class CClientHandler(threading.Thread):
             while True:
                 cmd = self._client_socket.recv(1024).decode()
                 if cmd == "GET_AMOUNT":
-                    balance = "10"
+                    balance = "200"
                     self._client_socket.send(balance.encode())
 
         except Exception as e:
