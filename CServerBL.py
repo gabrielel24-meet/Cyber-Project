@@ -58,8 +58,8 @@ class CClientHandler(threading.Thread):
         try:
             while True:
                 cmd = self._client_socket.recv(1024).decode()
-                if cmd == "GET_AMOUNT":
-                    balance = "200"
+                if check_cmd(cmd) == 1:
+                    balance = create_response_msg(cmd)
                     self._client_socket.send(balance.encode())
 
         except Exception as e:

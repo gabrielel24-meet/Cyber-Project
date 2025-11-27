@@ -26,7 +26,6 @@ class CClientBL:
     def get_balance(self):
         self._client_socket.send("GET_AMOUNT".encode())
         self._balance = int(self._client_socket.recv(1024).decode())
-        write_to_log(self._balance)
 
 if __name__ == "__main__":
     pass
