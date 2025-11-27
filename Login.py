@@ -36,13 +36,13 @@ class CLogin:
         self.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
 
         # Bank name header
-        self.bank_name_label = ctk.CTkLabel(
+        self.Login_label = ctk.CTkLabel(
             self.main_frame,
             text="Login",
             font=("Arial", 20, "bold"),
             text_color="white"
         )
-        self.bank_name_label.pack(pady=(40, 20))
+        self.Login_label.pack(pady=(40, 20))
 
         # Time display
         self.time_label = ctk.CTkLabel(
@@ -53,8 +53,16 @@ class CLogin:
         )
         self.time_label.place(relx=0.99, rely=0.0, anchor="ne")
 
+        self.Email_frame = ctk.CTkFrame(self.root)
+
+        self.email_label
         self.email_box = ctk.CTkTextbox(
             self.main_frame,
+            width=200,
+            height=15,
+            border_width=2,
+            wrap=
+
         )
 
         self.email_box.pack()
