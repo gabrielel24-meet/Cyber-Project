@@ -6,11 +6,20 @@ conn = sqlite3.connect("Bank.db")
 # Create object "cursor" to execute SQL-queries
 cursor = conn.cursor()
 
-cursor.execute("""CREATE TABLE IF NOT EXISTS Bank (id INTEGER PRIMARY KEY, Name TEXT NOT NULL, Amount INTEGER NOT NULL)""")
+# cursor.execute("""CREATE TABLE users (
+#         id TEXT PRIMARY KEY,
+#         first_name TEXT NOT NULL,
+#         last_name TEXT NOT NULL,
+#         email TEXT UNIQUE,
+#         password TEXT NOT NULL,
+#         account_number TEXT NOT NULL,
+#         balance REAL DEFAULT 0
+#     );
+#     """)
 
 # Insert data record
-# cursor.execute("""INSERT INTO Bank (Name, Amount) VALUES (?, ?)""", ("didi", 2000))
-cursor.execute("""DELETE FROM Bank WHERE id >2""")
+cursor.execute("""INSERT INTO users (id, first_name, last_name, email, password, account_number, balance) VALUES (?, ?, ?, ?, ?, ?, ?)""",
+               ("1", "gabi", "eliav", "geliav2008@gmail.com","1111",1,1000))
 #Confirm and save data into DataBase
 conn.commit()
 

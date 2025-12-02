@@ -1,5 +1,6 @@
 from protocol import *
 from CClientBL import *
+from Login import *
 
 # Set appearance mode and color theme
 ctk.set_appearance_mode("dark")
@@ -14,7 +15,7 @@ class CClientGUI(CClientBL):
 
         self.root = ctk.CTk()
         self.root.title("Purple Trust Bank")
-        self.root.geometry("700x500")
+        self.root.geometry("1000x700")
 
         # Configure purple color scheme
         self.primary_color = "#6A0DAD"  # Purple
@@ -54,7 +55,7 @@ class CClientGUI(CClientBL):
             font=("Arial", 16),
             text_color="white"
         )
-        self.time_label.place(relx=0.99, rely=0.0, anchor="ne")
+        self.time_label.place(relx=0.01,rely=0.01, anchor="nw")
 
         # Currency/Balance display
         self.balance_label = ctk.CTkLabel(
@@ -65,6 +66,17 @@ class CClientGUI(CClientBL):
         )
         self.balance_label.pack(pady=20)
 
+        self.login_button = ctk.CTkButton(
+            self.main_frame,
+            text = "Login",
+            width=110,
+            height=30,
+            border_width=2,
+            fg_color= self.primary_color,
+            command= self.open_login_page
+
+        )
+        self.login_button.place(relx=0.99, rely=0.01, anchor="ne")
 
         self.connection_status = ctk.CTkLabel(
             self.main_frame,
@@ -79,6 +91,12 @@ class CClientGUI(CClientBL):
         current_time = datetime.now().strftime("%H:%M:%S")
         self.time_label.configure(text=f"{current_time}")
         self.root.after(1000, self.update_time)  # Update every second
+
+
+    def open_login_page(self):
+        self.main_frame.pack_forget()
+        Login_page = CLogin(self.root)
+        Login_page.run()
 
     def run(self):
         self._client_socket = threading.Thread(target=self.connect_to_server, daemon=True).start()

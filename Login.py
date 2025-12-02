@@ -8,11 +8,11 @@ ctk.set_default_color_theme("dark-blue")
 
 class CLogin:
 
-    def __init__(self):
+    def __init__(self, root):
 
-        self.root = ctk.CTk()
+        self.root = root
         self.root.title("Purple Trust Bank")
-        self.root.geometry("700x500")
+        self.root.geometry("1000x700")
 
         # Configure purple color scheme
         self.primary_color = "#6A0DAD"  # Purple
@@ -53,19 +53,14 @@ class CLogin:
         )
         self.time_label.place(relx=0.99, rely=0.0, anchor="ne")
 
-        self.Email_frame = ctk.CTkFrame(self.root)
 
-        self.email_label
-        self.email_box = ctk.CTkTextbox(
-            self.main_frame,
-            width=200,
-            height=15,
-            border_width=2,
-            wrap=
+        self.first_name_box = self.create_textbox(self.main_frame, "First Name",0.2,0.2)
+        self.last_name_box = self.create_textbox(self.main_frame, "Last Name",0.2,0.4)
+        self.id_box = self.create_textbox(self.main_frame, "ID",0.2,0.6)
 
-        )
-
-        self.email_box.pack()
+        self.email_box = self.create_textbox(self.main_frame, "Email",0.6, 0.2)
+        self.password_box = self.create_textbox(self.main_frame, "Password",0.6, 0.4)
+        self.account_number_box = self.create_textbox(self.main_frame, "Account Number",0.6, 0.6)
 
         self.connection_status = ctk.CTkLabel(
             self.main_frame,
@@ -74,6 +69,30 @@ class CLogin:
         self.connection_status.pack()
         self.connection_status.place(relx=0.01, rely=1.0, anchor="sw")
         self.time_thread.start()
+
+    def create_textbox(self, parent, label_text, x,y):
+        frame = ctk.CTkFrame(parent, fg_color=self.secondary_color)
+        frame.place(relx=x, rely=y)
+
+        label = ctk.CTkLabel(
+            frame,
+            text=label_text,
+            font=("Arial", 15, "bold"),
+        )
+        label.pack(anchor="w", padx=10)
+
+        textbox = ctk.CTkTextbox(
+            frame,
+            width=220,
+            height=15,
+            border_width=2,
+        )
+        textbox.pack()
+
+        return textbox
+
+    def on_click_login:
+        
 
     def update_time(self):
         current_time = datetime.now().strftime("%H:%M:%S")
@@ -86,5 +105,5 @@ class CLogin:
 
 
 if __name__ == "__main__":
-    client = CLogin()
-    client.run()
+    Login_page = CLogin(ctk.CTk())
+    Login_page.run()
