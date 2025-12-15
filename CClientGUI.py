@@ -95,7 +95,7 @@ class CClientGUI(CClientBL):
 
     def open_login_page(self):
         self.main_frame.pack_forget()
-        Login_page = CLogin(self.root)
+        Login_page = CLogin(self.root,self.main_frame)
         Login_page.run()
 
     def run(self):
