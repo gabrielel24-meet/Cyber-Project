@@ -1,3 +1,5 @@
+from customtkinter import CTkButton
+
 from protocol import *
 from CClientBL import *
 
@@ -8,13 +10,15 @@ ctk.set_default_color_theme("dark-blue")
 
 class CLogin:
 
-    def __init__(self, root, previous_page):
+    def __init__(self, root, previous_page, callback_login):
 
         self.root = root
         self.root.title("Purple Trust Bank")
         self.root.geometry("1000x700")
 
         self.previous_page = previous_page
+
+        self.callback_login = callback_login
 
         # Configure purple color scheme
         self.primary_color = "#6A0DAD"  # Purple
@@ -31,6 +35,7 @@ class CLogin:
         # Client's IP and port
         self._entry_Port = PORT
         self._entry_IP = socket.gethostbyname(socket.gethostname())
+
 
     def create_ui(self):
         # Main container
@@ -68,13 +73,26 @@ class CLogin:
         self.home_button.place(relx=0.99, rely=0.01, anchor="ne")
 
 
-        self.first_name_box = self.create_textbox(self.main_frame, "First Name",0.2,0.2)
-        self.last_name_box = self.create_textbox(self.main_frame, "Last Name",0.2,0.4)
-        self.id_box = self.create_textbox(self.main_frame, "ID",0.2,0.6)
+        self.first_name_entry = self.create_entry(self.main_frame, "First Name",0.2,0.2)
+        self.last_name_entry = self.create_entry(self.main_frame, "Last Name",0.2,0.4)
+        self.id_entry = self.create_entry(self.main_frame, "ID",0.2,0.6)
 
-        self.email_box = self.create_textbox(self.main_frame, "Email",0.6, 0.2)
-        self.password_box = self.create_textbox(self.main_frame, "Password",0.6, 0.4)
-        self.account_number_box = self.create_textbox(self.main_frame, "Account Number",0.6, 0.6)
+        self.email_entry = self.create_entry(self.main_frame, "Email",0.6, 0.2)
+        self.password_entry = self.create_entry(self.main_frame, "Password",0.6, 0.4)
+        self.account_number_entry = self.create_entry(self.main_frame, "Account Number",0.6, 0.6)
+
+        self.submit_button = ctk.CTkButton(
+            self.main_frame,
+            text="Submit",
+            width=150,
+            height=40,
+            font=("Arial",25),
+            border_width=2,
+            fg_color=self.primary_color,
+            command=self.on_click_login,
+        )
+
+        self.submit_button.place(relx=0.45,rely=0.8)
 
         self.connection_status = ctk.CTkLabel(
             self.main_frame,
@@ -84,7 +102,7 @@ class CLogin:
         self.connection_status.place(relx=0.01, rely=1.0, anchor="sw")
         self.time_thread.start()
 
-    def create_textbox(self, parent, label_text, x,y):
+    def create_entry(self, parent, label_text, x,y):
         frame = ctk.CTkFrame(parent, fg_color=self.secondary_color)
         frame.place(relx=x, rely=y)
 
@@ -95,11 +113,11 @@ class CLogin:
         )
         label.pack(anchor="w", padx=10)
 
-        textbox = ctk.CTkTextbox(
+        textbox = ctk.CTkEntry(
             frame,
             width=220,
-            height=15,
-            border_width=2,
+            height=25,
+            border_width=1,
         )
         textbox.pack()
 
@@ -118,7 +136,18 @@ class CLogin:
         self.create_ui()
         self.root.mainloop()
 
+    def on_click_login(self):
+        data = {"first_name": self.first_name_entry.get(),
+                "last_name":self.last_name_entry.get(),
+                "id": self.id_entry.get(),
+                "email": self.email_entry.get(),
+                "password": self.password_entry.get(),
+                "account_number":self.account_number_entry.get()}
+
+        self.callback_login(data)
+
+
 
 if __name__ == "__main__":
-    Login_page = CLogin(ctk.CTk(),ctk.CTkFrame())
+    Login_page = CLogin(ctk.CTk(),ctk.CTkFrame(ctk.CTk()))
     Login_page.run()

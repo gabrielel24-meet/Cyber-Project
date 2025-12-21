@@ -33,6 +33,8 @@ class CClientGUI(CClientBL):
         self._entry_Port = PORT
         self._entry_IP = socket.gethostbyname(socket.gethostname())
 
+        self.login_page = None
+
 
     def create_ui(self):
         # Main container
@@ -94,9 +96,18 @@ class CClientGUI(CClientBL):
 
 
     def open_login_page(self):
+
+        # def callback_login(data):
+
+
         self.main_frame.pack_forget()
-        Login_page = CLogin(self.root,self.main_frame)
-        Login_page.run()
+        if self.login_page == None:
+            self.login_page = CLogin(self.root,self.main_frame, 1)
+            self.login_page.run()
+        else:
+            self.login_page.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
+
+
 
     def run(self):
         self._client_socket = threading.Thread(target=self.connect_to_server, daemon=True).start()

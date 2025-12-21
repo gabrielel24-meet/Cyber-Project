@@ -57,13 +57,22 @@ class CClientHandler(threading.Thread):
         # This code run in separate thread for every client
         try:
             while True:
-                cmd = self._client_socket.recv(1024).decode()
+                request = self._client_socket.recv(1024).decode()
+                cmd, args = get_cmd_and_args(request)
+
+                write_to_log(f"[SERVER_BL] received from {self._address}] - cmd: {cmd}, args: {args}")
+
                 if check_cmd(cmd) == 1:
-                    balance = create_response_msg(cmd)
-                    self._client_socket.send(balance.encode())
+                    response = create_response_msg(cmd,args)
+                else:
+                    response = "Non-supported cmd"
+
+                write_to_log(f"[SERVER_BL] sent '{response}'")
+                self._client_socket.send(response.encode())
 
         except Exception as e:
             self._client_socket.close()
+            write_to_log(f"[SERVER_BL] {e}")
             write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")
 
     def stop(self):
