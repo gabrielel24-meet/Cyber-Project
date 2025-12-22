@@ -32,8 +32,8 @@ class CClientGUI(CClientBL):
         self.time_label = None
         
         # Client's IP and port
-        self._entry_Port = PORT
-        self._entry_IP = socket.gethostbyname(socket.gethostname())
+        self._entry_Port = port
+        self._entry_IP = host
 
         self.login_page = None
 
