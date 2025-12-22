@@ -37,6 +37,9 @@ class CClientGUI(CClientBL):
 
         self.login_page = None
 
+        self.destination_user_frame = None
+        self.transfer_amount_frame = None
+
 
     def create_ui(self):
         # Main container
@@ -82,6 +85,44 @@ class CClientGUI(CClientBL):
         )
         self.login_button.place(relx=0.99, rely=0.01, anchor="ne")
 
+        # Transfer Button
+        self.transfer_button = ctk.CTkButton(
+            self.main_frame,
+            text="Transfer",
+            width=110,
+            height=30,
+            border_width=1,
+            fg_color=self.primary_color,
+            command=self.on_click_open_transfer
+
+        )
+        self.transfer_button.pack()
+
+        self.destination_user_frame = ctk.CTkFrame(self.main_frame, fg_color=self.secondary_color)
+        self.destination_user_label = ctk.CTkLabel(self.destination_user_frame, text="Transfer destination account", font=("Arial", 15, "bold"))
+        self.destination_user_entry = ctk.CTkEntry(self.destination_user_frame, width=220, height=25, border_width=1)
+
+        self.destination_user_label.pack(anchor="w", padx=10)
+        self.destination_user_entry.pack()
+
+        self.transfer_amount_frame = ctk.CTkFrame(self.main_frame, fg_color=self.secondary_color)
+        self.transfer_amount_label = ctk.CTkLabel(self.transfer_amount_frame, text="Amount", font=("Arial", 15, "bold"))
+        self.transfer_amount_entry = ctk.CTkEntry(self.transfer_amount_frame, width=220, height=25, border_width=1)
+
+        self.transfer_amount_label.pack(anchor="w", padx=10)
+        self.transfer_amount_entry.pack()
+
+        self.on_click_transfer = ctk.CTkButton(
+            self.main_frame,
+            text="Transfer Money",
+            font = ("Arial", 15, "bold"),
+            width=130, height=40,
+            border_width=1,
+            fg_color= "blue",
+            command= lambda: self.transfer_money(self.destination_user_entry.get(), int(self.transfer_amount_entry.get()))
+        )
+
+        # Connection Status
         self.connection_status = ctk.CTkLabel(
             self.main_frame,
             text="connected",
@@ -124,6 +165,19 @@ class CClientGUI(CClientBL):
     def update_balance_label(self):
         self.balance_label.configure(text=f"Balance: {self.balance}₪")
 
+    def on_click_open_transfer(self):
+        self.destination_user_frame.pack(pady = 20)
+        self.transfer_amount_frame.pack()
+        self.transfer_button.configure(command=self.on_click_close_transfer, text="Cancel Transfer")
+        self.on_click_transfer.pack(pady = 10)
+
+    def on_click_close_transfer(self):
+        self.destination_user_frame.pack_forget()
+        self.transfer_amount_frame.pack_forget()
+        self.transfer_button.configure(command=self.on_click_open_transfer, text="Transfer")
+        self.on_click_transfer.pack_forget()
+
+
     def run(self):
         self._client_socket = threading.Thread(target=self.connect_to_server, daemon=True).start()
         self.create_ui()
@@ -132,5 +186,5 @@ class CClientGUI(CClientBL):
 
 
 if __name__ == "__main__":
-    client = CClientGUI(CLIENT_HOST, PORT)
+    client = CClientGUI("192.168.1.215", PORT)
     client.run()

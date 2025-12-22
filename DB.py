@@ -18,8 +18,12 @@ cursor = conn.cursor()
 #     """)
 
 # Insert data record
-cursor.execute("""INSERT INTO users (id, first_name, last_name, email, password, account_number, balance) VALUES (?, ?, ?, ?, ?, ?, ?)""",
-               ("1", "gabi", "eliav", "geliav2008@gmail.com","1111",1,1000))
+# cursor.execute("""INSERT INTO users (id, first_name, last_name, email, password, account_number, balance) VALUES (?, ?, ?, ?, ?, ?, ?)""",
+#                ("2", "israel", "israeli", "2","2",2,3000))
+
+# Update Data
+cursor.execute("ALTER TABLE users RENAME COLUMN email to phone_number")
+
 #Confirm and save data into DataBase
 conn.commit()
 

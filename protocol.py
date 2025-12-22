@@ -19,7 +19,7 @@ DISCONNECT_MSG = "bye"
 LOG_FILE = 'LOG.log'
 logging.basicConfig(filename=LOG_FILE,level=logging.INFO,format='%(asctime)s - %(levelname)s - %(message)s')
 
-standard_cmd = ["GET_AMOUNT"]
+standard_cmd = ["GET_AMOUNT","TRANSFER"]
 
 def write_to_log(msg):
     logging.info(msg)
@@ -49,7 +49,8 @@ def create_response_msg(cmd,args):
 
     if cmd == "GET_AMOUNT":
         response = get_balance()
-    # elif cmd == "LOGIN":
+    elif cmd == "TRANSFER":
+        response = transfer()
 
     return response
 
@@ -64,6 +65,16 @@ def get_cmd_and_args(request):
 def get_balance():
     return "2000"
 
+def transfer(data):
+    data = ast.literal_eval(data)
+
+    previous = data[0]
+    destination = data[1]
+    amount = data[2]
+
+    conn = sqlite3.connect("Bank.db")
+    cursor = conn.cursor()
+
+
 if __name__ == "__main__":
-    cmd,args = get_cmd_and_args(create_request_msg("GET_AMOUNT",None))
-    print(cmd + args)
+    print(transfer("('eee', 'sss', 123)"))

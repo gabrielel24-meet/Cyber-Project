@@ -12,7 +12,7 @@ class CClientBL:
         self.first_name = None
         self.last_name = None
         self.id = None
-        self.email = None
+        self.phone_number = None
         self.password = None
         self.account = None
         self.balance = None
@@ -20,7 +20,7 @@ class CClientBL:
     def connect_to_server(self):
         try:
             self._client_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-            self._client_socket.connect((CLIENT_HOST,PORT))
+            self._client_socket.connect((self._host,self._port))
             write_to_log(f"[Client] connected to server {CLIENT_HOST}")
 
             self.get_balance()
@@ -57,11 +57,15 @@ class CClientBL:
         self.id = data[0]
         self.first_name = data[1]
         self.last_name = data[2]
-        self.email = data[3]
+        self.phone_number = data[3]
         self.password = data[4]
         self.account = data[5]
         self.balance = data[6]
         print(self.balance)
+
+    def transfer_money(self, current_account_number, destination_account_number, amount):
+        self.send_data("TRANSFER",(current_account_number,destination_account_number ,amount))
+
 
 if __name__ == "__main__":
     pass

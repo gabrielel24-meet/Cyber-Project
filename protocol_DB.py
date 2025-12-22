@@ -24,7 +24,7 @@ def login(data):
     if user == None:
         return "None"
     else:
-        if (data["email"] == user[3] and data["password"] == user[4] and data["account_number"] == user[5]):
+        if (data["phone_number"] == user[3] and data["password"] == user[4] and data["account_number"] == user[5]):
             return str(user)
         else:
             return "Error"
@@ -32,4 +32,4 @@ def login(data):
 
 
 if __name__ == "__main__":
-    print(login({'first_name': '', 'last_name': '', 'id': '1', 'email': 'geliav2008@gmail.com', 'password': '1111', 'account_number': '1'}))
+    print(login({'first_name': '', 'last_name': '', 'id': '1', 'phone_number': 'geliav2008@gmail.com', 'password': '1111', 'account_number': '1'}))

@@ -77,7 +77,7 @@ class CLogin:
         self.last_name_entry = self.create_entry(self.main_frame, "Last Name",0.2,0.4)
         self.id_entry = self.create_entry(self.main_frame, "ID",0.2,0.6)
 
-        self.email_entry = self.create_entry(self.main_frame, "Email",0.6, 0.2)
+        self.phone_number_entry = self.create_entry(self.main_frame, "Phone Number",0.6, 0.2)
         self.password_entry = self.create_entry(self.main_frame, "Password",0.6, 0.4)
         self.account_number_entry = self.create_entry(self.main_frame, "Account Number",0.6, 0.6)
 
@@ -140,7 +140,7 @@ class CLogin:
         data = {"first_name": self.first_name_entry.get(),
                 "last_name":self.last_name_entry.get(),
                 "id": self.id_entry.get(),
-                "email": self.email_entry.get(),
+                "phone_number": self.phone_number_entey.get(),
                 "password": self.password_entry.get(),
                 "account_number":self.account_number_entry.get()}
 
