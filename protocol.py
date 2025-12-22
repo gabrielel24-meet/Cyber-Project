@@ -16,10 +16,11 @@ PORT: int = 8822
 BUFFER_SIZE: int = 1024
 DISCONNECT_MSG = "bye"
 
+
 LOG_FILE = 'LOG.log'
 logging.basicConfig(filename=LOG_FILE,level=logging.INFO,format='%(asctime)s - %(levelname)s - %(message)s')
 
-standard_cmd = ["GET_AMOUNT","TRANSFER"]
+standard_cmd = ["GET_BALANCE","TRANSFER"]
 
 def write_to_log(msg):
     logging.info(msg)
@@ -47,34 +48,56 @@ def create_request_msg(cmd,args):
 def create_response_msg(cmd,args):
     response = ""
 
-    if cmd == "GET_AMOUNT":
-        response = get_balance()
+    if cmd == "GET_BALANCE":
+        response = get_balance(args)
     elif cmd == "TRANSFER":
-        response = transfer()
+        response = transfer(args)
 
     return response
 
 def get_cmd_and_args(request):
-    """Returns the command from buffer"""
     split_request = request.split(">")
     cmd = split_request[0]
     args = split_request[1]
 
     return cmd, args
 
-def get_balance():
-    return "2000"
-
-def transfer(data):
-    data = ast.literal_eval(data)
-
-    previous = data[0]
-    destination = data[1]
-    amount = data[2]
-
+def get_balance(account_number):
     conn = sqlite3.connect("Bank.db")
     cursor = conn.cursor()
 
+    cursor.execute("SELECT balance FROM users WHERE account_number = ?",(account_number,))
+    balance = cursor.fetchone()[0]
+    return str(balance)
+
+
+def transfer(data):
+    try:
+        data = ast.literal_eval(data)
+        current = data[0]
+        destination = data[1]
+        amount = data[2]
+
+        conn = sqlite3.connect("Bank.db")
+        cursor = conn.cursor()
+
+        cursor.execute(f"SELECT balance FROM users WHERE account_number = ?", (current,))
+        current_balance = cursor.fetchone()[0]
+
+        cursor.execute(f"SELECT balance FROM users WHERE account_number = ?", (destination,))
+        destination_balance = cursor.fetchone()[0]
+
+        cursor.execute(f"UPDATE users SET balance = ? WHERE account_number = ?",((current_balance - amount),current))
+        cursor.execute(f"UPDATE users SET balance = ? WHERE account_number = ?",(destination_balance + amount,destination))
+        conn.commit()
+
+        return f"Transferred {amount} from {current} to {destination}"
+
+    except Exception as e:
+        return f"{e}"
+
+
+
 
 if __name__ == "__main__":
-    print(transfer("('eee', 'sss', 123)"))
+    print(transfer("('1', '2', 1000)"))

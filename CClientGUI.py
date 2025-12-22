@@ -71,7 +71,6 @@ class CClientGUI(CClientBL):
             font=("Arial", 20, "bold"),
             text_color="white"
         )
-        self.balance_label.pack(pady=20)
 
         self.login_button = ctk.CTkButton(
             self.main_frame,
@@ -96,7 +95,6 @@ class CClientGUI(CClientBL):
             command=self.on_click_open_transfer
 
         )
-        self.transfer_button.pack()
 
         self.destination_user_frame = ctk.CTkFrame(self.main_frame, fg_color=self.secondary_color)
         self.destination_user_label = ctk.CTkLabel(self.destination_user_frame, text="Transfer destination account", font=("Arial", 15, "bold"))
@@ -119,7 +117,7 @@ class CClientGUI(CClientBL):
             width=130, height=40,
             border_width=1,
             fg_color= "blue",
-            command= lambda: self.transfer_money(self.destination_user_entry.get(), int(self.transfer_amount_entry.get()))
+            command= self.on_click_transfer_money
         )
 
         # Connection Status
@@ -146,10 +144,11 @@ class CClientGUI(CClientBL):
             data =  ast.literal_eval(self.receive_data())
             self.update_user_data(data)
             self.bank_name_label.configure(text=f"Hi {self.first_name} {self.last_name}")
+            self.balance_label.pack(pady=20)
             self.show_page(self.main_frame, self.login_page.main_frame)
             self.update_balance_label()
             self.login_button.place_forget()
-
+            self.transfer_button.pack()
 
         self.main_frame.pack_forget()
         if self.login_page == None:
@@ -177,6 +176,10 @@ class CClientGUI(CClientBL):
         self.transfer_button.configure(command=self.on_click_open_transfer, text="Transfer")
         self.on_click_transfer.pack_forget()
 
+    def on_click_transfer_money(self):
+        self.transfer_money(self.account_number ,self.destination_user_entry.get(), int(self.transfer_amount_entry.get()))
+        self.on_click_close_transfer()
+        self.update_balance_label()
 
     def run(self):
         self._client_socket = threading.Thread(target=self.connect_to_server, daemon=True).start()
@@ -186,5 +189,5 @@ class CClientGUI(CClientBL):
 
 
 if __name__ == "__main__":
-    client = CClientGUI("192.168.1.215", PORT)
+    client = CClientGUI(CLIENT_HOST, PORT)
     client.run()

@@ -22,7 +22,8 @@ cursor = conn.cursor()
 #                ("2", "israel", "israeli", "2","2",2,3000))
 
 # Update Data
-cursor.execute("ALTER TABLE users RENAME COLUMN email to phone_number")
+# cursor.execute("ALTER TABLE users RENAME COLUMN email to phone_number")
+cursor.execute(f"UPDATE users SET balance = ? WHERE account_number = ?", ( 3000, 2))
 
 #Confirm and save data into DataBase
 conn.commit()

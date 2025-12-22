@@ -140,7 +140,7 @@ class CLogin:
         data = {"first_name": self.first_name_entry.get(),
                 "last_name":self.last_name_entry.get(),
                 "id": self.id_entry.get(),
-                "phone_number": self.phone_number_entey.get(),
+                "phone_number": self.phone_number_entry.get(),
                 "password": self.password_entry.get(),
                 "account_number":self.account_number_entry.get()}
 

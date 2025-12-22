@@ -1,3 +1,5 @@
+import time
+
 from protocol import *
 
 
@@ -14,7 +16,7 @@ class CClientBL:
         self.id = None
         self.phone_number = None
         self.password = None
-        self.account = None
+        self.account_number = None
         self.balance = None
 
     def connect_to_server(self):
@@ -23,16 +25,13 @@ class CClientBL:
             self._client_socket.connect((self._host,self._port))
             write_to_log(f"[Client] connected to server {CLIENT_HOST}")
 
-            self.get_balance()
-            write_to_log(f"[Client] balance: {self.balance}")
-
         except Exception as e:
             write_to_log("[CLIENT_BL] Exception on connect: {}".format(e))
 
 
-    def get_balance(self):
-        self.send_data("GET_AMOUNT",None)
-        self.balance = int(self.receive_data())
+    def get_balance(self,):
+        self.send_data("GET_BALANCE",self.account_number)
+        self.balance = float(self.receive_data())
 
     def send_data(self, cmd, args):
         try:
@@ -59,12 +58,14 @@ class CClientBL:
         self.last_name = data[2]
         self.phone_number = data[3]
         self.password = data[4]
-        self.account = data[5]
+        self.account_number = data[5]
         self.balance = data[6]
         print(self.balance)
 
     def transfer_money(self, current_account_number, destination_account_number, amount):
         self.send_data("TRANSFER",(current_account_number,destination_account_number ,amount))
+        write_to_log(self.receive_data())
+        self.get_balance()
 
 
 if __name__ == "__main__":
