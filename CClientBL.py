@@ -8,7 +8,14 @@ class CClientBL:
         self._client_socket = None
         self._host = host
         self._port = port
-        self._balance = None
+
+        self.first_name = None
+        self.last_name = None
+        self.id = None
+        self.email = None
+        self.password = None
+        self.account = None
+        self.balance = None
 
     def connect_to_server(self):
         try:
@@ -17,7 +24,7 @@ class CClientBL:
             write_to_log(f"[Client] connected to server {CLIENT_HOST}")
 
             self.get_balance()
-            write_to_log(f"[Client] balance: {self._balance}")
+            write_to_log(f"[Client] balance: {self.balance}")
 
         except Exception as e:
             write_to_log("[CLIENT_BL] Exception on connect: {}".format(e))
@@ -25,13 +32,13 @@ class CClientBL:
 
     def get_balance(self):
         self.send_data("GET_AMOUNT",None)
-        self._balance = int(self.receive_data())
+        self.balance = int(self.receive_data())
 
     def send_data(self, cmd, args):
         try:
             request = create_request_msg(cmd,args)
             self._client_socket.send(request.encode())
-            write_to_log(f"[Client] send to server '{request}'")
+            write_to_log(f"[CLIENT_BL] send to server '{request}'")
             return True
         except Exception as e:
             write_to_log("[CLIENT_BL] Exception on send_data: {}".format(e))
@@ -45,6 +52,16 @@ class CClientBL:
         except Exception as e:
             write_to_log("[CLIENT_BL] Exception on receive: {}".format(e))
             return "Error"
+
+    def update_user_data(self,data):
+        self.id = data[0]
+        self.first_name = data[1]
+        self.last_name = data[2]
+        self.email = data[3]
+        self.password = data[4]
+        self.account = data[5]
+        self.balance = data[6]
+        print(self.balance)
 
 if __name__ == "__main__":
     pass

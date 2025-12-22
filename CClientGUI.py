@@ -1,6 +1,8 @@
+import time
+
 from protocol import *
 from CClientBL import *
-from Login import *
+from CLogin import *
 
 # Set appearance mode and color theme
 ctk.set_appearance_mode("dark")
@@ -62,7 +64,7 @@ class CClientGUI(CClientBL):
         # Currency/Balance display
         self.balance_label = ctk.CTkLabel(
             self.main_frame,
-            text=f"Balance: {self._balance}₪",
+            text=f"Balance: {self.balance}₪",
             font=("Arial", 20, "bold"),
             text_color="white"
         )
@@ -97,17 +99,30 @@ class CClientGUI(CClientBL):
 
     def open_login_page(self):
 
-        # def callback_login(data):
+        def callback_login(data):
+            write_to_log(f"[Client GUI] Received data from Login window: {data}")
+            self.send_data("LOGIN", data)
+            data =  ast.literal_eval(self.receive_data())
+            self.update_user_data(data)
+            self.bank_name_label.configure(text=f"Hi {self.first_name} {self.last_name}")
+            self.show_page(self.main_frame, self.login_page.main_frame)
+            self.update_balance_label()
+            self.login_button.place_forget()
 
 
         self.main_frame.pack_forget()
         if self.login_page == None:
-            self.login_page = CLogin(self.root,self.main_frame, 1)
+            self.login_page = CLogin(self.root,self.main_frame, callback_login)
             self.login_page.run()
         else:
             self.login_page.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
 
+    def show_page(self, next_frame, previous_frame):
+        next_frame.pack(fill="both", expand=True, padx=20, pady=20)
+        previous_frame.pack_forget()
 
+    def update_balance_label(self):
+        self.balance_label.configure(text=f"Balance: {self.balance}₪")
 
     def run(self):
         self._client_socket = threading.Thread(target=self.connect_to_server, daemon=True).start()

@@ -64,6 +64,8 @@ class CClientHandler(threading.Thread):
 
                 if check_cmd(cmd) == 1:
                     response = create_response_msg(cmd,args)
+                elif check_cmd(cmd) == 2:
+                    response = create_response_msg_DB(cmd, args)
                 else:
                     response = "Non-supported cmd"
 

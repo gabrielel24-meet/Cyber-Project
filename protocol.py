@@ -4,7 +4,8 @@ from threading import Event
 import customtkinter as ctk
 from datetime import datetime
 import socket
-
+import sqlite3
+import ast
 from protocol_DB import *
 
 clients :{str:(threading.Thread,Event)} = {}
@@ -19,7 +20,6 @@ LOG_FILE = 'LOG.log'
 logging.basicConfig(filename=LOG_FILE,level=logging.INFO,format='%(asctime)s - %(levelname)s - %(message)s')
 
 standard_cmd = ["GET_AMOUNT"]
-login_cmd = ["LOGIN"]
 
 def write_to_log(msg):
     logging.info(msg)
@@ -38,7 +38,7 @@ def create_request_msg(cmd,args):
     request = ""
     if check_cmd(cmd) == 1:
         request = f"{cmd}>{args}"
-    elif check_cmd(cmd) == 1:
+    elif check_cmd(cmd) == 2:
         request = f"{cmd}>{args}"
 
     return request
