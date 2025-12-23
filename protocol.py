@@ -91,10 +91,10 @@ def transfer(data):
         cursor.execute(f"UPDATE users SET balance = ? WHERE account_number = ?",(destination_balance + amount,destination))
         conn.commit()
 
-        return f"Transferred {amount} from {current} to {destination}"
+        return True , {"source":current, "destination":destination, "amount":amount}
 
     except Exception as e:
-        return f"{e}"
+        return False ,f"{e}"
 
 
 

@@ -1,4 +1,7 @@
 from base64 import encode
+
+from fontTools.merge.util import current_time
+
 from protocol import *
 import socket
 
@@ -69,8 +72,10 @@ class CClientHandler(threading.Thread):
                 else:
                     response = "Non-supported cmd"
 
-                write_to_log(f"[SERVER_BL] sent '{response}'")
-                self._client_socket.send(response.encode())
+
+                if cmd== "TRANSFER" and response[0] == True:
+                    write_to_log(f"[SERVER_BL] sent '{response}'")
+                    self._client_socket.send(response.encode())
 
         except Exception as e:
             self._client_socket.close()
@@ -79,3 +84,9 @@ class CClientHandler(threading.Thread):
 
     def stop(self):
         self._client_socket.close()
+
+    def notify_transfer(self, data):
+        current = data["current"]
+        destination = data["destination"]
+        amount = data["amount"]
+

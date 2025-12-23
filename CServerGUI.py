@@ -112,7 +112,6 @@ class CServerGUI(CServerBL):
         self._entry_Port.config(state="normal")
         self._btn_start.config(state="normal")
         self._btn_stop.config(state="disabled")
-
         self.stop_server()
 
 
