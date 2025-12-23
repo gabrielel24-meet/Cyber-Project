@@ -1,6 +1,6 @@
+import threading
 from base64 import encode
 
-from fontTools.merge.util import current_time
 
 from protocol import *
 import socket
@@ -14,7 +14,9 @@ class CServerBL:
         self._port = port
         self._server_socket = None
         self._is_srv_running = True
-        self._client_handlers: {str : threading.Thread} = {}
+        self._client_handlers: {str : CClientHandler} = {}
+        self._clients_data = {}
+
 
     def start_server(self):
         try:
@@ -29,8 +31,8 @@ class CServerBL:
                 write_to_log(f"[SERVER_BL] Client {address} connected ")
 
                 # Start Thread
-                cl_handler = CClientHandler(client_socket, address)
-                cl_handler.start()
+                cl_handler = CClientHandler(self._host, self._port,client_socket, address)
+                cl_handler._client_thread.start()
                 stop_event = threading.Event()
                 self._client_handlers[address] = cl_handler
 
@@ -46,15 +48,19 @@ class CServerBL:
 
 
 
-class CClientHandler(threading.Thread):
+class CClientHandler(CServerBL):
     _client_socket = None
     _address = None
+    _client_thread = None
+    host = None
+    port = None
 
-    def __init__(self, client_socket, address):
-        super().__init__()
+    def __init__(self, host, port, client_socket, address):
+        super().__init__(host,  port,)
 
         self._client_socket = client_socket
         self._address = address
+        self._client_thread = threading.Thread(target=self.run)
 
     def run(self):
         # This code run in separate thread for every client
@@ -72,8 +78,15 @@ class CClientHandler(threading.Thread):
                 else:
                     response = "Non-supported cmd"
 
-
-                if cmd== "TRANSFER" and response[0] == True:
+                if cmd == "LOGIN" and response[0] == True:
+                    self._clients_data[self._address] = response[1]
+                    self._client_socket.send(str(response[1]).encode())
+                    write_to_log(f"[SERVER_BL] sent '{response[1]}'")
+                elif cmd == "TRANSFER" and response[0] == True:
+                    # self.notify_transfer(response[1])
+                    write_to_log(f"[SERVER_BL] sent '{response}'")
+                    self._client_socket.send(str(response[1]).encode())
+                else:
                     write_to_log(f"[SERVER_BL] sent '{response}'")
                     self._client_socket.send(response.encode())
 
@@ -84,9 +97,26 @@ class CClientHandler(threading.Thread):
 
     def stop(self):
         self._client_socket.close()
+        self._client_thread.join()
 
     def notify_transfer(self, data):
-        current = data["current"]
-        destination = data["destination"]
-        amount = data["amount"]
+        try:
+            current = data["current"]
+            destination = data["destination"]
+            amount = data["amount"]
+
+            response = f"Client {current} transferred {amount}₪ to client {destination}"
+            self._client_socket.send(response.encode())
+            write_to_log(f"[SERVER_BL] sent to {current} - '{response}'")
+
+            for address, client in self._clients_data:
+                if client["account_number"] == destination:
+                    destination_ip = address
+                    response = f"Received {amount}₪ from client {current}"
+                    self._client_handlers[address]._client_socket.send(response.encode())
+                    write_to_log(f"[SERVER_BL] sent to {destination} - '{response}'")
+
+        except Exception as e:
+            self._client_socket.send(f"Error - {e}")
+
 

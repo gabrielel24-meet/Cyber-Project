@@ -141,7 +141,8 @@ class CClientGUI(CClientBL):
         def callback_login(data):
             write_to_log(f"[Client GUI] Received data from Login window: {data}")
             self.send_data("LOGIN", data)
-            data =  ast.literal_eval(self.receive_data())
+            response = self.receive_data()
+            data =  ast.literal_eval(response)
             self.update_user_data(data)
             self.bank_name_label.configure(text=f"Hi {self.first_name} {self.last_name}")
             self.balance_label.pack(pady=20)

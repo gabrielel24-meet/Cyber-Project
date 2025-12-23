@@ -31,6 +31,8 @@ class CClientBL:
 
     def get_balance(self,):
         self.send_data("GET_BALANCE",self.account_number)
+        self.balance = self.receive_data()
+        write_to_log(f"[CLIENT_BL]{self.balance} {type(self.balance)}")
         self.balance = float(self.receive_data())
 
     def send_data(self, cmd, args):
@@ -65,7 +67,7 @@ class CClientBL:
     def transfer_money(self, current_account_number, destination_account_number, amount):
         self.send_data("TRANSFER",(current_account_number,destination_account_number ,amount))
         write_to_log(self.receive_data())
-        self.get_balance()
+        # self.get_balance()
 
 
 if __name__ == "__main__":
