@@ -25,9 +25,9 @@ def login(data):
         return "None"
     else:
         if (data["phone_number"] == user[3] and data["password"] == user[4] and data["account_number"] == user[5]):
-            return str(user)
+            return True, user
         else:
-            return "Error"
+            return False, "Error"
 
 
 
