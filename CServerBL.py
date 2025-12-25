@@ -35,6 +35,7 @@ class CServerBL:
                 cl_handler._client_thread.start()
                 stop_event = threading.Event()
                 self._client_handlers[address] = cl_handler
+                cl_handler._client_handlers = self._client_handlers
 
                 write_to_log(f"[SERVER_BL] ACTIVE CONNECTION {len(self._client_handlers)}")
 
@@ -79,16 +80,15 @@ class CClientHandler(CServerBL):
                     response = "Non-supported cmd"
 
                 if cmd == "LOGIN" and response[0] == True:
+                    write_to_log(response[1])
                     self._clients_data[self._address] = response[1]
                     self._client_socket.send(str(response[1]).encode())
                     write_to_log(f"[SERVER_BL] sent '{response[1]}'")
                 elif cmd == "TRANSFER" and response[0] == True:
-                    # self.notify_transfer(response[1])
-                    write_to_log(f"[SERVER_BL] sent '{response}'")
-                    self._client_socket.send(str(response[1]).encode())
+                    self.notify_transfer(response[1])
                 else:
                     write_to_log(f"[SERVER_BL] sent '{response}'")
-                    self._client_socket.send(response.encode())
+                    self._client_socket.send(str(response).encode())
 
         except Exception as e:
             self._client_socket.close()
@@ -101,7 +101,7 @@ class CClientHandler(CServerBL):
 
     def notify_transfer(self, data):
         try:
-            current = data["current"]
+            current = data["source"]
             destination = data["destination"]
             amount = data["amount"]
 
@@ -109,8 +109,8 @@ class CClientHandler(CServerBL):
             self._client_socket.send(response.encode())
             write_to_log(f"[SERVER_BL] sent to {current} - '{response}'")
 
-            for address, client in self._clients_data:
-                if client["account_number"] == destination:
+            for address, client in self._clients_data.items():
+                if client[5] == destination:
                     destination_ip = address
                     response = f"Received {amount}₪ from client {current}"
                     self._client_handlers[address]._client_socket.send(response.encode())

@@ -99,6 +99,7 @@ class CClientGUI(CClientBL):
         self.destination_user_frame = ctk.CTkFrame(self.main_frame, fg_color=self.secondary_color)
         self.destination_user_label = ctk.CTkLabel(self.destination_user_frame, text="Transfer destination account", font=("Arial", 15, "bold"))
         self.destination_user_entry = ctk.CTkEntry(self.destination_user_frame, width=220, height=25, border_width=1)
+        self.error_message = ctk.CTkLabel(self.destination_user_frame,text="can't transfer to yourself")
 
         self.destination_user_label.pack(anchor="w", padx=10)
         self.destination_user_entry.pack()
@@ -178,9 +179,13 @@ class CClientGUI(CClientBL):
         self.on_click_transfer.pack_forget()
 
     def on_click_transfer_money(self):
-        self.transfer_money(self.account_number ,self.destination_user_entry.get(), int(self.transfer_amount_entry.get()))
-        self.on_click_close_transfer()
-        self.update_balance_label()
+        if self.destination_user_entry.get() != self.account_number:
+            self.error_message.pack_forget()
+            self.transfer_money(self.account_number ,self.destination_user_entry.get(), int(self.transfer_amount_entry.get()))
+            self.on_click_close_transfer()
+            self.update_balance_label()
+        else:
+            self.error_message.pack(anchor="w")
 
     def run(self):
         self._client_socket = threading.Thread(target=self.connect_to_server, daemon=True).start()
