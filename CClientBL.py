@@ -20,6 +20,8 @@ class CClientBL:
         self.account_number = None
         self.balance = None
 
+        self.responses_flag = (False,None)
+
     def connect_to_server(self):
         try:
             self._client_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
@@ -43,8 +45,9 @@ class CClientBL:
                     self.update_user_data(response)
                 elif cmd == "TRANSFER-1":
                     self.transfer_money()
-                # elif cmd == "TRANSFER-2":
-
+                elif cmd == "TRANSFER-2":
+                    self.update_balance(self.account_number)
+                    self.responses_flag = (True,"TRANSFER-2")
 
         except Exception as e:
             write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))

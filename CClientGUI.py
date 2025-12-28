@@ -137,6 +137,12 @@ class CClientGUI(CClientBL):
         self.time_label.configure(text=f"{current_time}")
         self.root.after(1000, self.update_time)  # Update every second
 
+    def check_for_responses(self):
+        while True:
+            flag,cmd = self.responses_flag
+            if flag == True:
+               if cmd == "TRANSFER-2":
+                   self.update_balance_label()
 
     def open_login_page(self):
 
