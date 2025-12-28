@@ -1,3 +1,4 @@
+import threading
 import time
 
 from protocol import *
@@ -23,16 +24,35 @@ class CClientBL:
         try:
             self._client_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
             self._client_socket.connect((self._host,self._port))
-            write_to_log(f"[Client] connected to server {CLIENT_HOST}")
+            write_to_log(f"[CLIENT_BL] connected to server {CLIENT_HOST}")
+
+            server_handler = threading.Thread(target=self.handle_responses)
+            server_handler.start()
 
         except Exception as e:
             write_to_log("[CLIENT_BL] Exception on connect: {}".format(e))
 
+    def handle_responses(self):
+        try:
+            while True:
+                cmd, response = self.receive_data()
 
-    def get_balance(self,):
-        self.send_data("GET_BALANCE",self.account_number)
-        self.balance = float(self.receive_data())
-        write_to_log(f"[CLIENT_BL]{self.balance}")
+                if cmd == "GET_BALANCE":
+                    self.update_balance(response)
+                elif cmd == "LOGIN":
+                    self.update_user_data(response)
+                elif cmd == "TRANSFER-1":
+                    self.transfer_money()
+                # elif cmd == "TRANSFER-2":
+
+
+        except Exception as e:
+            write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))
+            return False
+
+
+    def update_balance(self,data):
+        self.balance = float(data)
 
     def send_data(self, cmd, args):
         try:
@@ -44,9 +64,10 @@ class CClientBL:
             write_to_log("[CLIENT_BL] Exception on send_data: {}".format(e))
             return False
 
+
     def receive_data(self) -> str:
         try:
-            msg = self._client_socket.recv(1024).decode()
+            msg = ast.literal_eval(self._client_socket.recv(1024).decode())
             write_to_log(f"[CLIENT_BL] received {msg} ")
             return msg
         except Exception as e:
@@ -63,10 +84,8 @@ class CClientBL:
         self.balance = data[6]
         print(self.balance)
 
-    def transfer_money(self, current_account_number, destination_account_number, amount):
-        self.send_data("TRANSFER",(current_account_number,destination_account_number ,amount))
-        write_to_log(self.receive_data())
-        self.get_balance()
+    def transfer_money(self):
+        self.send_data("GET_BALANCE",self.account_number)
 
 
 if __name__ == "__main__":

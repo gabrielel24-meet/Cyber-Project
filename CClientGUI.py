@@ -121,6 +121,7 @@ class CClientGUI(CClientBL):
             command= self.on_click_transfer_money
         )
 
+
         # Connection Status
         self.connection_status = ctk.CTkLabel(
             self.main_frame,
@@ -142,9 +143,7 @@ class CClientGUI(CClientBL):
         def callback_login(data):
             write_to_log(f"[Client GUI] Received data from Login window: {data}")
             self.send_data("LOGIN", data)
-            response = self.receive_data()
-            data =  ast.literal_eval(response)
-            self.update_user_data(data)
+            time.sleep(0.1)
             self.bank_name_label.configure(text=f"Hi {self.first_name} {self.last_name}")
             self.balance_label.pack(pady=20)
             self.show_page(self.main_frame, self.login_page.main_frame)
@@ -181,8 +180,9 @@ class CClientGUI(CClientBL):
     def on_click_transfer_money(self):
         if self.destination_user_entry.get() != self.account_number:
             self.error_message.pack_forget()
-            self.transfer_money(self.account_number ,self.destination_user_entry.get(), int(self.transfer_amount_entry.get()))
+            self.send_data("TRANSFER",(self.account_number ,self.destination_user_entry.get(), int(self.transfer_amount_entry.get())))
             self.on_click_close_transfer()
+            time.sleep(0.1)
             self.update_balance_label()
         else:
             self.error_message.pack(anchor="w")
@@ -193,7 +193,7 @@ class CClientGUI(CClientBL):
         self.root.mainloop()
 
 
-
 if __name__ == "__main__":
     client = CClientGUI(CLIENT_HOST, PORT)
     client.run()
+

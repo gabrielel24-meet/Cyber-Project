@@ -80,10 +80,10 @@ class CClientHandler(CServerBL):
                     response = "Non-supported cmd"
 
                 if cmd == "LOGIN" and response[0] == True:
-                    write_to_log(response[1])
                     self._clients_data[self._address] = response[1]
-                    self._client_socket.send(str(response[1]).encode())
-                    write_to_log(f"[SERVER_BL] sent '{response[1]}'")
+                    response = str((cmd,response[1]))
+                    self._client_socket.send(response.encode())
+                    write_to_log(f"[SERVER_BL] sent '{response}'")
                 elif cmd == "TRANSFER" and response[0] == True:
                     self.notify_transfer(response[1])
                 else:
@@ -104,16 +104,15 @@ class CClientHandler(CServerBL):
             current = data["source"]
             destination = data["destination"]
             amount = data["amount"]
-
-            response = f"Client {current} transferred {amount}₪ to client {destination}"
+            response = str(("TRANSFER-1",f"Client {current} transferred {amount}₪ to client {destination}"))
             self._client_socket.send(response.encode())
             write_to_log(f"[SERVER_BL] sent to {current} - '{response}'")
 
             for address, client in self._clients_data.items():
                 if client[5] == destination:
                     destination_ip = address
-                    response = f"Received {amount}₪ from client {current}"
-                    self._client_handlers[address]._client_socket.send(response.encode())
+                    response = str(("TRANSFER-2",f"Received {amount}₪ from client {current}"))
+                    self._client_handlers[destination_ip]._client_socket.send(response.encode())
                     write_to_log(f"[SERVER_BL] sent to {destination} - '{response}'")
 
         except Exception as e:
