@@ -1,3 +1,4 @@
+import threading
 import time
 
 from protocol import *
@@ -40,6 +41,7 @@ class CClientGUI(CClientBL):
         self.destination_user_frame = None
         self.transfer_amount_frame = None
 
+        self.check_for_responses_thread = threading.Thread(target=self.check_for_responses)
 
     def create_ui(self):
         # Main container
@@ -138,11 +140,11 @@ class CClientGUI(CClientBL):
         self.root.after(1000, self.update_time)  # Update every second
 
     def check_for_responses(self):
-        while True:
-            flag,cmd = self.responses_flag
-            if flag == True:
-               if cmd == "TRANSFER-2":
-                   self.update_balance_label()
+        flag,cmd = self.responses_flag
+        if flag == True:
+            if cmd == "TRANSFER-2":
+               self.update_balance_label()
+        self.root.after(1000,self.check_for_responses)
 
     def open_login_page(self):
 
@@ -156,6 +158,7 @@ class CClientGUI(CClientBL):
             self.update_balance_label()
             self.login_button.place_forget()
             self.transfer_button.pack()
+            self.check_for_responses_thread.start()
 
         self.main_frame.pack_forget()
         if self.login_page == None:

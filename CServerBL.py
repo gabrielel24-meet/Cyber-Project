@@ -36,6 +36,7 @@ class CServerBL:
                 stop_event = threading.Event()
                 self._client_handlers[address] = cl_handler
                 cl_handler._client_handlers = self._client_handlers
+                cl_handler._clients_data = self._clients_data
 
                 write_to_log(f"[SERVER_BL] ACTIVE CONNECTION {len(self._client_handlers)}")
 
@@ -104,6 +105,7 @@ class CClientHandler(CServerBL):
             current = data["source"]
             destination = data["destination"]
             amount = data["amount"]
+
             response = str(("TRANSFER-1",f"Client {current} transferred {amount}₪ to client {destination}"))
             self._client_socket.send(response.encode())
             write_to_log(f"[SERVER_BL] sent to {current} - '{response}'")

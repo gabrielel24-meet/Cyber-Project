@@ -46,7 +46,7 @@ class CClientBL:
                 elif cmd == "TRANSFER-1":
                     self.transfer_money()
                 elif cmd == "TRANSFER-2":
-                    self.update_balance(self.account_number)
+                    self.transfer_money()
                     self.responses_flag = (True,"TRANSFER-2")
 
         except Exception as e:
