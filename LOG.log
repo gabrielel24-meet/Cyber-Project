@@ -1,3 +1,73 @@
 2025-12-28 23:26:39,226 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
 2025-12-28 23:26:53,180 - INFO - [Client GUI] Received data from Login window: {'first_name': '', 'last_name': '', 'id': '2', 'phone_number': '2', 'password': '2', 'account_number': '2'}
 2025-12-28 23:26:53,180 - INFO - [CLIENT_BL] Exception on send_data: [WinError 10057] A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
+2025-12-29 08:12:27,096 - INFO - [SERVER_BL] listening...
+2025-12-29 08:12:32,211 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2025-12-29 08:12:32,212 - INFO - [SERVER_BL] Client ('127.0.0.1', 55379) connected 
+2025-12-29 08:12:32,212 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2025-12-29 08:12:37,366 - INFO - [Client GUI] Received data from Login window: {'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1', 'account_number': '1'}
+2025-12-29 08:12:37,367 - INFO - [CLIENT_BL] send to server 'LOGIN>{'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1', 'account_number': '1'}'
+2025-12-29 08:12:37,367 - INFO - [SERVER_BL] received from ('127.0.0.1', 55379)] - cmd: LOGIN, args: {'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1', 'account_number': '1'}
+2025-12-29 08:12:37,373 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 11000.0))'
+2025-12-29 08:12:37,373 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 11000.0)) 
+2025-12-29 08:12:44,132 - INFO - [CLIENT_BL] send to server 'TRANSFER>('1', '2', 1000)'
+2025-12-29 08:12:44,132 - INFO - [SERVER_BL] received from ('127.0.0.1', 55379)] - cmd: TRANSFER, args: ('1', '2', 1000)
+2025-12-29 08:12:44,138 - INFO - [SERVER_BL] sent to 1 - '('TRANSFER-1', 'Client 1 transferred 1000¤ to client 2')'
+2025-12-29 08:12:44,138 - INFO - [CLIENT_BL] received ('TRANSFER-1', 'Client 1 transferred 1000¤ to client 2') 
+2025-12-29 08:12:44,138 - INFO - [SERVER_BL] received from ('127.0.0.1', 55379)] - cmd: GET_BALANCE, args: 1
+2025-12-29 08:12:44,139 - INFO - [SERVER_BL] sent '('GET_BALANCE', 10000.0)'
+2025-12-29 08:12:44,139 - INFO - [CLIENT_BL] received ('GET_BALANCE', 10000.0) 
+2025-12-29 08:12:46,563 - INFO - [SERVER_BL] [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-12-29 08:12:46,563 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 55379) 
+2025-12-29 08:16:35,452 - INFO - [SERVER_BL] listening...
+2025-12-29 08:17:23,797 - INFO - [SERVER_BL] listening...
+2025-12-29 08:18:07,973 - INFO - [SERVER_BL] listening...
+2025-12-29 08:20:38,828 - INFO - [SERVER_BL] listening...
+2025-12-29 08:21:10,835 - INFO - [SERVER_BL] listening...
+2025-12-29 08:22:04,059 - INFO - [SERVER_BL] listening...
+2025-12-29 08:22:06,475 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2025-12-29 08:22:06,475 - INFO - [SERVER_BL] Client ('127.0.0.1', 55512) connected 
+2025-12-29 08:22:06,475 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2025-12-29 08:22:07,724 - INFO - [SERVER_BL] [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-12-29 08:22:07,725 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 55512) 
+2025-12-29 08:22:22,564 - INFO - [SERVER_BL] listening...
+2025-12-29 08:22:39,609 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-12-29 08:22:54,347 - INFO - [SERVER_BL] listening...
+2025-12-29 08:23:42,339 - INFO - [SERVER_BL] listening...
+2025-12-29 08:23:58,235 - INFO - [SERVER_BL] listening...
+2025-12-29 08:24:00,887 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2025-12-29 08:24:00,887 - INFO - [SERVER_BL] Client ('127.0.0.1', 55524) connected 
+2025-12-29 08:24:00,888 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2025-12-29 08:24:03,259 - INFO - [SERVER_BL] [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-12-29 08:24:03,259 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 55524) 
+2025-12-29 08:25:24,770 - INFO - [SERVER_BL] listening...
+2025-12-29 08:25:55,162 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2025-12-29 08:25:55,162 - INFO - [SERVER_BL] Client ('127.0.0.1', 55526) connected 
+2025-12-29 08:25:55,162 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2025-12-29 08:25:56,412 - INFO - [SERVER_BL] [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-12-29 08:25:56,412 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 55526) 
+2025-12-29 08:31:49,050 - INFO - [CLIENT_BL] Exception on connect: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2025-12-29 08:32:40,809 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2025-12-29 08:35:44,087 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2025-12-29 08:36:03,411 - INFO - [Client GUI] Received data from Login window: {'first_name': '', 'last_name': '', 'id': '2', 'phone_number': '2', 'password': '2', 'account_number': '2'}
+2025-12-29 08:36:03,412 - INFO - [CLIENT_BL] send to server 'LOGIN>{'first_name': '', 'last_name': '', 'id': '2', 'phone_number': '2', 'password': '2', 'account_number': '2'}'
+2025-12-29 08:36:03,413 - INFO - [CLIENT_BL] received ('LOGIN', ('2', 'israel', 'israeli', '2', '2', '2', 12000.0)) 
+2025-12-29 08:36:29,857 - INFO - [CLIENT_BL] received ('TRANSFER-2', 'Received 5000¤ from client 1') 
+2025-12-29 08:36:29,857 - INFO - [CLIENT_BL] send to server 'GET_BALANCE>2'
+2025-12-29 08:36:29,858 - INFO - [CLIENT_BL] received ('GET_BALANCE', 17000.0) 
+2025-12-29 08:36:43,568 - INFO - [CLIENT_BL] send to server 'TRANSFER>('2', '1', 7000)'
+2025-12-29 08:36:43,576 - INFO - [CLIENT_BL] received ('TRANSFER-1', 'Client 2 transferred 7000¤ to client 1') 
+2025-12-29 08:36:43,576 - INFO - [CLIENT_BL] send to server 'GET_BALANCE>2'
+2025-12-29 08:36:43,579 - INFO - [CLIENT_BL] received ('GET_BALANCE', 10000.0) 
+2025-12-29 08:36:53,895 - INFO - [CLIENT_BL] send to server 'TRANSFER>('2', '1', -5000)'
+2025-12-29 08:36:53,902 - INFO - [CLIENT_BL] received ('TRANSFER-1', 'Client 2 transferred -5000¤ to client 1') 
+2025-12-29 08:36:53,902 - INFO - [CLIENT_BL] send to server 'GET_BALANCE>2'
+2025-12-29 08:36:53,904 - INFO - [CLIENT_BL] received ('GET_BALANCE', 15000.0) 
+2025-12-29 08:37:11,020 - INFO - [CLIENT_BL] send to server 'TRANSFER>('2', '1', -50000000000)'
+2025-12-29 08:37:11,027 - INFO - [CLIENT_BL] received ('TRANSFER-1', 'Client 2 transferred -50000000000¤ to client 1') 
+2025-12-29 08:37:11,027 - INFO - [CLIENT_BL] send to server 'GET_BALANCE>2'
+2025-12-29 08:37:11,029 - INFO - [CLIENT_BL] received ('GET_BALANCE', 50000015000.0) 
+2025-12-29 08:37:18,493 - INFO - [CLIENT_BL] send to server 'TRANSFER>('2', '1', 50000000000)'
+2025-12-29 08:37:18,500 - INFO - [CLIENT_BL] received ('TRANSFER-1', 'Client 2 transferred 50000000000¤ to client 1') 
+2025-12-29 08:37:18,500 - INFO - [CLIENT_BL] send to server 'GET_BALANCE>2'
+2025-12-29 08:37:18,502 - INFO - [CLIENT_BL] received ('GET_BALANCE', 15000.0) 

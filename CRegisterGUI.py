@@ -6,9 +6,9 @@ ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
 
 
-class CLogin:
+class CRegister:
 
-    def __init__(self, root, previous_page, callback_login):
+    def __init__(self, root, previous_page, callback_register):
 
         self.root = root
         self.root.title("Purple Trust Bank")
@@ -16,7 +16,7 @@ class CLogin:
 
         self.previous_page = previous_page
 
-        self.callback_login = callback_login
+        self.callback_register = callback_register
 
         # Configure purple color scheme
         self.primary_color = "#6A0DAD"  # Purple
@@ -41,13 +41,13 @@ class CLogin:
         self.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
 
         # Bank name header
-        self.Login_label = ctk.CTkLabel(
+        self.Register_label = ctk.CTkLabel(
             self.main_frame,
-            text="Login",
+            text="Sign up",
             font=("Arial", 20, "bold"),
             text_color="white"
         )
-        self.Login_label.pack(pady=(40, 20))
+        self.Register_label.pack(pady=(40, 20))
 
         # Time display
         self.time_label = ctk.CTkLabel(

@@ -203,6 +203,6 @@ class CClientGUI(CClientBL):
 
 
 if __name__ == "__main__":
-    client = CClientGUI(CLIENT_HOST, PORT)
+    client = CClientGUI("172.16.2.9", PORT)
     client.run()
 
