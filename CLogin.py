@@ -1,6 +1,6 @@
 from protocol import *
 from CClientBL import *
-
+from CRegister import *
 # Set appearance mode and color theme
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
@@ -8,15 +8,15 @@ ctk.set_default_color_theme("dark-blue")
 
 class CLogin:
 
-    def __init__(self, root, previous_page, callback_login):
+    def __init__(self, root, previous_page, callback_login, callback_register):
 
         self.root = root
         self.root.title("Purple Trust Bank")
         self.root.geometry("1000x700")
 
         self.previous_page = previous_page
-
         self.callback_login = callback_login
+        self.callback_register = callback_register
 
         # Configure purple color scheme
         self.primary_color = "#6A0DAD"  # Purple
@@ -25,6 +25,8 @@ class CLogin:
 
         # Set the background color
         self.root.configure(fg_color=self.primary_color)
+
+        self.register_page = None
 
         # Time updating thread
         self.time_thread = threading.Thread(target=self.update_time, daemon=True)
@@ -54,21 +56,36 @@ class CLogin:
             self.main_frame,
             text="",
             font=("Arial", 16),
-            text_color="white"
+            text_color="#ada6b3"
         )
         self.time_label.place(relx=0.01,rely=0.01, anchor="nw")
 
-        self.home_button = ctk.CTkButton(
+        self.register_button = ctk.CTkButton(
             self.main_frame,
-            text="Home",
+            text="sign up",
             width=110,
             height=30,
             border_width=2,
             fg_color=self.primary_color,
-            command=self.open_home_page
+            command=self.open_register_page
 
         )
-        self.home_button.place(relx=0.99, rely=0.01, anchor="ne")
+        self.register_button.place(relx=0.99, rely=0.01, anchor="ne")
+
+
+        self.back_button = ctk.CTkButton(
+            self.main_frame,
+            text="back",
+            font = ("Arial", 16, "underline"),
+            fg_color="transparent",
+            hover_color=self.secondary_color,
+            border_width=0,
+            text_color="white",
+            width=0,
+            command=self.open_previous_page
+
+        )
+        self.back_button.place(relx=0.01, rely=0.05, anchor="nw")
 
 
         self.first_name_entry = self.create_entry(self.main_frame, "First Name",0.2,0.2)
@@ -121,9 +138,18 @@ class CLogin:
 
         return textbox
 
-    def open_home_page(self):
+    def open_previous_page(self):
         self.main_frame.pack_forget()
         self.previous_page.pack(fill="both", expand=True, padx=20, pady=20)
+
+    def open_register_page(self):
+        self.main_frame.pack_forget()
+
+        if self.register_page == None:
+            self.register_page = CRegister(self.root, self.previous_page, self.callback_register)
+            self.register_page.run()
+        else:
+            self.register_page.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
 
     def update_time(self):
         current_time = datetime.now().strftime("%H:%M:%S")
@@ -147,5 +173,4 @@ class CLogin:
 
 
 if __name__ == "__main__":
-    Login_page = CLogin(ctk.CTk(),ctk.CTkFrame(ctk.CTk()))
-    Login_page.run()
+    pass

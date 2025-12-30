@@ -1,14 +1,17 @@
+import random
+
 from protocol import *
 
 
-login_cmd = ["LOGIN"]
+login_cmd = ["LOGIN","REGISTER"]
 
 def create_response_msg_DB(cmd, args):
     response = ""
 
     if cmd == "LOGIN":
         response = login(args)
-
+    if cmd == "REGISTER":
+        response = register(args)
     return response
 
 
@@ -30,7 +33,31 @@ def login(data):
         else:
             return False, "Error"
 
+def register(data):
+    flag = True
+
+    while flag:
+        try:
+            conn = sqlite3.connect("Bank.db")
+            cursor = conn.cursor()
+
+            data = ast.literal_eval(data)
+            account_number = random.randint(1, 10)
+            print(account_number)
+
+            id1,first,last,phone,passw = data["id"], data["first_name"], data["last_name"], data["phone_number"], data["password"]
+
+            cursor.execute(
+                """INSERT INTO users (id, first_name, last_name, phone_number, password, account_number, balance) VALUES (?, ?, ?, ?, ?, ?, ?)""",
+                (id1,first,last,phone,passw, account_number,0))
+
+            conn.commit()
+            flag = False
+
+        except Exception as e:
+            print(e)
 
 
 if __name__ == "__main__":
-    print(login({'first_name': '', 'last_name': '', 'id': '1', 'phone_number': 'geliav2008@gmail.com', 'password': '1111', 'account_number': '1'}))
+    data = "{'first_name': 'aaa', 'last_name': 'aaa', 'id': '101', 'phone_number': '11', 'password': '1111', }"
+    register(data)

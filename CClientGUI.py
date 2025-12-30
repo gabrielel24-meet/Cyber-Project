@@ -1,9 +1,10 @@
 import threading
 import time
-
 from protocol import *
 from CClientBL import *
 from CLogin import *
+from CRegister import *
+
 
 # Set appearance mode and color theme
 ctk.set_appearance_mode("dark")
@@ -62,7 +63,7 @@ class CClientGUI(CClientBL):
             self.main_frame,
             text="",
             font=("Arial", 16),
-            text_color="white"
+            text_color="#ada6b3"
         )
         self.time_label.place(relx=0.01,rely=0.01, anchor="nw")
 
@@ -76,7 +77,7 @@ class CClientGUI(CClientBL):
 
         self.login_button = ctk.CTkButton(
             self.main_frame,
-            text = "Login",
+            text = "sign in",
             width=110,
             height=30,
             border_width=2,
@@ -85,6 +86,7 @@ class CClientGUI(CClientBL):
 
         )
         self.login_button.place(relx=0.99, rely=0.01, anchor="ne")
+
 
         # Transfer Button
         self.transfer_button = ctk.CTkButton(
@@ -160,12 +162,19 @@ class CClientGUI(CClientBL):
             self.transfer_button.pack()
             self.check_for_responses_thread.start()
 
+        def callback_register(data):
+            write_to_log(f"[Client GUI] Received data from Register window: {data}")
+            self.send_data("REGISTER", data)
+            time.sleep(0.1)
+
+
         self.main_frame.pack_forget()
         if self.login_page == None:
-            self.login_page = CLogin(self.root,self.main_frame, callback_login)
+            self.login_page = CLogin(self.root,self.main_frame, callback_login, callback_register)
             self.login_page.run()
         else:
             self.login_page.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
+
 
     def show_page(self, next_frame, previous_frame):
         next_frame.pack(fill="both", expand=True, padx=20, pady=20)
@@ -203,6 +212,6 @@ class CClientGUI(CClientBL):
 
 
 if __name__ == "__main__":
-    client = CClientGUI("172.16.2.9", PORT)
+    client = CClientGUI(CLIENT_HOST, PORT)
     client.run()
 

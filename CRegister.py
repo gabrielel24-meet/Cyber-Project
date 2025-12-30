@@ -15,7 +15,6 @@ class CRegister:
         self.root.geometry("1000x700")
 
         self.previous_page = previous_page
-
         self.callback_register = callback_register
 
         # Configure purple color scheme
@@ -54,21 +53,22 @@ class CRegister:
             self.main_frame,
             text="",
             font=("Arial", 16),
-            text_color="white"
+            text_color="#ada6b3"
         )
         self.time_label.place(relx=0.01,rely=0.01, anchor="nw")
 
-        self.home_button = ctk.CTkButton(
+        self.back_button = ctk.CTkButton(
             self.main_frame,
-            text="Home",
-            width=110,
-            height=30,
-            border_width=2,
-            fg_color=self.primary_color,
-            command=self.open_home_page
-
+            text="back",
+            font=("Arial", 16, "underline"),
+            fg_color="transparent",
+            hover_color=self.secondary_color,
+            border_width=0,
+            text_color="white",
+            width=0,
+            command=self.open_previous_page
         )
-        self.home_button.place(relx=0.99, rely=0.01, anchor="ne")
+        self.back_button.place(relx=0.01, rely=0.05, anchor="nw")
 
 
         self.first_name_entry = self.create_entry(self.main_frame, "First Name",0.2,0.2)
@@ -77,7 +77,6 @@ class CRegister:
 
         self.phone_number_entry = self.create_entry(self.main_frame, "Phone Number",0.6, 0.2)
         self.password_entry = self.create_entry(self.main_frame, "Password",0.6, 0.4)
-        self.account_number_entry = self.create_entry(self.main_frame, "Account Number",0.6, 0.6)
 
         self.submit_button = ctk.CTkButton(
             self.main_frame,
@@ -87,7 +86,7 @@ class CRegister:
             font=("Arial",25),
             border_width=2,
             fg_color=self.primary_color,
-            command=self.on_click_login,
+            command=self.on_click_register,
         )
 
         self.submit_button.place(relx=0.45,rely=0.8)
@@ -121,7 +120,7 @@ class CRegister:
 
         return textbox
 
-    def open_home_page(self):
+    def open_previous_page(self):
         self.main_frame.pack_forget()
         self.previous_page.pack(fill="both", expand=True, padx=20, pady=20)
 
@@ -134,18 +133,16 @@ class CRegister:
         self.create_ui()
         self.root.mainloop()
 
-    def on_click_login(self):
+    def on_click_register(self):
         data = {"first_name": self.first_name_entry.get(),
                 "last_name":self.last_name_entry.get(),
                 "id": self.id_entry.get(),
                 "phone_number": self.phone_number_entry.get(),
-                "password": self.password_entry.get(),
-                "account_number":self.account_number_entry.get()}
+                "password": self.password_entry.get(),}
 
-        self.callback_login(data)
+        self.callback_register(data)
 
 
 
 if __name__ == "__main__":
-    Login_page = CLogin(ctk.CTk(),ctk.CTkFrame(ctk.CTk()))
-    Login_page.run()
+    pass

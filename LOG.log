@@ -71,3 +71,24 @@
 2025-12-29 08:37:18,500 - INFO - [CLIENT_BL] received ('TRANSFER-1', 'Client 2 transferred 50000000000¤ to client 1') 
 2025-12-29 08:37:18,500 - INFO - [CLIENT_BL] send to server 'GET_BALANCE>2'
 2025-12-29 08:37:18,502 - INFO - [CLIENT_BL] received ('GET_BALANCE', 15000.0) 
+2025-12-29 15:08:39,716 - INFO - [CLIENT_BL] Exception on connect: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2025-12-29 15:43:09,418 - INFO - [CLIENT_BL] Exception on connect: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2025-12-29 15:50:51,392 - INFO - [CLIENT_BL] Exception on connect: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2025-12-29 15:51:51,627 - INFO - [Client GUI] Received data from Login window: {'first_name': '', 'last_name': '', 'id': '', 'phone_number': '', 'password': '', 'account_number': ''}
+2025-12-29 15:51:51,628 - INFO - [CLIENT_BL] Exception on send_data: [WinError 10057] A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
+2025-12-29 15:55:50,108 - INFO - [CLIENT_BL] Exception on connect: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2025-12-29 15:56:29,030 - INFO - [CLIENT_BL] Exception on connect: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2025-12-29 15:57:30,168 - INFO - [CLIENT_BL] Exception on connect: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2025-12-29 15:59:45,236 - INFO - [CLIENT_BL] Exception on connect: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2025-12-29 16:06:37,877 - INFO - [Client GUI] Received data from Register window: {'first_name': '', 'last_name': '', 'id': '', 'phone_number': '', 'password': ''}
+2025-12-29 16:06:37,878 - INFO - [CLIENT_BL] Exception on send_data: [WinError 10057] A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
+2025-12-29 16:09:11,526 - INFO - [SERVER_BL] listening...
+2025-12-29 16:09:33,649 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2025-12-29 16:09:33,651 - INFO - [SERVER_BL] Client ('127.0.0.1', 62225) connected 
+2025-12-29 16:09:33,655 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2025-12-29 16:09:58,519 - INFO - [Client GUI] Received data from Register window: {'first_name': '', 'last_name': '', 'id': '', 'phone_number': '', 'password': ''}
+2025-12-29 16:09:58,519 - INFO - [CLIENT_BL] send to server ''
+2025-12-29 16:10:04,064 - INFO - [Client GUI] Received data from Register window: {'first_name': '', 'last_name': '', 'id': '', 'phone_number': '', 'password': ''}
+2025-12-29 16:10:04,064 - INFO - [CLIENT_BL] send to server ''
+2025-12-29 16:10:40,917 - INFO - [SERVER_BL] [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-12-29 16:10:40,917 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 62225) 
