@@ -34,30 +34,42 @@ def login(data):
             return False, "Error"
 
 def register(data):
-    flag = True
-
-    while flag:
-        try:
+        # try:
             conn = sqlite3.connect("Bank.db")
             cursor = conn.cursor()
-
             data = ast.literal_eval(data)
-            account_number = random.randint(1, 10)
-            print(account_number)
+            cursor.execute("SELECT id, phone_number, account_number FROM users")
+            rows = cursor.fetchall()
 
-            id1,first,last,phone,passw = data["id"], data["first_name"], data["last_name"], data["phone_number"], data["password"]
+            for row in rows:
+                if row[0] == data["id"] and row[1] == data["phone_number"]:
+                    return False, "ID_PHONE_TAKEN"
+                if row[0] == data["id"]:
+                    return False, "ID_TAKEN"
+                if row[1] == data["phone_number"]:
+                    return False, "PHONE_TAKEN"
+
+            account_numbers = []
+            for row in rows:
+                account_numbers.append(row[2])
+            print(account_numbers)
+            account_number = str(random.randint(1,4))
+
+            print(account_number)
+            while account_number in account_numbers:
+                print(account_number)
+                account_number = random.randint(1,6)
+
+            id1,first,last,phone,password = data["id"], data["first_name"], data["last_name"], data["phone_number"], data["password"]
 
             cursor.execute(
                 """INSERT INTO users (id, first_name, last_name, phone_number, password, account_number, balance) VALUES (?, ?, ?, ?, ?, ?, ?)""",
-                (id1,first,last,phone,passw, account_number,0))
+                (id1,first,last,phone,password, account_number,0))
 
             conn.commit()
-            flag = False
-
-        except Exception as e:
-            print(e)
+            return True, "REGISTERED"
 
 
 if __name__ == "__main__":
-    data = "{'first_name': 'aaa', 'last_name': 'aaa', 'id': '101', 'phone_number': '11', 'password': '1111', }"
-    register(data)
+    data = "{'first_name': 'aaa', 'last_name': 'aaa', 'id': '9', 'phone_number': '9', 'password': '1111', }"
+    print(register(data))

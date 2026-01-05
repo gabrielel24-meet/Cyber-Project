@@ -92,3 +92,4 @@
 2025-12-29 16:10:04,064 - INFO - [CLIENT_BL] send to server ''
 2025-12-29 16:10:40,917 - INFO - [SERVER_BL] [WinError 10054] An existing connection was forcibly closed by the remote host
 2025-12-29 16:10:40,917 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 62225) 
+2025-12-30 12:46:21,778 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
