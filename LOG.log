@@ -93,3 +93,220 @@
 2025-12-29 16:10:40,917 - INFO - [SERVER_BL] [WinError 10054] An existing connection was forcibly closed by the remote host
 2025-12-29 16:10:40,917 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 62225) 
 2025-12-30 12:46:21,778 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-01-05 14:01:02,444 - INFO - [SERVER_BL] listening...
+2026-01-05 14:01:23,692 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-05 14:01:23,692 - INFO - [SERVER_BL] Client ('127.0.0.1', 58777) connected 
+2026-01-05 14:01:23,692 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-01-05 14:01:41,500 - INFO - [Client GUI] Received data from Login window: {'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1', 'account_number': '1'}
+2026-01-05 14:01:41,500 - INFO - [CLIENT_BL] send to server 'LOGIN>{'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1', 'account_number': '1'}'
+2026-01-05 14:01:41,500 - INFO - [SERVER_BL] received from ('127.0.0.1', 58777)] - cmd: LOGIN, args: {'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1', 'account_number': '1'}
+2026-01-05 14:01:41,501 - INFO - [SERVER_BL] sent '(False, 'Error')'
+2026-01-05 14:01:41,501 - INFO - [CLIENT_BL] received (False, 'Error') 
+2026-01-05 14:02:04,160 - INFO - [SERVER_BL] [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-01-05 14:02:04,160 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 58777) 
+2026-01-05 14:06:50,604 - INFO - [SERVER_BL] listening...
+2026-01-05 14:07:06,993 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-05 14:07:06,994 - INFO - [SERVER_BL] Client ('127.0.0.1', 50390) connected 
+2026-01-05 14:07:06,994 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-01-05 14:07:14,370 - INFO - [Client GUI] Received data from Login window: {'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1', 'account_number': '1'}
+2026-01-05 14:07:14,370 - INFO - [CLIENT_BL] send to server 'LOGIN>{'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1', 'account_number': '1'}'
+2026-01-05 14:07:14,370 - INFO - [SERVER_BL] received from ('127.0.0.1', 50390)] - cmd: LOGIN, args: {'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1', 'account_number': '1'}
+2026-01-05 14:07:14,371 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 0.0))'
+2026-01-05 14:07:14,371 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 0.0)) 
+2026-01-05 14:07:21,739 - INFO - [CLIENT_BL] send to server 'TRANSFER>('1', '2', 1000)'
+2026-01-05 14:07:21,739 - INFO - [SERVER_BL] received from ('127.0.0.1', 50390)] - cmd: TRANSFER, args: ('1', '2', 1000)
+2026-01-05 14:07:21,740 - INFO - [SERVER_BL] sent '(False, "'NoneType' object is not subscriptable")'
+2026-01-05 14:07:21,740 - INFO - [CLIENT_BL] received (False, "'NoneType' object is not subscriptable") 
+2026-01-05 14:07:54,283 - INFO - [CLIENT_BL] send to server 'TRANSFER>('1', '3', 1000)'
+2026-01-05 14:07:54,283 - INFO - [SERVER_BL] received from ('127.0.0.1', 50390)] - cmd: TRANSFER, args: ('1', '3', 1000)
+2026-01-05 14:07:54,289 - INFO - [SERVER_BL] sent to 1 - '('TRANSFER-1', 'Client 1 transferred 1000¤ to client 3')'
+2026-01-05 14:07:54,289 - INFO - [CLIENT_BL] received ('TRANSFER-1', 'Client 1 transferred 1000¤ to client 3') 
+2026-01-05 14:07:54,290 - INFO - [CLIENT_BL] send to server 'GET_BALANCE>1'
+2026-01-05 14:07:54,290 - INFO - [SERVER_BL] received from ('127.0.0.1', 50390)] - cmd: GET_BALANCE, args: 1
+2026-01-05 14:07:54,291 - INFO - [SERVER_BL] sent '('GET_BALANCE', -1000.0)'
+2026-01-05 14:07:54,291 - INFO - [CLIENT_BL] received ('GET_BALANCE', -1000.0) 
+2026-01-05 14:08:06,372 - INFO - [SERVER_BL] [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-01-05 14:08:06,372 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 50390) 
+2026-01-05 14:17:45,290 - INFO - [SERVER_BL] listening...
+2026-01-05 14:17:47,553 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-05 14:17:47,553 - INFO - [SERVER_BL] Client ('127.0.0.1', 60279) connected 
+2026-01-05 14:17:47,554 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-01-05 14:17:51,848 - INFO - [Client GUI] Received data from Login window: {'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1', 'account_number': '1'}
+2026-01-05 14:17:51,849 - INFO - [CLIENT_BL] send to server 'LOGIN>{'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1', 'account_number': '1'}'
+2026-01-05 14:17:51,849 - INFO - [SERVER_BL] received from ('127.0.0.1', 60279)] - cmd: LOGIN, args: {'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1', 'account_number': '1'}
+2026-01-05 14:17:51,850 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', -1000.0))'
+2026-01-05 14:17:51,850 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', -1000.0)) 
+2026-01-05 14:18:12,345 - INFO - [CLIENT_BL] send to server 'TRANSFER>('1', '3', -3000)'
+2026-01-05 14:18:12,345 - INFO - [SERVER_BL] received from ('127.0.0.1', 60279)] - cmd: TRANSFER, args: ('1', '3', -3000)
+2026-01-05 14:18:12,352 - INFO - [SERVER_BL] sent to 1 - '('TRANSFER-1', 'Client 1 transferred -3000¤ to client 3')'
+2026-01-05 14:18:12,353 - INFO - [CLIENT_BL] received ('TRANSFER-1', 'Client 1 transferred -3000¤ to client 3') 
+2026-01-05 14:18:12,353 - INFO - [CLIENT_BL] send to server 'GET_BALANCE>1'
+2026-01-05 14:18:12,353 - INFO - [SERVER_BL] received from ('127.0.0.1', 60279)] - cmd: GET_BALANCE, args: 1
+2026-01-05 14:18:12,354 - INFO - [SERVER_BL] sent '2000.0'
+2026-01-05 14:18:12,354 - INFO - [CLIENT_BL] received ('GET_BALANCE', 2000.0) 
+2026-01-05 14:24:17,790 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-01-05 14:24:17,790 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-01-05 14:24:21,856 - INFO - [SERVER_BL] listening...
+2026-01-05 14:24:24,289 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-05 14:24:24,289 - INFO - [SERVER_BL] Client ('127.0.0.1', 52660) connected 
+2026-01-05 14:24:24,289 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-01-05 14:24:39,703 - INFO - [Client GUI] Received data from Register window: {'first_name': '12', 'last_name': '12', 'id': '12', 'phone_number': '12', 'password': '12'}
+2026-01-05 14:24:39,703 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '12', 'last_name': '12', 'id': '12', 'phone_number': '12', 'password': '12'}'
+2026-01-05 14:24:39,703 - INFO - [SERVER_BL] received from ('127.0.0.1', 52660)] - cmd: REGISTER, args: {'first_name': '12', 'last_name': '12', 'id': '12', 'phone_number': '12', 'password': '12'}
+2026-01-05 14:24:39,709 - INFO - [SERVER_BL] sent '(True, 'REGISTERED')'
+2026-01-05 14:24:39,709 - INFO - [CLIENT_BL] received ('REGISTER', (True, 'REGISTERED')) 
+2026-01-05 14:24:39,709 - INFO - [CLIENT_BL] Exception on handle_responses: write_to_log() takes 1 positional argument but 2 were given
+2026-01-05 14:24:52,637 - INFO - [SERVER_BL] list index out of range
+2026-01-05 14:24:52,637 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 52660) 
+2026-01-05 14:25:39,273 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-05 14:25:39,273 - INFO - [SERVER_BL] Client ('127.0.0.1', 54299) connected 
+2026-01-05 14:25:39,274 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2026-01-05 14:25:45,831 - INFO - [Client GUI] Received data from Register window: {'first_name': '', 'last_name': '', 'id': '23', 'phone_number': '23', 'password': '23'}
+2026-01-05 14:25:45,831 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '', 'last_name': '', 'id': '23', 'phone_number': '23', 'password': '23'}'
+2026-01-05 14:25:45,831 - INFO - [SERVER_BL] received from ('127.0.0.1', 54299)] - cmd: REGISTER, args: {'first_name': '', 'last_name': '', 'id': '23', 'phone_number': '23', 'password': '23'}
+2026-01-05 14:26:02,575 - INFO - [Client GUI] Received data from Register window: {'first_name': '', 'last_name': '', 'id': '23', 'phone_number': '23', 'password': '23'}
+2026-01-05 14:26:02,575 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '', 'last_name': '', 'id': '23', 'phone_number': '23', 'password': '23'}'
+2026-01-05 14:26:12,686 - INFO - [Client GUI] Received data from Register window: {'first_name': '1', 'last_name': '1', 'id': '23', 'phone_number': '23', 'password': '23'}
+2026-01-05 14:26:12,687 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '1', 'last_name': '1', 'id': '23', 'phone_number': '23', 'password': '23'}'
+2026-01-05 14:26:17,908 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-05 14:26:17,924 - INFO - [SERVER_BL] Client ('127.0.0.1', 61043) connected 
+2026-01-05 14:26:17,955 - INFO - [SERVER_BL] ACTIVE CONNECTION 3
+2026-01-05 14:26:29,502 - INFO - [Client GUI] Received data from Register window: {'first_name': '13', 'last_name': '13', 'id': '13', 'phone_number': '13', 'password': '13'}
+2026-01-05 14:26:29,503 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '13', 'last_name': '13', 'id': '13', 'phone_number': '13', 'password': '13'}'
+2026-01-05 14:26:29,523 - INFO - [SERVER_BL] received from ('127.0.0.1', 61043)] - cmd: REGISTER, args: {'first_name': '13', 'last_name': '13', 'id': '13', 'phone_number': '13', 'password': '13'}
+2026-01-05 14:26:48,709 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-01-05 14:26:48,709 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-01-05 14:26:53,999 - INFO - [SERVER_BL] listening...
+2026-01-05 14:26:56,133 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-05 14:26:56,133 - INFO - [SERVER_BL] Client ('127.0.0.1', 65172) connected 
+2026-01-05 14:26:56,134 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-01-05 14:27:06,158 - INFO - [Client GUI] Received data from Register window: {'first_name': '14', 'last_name': '14', 'id': '14', 'phone_number': '14', 'password': '14'}
+2026-01-05 14:27:06,159 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '14', 'last_name': '14', 'id': '14', 'phone_number': '14', 'password': '14'}'
+2026-01-05 14:27:06,159 - INFO - [SERVER_BL] received from ('127.0.0.1', 65172)] - cmd: REGISTER, args: {'first_name': '14', 'last_name': '14', 'id': '14', 'phone_number': '14', 'password': '14'}
+2026-01-05 14:28:25,693 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-01-05 14:28:25,693 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-01-05 14:28:30,360 - INFO - [SERVER_BL] listening...
+2026-01-05 14:28:33,118 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-05 14:28:33,119 - INFO - [SERVER_BL] Client ('127.0.0.1', 65219) connected 
+2026-01-05 14:28:33,119 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-01-05 14:28:42,262 - INFO - [Client GUI] Received data from Register window: {'first_name': '12', 'last_name': '12', 'id': '12', 'phone_number': '12', 'password': '12'}
+2026-01-05 14:28:42,262 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '12', 'last_name': '12', 'id': '12', 'phone_number': '12', 'password': '12'}'
+2026-01-05 14:28:42,262 - INFO - [SERVER_BL] received from ('127.0.0.1', 65219)] - cmd: REGISTER, args: {'first_name': '12', 'last_name': '12', 'id': '12', 'phone_number': '12', 'password': '12'}
+2026-01-05 14:28:42,263 - INFO - [SERVER_BL] sent '(False, 'ID_PHONE_TAKEN')'
+2026-01-05 14:28:42,263 - INFO - [CLIENT_BL] received ('REGISTER', (False, 'ID_PHONE_TAKEN')) 
+2026-01-05 14:28:42,263 - INFO - REGISTER(False, 'ID_PHONE_TAKEN')
+2026-01-05 14:29:02,166 - INFO - [Client GUI] Received data from Register window: {'first_name': '23', 'last_name': '23', 'id': '23', 'phone_number': '23', 'password': '23'}
+2026-01-05 14:29:02,166 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '23', 'last_name': '23', 'id': '23', 'phone_number': '23', 'password': '23'}'
+2026-01-05 14:29:02,167 - INFO - [SERVER_BL] received from ('127.0.0.1', 65219)] - cmd: REGISTER, args: {'first_name': '23', 'last_name': '23', 'id': '23', 'phone_number': '23', 'password': '23'}
+2026-01-05 14:29:09,038 - INFO - [Client GUI] Received data from Register window: {'first_name': '23', 'last_name': '23', 'id': '23', 'phone_number': '23', 'password': '23'}
+2026-01-05 14:29:09,038 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '23', 'last_name': '23', 'id': '23', 'phone_number': '23', 'password': '23'}'
+2026-01-05 14:30:26,918 - INFO - [Client GUI] Received data from Register window: {'first_name': '23', 'last_name': '23', 'id': '23', 'phone_number': '23', 'password': '23'}
+2026-01-05 14:30:26,918 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '23', 'last_name': '23', 'id': '23', 'phone_number': '23', 'password': '23'}'
+2026-01-05 14:30:27,118 - INFO - [Client GUI] Received data from Register window: {'first_name': '23', 'last_name': '23', 'id': '23', 'phone_number': '23', 'password': '23'}
+2026-01-05 14:30:27,118 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '23', 'last_name': '23', 'id': '23', 'phone_number': '23', 'password': '23'}'
+2026-01-05 14:30:30,710 - INFO - [Client GUI] Received data from Register window: {'first_name': '23', 'last_name': '23', 'id': '23', 'phone_number': '23', 'password': '12'}
+2026-01-05 14:30:30,710 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '23', 'last_name': '23', 'id': '23', 'phone_number': '23', 'password': '12'}'
+2026-01-05 14:30:37,582 - INFO - [Client GUI] Received data from Register window: {'first_name': '23', 'last_name': '12', 'id': '12', 'phone_number': '12', 'password': '12'}
+2026-01-05 14:30:37,582 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '23', 'last_name': '12', 'id': '12', 'phone_number': '12', 'password': '12'}'
+2026-01-05 14:30:41,254 - INFO - [Client GUI] Received data from Register window: {'first_name': '12', 'last_name': '12', 'id': '12', 'phone_number': '12', 'password': '12'}
+2026-01-05 14:30:41,254 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '12', 'last_name': '12', 'id': '12', 'phone_number': '12', 'password': '12'}'
+2026-01-05 14:30:49,798 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-05 14:30:49,811 - INFO - [SERVER_BL] Client ('127.0.0.1', 50922) connected 
+2026-01-05 14:30:49,875 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2026-01-05 14:30:58,230 - INFO - [Client GUI] Received data from Register window: {'first_name': '455', 'last_name': '45', 'id': '45', 'phone_number': '45', 'password': '45'}
+2026-01-05 14:30:58,230 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '455', 'last_name': '45', 'id': '45', 'phone_number': '45', 'password': '45'}'
+2026-01-05 14:30:58,243 - INFO - [SERVER_BL] received from ('127.0.0.1', 50922)] - cmd: REGISTER, args: {'first_name': '455', 'last_name': '45', 'id': '45', 'phone_number': '45', 'password': '45'}
+2026-01-05 14:31:13,423 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-05 14:31:13,446 - INFO - [SERVER_BL] Client ('127.0.0.1', 50933) connected 
+2026-01-05 14:31:13,493 - INFO - [SERVER_BL] ACTIVE CONNECTION 3
+2026-01-05 14:31:19,288 - INFO - [Client GUI] Received data from Register window: {'first_name': '', 'last_name': '1', 'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:31:19,289 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '', 'last_name': '1', 'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-05 14:31:19,318 - INFO - [SERVER_BL] received from ('127.0.0.1', 50933)] - cmd: REGISTER, args: {'first_name': '', 'last_name': '1', 'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:31:19,574 - INFO - [SERVER_BL] sent '(False, 'ID_PHONE_TAKEN')'
+2026-01-05 14:31:19,574 - INFO - [CLIENT_BL] received ('REGISTER', (False, 'ID_PHONE_TAKEN')) 
+2026-01-05 14:31:19,574 - INFO - REGISTER(False, 'ID_PHONE_TAKEN')
+2026-01-05 14:33:19,885 - INFO - [SERVER_BL] [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-01-05 14:33:19,901 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 50933) 
+2026-01-05 14:33:20,998 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-05 14:33:20,999 - INFO - [SERVER_BL] Client ('127.0.0.1', 56542) connected 
+2026-01-05 14:33:21,031 - INFO - [SERVER_BL] ACTIVE CONNECTION 4
+2026-01-05 14:33:23,580 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-01-05 14:33:23,580 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-01-05 14:33:25,671 - INFO - [SERVER_BL] listening...
+2026-01-05 14:33:28,232 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-05 14:33:28,232 - INFO - [SERVER_BL] Client ('127.0.0.1', 56545) connected 
+2026-01-05 14:33:28,232 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-01-05 14:33:33,527 - INFO - [Client GUI] Received data from Register window: {'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:33:33,527 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-05 14:33:33,527 - INFO - [SERVER_BL] received from ('127.0.0.1', 56545)] - cmd: REGISTER, args: {'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:33:33,528 - INFO - [SERVER_BL] sent '(False, 'ID_PHONE_TAKEN')'
+2026-01-05 14:33:33,528 - INFO - [CLIENT_BL] received ('REGISTER', (False, 'ID_PHONE_TAKEN')) 
+2026-01-05 14:33:33,528 - INFO - REGISTER (False, 'ID_PHONE_TAKEN')
+2026-01-05 14:33:34,366 - INFO - [Client GUI] Received data from Register window: {'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:33:34,366 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-05 14:33:34,366 - INFO - [SERVER_BL] received from ('127.0.0.1', 56545)] - cmd: REGISTER, args: {'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:33:34,367 - INFO - [SERVER_BL] sent '(False, 'ID_PHONE_TAKEN')'
+2026-01-05 14:33:34,367 - INFO - [CLIENT_BL] received ('REGISTER', (False, 'ID_PHONE_TAKEN')) 
+2026-01-05 14:33:34,367 - INFO - REGISTER (False, 'ID_PHONE_TAKEN')
+2026-01-05 14:33:37,301 - INFO - [Client GUI] Received data from Register window: {'first_name': '', 'last_name': '', 'id': '12', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:33:37,302 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '', 'last_name': '', 'id': '12', 'phone_number': '1', 'password': '1'}'
+2026-01-05 14:33:37,302 - INFO - [SERVER_BL] received from ('127.0.0.1', 56545)] - cmd: REGISTER, args: {'first_name': '', 'last_name': '', 'id': '12', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:33:37,302 - INFO - [SERVER_BL] sent '(False, 'PHONE_TAKEN')'
+2026-01-05 14:33:37,303 - INFO - [CLIENT_BL] received ('REGISTER', (False, 'PHONE_TAKEN')) 
+2026-01-05 14:33:37,303 - INFO - REGISTER (False, 'PHONE_TAKEN')
+2026-01-05 14:33:42,510 - INFO - [Client GUI] Received data from Register window: {'first_name': '', 'last_name': '', 'id': '12', 'phone_number': '12', 'password': '1'}
+2026-01-05 14:33:42,510 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '', 'last_name': '', 'id': '12', 'phone_number': '12', 'password': '1'}'
+2026-01-05 14:33:42,510 - INFO - [SERVER_BL] received from ('127.0.0.1', 56545)] - cmd: REGISTER, args: {'first_name': '', 'last_name': '', 'id': '12', 'phone_number': '12', 'password': '1'}
+2026-01-05 14:33:42,511 - INFO - [SERVER_BL] sent '(False, 'ID_PHONE_TAKEN')'
+2026-01-05 14:33:42,511 - INFO - [CLIENT_BL] received ('REGISTER', (False, 'ID_PHONE_TAKEN')) 
+2026-01-05 14:33:42,511 - INFO - REGISTER (False, 'ID_PHONE_TAKEN')
+2026-01-05 14:33:48,181 - INFO - [Client GUI] Received data from Register window: {'first_name': '', 'last_name': '', 'id': '123', 'phone_number': '123', 'password': '1'}
+2026-01-05 14:33:48,182 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '', 'last_name': '', 'id': '123', 'phone_number': '123', 'password': '1'}'
+2026-01-05 14:33:48,182 - INFO - [SERVER_BL] received from ('127.0.0.1', 56545)] - cmd: REGISTER, args: {'first_name': '', 'last_name': '', 'id': '123', 'phone_number': '123', 'password': '1'}
+2026-01-05 14:34:48,684 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-01-05 14:34:48,684 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-01-05 14:34:50,591 - INFO - [SERVER_BL] listening...
+2026-01-05 14:34:53,895 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-05 14:34:53,896 - INFO - [SERVER_BL] Client ('127.0.0.1', 61101) connected 
+2026-01-05 14:34:53,896 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-01-05 14:35:02,789 - INFO - [Client GUI] Received data from Register window: {'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:35:02,789 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-05 14:35:02,789 - INFO - [SERVER_BL] received from ('127.0.0.1', 61101)] - cmd: REGISTER, args: {'first_name': '', 'last_name': '', 'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:35:02,790 - INFO - [SERVER_BL] sent '(False, 'ID_PHONE_TAKEN')'
+2026-01-05 14:35:02,790 - INFO - [CLIENT_BL] received ('REGISTER', (False, 'ID_PHONE_TAKEN')) 
+2026-01-05 14:35:02,790 - INFO - REGISTER (False, 'ID_PHONE_TAKEN')
+2026-01-05 14:35:09,572 - INFO - [Client GUI] Received data from Register window: {'first_name': '', 'last_name': '', 'id': '122', 'phone_number': '122', 'password': '122'}
+2026-01-05 14:35:09,573 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '', 'last_name': '', 'id': '122', 'phone_number': '122', 'password': '122'}'
+2026-01-05 14:35:09,573 - INFO - [SERVER_BL] received from ('127.0.0.1', 61101)] - cmd: REGISTER, args: {'first_name': '', 'last_name': '', 'id': '122', 'phone_number': '122', 'password': '122'}
+2026-01-05 14:35:09,578 - INFO - [SERVER_BL] sent '(True, 'REGISTERED')'
+2026-01-05 14:35:09,578 - INFO - [CLIENT_BL] received ('REGISTER', (True, 'REGISTERED')) 
+2026-01-05 14:35:09,578 - INFO - REGISTER (True, 'REGISTERED')
+2026-01-05 14:52:57,744 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-01-05 14:52:57,745 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-01-05 14:53:01,644 - INFO - [SERVER_BL] listening...
+2026-01-05 14:53:03,637 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-05 14:53:03,637 - INFO - [SERVER_BL] Client ('127.0.0.1', 64261) connected 
+2026-01-05 14:53:03,637 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-01-05 14:53:09,578 - INFO - [Client GUI] Received data from Register window: {'first_name': '', 'last_name': '1', 'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:53:09,579 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '', 'last_name': '1', 'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-05 14:53:09,579 - INFO - [SERVER_BL] received from ('127.0.0.1', 64261)] - cmd: REGISTER, args: {'first_name': '', 'last_name': '1', 'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:53:09,580 - INFO - [SERVER_BL] sent '(False, 'ID_PHONE_TAKEN')'
+2026-01-05 14:53:09,580 - INFO - [CLIENT_BL] received ('REGISTER', (False, 'ID_PHONE_TAKEN')) 
+2026-01-05 14:53:13,242 - INFO - [Client GUI] Received data from Register window: {'first_name': '', 'last_name': '1', 'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:53:13,242 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '', 'last_name': '1', 'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-05 14:53:13,242 - INFO - [SERVER_BL] received from ('127.0.0.1', 64261)] - cmd: REGISTER, args: {'first_name': '', 'last_name': '1', 'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:53:13,243 - INFO - [SERVER_BL] sent '(False, 'ID_PHONE_TAKEN')'
+2026-01-05 14:53:13,243 - INFO - [CLIENT_BL] received ('REGISTER', (False, 'ID_PHONE_TAKEN')) 
+2026-01-05 14:54:55,928 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-01-05 14:54:55,928 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-01-05 14:55:00,420 - INFO - [SERVER_BL] listening...
+2026-01-05 14:55:02,387 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-05 14:55:02,387 - INFO - [SERVER_BL] Client ('127.0.0.1', 64302) connected 
+2026-01-05 14:55:02,387 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-01-05 14:55:09,202 - INFO - [Client GUI] Received data from Register window: {'first_name': '1', 'last_name': '1', 'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:55:09,202 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '1', 'last_name': '1', 'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-05 14:55:09,202 - INFO - [SERVER_BL] received from ('127.0.0.1', 64302)] - cmd: REGISTER, args: {'first_name': '1', 'last_name': '1', 'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-05 14:55:09,203 - INFO - [SERVER_BL] sent '(False, 'ID_PHONE_TAKEN')'
+2026-01-05 14:55:09,203 - INFO - [CLIENT_BL] received ('REGISTER', (False, 'ID_PHONE_TAKEN')) 
+2026-01-05 14:55:15,144 - INFO - [SERVER_BL] [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-01-05 14:55:15,144 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 64302) 

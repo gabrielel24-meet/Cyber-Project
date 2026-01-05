@@ -34,42 +34,40 @@ def login(data):
             return False, "Error"
 
 def register(data):
-        # try:
-            conn = sqlite3.connect("Bank.db")
-            cursor = conn.cursor()
-            data = ast.literal_eval(data)
-            cursor.execute("SELECT id, phone_number, account_number FROM users")
-            rows = cursor.fetchall()
 
-            for row in rows:
-                if row[0] == data["id"] and row[1] == data["phone_number"]:
-                    return False, "ID_PHONE_TAKEN"
-                if row[0] == data["id"]:
-                    return False, "ID_TAKEN"
-                if row[1] == data["phone_number"]:
-                    return False, "PHONE_TAKEN"
+        conn = sqlite3.connect("Bank.db")
+        cursor = conn.cursor()
+        data = ast.literal_eval(data)
+        cursor.execute("SELECT id, phone_number, account_number FROM users")
+        rows = cursor.fetchall()
 
-            account_numbers = []
-            for row in rows:
-                account_numbers.append(row[2])
-            print(account_numbers)
-            account_number = str(random.randint(1,4))
+        for row in rows:
+            if row[0] == data["id"] and row[1] == data["phone_number"]:
+                return False, "ID_PHONE_TAKEN"
+            if row[0] == data["id"]:
+                return False, "ID_TAKEN"
+            if row[1] == data["phone_number"]:
+                return False, "PHONE_TAKEN"
 
-            print(account_number)
-            while account_number in account_numbers:
-                print(account_number)
-                account_number = random.randint(1,6)
+        account_numbers = []
+        for row in rows:
+            account_numbers.append(row[2])
+        account_number = str(random.randint(1,1000))
 
-            id1,first,last,phone,password = data["id"], data["first_name"], data["last_name"], data["phone_number"], data["password"]
+        while account_number in account_numbers:
+            account_number = str(random.randint(1, 6))
 
-            cursor.execute(
-                """INSERT INTO users (id, first_name, last_name, phone_number, password, account_number, balance) VALUES (?, ?, ?, ?, ?, ?, ?)""",
-                (id1,first,last,phone,password, account_number,0))
+        id1,first,last,phone,password = data["id"], data["first_name"], data["last_name"], data["phone_number"], data["password"]
 
-            conn.commit()
-            return True, "REGISTERED"
+        cursor.execute(
+            """INSERT INTO users (id, first_name, last_name, phone_number, password, account_number, balance) VALUES (?, ?, ?, ?, ?, ?, ?)""",
+            (id1,first,last,phone,password, account_number,0))
+
+        conn.commit()
+        return True, "REGISTERED"
+
 
 
 if __name__ == "__main__":
-    data = "{'first_name': 'aaa', 'last_name': 'aaa', 'id': '9', 'phone_number': '9', 'password': '1111', }"
+    data = "{'first_name': 'aaa', 'last_name': 'aaa', 'id': '11', 'phone_number': '90', 'password': '1111', }"
     print(register(data))

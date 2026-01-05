@@ -145,7 +145,10 @@ class CClientGUI(CClientBL):
         flag,cmd = self.responses_flag
         if flag == True:
             if cmd == "TRANSFER-2":
-               self.update_balance_label()
+                self.update_balance_label()
+            elif cmd == "ID_PHONE_TAKEN":
+                self.update_register_page(cmd)
+            flag = False
         self.root.after(1000,self.check_for_responses)
 
     def open_login_page(self):
@@ -182,6 +185,9 @@ class CClientGUI(CClientBL):
 
     def update_balance_label(self):
         self.balance_label.configure(text=f"Balance: {self.balance}₪")
+
+    def update_register_page(self, data):
+        self.login_page.register_page.show_taken_data_label(data)
 
     def on_click_open_transfer(self):
         self.destination_user_frame.pack(pady = 20)

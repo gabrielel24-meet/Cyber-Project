@@ -18,13 +18,15 @@ cursor = conn.cursor()
 #     """)
 
 # Insert data record
-cursor.execute("""INSERT INTO users (id, first_name, last_name, phone_number, password, account_number, balance) VALUES (?, ?, ?, ?, ?, ?, ?)""",
-               ("3", "bobby", "boten", "3","3",3,0))
+# cursor.execute("""INSERT INTO users (id, first_name, last_name, phone_number, password, account_number, balance) VALUES (?, ?, ?, ?, ?, ?, ?)""",
+#                ("3", "bobby", "boten", "3","3",3,0))
 
 # Update Data
 # cursor.execute("ALTER TABLE users RENAME COLUMN email to phone_number")
-# cursor.execute(f"UPDATE users SET balance = ? WHERE account_number = ?", ( 3000, 2))
+cursor.execute(f"UPDATE users SET password = ? WHERE account_number = ?", ( 1, 1))
 
+# Delete Data
+# cursor.execute("DELETE FROM users WHERE id = ?",(10,))
 
 #Confirm and save data into DataBase
 conn.commit()

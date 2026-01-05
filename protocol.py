@@ -69,7 +69,7 @@ def get_balance(account_number):
 
     cursor.execute("SELECT balance FROM users WHERE account_number = ?",(account_number,))
     balance = cursor.fetchone()[0]
-    return "GET_BALANCE", balance
+    return balance
 
 
 def transfer(data):

@@ -89,6 +89,7 @@ class CClientHandler(CServerBL):
                     self.notify_transfer(response[1])
                 else:
                     write_to_log(f"[SERVER_BL] sent '{response}'")
+                    response = cmd,response
                     self._client_socket.send(str(response).encode())
 
         except Exception as e:
@@ -96,9 +97,6 @@ class CClientHandler(CServerBL):
             write_to_log(f"[SERVER_BL] {e}")
             write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")
 
-    def stop(self):
-        self._client_socket.close()
-        self._client_thread.join()
 
     def notify_transfer(self, data):
         try:
@@ -121,3 +119,7 @@ class CClientHandler(CServerBL):
             self._client_socket.send(f"Error - {e}")
 
 
+
+    def stop(self):
+        self._client_socket.close()
+        self._client_thread.join()

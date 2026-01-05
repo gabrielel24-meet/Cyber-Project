@@ -73,9 +73,13 @@ class CRegister:
 
         self.first_name_entry = self.create_entry(self.main_frame, "First Name",0.2,0.2)
         self.last_name_entry = self.create_entry(self.main_frame, "Last Name",0.2,0.4)
+
         self.id_entry = self.create_entry(self.main_frame, "ID",0.2,0.6)
+        self.error_message = ctk.CTkLabel(self.main_frame,text="can't transfer to yourself")
 
         self.phone_number_entry = self.create_entry(self.main_frame, "Phone Number",0.6, 0.2)
+        self.error_message = ctk.CTkLabel(self.main_frame,text="can't transfer to yourself")
+
         self.password_entry = self.create_entry(self.main_frame, "Password",0.6, 0.4)
 
         self.submit_button = ctk.CTkButton(
@@ -128,6 +132,10 @@ class CRegister:
         current_time = datetime.now().strftime("%H:%M:%S")
         self.time_label.configure(text=f"{current_time}")
         self.root.after(1000, self.update_time)  # Update every second
+
+    def show_taken_data_label(self, response):
+        if response == "ID_PHONE_TAKEN":
+            self.error_message.pack()
 
     def run(self):
         self.create_ui()

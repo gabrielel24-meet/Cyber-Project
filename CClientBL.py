@@ -43,6 +43,8 @@ class CClientBL:
                     self.update_balance(response)
                 elif cmd == "LOGIN":
                     self.update_user_data(response)
+                elif cmd == "REGISTER":
+                    self.handle_register(response)
                 elif cmd == "TRANSFER-1":
                     self.transfer_money()
                 elif cmd == "TRANSFER-2":
@@ -89,6 +91,11 @@ class CClientBL:
 
     def transfer_money(self):
         self.send_data("GET_BALANCE",self.account_number)
+
+    def handle_register(self, response):
+
+        if response == "ID_PHONE_TAKEN":
+            responses_flag = (False, response)
 
 
 if __name__ == "__main__":
