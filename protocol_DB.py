@@ -3,7 +3,9 @@ import random
 from protocol import *
 
 
-login_cmd = ["LOGIN","REGISTER"]
+login_cmd = ["LOGIN", "REGISTER"]
+register_cmd = ["ID_PHONE_TAKEN", "ID_TAKEN", "PHONE_TAKEN", "REGISTERED"]
+
 
 def create_response_msg_DB(cmd, args):
     response = ""

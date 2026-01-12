@@ -20,7 +20,7 @@ class CClientBL:
         self.account_number = None
         self.balance = None
 
-        self.responses_flag = (False,None)
+        self.responses_flag = (False, None)
 
     def connect_to_server(self):
         try:
@@ -35,7 +35,7 @@ class CClientBL:
             write_to_log("[CLIENT_BL] Exception on connect: {}".format(e))
 
     def handle_responses(self):
-        try:
+        # try:
             while True:
                 cmd, response = self.receive_data()
 
@@ -51,9 +51,9 @@ class CClientBL:
                     self.transfer_money()
                     self.responses_flag = (True,"TRANSFER-2")
 
-        except Exception as e:
-            write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))
-            return False
+        # except Exception as e:
+        #     write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))
+        #     return False
 
 
     def update_balance(self,data):
@@ -93,9 +93,10 @@ class CClientBL:
         self.send_data("GET_BALANCE",self.account_number)
 
     def handle_register(self, response):
+        message = response[1]
+        self.responses_flag = (True, message)
 
-        if response == "ID_PHONE_TAKEN":
-            responses_flag = (False, response)
+
 
 
 if __name__ == "__main__":

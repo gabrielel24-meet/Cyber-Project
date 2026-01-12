@@ -1,6 +1,5 @@
-import threading
-import time
 from protocol import *
+from protocol_DB import *
 from CClientBL import *
 from CLogin import *
 from CRegister import *
@@ -42,7 +41,7 @@ class CClientGUI(CClientBL):
         self.destination_user_frame = None
         self.transfer_amount_frame = None
 
-        self.check_for_responses_thread = threading.Thread(target=self.check_for_responses)
+        self.check_for_responses_thread = threading.Thread(target=self.check_for_responses).start()
 
     def create_ui(self):
         # Main container
@@ -142,14 +141,15 @@ class CClientGUI(CClientBL):
         self.root.after(1000, self.update_time)  # Update every second
 
     def check_for_responses(self):
-        flag,cmd = self.responses_flag
+        flag, cmd = self.responses_flag
         if flag == True:
             if cmd == "TRANSFER-2":
                 self.update_balance_label()
-            elif cmd == "ID_PHONE_TAKEN":
+            elif cmd in register_cmd:
+                write_to_log(cmd)
                 self.update_register_page(cmd)
             flag = False
-        self.root.after(1000,self.check_for_responses)
+        self.root.after(1000, self.check_for_responses)
 
     def open_login_page(self):
 
@@ -163,7 +163,6 @@ class CClientGUI(CClientBL):
             self.update_balance_label()
             self.login_button.place_forget()
             self.transfer_button.pack()
-            self.check_for_responses_thread.start()
 
         def callback_register(data):
             write_to_log(f"[Client GUI] Received data from Register window: {data}")
@@ -187,7 +186,7 @@ class CClientGUI(CClientBL):
         self.balance_label.configure(text=f"Balance: {self.balance}₪")
 
     def update_register_page(self, data):
-        self.login_page.register_page.show_taken_data_label(data)
+        self.login_page.register_page.handle_register_message(data)
 
     def on_click_open_transfer(self):
         self.destination_user_frame.pack(pady = 20)

@@ -88,8 +88,8 @@ class CClientHandler(CServerBL):
                 elif cmd == "TRANSFER" and response[0] == True:
                     self.notify_transfer(response[1])
                 else:
+                    response = cmd, response
                     write_to_log(f"[SERVER_BL] sent '{response}'")
-                    response = cmd,response
                     self._client_socket.send(str(response).encode())
 
         except Exception as e:

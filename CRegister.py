@@ -75,10 +75,10 @@ class CRegister:
         self.last_name_entry = self.create_entry(self.main_frame, "Last Name",0.2,0.4)
 
         self.id_entry = self.create_entry(self.main_frame, "ID",0.2,0.6)
-        self.error_message = ctk.CTkLabel(self.main_frame,text="can't transfer to yourself")
+        self.id_error_message = ctk.CTkLabel(self.main_frame,text="ID taken")
 
         self.phone_number_entry = self.create_entry(self.main_frame, "Phone Number",0.6, 0.2)
-        self.error_message = ctk.CTkLabel(self.main_frame,text="can't transfer to yourself")
+        self.phone_error_message = ctk.CTkLabel(self.main_frame,text="Phone Number taken")
 
         self.password_entry = self.create_entry(self.main_frame, "Password",0.6, 0.4)
 
@@ -133,15 +133,28 @@ class CRegister:
         self.time_label.configure(text=f"{current_time}")
         self.root.after(1000, self.update_time)  # Update every second
 
-    def show_taken_data_label(self, response):
+    def handle_register_message(self, response):
         if response == "ID_PHONE_TAKEN":
-            self.error_message.pack()
+            self.id_error_message.place(relx=0.2, rely=0.68)
+            self.phone_error_message.place(relx=0.6, rely=0.28)
+        if response == "PHONE_TAKEN":
+            self.phone_error_message.place(relx=0.6, rely=0.28)
+        if response == "ID_TAKEN":
+            self.id_error_message.place(relx=0.2, rely=0.68)
+        if response == "REGISTERED":
+            self.main_frame.pack_forget()
+            self.previous_page.pack(fill="both", expand=True, padx=20, pady=20)
+
+
 
     def run(self):
         self.create_ui()
         self.root.mainloop()
 
     def on_click_register(self):
+        self.phone_error_message.place_forget()
+        self.id_error_message.place_forget()
+
         data = {"first_name": self.first_name_entry.get(),
                 "last_name":self.last_name_entry.get(),
                 "id": self.id_entry.get(),
