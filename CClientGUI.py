@@ -146,9 +146,8 @@ class CClientGUI(CClientBL):
             if cmd == "TRANSFER-2":
                 self.update_balance_label()
             elif cmd in register_cmd:
-                write_to_log(cmd)
                 self.update_register_page(cmd)
-            flag = False
+        self.responses_flag = False,None
         self.root.after(1000, self.check_for_responses)
 
     def open_login_page(self):

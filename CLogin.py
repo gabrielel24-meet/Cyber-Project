@@ -146,7 +146,7 @@ class CLogin:
         self.main_frame.pack_forget()
 
         if self.register_page == None:
-            self.register_page = CRegister(self.root, self.previous_page, self.callback_register)
+            self.register_page = CRegister(self.root, self.main_frame, self.callback_register)
             self.register_page.run()
         else:
             self.register_page.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
