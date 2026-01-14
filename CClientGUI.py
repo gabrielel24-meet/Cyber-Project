@@ -3,7 +3,7 @@ from protocol_DB import *
 from CClientBL import *
 from CLogin import *
 from CRegister import *
-
+from ExpensesGUI import *
 
 # Set appearance mode and color theme
 ctk.set_appearance_mode("dark")
@@ -37,6 +37,7 @@ class CClientGUI(CClientBL):
         self._entry_IP = host
 
         self.login_page = None
+        self.expense_window = None
 
         self.destination_user_frame = None
         self.transfer_amount_frame = None
@@ -96,6 +97,18 @@ class CClientGUI(CClientBL):
             border_width=1,
             fg_color=self.primary_color,
             command=self.on_click_open_transfer
+
+        )
+
+        # Transfer Button
+        self.expense_button = ctk.CTkButton(
+            self.main_frame,
+            text="Enter expense",
+            width=110,
+            height=30,
+            border_width=1,
+            fg_color=self.primary_color,
+            command=self.open_expenses_window
 
         )
 
@@ -162,6 +175,7 @@ class CClientGUI(CClientBL):
             self.update_balance_label()
             self.login_button.place_forget()
             self.transfer_button.pack()
+            self.expense_button.pack()
 
         def callback_register(data):
             write_to_log(f"[Client GUI] Received data from Register window: {data}")
@@ -175,6 +189,11 @@ class CClientGUI(CClientBL):
             self.login_page.run()
         else:
             self.login_page.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
+
+
+    def open_expenses_window(self):
+        self.expense_window = CExpenses()
+        self.expense_window.run()
 
 
     def show_page(self, next_frame, previous_frame):
