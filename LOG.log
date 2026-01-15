@@ -1120,3 +1120,240 @@ nected
 2026-01-14 16:00:46,437 - INFO - [SERVER_BL] ACTIVE CONNECTION 4
 2026-01-14 16:00:48,442 - INFO - [SERVER_BL] [WinError 10054] An existing connection was forcibly closed by the remote host
 2026-01-14 16:00:48,442 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 60568) 
+2026-01-15 06:47:45,907 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-01-15 06:48:46,622 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-01-15 06:49:38,502 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-01-15 06:50:25,587 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-01-15 06:54:28,925 - INFO - [SERVER_BL] listening...
+2026-01-15 06:54:32,860 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 06:54:32,860 - INFO - [SERVER_BL] Client ('127.0.0.1', 55033) connected 
+2026-01-15 06:54:32,861 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-01-15 06:54:40,628 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 06:54:40,629 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 06:54:40,629 - INFO - [SERVER_BL] received from ('127.0.0.1', 55033)] - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 06:54:40,638 - INFO - [SERVER_BL] 'account_number'
+2026-01-15 06:54:40,638 - INFO - [CLIENT_BL] Exception on receive: invalid syntax (<unknown>, line 0)
+2026-01-15 06:54:40,639 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 55033) 
+2026-01-15 06:54:40,639 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-01-15 06:55:07,966 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 06:55:07,966 - INFO - [SERVER_BL] Client ('127.0.0.1', 55034) connected 
+2026-01-15 06:55:07,967 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2026-01-15 06:55:18,481 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 06:55:18,482 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 06:55:18,482 - INFO - [SERVER_BL] received from ('127.0.0.1', 55034)] - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 06:55:18,485 - INFO - [SERVER_BL] 'account_number'
+2026-01-15 06:55:18,485 - INFO - [CLIENT_BL] Exception on receive: invalid syntax (<unknown>, line 0)
+2026-01-15 06:55:18,486 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 55034) 
+2026-01-15 06:55:18,486 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-01-15 07:00:32,933 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 07:00:32,933 - INFO - [SERVER_BL] Client ('127.0.0.1', 55035) connected 
+2026-01-15 07:00:32,935 - INFO - [SERVER_BL] ACTIVE CONNECTION 3
+2026-01-15 07:00:41,202 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 07:00:41,202 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 07:00:41,203 - INFO - [SERVER_BL] received from ('127.0.0.1', 55035)] - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 07:00:41,204 - INFO - [SERVER_BL] 'account_number'
+2026-01-15 07:00:41,204 - INFO - [CLIENT_BL] Exception on receive: invalid syntax (<unknown>, line 0)
+2026-01-15 07:00:41,205 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 55035) 
+2026-01-15 07:00:41,205 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-01-15 07:01:22,307 - INFO - [SERVER_BL] listening...
+2026-01-15 07:01:33,774 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 07:01:33,774 - INFO - [SERVER_BL] Client ('127.0.0.1', 55036) connected 
+2026-01-15 07:01:33,775 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-01-15 07:01:50,106 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 07:01:50,107 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 07:01:50,107 - INFO - [SERVER_BL] received from ('127.0.0.1', 55036) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 07:01:50,110 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 1000.0))'
+2026-01-15 07:01:50,110 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 1000.0)) 
+2026-01-15 07:03:30,870 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-15 07:03:30,871 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 55036) 
+2026-01-15 07:03:46,789 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 07:03:46,789 - INFO - [SERVER_BL] Client ('127.0.0.1', 55037) connected 
+2026-01-15 07:03:46,790 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2026-01-15 07:04:19,280 - INFO - [Client GUI] Received data from Register window: {'first_name': 'q', 'last_name': 'q', 'id': '23', 'phone_number': '23', 'password': '23'}
+2026-01-15 07:04:19,281 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': 'q', 'last_name': 'q', 'id': '23', 'phone_number': '23', 'password': '23'}'
+2026-01-15 07:04:19,281 - INFO - [SERVER_BL] received from ('127.0.0.1', 55037) - cmd: REGISTER, args: {'first_name': 'q', 'last_name': 'q', 'id': '23', 'phone_number': '23', 'password': '23'}
+2026-01-15 07:04:19,284 - INFO - [SERVER_BL] sent '('REGISTER', (False, 'ID_PHONE_TAKEN'))'
+2026-01-15 07:04:19,285 - INFO - [CLIENT_BL] received ('REGISTER', (False, 'ID_PHONE_TAKEN')) 
+2026-01-15 07:04:29,875 - INFO - [Client GUI] Received data from Register window: {'first_name': 'q', 'last_name': 'q', 'id': '44', 'phone_number': '44', 'password': '44'}
+2026-01-15 07:04:29,876 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': 'q', 'last_name': 'q', 'id': '44', 'phone_number': '44', 'password': '44'}'
+2026-01-15 07:04:29,876 - INFO - [SERVER_BL] received from ('127.0.0.1', 55037) - cmd: REGISTER, args: {'first_name': 'q', 'last_name': 'q', 'id': '44', 'phone_number': '44', 'password': '44'}
+2026-01-15 07:04:29,900 - INFO - [SERVER_BL] sent '('REGISTER', (True, 'REGISTERED'))'
+2026-01-15 07:04:29,901 - INFO - [CLIENT_BL] received ('REGISTER', (True, 'REGISTERED')) 
+2026-01-15 07:04:37,707 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-15 07:04:37,708 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 55037) 
+2026-01-15 07:13:27,491 - INFO - [SERVER_BL] listening...
+2026-01-15 07:13:30,200 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 07:13:30,200 - INFO - [SERVER_BL] Client ('127.0.0.1', 55038) connected 
+2026-01-15 07:13:30,202 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-01-15 07:13:35,678 - INFO - [Client GUI] Received data from Login window: {'id': '', 'phone_number': '', 'password': ''}
+2026-01-15 07:13:35,679 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '', 'phone_number': '', 'password': ''}'
+2026-01-15 07:13:35,679 - INFO - [SERVER_BL] received from ('127.0.0.1', 55038) - cmd: LOGIN, args: {'id': '', 'phone_number': '', 'password': ''}
+2026-01-15 07:13:35,681 - INFO - [SERVER_BL] sent '('LOGIN', 'None')'
+2026-01-15 07:13:35,682 - INFO - [CLIENT_BL] received ('LOGIN', 'None') 
+2026-01-15 07:13:35,682 - INFO - [CLIENT_BL] Exception on handle_responses: string index out of range
+2026-01-15 07:13:42,225 - INFO - [SERVER_BL] error - 'list index out of range'
+2026-01-15 07:13:42,225 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 55038) 
+2026-01-15 07:14:51,141 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 07:14:51,141 - INFO - [SERVER_BL] Client ('127.0.0.1', 55039) connected 
+2026-01-15 07:14:51,142 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2026-01-15 07:14:57,963 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '', 'password': ''}
+2026-01-15 07:14:57,964 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '', 'password': ''}'
+2026-01-15 07:14:57,964 - INFO - [SERVER_BL] received from ('127.0.0.1', 55039) - cmd: LOGIN, args: {'id': '1', 'phone_number': '', 'password': ''}
+2026-01-15 07:14:57,966 - INFO - [SERVER_BL] sent '('LOGIN', (False, 'Error'))'
+2026-01-15 07:14:57,967 - INFO - [CLIENT_BL] received ('LOGIN', (False, 'Error')) 
+2026-01-15 07:14:57,967 - INFO - [CLIENT_BL] Exception on handle_responses: tuple index out of range
+2026-01-15 07:15:35,682 - INFO - [SERVER_BL] error - 'list index out of range'
+2026-01-15 07:15:35,682 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 55039) 
+2026-01-15 15:24:18,223 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 15:24:18,223 - INFO - [SERVER_BL] Client ('127.0.0.1', 57426) connected 
+2026-01-15 15:24:18,224 - INFO - [SERVER_BL] ACTIVE CONNECTION 3
+2026-01-15 15:24:22,458 - INFO - [Client GUI] Received data from Login window: {'id': '', 'phone_number': '', 'password': ''}
+2026-01-15 15:24:22,460 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '', 'phone_number': '', 'password': ''}'
+2026-01-15 15:24:22,460 - INFO - [SERVER_BL] received from ('127.0.0.1', 57426) - cmd: LOGIN, args: {'id': '', 'phone_number': '', 'password': ''}
+2026-01-15 15:24:22,463 - INFO - [SERVER_BL] sent '('LOGIN', 'None')'
+2026-01-15 15:24:22,463 - INFO - [CLIENT_BL] received ('LOGIN', 'None') 
+2026-01-15 15:24:22,464 - INFO - [CLIENT_BL] Exception on handle_responses: string index out of range
+2026-01-15 15:24:33,261 - INFO - [SERVER_BL] error - 'list index out of range'
+2026-01-15 15:24:33,262 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57426) 
+2026-01-15 15:25:37,718 - INFO - [SERVER_BL] Client ('127.0.0.1', 57427) connected 
+2026-01-15 15:25:37,720 - INFO - [SERVER_BL] ACTIVE CONNECTION 4
+2026-01-15 15:25:41,819 - INFO - [Client GUI] Received data from Login window: {'id': '', 'phone_number': '', 'password': ''}
+2026-01-15 15:25:41,820 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '', 'phone_number': '', 'password': ''}'
+2026-01-15 15:25:41,820 - INFO - [SERVER_BL] received from ('127.0.0.1', 57427) - cmd: LOGIN, args: {'id': '', 'phone_number': '', 'password': ''}
+2026-01-15 15:25:41,823 - INFO - [SERVER_BL] sent '('LOGIN', 'None')'
+2026-01-15 15:25:41,824 - INFO - [CLIENT_BL] received ('LOGIN', 'None') 
+2026-01-15 15:25:41,825 - INFO - [CLIENT_BL] Exception on handle_responses: string index out of range
+2026-01-15 15:25:51,947 - INFO - [SERVER_BL] error - 'list index out of range'
+2026-01-15 15:25:51,948 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57427) 
+2026-01-15 15:29:58,833 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 15:29:58,834 - INFO - [SERVER_BL] Client ('127.0.0.1', 57440) connected 
+2026-01-15 15:29:58,839 - INFO - [SERVER_BL] ACTIVE CONNECTION 5
+2026-01-15 15:30:16,284 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-15 15:30:16,284 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57440) 
+2026-01-15 15:30:18,027 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 15:30:18,027 - INFO - [SERVER_BL] Client ('127.0.0.1', 57441) connected 
+2026-01-15 15:30:18,028 - INFO - [SERVER_BL] ACTIVE CONNECTION 6
+2026-01-15 15:30:47,032 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:30:47,032 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 15:30:47,033 - INFO - [SERVER_BL] received from ('127.0.0.1', 57441) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:30:47,035 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 1000.0))'
+2026-01-15 15:30:47,035 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 1000.0)) 
+2026-01-15 15:34:43,917 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-15 15:34:43,917 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57441) 
+2026-01-15 15:34:45,448 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+nected 
+2026-01-15 15:34:45,453 - INFO - [SERVER_BL] ACTIVE CONNECTION 7
+2026-01-15 15:34:54,666 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:34:54,667 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 15:34:54,667 - INFO - [SERVER_BL] received from ('127.0.0.1', 57442) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:34:54,670 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 1000.0))'
+2026-01-15 15:34:54,671 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 1000.0)) 
+2026-01-15 15:35:21,337 - INFO - [CLIENT_BL] send to server 'TRANSFER>('1', '2', -4000)'
+2026-01-15 15:35:21,337 - INFO - [SERVER_BL] received from ('127.0.0.1', 57442) - cmd: TRANSFER, args: ('1', '2', -4000)
+2026-01-15 15:35:21,374 - INFO - [SERVER_BL] sent to 1 - '('TRANSFER-1', 'Client 1 transferred -4000\u20aa to client 2')'
+2026-01-15 15:35:21,375 - INFO - [CLIENT_BL] received ('TRANSFER-1', 'Client 1 transferred -4000\u20aa to client 2') 
+2026-01-15 15:35:21,375 - INFO - [CLIENT_BL] send to server 'GET_BALANCE>1'
+2026-01-15 15:35:21,375 - INFO - [SERVER_BL] received from ('127.0.0.1', 57442) - cmd: GET_BALANCE, args: 1
+2026-01-15 15:35:21,380 - INFO - [SERVER_BL] sent '('GET_BALANCE', 5000.0)'
+2026-01-15 15:35:21,381 - INFO - [CLIENT_BL] received ('GET_BALANCE', 5000.0) 
+2026-01-15 15:35:23,405 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-15 15:35:23,405 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57442) 
+2026-01-15 15:38:00,049 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+nected 
+2026-01-15 15:38:00,051 - INFO - [SERVER_BL] ACTIVE CONNECTION 8
+2026-01-15 15:38:05,729 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:38:05,730 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 15:38:05,730 - INFO - [SERVER_BL] received from ('127.0.0.1', 57443) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:38:05,732 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0))'
+2026-01-15 15:38:05,732 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0)) 
+2026-01-15 15:38:09,054 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-15 15:38:09,054 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57443) 
+2026-01-15 15:38:37,622 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+nected 
+2026-01-15 15:38:37,623 - INFO - [SERVER_BL] ACTIVE CONNECTION 9
+2026-01-15 15:38:44,999 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:38:45,000 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 15:38:45,000 - INFO - [SERVER_BL] received from ('127.0.0.1', 57444) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:38:45,004 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0))'
+2026-01-15 15:38:45,005 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0)) 
+2026-01-15 15:38:55,052 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-15 15:38:55,053 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57444) 
+2026-01-15 15:39:06,892 - INFO - [SERVER_BL] Client ('127.0.0.1', 57445) connected 
+2026-01-15 15:39:06,892 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 15:39:06,892 - INFO - [SERVER_BL] ACTIVE CONNECTION 10
+2026-01-15 15:39:16,622 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:39:16,623 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 15:39:16,623 - INFO - [SERVER_BL] received from ('127.0.0.1', 57445) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:39:16,625 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0))'
+2026-01-15 15:39:16,625 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0)) 
+2026-01-15 15:39:23,892 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-15 15:39:23,892 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57445) 
+2026-01-15 15:39:34,909 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+nected 
+2026-01-15 15:39:34,910 - INFO - [SERVER_BL] ACTIVE CONNECTION 11
+2026-01-15 15:39:42,254 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:39:42,255 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 15:39:42,255 - INFO - [SERVER_BL] received from ('127.0.0.1', 57446) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:39:42,257 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0))'
+2026-01-15 15:39:42,257 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0)) 
+2026-01-15 15:39:53,998 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-15 15:39:53,998 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57446) 
+2026-01-15 15:39:57,715 - INFO - [SERVER_BL] Client ('127.0.0.1', 57447) connected 
+2026-01-15 15:39:57,714 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 15:39:57,715 - INFO - [SERVER_BL] ACTIVE CONNECTION 12
+2026-01-15 15:41:48,014 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:41:48,015 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 15:41:48,015 - INFO - [SERVER_BL] received from ('127.0.0.1', 57447) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:41:48,019 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0))'
+2026-01-15 15:41:48,019 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0)) 
+2026-01-15 15:42:23,277 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-15 15:42:23,277 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57447) 
+2026-01-15 15:43:10,634 - INFO - [SERVER_BL] Client ('127.0.0.1', 57448) connected 
+2026-01-15 15:43:10,639 - INFO - [SERVER_BL] ACTIVE CONNECTION 13
+2026-01-15 15:43:17,837 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:43:17,837 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 15:43:17,837 - INFO - [SERVER_BL] received from ('127.0.0.1', 57448) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:43:17,840 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0))'
+2026-01-15 15:43:17,840 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0)) 
+2026-01-15 15:43:23,870 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-15 15:43:23,870 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57448) 
+2026-01-15 15:43:30,953 - INFO - [SERVER_BL] Client ('127.0.0.1', 57449) connected 
+2026-01-15 15:43:30,953 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 15:43:30,954 - INFO - [SERVER_BL] ACTIVE CONNECTION 14
+2026-01-15 15:43:38,255 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:43:38,256 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 15:43:38,256 - INFO - [SERVER_BL] received from ('127.0.0.1', 57449) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:43:38,259 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0))'
+2026-01-15 15:43:38,260 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0)) 
+2026-01-15 15:43:42,606 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-15 15:43:42,606 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57449) 
+2026-01-15 15:45:43,536 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 15:45:43,537 - INFO - [SERVER_BL] Client ('127.0.0.1', 57450) connected 
+2026-01-15 15:45:43,538 - INFO - [SERVER_BL] ACTIVE CONNECTION 15
+2026-01-15 15:45:52,009 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:45:52,010 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 15:45:52,010 - INFO - [SERVER_BL] received from ('127.0.0.1', 57450) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:45:52,013 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0))'
+2026-01-15 15:45:52,014 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0)) 
+2026-01-15 15:45:57,481 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-15 15:45:57,481 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57450) 
+2026-01-15 15:46:17,038 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 15:46:17,038 - INFO - [SERVER_BL] Client ('127.0.0.1', 57451) connected 
+2026-01-15 15:46:17,039 - INFO - [SERVER_BL] ACTIVE CONNECTION 16
+2026-01-15 15:46:25,027 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:46:25,027 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 15:46:25,027 - INFO - [SERVER_BL] received from ('127.0.0.1', 57451) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:46:25,029 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0))'
+2026-01-15 15:46:25,029 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0)) 
+2026-01-15 15:46:29,013 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-15 15:46:29,013 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57451) 
+2026-01-15 15:46:33,626 - INFO - [SERVER_BL] Client ('127.0.0.1', 57452) connected 
+2026-01-15 15:46:33,626 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-15 15:46:33,628 - INFO - [SERVER_BL] ACTIVE CONNECTION 17
+2026-01-15 15:46:41,778 - INFO - [Client GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:46:41,779 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-15 15:46:41,779 - INFO - [SERVER_BL] received from ('127.0.0.1', 57452) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-15 15:46:41,782 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0))'
+2026-01-15 15:46:41,782 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0)) 
+2026-01-15 15:46:46,342 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-15 15:46:46,342 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57452) 

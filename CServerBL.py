@@ -71,7 +71,7 @@ class CClientHandler(CServerBL):
                 request = self._client_socket.recv(1024).decode()
                 cmd, args = get_cmd_and_args(request)
 
-                write_to_log(f"[SERVER_BL] received from {self._address}] - cmd: {cmd}, args: {args}")
+                write_to_log(f"[SERVER_BL] received from {self._address} - cmd: {cmd}, args: {args}")
 
                 if check_cmd(cmd) == 1:
                     response = create_response_msg(cmd,args)
@@ -94,7 +94,7 @@ class CClientHandler(CServerBL):
 
         except Exception as e:
             self._client_socket.close()
-            write_to_log(f"[SERVER_BL] {e}")
+            write_to_log(f"[SERVER_BL] error - '{e}'")
             write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")
 
 

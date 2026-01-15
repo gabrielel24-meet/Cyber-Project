@@ -88,14 +88,15 @@ class CLogin:
         self.back_button.place(relx=0.01, rely=0.05, anchor="nw")
 
 
-        self.first_name_entry = self.create_entry(self.main_frame, "First Name",0.2,0.2)
-        self.last_name_entry = self.create_entry(self.main_frame, "Last Name",0.2,0.4)
-        self.id_entry = self.create_entry(self.main_frame, "ID",0.2,0.6)
 
-        self.phone_number_entry = self.create_entry(self.main_frame, "Phone Number",0.6, 0.2)
-        self.password_entry = self.create_entry(self.main_frame, "Password",0.6, 0.4)
-        self.account_number_entry = self.create_entry(self.main_frame, "Account Number",0.6, 0.6)
+        self.id_entry = self.create_entry(self.main_frame, "ID",0.4,0.2)
 
+        self.phone_number_entry = self.create_entry(self.main_frame, "Phone Number",0.4, 0.4)
+        self.phone_error_message = ctk.CTkLabel(self.main_frame,text="Please enter numbers only")
+
+        self.password_entry = self.create_entry(self.main_frame, "Password",0.4, 0.6)
+
+        self.empty_entry_error_message = ctk.CTkLabel(self.main_frame,text="Please enter all fields",font=("Arial",18,"bold"))
         self.submit_button = ctk.CTkButton(
             self.main_frame,
             text="Submit",
@@ -161,16 +162,24 @@ class CLogin:
         self.root.mainloop()
 
     def on_click_login(self):
-        data = {"first_name": self.first_name_entry.get(),
-                "last_name":self.last_name_entry.get(),
-                "id": self.id_entry.get(),
-                "phone_number": self.phone_number_entry.get(),
-                "password": self.password_entry.get(),
-                "account_number":self.account_number_entry.get()}
+        self.empty_entry_error_message.pack_forget()
+        self.phone_error_message.pack_forget()
 
-        self.callback_login(data)
+        flag = self.handle_error_messages()
 
+        if flag:
+            data = {"id": self.id_entry.get(),
+                    "phone_number": self.phone_number_entry.get(),
+                    "password": self.password_entry.get(),
+            }
+            self.callback_login(data)
 
+    def handle_error_messages(self):
+        if self.id_entry.get() == "" or self.phone_number_entry.get() == "" or self.password_entry.get() == "":
+            self.empty_entry_error_message.place(relx=0.4, rely=0.7)
+            return False
+
+        return True
 
 if __name__ == "__main__":
     pass

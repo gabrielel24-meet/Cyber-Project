@@ -168,14 +168,15 @@ class CClientGUI(CClientBL):
         def callback_login(data):
             write_to_log(f"[Client GUI] Received data from Login window: {data}")
             self.send_data("LOGIN", data)
-            time.sleep(0.1)
-            self.bank_name_label.configure(text=f"Hi {self.first_name} {self.last_name}")
-            self.balance_label.pack(pady=20)
-            self.show_page(self.main_frame, self.login_page.main_frame)
-            self.update_balance_label()
-            self.login_button.place_forget()
-            self.transfer_button.pack()
-            self.expense_button.pack()
+            time.sleep(0.2)
+            if self.login_successfully_flag == True:
+                self.bank_name_label.configure(text=f"Hi {self.first_name} {self.last_name}")
+                self.balance_label.pack(pady=20)
+                self.show_page(self.main_frame, self.login_page.main_frame)
+                self.update_balance_label()
+                self.login_button.place_forget()
+                self.transfer_button.place(relx=0.35,rely=0.25)
+                self.expense_button.place(relx=0.5,rely=0.25)
 
         def callback_register(data):
             write_to_log(f"[Client GUI] Received data from Register window: {data}")
@@ -207,7 +208,7 @@ class CClientGUI(CClientBL):
         self.login_page.register_page.handle_register_message(data)
 
     def on_click_open_transfer(self):
-        self.destination_user_frame.pack(pady = 20)
+        self.destination_user_frame.pack(pady=60)
         self.transfer_amount_frame.pack()
         self.transfer_button.configure(command=self.on_click_close_transfer, text="Cancel Transfer")
         self.on_click_transfer.pack(pady = 10)

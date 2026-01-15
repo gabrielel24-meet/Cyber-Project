@@ -21,6 +21,8 @@ class CClientBL:
         self.balance = None
 
         self.responses_flag = (False, None)
+        self.login_successfully_flag = None
+
 
     def connect_to_server(self):
         try:
@@ -80,14 +82,15 @@ class CClientBL:
             return "Error"
 
     def update_user_data(self,data):
-        self.id = data[0]
-        self.first_name = data[1]
-        self.last_name = data[2]
-        self.phone_number = data[3]
-        self.password = data[4]
-        self.account_number = data[5]
-        self.balance = data[6]
-        print(self.balance)
+        if data != "Error":
+            self.login_successfully_flag = True
+            self.id = data[0]
+            self.first_name = data[1]
+            self.last_name = data[2]
+            self.phone_number = data[3]
+            self.password = data[4]
+            self.account_number = data[5]
+            self.balance = data[6]
 
     def transfer_money(self):
         self.send_data("GET_BALANCE",self.account_number)

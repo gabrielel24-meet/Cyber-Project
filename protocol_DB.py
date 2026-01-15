@@ -30,7 +30,7 @@ def login(data):
     if user == None:
         return "None"
     else:
-        if (data["phone_number"] == user[3] and data["password"] == user[4] and data["account_number"] == user[5]):
+        if (data["phone_number"] == user[3] and data["password"] == user[4]):
             return True, user
         else:
             return False, "Error"
