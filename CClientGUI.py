@@ -5,10 +5,6 @@ from CLogin import *
 from CRegister import *
 from ExpensesGUI import *
 
-# Set appearance mode and color theme
-ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("dark-blue")
-
 
 class CClientGUI(CClientBL):
 

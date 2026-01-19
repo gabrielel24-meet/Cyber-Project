@@ -98,7 +98,17 @@ def transfer(data):
         return False ,f"{e}"
 
 
+def is_positive_number(str):
+    try:
+        str = float(str)
+        if str > 0:
+            return True
+        else:
+            return False
+    except:
+        return  False
+
 
 
 if __name__ == "__main__":
-    print(transfer("('1', '2', 1000)"))
+    print(is_positive_number("0"))
