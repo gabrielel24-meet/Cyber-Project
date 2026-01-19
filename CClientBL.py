@@ -1,6 +1,3 @@
-import threading
-import time
-
 from protocol import *
 
 
@@ -63,7 +60,7 @@ class CClientBL:
 
     def send_data(self, cmd, args):
         try:
-            request = create_request_msg(cmd,args)
+            request = create_request_msg(cmd, args)
             self._client_socket.send(request.encode())
             write_to_log(f"[CLIENT_BL] send to server '{request}'")
             return True

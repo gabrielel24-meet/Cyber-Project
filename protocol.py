@@ -4,6 +4,7 @@ from threading import Event
 import customtkinter as ctk
 from datetime import datetime
 import socket
+import time
 import sqlite3
 import ast
 from protocol_DB import *
@@ -21,7 +22,7 @@ DISCONNECT_MSG = "bye"
 LOG_FILE = 'LOG.log'
 logging.basicConfig(filename=LOG_FILE,level=logging.INFO,format='%(asctime)s - %(levelname)s - %(message)s')
 
-standard_cmd = ["GET_BALANCE","TRANSFER"]
+standard_cmd = ["GET_BALANCE","TRANSFER","EXPENSES"]
 
 def write_to_log(msg):
     logging.info(msg)

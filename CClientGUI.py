@@ -162,9 +162,9 @@ class CClientGUI(CClientBL):
     def open_login_page(self):
 
         def callback_login(data):
-            write_to_log(f"[Client GUI] Received data from Login window: {data}")
+            write_to_log(f"[CLIENT_GUI] Received data from Login window: {data}")
             self.send_data("LOGIN", data)
-            time.sleep(0.2)
+            time.sleep(0.1)
             if self.login_successfully_flag == True:
                 self.bank_name_label.configure(text=f"Hi {self.first_name} {self.last_name}")
                 self.balance_label.pack(pady=20)
@@ -175,7 +175,7 @@ class CClientGUI(CClientBL):
                 self.expense_button.place(relx=0.5,rely=0.25)
 
         def callback_register(data):
-            write_to_log(f"[Client GUI] Received data from Register window: {data}")
+            write_to_log(f"[CLIENT_GUI] Received data from Register window: {data}")
             self.send_data("REGISTER", data)
             time.sleep(0.1)
 
@@ -189,9 +189,14 @@ class CClientGUI(CClientBL):
 
 
     def open_expenses_window(self):
-        self.expense_window = CExpenses()
-        self.expense_window.run()
+        write_to_log(f"[CLIENT_GUI] opened Expenses window")
+        def callback_expenses(data):
+            write_to_log(f"[CLIENT_GUI] Received data from Expenses window: {data}")
+            self.send_data("EXPENSES", data)
+            time.sleep(0.1)
 
+        self.expense_window = CExpenses(callback_expenses)
+        self.expense_window.run()
 
     def show_page(self, next_frame, previous_frame):
         next_frame.pack(fill="both", expand=True, padx=20, pady=20)
