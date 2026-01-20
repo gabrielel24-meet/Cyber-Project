@@ -78,6 +78,7 @@ class CClientGUI(CClientBL):
             height=30,
             border_width=2,
             fg_color= self.primary_color,
+            hover_color=self.accent_color,
             command= self.open_login_page
 
         )
@@ -194,8 +195,9 @@ class CClientGUI(CClientBL):
             write_to_log(f"[CLIENT_GUI] Received data from Expenses window: {data}")
             self.send_data("EXPENSES", data)
             time.sleep(0.1)
+            self.expense_window.root.destroy()
 
-        self.expense_window = CExpenses(callback_expenses)
+        self.expense_window = CExpenses(callback_expenses, self.id)
         self.expense_window.run()
 
     def show_page(self, next_frame, previous_frame):

@@ -54,6 +54,8 @@ def create_response_msg(cmd,args):
         response = get_balance(args)
     elif cmd == "TRANSFER":
         response = transfer(args)
+    elif cmd == "EXPENSES":
+        response = expenses(args)
 
     return response
 
@@ -99,6 +101,28 @@ def transfer(data):
         return False ,f"{e}"
 
 
+def expenses(data):
+    try:
+        data = ast.literal_eval(data)
+        conn = sqlite3.connect("Bank.db")
+        cursor = conn.cursor()
+
+        id = data[0]
+        expense_type = data[1][0]
+        payment_type = data[1][1]
+        expense_amount = data[1][2]
+
+        cursor.execute("""INSERT INTO expenses (id, expense_type, payment_type, expense_amount) VALUES (?, ?, ?, ?)""",
+                       (id, expense_type, payment_type, expense_amount))
+
+        conn.commit()
+
+        return True
+    except Exception as e:
+        write_to_log(e)
+        return False
+
+
 def is_positive_number(str):
     try:
         str = float(str)
@@ -112,4 +136,4 @@ def is_positive_number(str):
 
 
 if __name__ == "__main__":
-    print(is_positive_number("0"))
+    print(expenses("(10,('food','ddd',12))"))

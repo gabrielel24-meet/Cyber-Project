@@ -1,9 +1,10 @@
 from protocol import *
 
 class CExpenses:
-    def __init__(self, callback_expenses):
+    def __init__(self, callback_expenses, id):
 
         self.callback_expenses = callback_expenses
+        self.id = id
 
         self.root = ctk.CTk()
         self.root.title("Purple Trust Bank")
@@ -81,7 +82,8 @@ class CExpenses:
 
     def on_click_submit(self):
         if self.handle_error_massages():
-            data = (float(self.expense_amount_entry.get()), self.types_combo.get(), self.payment_types_buttons.get())
+            expenses_data = (float(self.expense_amount_entry.get()), self.types_combo.get(), self.payment_types_buttons.get())
+            data = (self.id, expenses_data)
             self.callback_expenses(data)
 
 

@@ -49,6 +49,11 @@ class CClientBL:
                 elif cmd == "TRANSFER-2":
                     self.transfer_money()
                     self.responses_flag = (True,"TRANSFER-2")
+                elif cmd == "EXPENSES":
+                    if response:
+                        write_to_log("[CLIENT_BL] Expense added successfully")
+                    else:
+                        write_to_log("[CLIENT_BL] Failed on adding expense")
 
         except Exception as e:
             write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))

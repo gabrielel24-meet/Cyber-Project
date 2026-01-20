@@ -67,6 +67,7 @@ class CLogin:
             height=30,
             border_width=2,
             fg_color=self.primary_color,
+            hover_color=self.accent_color,
             command=self.open_register_page
 
         )
@@ -105,6 +106,7 @@ class CLogin:
             font=("Arial",25),
             border_width=2,
             fg_color=self.primary_color,
+            hover_color=self.accent_color,
             command=self.on_click_login,
         )
 

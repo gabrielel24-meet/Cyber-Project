@@ -1455,3 +1455,31 @@ nected
 2026-01-19 14:48:11,609 - INFO - [CLIENT_BL] received ('EXPENSES', 'Non-supported cmd') 
 2026-01-19 14:48:26,764 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
 2026-01-19 14:48:26,764 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 49296) 
+2026-01-20 08:58:26,901 - INFO - [SERVER_BL] listening...
+2026-01-20 08:58:30,390 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-01-20 08:58:30,390 - INFO - [SERVER_BL] Client ('127.0.0.1', 60225) connected 
+2026-01-20 08:58:30,391 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-01-20 08:58:43,012 - INFO - [CLIENT_GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-20 08:58:43,012 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-01-20 08:58:43,012 - INFO - [SERVER_BL] received from ('127.0.0.1', 60225) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-01-20 08:58:43,013 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0))'
+2026-01-20 08:58:43,013 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'aaa', 'aaa', '1', '1', '1', 5000.0)) 
+2026-01-20 08:58:46,245 - INFO - [CLIENT_GUI] opened Expenses window
+2026-01-20 08:58:55,180 - INFO - [CLIENT_GUI] Received data from Expenses window: ('1', (80.0, 'Clothes', 'Credit'))
+2026-01-20 08:58:55,180 - INFO - [CLIENT_BL] send to server 'EXPENSES>('1', (80.0, 'Clothes', 'Credit'))'
+2026-01-20 08:58:55,180 - INFO - [SERVER_BL] received from ('127.0.0.1', 60225) - cmd: EXPENSES, args: ('1', (80.0, 'Clothes', 'Credit'))
+2026-01-20 08:58:55,181 - INFO - [SERVER_BL] sent '('EXPENSES', False)'
+2026-01-20 08:58:55,181 - INFO - [CLIENT_BL] received ('EXPENSES', False) 
+2026-01-20 08:58:55,181 - INFO - [CLIENT_BL] Failed on adding expense
+2026-01-20 08:59:31,460 - INFO - [CLIENT_GUI] opened Expenses window
+2026-01-20 08:59:39,454 - INFO - [CLIENT_GUI] Received data from Expenses window: ('1', (120.0, 'Gadgets', 'Credit'))
+2026-01-20 08:59:39,454 - INFO - [CLIENT_BL] send to server 'EXPENSES>('1', (120.0, 'Gadgets', 'Credit'))'
+2026-01-20 08:59:39,454 - INFO - [SERVER_BL] received from ('127.0.0.1', 60225) - cmd: EXPENSES, args: ('1', (120.0, 'Gadgets', 'Credit'))
+2026-01-20 08:59:39,455 - INFO - [SERVER_BL] sent '('EXPENSES', False)'
+2026-01-20 08:59:39,455 - INFO - [CLIENT_BL] received ('EXPENSES', False) 
+2026-01-20 08:59:39,455 - INFO - [CLIENT_BL] Failed on adding expense
+2026-01-20 08:59:47,295 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-01-20 08:59:47,295 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 60225) 
+2026-01-20 09:14:11,177 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-01-20 09:14:36,519 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-01-20 09:15:23,864 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
