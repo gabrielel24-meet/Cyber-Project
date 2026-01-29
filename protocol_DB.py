@@ -26,6 +26,7 @@ def login(data):
 
     cursor.execute(f"SELECT * FROM users WHERE id = ?", (id,))
     user = cursor.fetchone()
+    conn.close()
 
     if user == None:
         return "None"
@@ -66,6 +67,8 @@ def register(data):
             (id1,first,last,phone,password, account_number,0))
 
         conn.commit()
+        conn.close()
+
         return True, "REGISTERED"
 
 

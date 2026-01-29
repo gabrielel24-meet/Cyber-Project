@@ -87,9 +87,6 @@ class CExpenses:
             self.callback_expenses(data)
 
 
-
-
-
     def run(self):
         self.create_ui()
         self.root.mainloop()
