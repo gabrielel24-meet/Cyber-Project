@@ -20,6 +20,19 @@ cursor.execute("PRAGMA foreign_keys = ON;")
 #     );
 #     """)
 
+# cursor.execute("""
+#     CREATE TABLE user_expenses (
+#         expenses_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#         id TEXT NOT NULL,
+#         expense_type TEXT NOT NULL,
+#         payment_type TEXT NOT NULL,
+#         expense_amount REAL,
+
+#         FOREIGN KEY (id) REFERENCES users(id)
+#             ON DELETE CASCADE
+# )
+# """)
+
 # cursor.execute("""CREATE TABLE IF NOT EXISTS expenses (
 #         id TEXT PRIMARY KEY,
 #         expense_type TEXT NOT NULL,
@@ -29,12 +42,15 @@ cursor.execute("PRAGMA foreign_keys = ON;")
 #     );
 #     """)
 
-# Insert data record
+# # Insert data record
 # cursor.execute("""INSERT INTO users (id, first_name, last_name, phone_number, password, account_number, balance) VALUES (?, ?, ?, ?, ?, ?, ?)""",
-#                ("3", "bobby", "boten", "3","3",3,0))
+#                ("1", "gabi", "eliav", "1","1",1,10000))
 
-cursor.execute("""INSERT INTO expenses (id, expense_type, payment_type, expense_amount) VALUES (?, ?, ?, ?)""",
-               ("1", "Food","Cash",50))
+# cursor.execute("""INSERT INTO expenses (id) VALUES (?)""",
+#                ("1"))
+
+cursor.execute("""INSERT INTO user_expenses (id, expense_type, payment_type, expense_amount) VALUES (?, ?, ?, ?)""",
+               ("3", "Food","Credit",100))
 
 # Update Data
 # cursor.execute("ALTER TABLE users RENAME COLUMN email to phone_number")
@@ -42,6 +58,9 @@ cursor.execute("""INSERT INTO expenses (id, expense_type, payment_type, expense_
 
 # Delete Data
 # cursor.execute("DELETE FROM users WHERE id = ?",(10,))
+
+# Drop Table
+# cursor.execute("DROP TABLE IF EXISTS user_expenses")
 
 #Confirm and save data into DataBase
 conn.commit()

@@ -72,6 +72,8 @@ def get_balance(account_number):
 
     cursor.execute("SELECT balance FROM users WHERE account_number = ?",(account_number,))
     balance = cursor.fetchone()[0]
+    conn.close()
+
     return balance
 
 
@@ -94,6 +96,8 @@ def transfer(data):
         cursor.execute(f"UPDATE users SET balance = ? WHERE account_number = ?",((current_balance - amount),current))
         cursor.execute(f"UPDATE users SET balance = ? WHERE account_number = ?",(destination_balance + amount,destination))
         conn.commit()
+        conn.close()
+
 
         return True , {"source":current, "destination":destination, "amount":amount}
 
@@ -108,17 +112,19 @@ def expenses(data):
         cursor = conn.cursor()
 
         id = data[0]
-        expense_type = data[1][0]
+        expense_amount = data[1][0]
         payment_type = data[1][1]
-        expense_amount = data[1][2]
+        expense_type = data[1][2]
 
-        cursor.execute("""INSERT INTO expenses (id, expense_type, payment_type, expense_amount) VALUES (?, ?, ?, ?)""",
+        cursor.execute("""INSERT INTO user_expenses (id, expense_type, payment_type, expense_amount) VALUES (?, ?, ?, ?)""",
                        (id, expense_type, payment_type, expense_amount))
 
         conn.commit()
+        conn.close()
 
         return True
     except Exception as e:
+        conn.close()
         write_to_log(e)
         return False
 
@@ -136,4 +142,4 @@ def is_positive_number(str):
 
 
 if __name__ == "__main__":
-    print(expenses("(10,('food','ddd',12))"))
+    print(expenses("(2,('Food','cash',12))"))
