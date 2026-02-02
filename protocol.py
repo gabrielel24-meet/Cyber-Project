@@ -9,6 +9,8 @@ import sqlite3
 import ast
 from protocol_DB import *
 import random
+import matplotlib.pyplot as plt
+
 
 clients :{str:(threading.Thread,Event)} = {}
 

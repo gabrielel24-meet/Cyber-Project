@@ -3,7 +3,7 @@ from protocol_DB import *
 from CClientBL import *
 from CLogin import *
 from CRegister import *
-from ExpensesGUI import *
+from CExpenses import *
 
 
 class CClientGUI(CClientBL):
@@ -33,7 +33,8 @@ class CClientGUI(CClientBL):
         self._entry_IP = host
 
         self.login_page = None
-        self.expense_window = None
+        self.expenses_page = None
+
 
         self.destination_user_frame = None
         self.transfer_amount_frame = None
@@ -94,10 +95,9 @@ class CClientGUI(CClientBL):
             border_width=1,
             fg_color=self.primary_color,
             command=self.on_click_open_transfer
-
         )
 
-        # Transfer Button
+        # Expense Button
         self.expense_button = ctk.CTkButton(
             self.main_frame,
             text="Enter expense",
@@ -105,8 +105,7 @@ class CClientGUI(CClientBL):
             height=30,
             border_width=1,
             fg_color=self.primary_color,
-            command=self.open_expenses_window
-
+            command=self.open_expenses
         )
 
         self.destination_user_frame = ctk.CTkFrame(self.main_frame, fg_color=self.secondary_color)
@@ -161,9 +160,9 @@ class CClientGUI(CClientBL):
         self.root.after(1000, self.check_for_responses)
 
     def open_login_page(self):
-
+        write_to_log("[CLIENT_GUI] opened Login page")
         def callback_login(data):
-            write_to_log(f"[CLIENT_GUI] Received data from Login window: {data}")
+            write_to_log(f"[CLIENT_GUI] Received data from Login page: {data}")
             self.send_data("LOGIN", data)
             time.sleep(0.1)
             if self.login_successfully_flag == True:
@@ -176,7 +175,7 @@ class CClientGUI(CClientBL):
                 self.expense_button.place(relx=0.5,rely=0.25)
 
         def callback_register(data):
-            write_to_log(f"[CLIENT_GUI] Received data from Register window: {data}")
+            write_to_log(f"[CLIENT_GUI] Received data from Register page: {data}")
             self.send_data("REGISTER", data)
             time.sleep(0.1)
 
@@ -189,16 +188,20 @@ class CClientGUI(CClientBL):
             self.login_page.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
 
 
-    def open_expenses_window(self):
-        write_to_log(f"[CLIENT_GUI] opened Expenses window")
+    def open_expenses(self):
+        write_to_log(f"[CLIENT_GUI] opened Expenses page")
         def callback_expenses(data):
             write_to_log(f"[CLIENT_GUI] Received data from Expenses window: {data}")
             self.send_data("EXPENSES", data)
             time.sleep(0.1)
-            self.expense_window.root.destroy()
+            self.root.after(0, self.expenses_page.expense_window.root.destroy)
 
-        self.expense_window = CExpenses(callback_expenses, self.id)
-        self.expense_window.run()
+        self.main_frame.pack_forget()
+        if self.expenses_page == None:
+            self.expenses_page = CExpensesGUI(self.root, self.main_frame, callback_expenses, self.id)
+            self.expenses_page.run()
+        else:
+            self.expenses_page.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
 
     def show_page(self, next_frame, previous_frame):
         next_frame.pack(fill="both", expand=True, padx=20, pady=20)

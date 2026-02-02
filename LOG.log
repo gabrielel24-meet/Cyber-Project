@@ -1674,3 +1674,297 @@ nected
 2026-01-29 22:22:37,193 - INFO - [SERVER_BL] sent '('EXPENSES', True)'
 2026-01-29 22:22:37,198 - INFO - [CLIENT_BL] received ('EXPENSES', True) 
 2026-01-29 22:22:37,228 - INFO - [CLIENT_BL] Expense added successfully
+2026-02-02 08:11:02,138 - INFO - [SERVER_BL] listening...
+2026-02-02 08:11:06,504 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 08:11:06,504 - INFO - [SERVER_BL] Client ('127.0.0.1', 59187) connected 
+2026-02-02 08:11:06,505 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-02-02 08:11:12,457 - INFO - [CLIENT_GUI] Received data from Login window: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 08:11:12,457 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-02 08:11:12,457 - INFO - [SERVER_BL] received from ('127.0.0.1', 59187) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 08:11:12,466 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 9000.0))'
+2026-02-02 08:11:12,466 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 9000.0)) 
+2026-02-02 08:11:14,015 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 08:11:32,137 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 08:11:39,112 - INFO - [CLIENT_GUI] Received data from Expenses window: ('1', (100.0, 'Clothes', 'Credit'))
+2026-02-02 08:11:39,112 - INFO - [CLIENT_BL] send to server 'EXPENSES>('1', (100.0, 'Clothes', 'Credit'))'
+2026-02-02 08:11:39,112 - INFO - [SERVER_BL] received from ('127.0.0.1', 59187) - cmd: EXPENSES, args: ('1', (100.0, 'Clothes', 'Credit'))
+2026-02-02 08:11:39,119 - INFO - [SERVER_BL] sent '('EXPENSES', True)'
+2026-02-02 08:11:39,119 - INFO - [CLIENT_BL] received ('EXPENSES', True) 
+2026-02-02 08:11:39,119 - INFO - [CLIENT_BL] Expense added successfully
+2026-02-02 08:11:48,720 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 08:12:17,682 - INFO - [CLIENT_GUI] Received data from Expenses window: ('1', (200.0, 'Gadgets', 'Credit'))
+2026-02-02 08:12:17,682 - INFO - [CLIENT_BL] send to server 'EXPENSES>('1', (200.0, 'Gadgets', 'Credit'))'
+2026-02-02 08:12:17,682 - INFO - [SERVER_BL] received from ('127.0.0.1', 59187) - cmd: EXPENSES, args: ('1', (200.0, 'Gadgets', 'Credit'))
+2026-02-02 08:12:17,690 - INFO - [SERVER_BL] sent '('EXPENSES', True)'
+2026-02-02 08:12:17,690 - INFO - [CLIENT_BL] received ('EXPENSES', True) 
+2026-02-02 08:12:17,690 - INFO - [CLIENT_BL] Expense added successfully
+2026-02-02 08:13:29,131 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-02 08:13:29,131 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 59187) 
+2026-02-02 08:13:30,279 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 08:13:30,279 - INFO - [SERVER_BL] Client ('127.0.0.1', 56250) connected 
+2026-02-02 08:13:30,280 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2026-02-02 08:13:46,679 - INFO - [CLIENT_GUI] Received data from Register window: {'first_name': '12', 'last_name': '12', 'id': '12', 'phone_number': '12', 'password': '12'}
+2026-02-02 08:13:46,679 - INFO - [CLIENT_BL] send to server 'REGISTER>{'first_name': '12', 'last_name': '12', 'id': '12', 'phone_number': '12', 'password': '12'}'
+2026-02-02 08:13:46,679 - INFO - [SERVER_BL] received from ('127.0.0.1', 56250) - cmd: REGISTER, args: {'first_name': '12', 'last_name': '12', 'id': '12', 'phone_number': '12', 'password': '12'}
+2026-02-02 08:13:46,686 - INFO - [SERVER_BL] sent '('REGISTER', (True, 'REGISTERED'))'
+2026-02-02 08:13:46,686 - INFO - [CLIENT_BL] received ('REGISTER', (True, 'REGISTERED')) 
+2026-02-02 08:14:12,175 - INFO - [CLIENT_GUI] Received data from Login window: {'id': '12', 'phone_number': '12', 'password': '12'}
+2026-02-02 08:14:12,175 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '12', 'phone_number': '12', 'password': '12'}'
+2026-02-02 08:14:12,175 - INFO - [SERVER_BL] received from ('127.0.0.1', 56250) - cmd: LOGIN, args: {'id': '12', 'phone_number': '12', 'password': '12'}
+2026-02-02 08:14:12,177 - INFO - [SERVER_BL] sent '('LOGIN', ('12', '12', '12', '12', '12', '745', 0.0))'
+2026-02-02 08:14:12,177 - INFO - [CLIENT_BL] received ('LOGIN', ('12', '12', '12', '12', '12', '745', 0.0)) 
+2026-02-02 08:14:23,953 - INFO - [CLIENT_BL] send to server 'TRANSFER>('745', '1', 1000)'
+2026-02-02 08:14:23,953 - INFO - [SERVER_BL] received from ('127.0.0.1', 56250) - cmd: TRANSFER, args: ('745', '1', 1000)
+2026-02-02 08:14:23,959 - INFO - [SERVER_BL] sent to 745 - '('TRANSFER-1', 'Client 745 transferred 1000¤ to client 1')'
+2026-02-02 08:14:23,959 - INFO - [CLIENT_BL] received ('TRANSFER-1', 'Client 745 transferred 1000¤ to client 1') 
+2026-02-02 08:14:23,960 - INFO - [CLIENT_BL] send to server 'GET_BALANCE>745'
+2026-02-02 08:14:23,960 - INFO - [SERVER_BL] error - 'a bytes-like object is required, not 'str''
+2026-02-02 08:14:23,960 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-02-02 08:14:23,960 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-02-02 08:14:41,975 - INFO - [CLIENT_BL] Exception on send_data: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-02-02 08:14:51,271 - INFO - [CLIENT_BL] Exception on send_data: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-02-02 08:15:39,720 - INFO - [SERVER_BL] listening...
+2026-02-02 08:15:42,581 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 08:15:42,581 - INFO - [SERVER_BL] Client ('127.0.0.1', 52220) connected 
+2026-02-02 08:15:42,581 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-02-02 08:15:51,358 - INFO - [CLIENT_GUI] Received data from Login window: {'id': '12', 'phone_number': '12', 'password': '12'}
+2026-02-02 08:15:51,359 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '12', 'phone_number': '12', 'password': '12'}'
+2026-02-02 08:15:51,359 - INFO - [SERVER_BL] received from ('127.0.0.1', 52220) - cmd: LOGIN, args: {'id': '12', 'phone_number': '12', 'password': '12'}
+2026-02-02 08:15:51,359 - INFO - [SERVER_BL] sent '('LOGIN', ('12', '12', '12', '12', '12', '745', -1000.0))'
+2026-02-02 08:15:51,360 - INFO - [CLIENT_BL] received ('LOGIN', ('12', '12', '12', '12', '12', '745', -1000.0)) 
+2026-02-02 08:16:04,246 - INFO - [CLIENT_BL] send to server 'TRANSFER>('745', '1', 1000)'
+2026-02-02 08:16:04,247 - INFO - [SERVER_BL] received from ('127.0.0.1', 52220) - cmd: TRANSFER, args: ('745', '1', 1000)
+2026-02-02 08:16:04,253 - INFO - [SERVER_BL] sent to 745 - '('TRANSFER-1', 'Client 745 transferred 1000¤ to client 1')'
+2026-02-02 08:16:04,253 - INFO - [CLIENT_BL] received ('TRANSFER-1', 'Client 745 transferred 1000¤ to client 1') 
+2026-02-02 08:16:04,254 - INFO - [CLIENT_BL] send to server 'GET_BALANCE>745'
+2026-02-02 08:16:04,254 - INFO - [SERVER_BL] received from ('127.0.0.1', 52220) - cmd: GET_BALANCE, args: 745
+2026-02-02 08:16:04,255 - INFO - [SERVER_BL] sent '('GET_BALANCE', -2000.0)'
+2026-02-02 08:16:04,255 - INFO - [CLIENT_BL] received ('GET_BALANCE', -2000.0) 
+2026-02-02 08:16:08,750 - INFO - [CLIENT_BL] send to server 'TRANSFER>('745', '1', 1000)'
+2026-02-02 08:16:08,750 - INFO - [SERVER_BL] received from ('127.0.0.1', 52220) - cmd: TRANSFER, args: ('745', '1', 1000)
+2026-02-02 08:16:08,756 - INFO - [SERVER_BL] sent to 745 - '('TRANSFER-1', 'Client 745 transferred 1000¤ to client 1')'
+2026-02-02 08:16:08,756 - INFO - [CLIENT_BL] received ('TRANSFER-1', 'Client 745 transferred 1000¤ to client 1') 
+2026-02-02 08:16:08,756 - INFO - [CLIENT_BL] send to server 'GET_BALANCE>745'
+2026-02-02 08:16:08,756 - INFO - [SERVER_BL] received from ('127.0.0.1', 52220) - cmd: GET_BALANCE, args: 745
+2026-02-02 08:16:08,757 - INFO - [SERVER_BL] sent '('GET_BALANCE', -3000.0)'
+2026-02-02 08:16:08,757 - INFO - [CLIENT_BL] received ('GET_BALANCE', -3000.0) 
+2026-02-02 08:16:16,486 - INFO - [CLIENT_BL] send to server 'TRANSFER>('745', '1', 1000000000)'
+2026-02-02 08:16:16,486 - INFO - [SERVER_BL] received from ('127.0.0.1', 52220) - cmd: TRANSFER, args: ('745', '1', 1000000000)
+2026-02-02 08:16:16,492 - INFO - [SERVER_BL] sent to 745 - '('TRANSFER-1', 'Client 745 transferred 1000000000¤ to client 1')'
+2026-02-02 08:16:16,492 - INFO - [CLIENT_BL] received ('TRANSFER-1', 'Client 745 transferred 1000000000¤ to client 1') 
+2026-02-02 08:16:16,492 - INFO - [CLIENT_BL] send to server 'GET_BALANCE>745'
+2026-02-02 08:16:16,492 - INFO - [SERVER_BL] received from ('127.0.0.1', 52220) - cmd: GET_BALANCE, args: 745
+2026-02-02 08:16:16,494 - INFO - [SERVER_BL] sent '('GET_BALANCE', -1000003000.0)'
+2026-02-02 08:16:16,494 - INFO - [CLIENT_BL] received ('GET_BALANCE', -1000003000.0) 
+2026-02-02 08:16:22,631 - INFO - [CLIENT_BL] send to server 'TRANSFER>('745', '1', -1000000000)'
+2026-02-02 08:16:22,631 - INFO - [SERVER_BL] received from ('127.0.0.1', 52220) - cmd: TRANSFER, args: ('745', '1', -1000000000)
+2026-02-02 08:16:22,636 - INFO - [SERVER_BL] sent to 745 - '('TRANSFER-1', 'Client 745 transferred -1000000000¤ to client 1')'
+2026-02-02 08:16:22,636 - INFO - [CLIENT_BL] received ('TRANSFER-1', 'Client 745 transferred -1000000000¤ to client 1') 
+2026-02-02 08:16:22,636 - INFO - [CLIENT_BL] send to server 'GET_BALANCE>745'
+2026-02-02 08:16:22,636 - INFO - [SERVER_BL] received from ('127.0.0.1', 52220) - cmd: GET_BALANCE, args: 745
+2026-02-02 08:16:22,637 - INFO - [SERVER_BL] sent '('GET_BALANCE', -3000.0)'
+2026-02-02 08:16:22,638 - INFO - [CLIENT_BL] received ('GET_BALANCE', -3000.0) 
+2026-02-02 08:16:29,054 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 08:16:33,533 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-02 08:16:33,533 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 52220) 
+2026-02-02 08:21:56,537 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-02-02 08:47:48,300 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-02-02 08:47:56,119 - INFO - [SERVER_BL] listening...
+2026-02-02 08:48:02,685 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 08:48:02,685 - INFO - [SERVER_BL] Client ('127.0.0.1', 49673) connected 
+2026-02-02 08:48:02,686 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-02-02 08:48:03,679 - INFO - [CLIENT_GUI] opened Login page
+2026-02-02 08:48:06,878 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 08:48:06,879 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-02 08:48:06,879 - INFO - [SERVER_BL] received from ('127.0.0.1', 49673) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 08:48:06,880 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-02 08:48:06,880 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-02 08:48:08,119 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 08:48:36,660 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-02 08:48:36,660 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 49673) 
+2026-02-02 08:48:39,830 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 08:48:39,830 - INFO - [SERVER_BL] Client ('127.0.0.1', 62347) connected 
+2026-02-02 08:48:39,831 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2026-02-02 08:48:40,543 - INFO - [CLIENT_GUI] opened Login page
+2026-02-02 08:48:43,958 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 08:48:43,959 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-02 08:48:43,959 - INFO - [SERVER_BL] received from ('127.0.0.1', 62347) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 08:48:43,959 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-02 08:48:43,959 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-02 08:48:46,383 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 08:48:57,412 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-02 08:48:57,412 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 62347) 
+2026-02-02 08:50:52,543 - INFO - [SERVER_BL] listening...
+2026-02-02 08:50:55,054 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 08:50:55,054 - INFO - [SERVER_BL] Client ('127.0.0.1', 63129) connected 
+2026-02-02 08:50:55,054 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-02-02 08:50:56,487 - INFO - [CLIENT_GUI] opened Login page
+2026-02-02 08:51:05,838 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 08:51:05,839 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-02 08:51:05,839 - INFO - [SERVER_BL] received from ('127.0.0.1', 63129) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 08:51:05,840 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-02 08:51:05,840 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-02 08:51:08,318 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 08:51:21,849 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-02 08:51:21,849 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 63129) 
+2026-02-02 08:51:24,920 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 08:51:24,920 - INFO - [SERVER_BL] Client ('127.0.0.1', 54323) connected 
+2026-02-02 08:51:24,921 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2026-02-02 08:51:26,006 - INFO - [CLIENT_GUI] opened Login page
+2026-02-02 08:51:30,406 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 08:51:30,406 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-02 08:51:30,407 - INFO - [SERVER_BL] received from ('127.0.0.1', 54323) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 08:51:30,407 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-02 08:51:30,407 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-02 08:51:31,662 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 08:51:39,110 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-02 08:51:39,110 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 54323) 
+2026-02-02 08:57:32,593 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 08:57:32,593 - INFO - [SERVER_BL] Client ('127.0.0.1', 57427) connected 
+2026-02-02 08:57:32,594 - INFO - [SERVER_BL] ACTIVE CONNECTION 3
+2026-02-02 08:57:33,437 - INFO - [CLIENT_GUI] opened Login page
+2026-02-02 08:57:42,189 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 08:57:42,189 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-02 08:57:42,189 - INFO - [SERVER_BL] received from ('127.0.0.1', 57427) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 08:57:42,190 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-02 08:57:42,190 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-02 08:57:44,932 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 08:57:50,747 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-02 08:57:50,747 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57427) 
+2026-02-02 09:00:53,692 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 09:00:53,692 - INFO - [SERVER_BL] Client ('127.0.0.1', 57456) connected 
+2026-02-02 09:00:53,692 - INFO - [SERVER_BL] ACTIVE CONNECTION 4
+2026-02-02 09:00:54,389 - INFO - [CLIENT_GUI] opened Login page
+2026-02-02 09:00:57,948 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:00:57,948 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-02 09:00:57,948 - INFO - [SERVER_BL] received from ('127.0.0.1', 57456) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:00:57,949 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-02 09:00:57,949 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-02 09:01:03,349 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 09:01:29,892 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 09:01:34,038 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-02 09:01:34,038 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57456) 
+2026-02-02 09:14:27,781 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 09:14:27,781 - INFO - [SERVER_BL] Client ('127.0.0.1', 53982) connected 
+2026-02-02 09:14:27,782 - INFO - [SERVER_BL] ACTIVE CONNECTION 5
+2026-02-02 09:14:28,648 - INFO - [CLIENT_GUI] opened Login page
+2026-02-02 09:14:32,968 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:14:32,968 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-02 09:14:32,969 - INFO - [SERVER_BL] received from ('127.0.0.1', 53982) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:14:32,969 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-02 09:14:32,969 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-02 09:14:35,232 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-02 09:14:37,520 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 09:14:43,705 - INFO - [CLIENT_GUI] Received data from Expenses window: ('1', (100.0, 'Clothes', 'Credit'))
+2026-02-02 09:14:43,705 - INFO - [CLIENT_BL] send to server 'EXPENSES>('1', (100.0, 'Clothes', 'Credit'))'
+2026-02-02 09:14:43,705 - INFO - [SERVER_BL] received from ('127.0.0.1', 53982) - cmd: EXPENSES, args: ('1', (100.0, 'Clothes', 'Credit'))
+2026-02-02 09:14:43,715 - INFO - [SERVER_BL] sent '('EXPENSES', True)'
+2026-02-02 09:14:43,715 - INFO - [CLIENT_BL] received ('EXPENSES', True) 
+2026-02-02 09:14:43,715 - INFO - [CLIENT_BL] Expense added successfully
+2026-02-02 09:14:50,889 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-02 09:14:53,788 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-02 09:14:53,788 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 53982) 
+2026-02-02 09:18:30,479 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 09:18:30,480 - INFO - [SERVER_BL] Client ('127.0.0.1', 64151) connected 
+2026-02-02 09:18:30,480 - INFO - [SERVER_BL] ACTIVE CONNECTION 6
+2026-02-02 09:18:31,192 - INFO - [CLIENT_GUI] opened Login page
+2026-02-02 09:18:35,911 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:18:35,912 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-02 09:18:35,912 - INFO - [SERVER_BL] received from ('127.0.0.1', 64151) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:18:35,912 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-02 09:18:35,913 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-02 09:18:36,696 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-02 09:18:37,247 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 09:18:44,439 - INFO - [CLIENT_GUI] Received data from Expenses window: ('1', (10000.0, 'Food', 'Cash'))
+2026-02-02 09:18:44,439 - INFO - [CLIENT_BL] send to server 'EXPENSES>('1', (10000.0, 'Food', 'Cash'))'
+2026-02-02 09:18:44,439 - INFO - [SERVER_BL] received from ('127.0.0.1', 64151) - cmd: EXPENSES, args: ('1', (10000.0, 'Food', 'Cash'))
+2026-02-02 09:18:44,445 - INFO - [SERVER_BL] sent '('EXPENSES', True)'
+2026-02-02 09:18:44,445 - INFO - [CLIENT_BL] received ('EXPENSES', True) 
+2026-02-02 09:18:44,445 - INFO - [CLIENT_BL] Expense added successfully
+2026-02-02 09:22:25,519 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-02 09:22:26,456 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 09:23:17,533 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-02 09:23:17,533 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 64151) 
+2026-02-02 09:23:18,876 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 09:23:18,876 - INFO - [SERVER_BL] Client ('127.0.0.1', 49330) connected 
+2026-02-02 09:23:18,877 - INFO - [SERVER_BL] ACTIVE CONNECTION 7
+2026-02-02 09:23:19,598 - INFO - [CLIENT_GUI] opened Login page
+2026-02-02 09:23:22,662 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:23:22,662 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-02 09:23:22,662 - INFO - [SERVER_BL] received from ('127.0.0.1', 49330) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:23:22,663 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-02 09:23:22,663 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-02 09:23:23,511 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-02 09:23:23,950 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 09:23:27,056 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 09:23:32,255 - INFO - [CLIENT_GUI] Received data from Expenses window: ('1', (122.0, 'Food', 'Credit'))
+2026-02-02 09:23:32,255 - INFO - [CLIENT_BL] send to server 'EXPENSES>('1', (122.0, 'Food', 'Credit'))'
+2026-02-02 09:23:32,255 - INFO - [SERVER_BL] received from ('127.0.0.1', 49330) - cmd: EXPENSES, args: ('1', (122.0, 'Food', 'Credit'))
+2026-02-02 09:23:32,260 - INFO - [SERVER_BL] sent '('EXPENSES', True)'
+2026-02-02 09:23:32,260 - INFO - [CLIENT_BL] received ('EXPENSES', True) 
+2026-02-02 09:23:32,260 - INFO - [CLIENT_BL] Expense added successfully
+2026-02-02 09:23:37,846 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-02 09:23:37,847 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 49330) 
+2026-02-02 09:24:14,743 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 09:24:14,743 - INFO - [SERVER_BL] Client ('127.0.0.1', 58412) connected 
+2026-02-02 09:24:14,743 - INFO - [SERVER_BL] ACTIVE CONNECTION 8
+2026-02-02 09:24:15,566 - INFO - [CLIENT_GUI] opened Login page
+2026-02-02 09:24:18,775 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:24:18,775 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-02 09:24:18,775 - INFO - [SERVER_BL] received from ('127.0.0.1', 58412) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:24:18,776 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-02 09:24:18,776 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-02 09:24:19,566 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-02 09:24:20,086 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 09:24:24,222 - INFO - [CLIENT_GUI] Received data from Expenses window: ('1', (123456.0, 'Clothes', 'Credit'))
+2026-02-02 09:24:24,222 - INFO - [CLIENT_BL] send to server 'EXPENSES>('1', (123456.0, 'Clothes', 'Credit'))'
+2026-02-02 09:24:24,222 - INFO - [SERVER_BL] received from ('127.0.0.1', 58412) - cmd: EXPENSES, args: ('1', (123456.0, 'Clothes', 'Credit'))
+2026-02-02 09:24:24,229 - INFO - [SERVER_BL] sent '('EXPENSES', True)'
+2026-02-02 09:24:24,229 - INFO - [CLIENT_BL] received ('EXPENSES', True) 
+2026-02-02 09:24:24,230 - INFO - [CLIENT_BL] Expense added successfully
+2026-02-02 09:26:12,084 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-02 09:26:12,084 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 58412) 
+2026-02-02 09:26:15,115 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 09:26:15,115 - INFO - [SERVER_BL] Client ('127.0.0.1', 61267) connected 
+2026-02-02 09:26:15,115 - INFO - [SERVER_BL] ACTIVE CONNECTION 9
+2026-02-02 09:26:15,871 - INFO - [CLIENT_GUI] opened Login page
+2026-02-02 09:26:19,263 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:26:19,264 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-02 09:26:19,264 - INFO - [SERVER_BL] received from ('127.0.0.1', 61267) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:26:19,264 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-02 09:26:19,264 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-02 09:26:20,406 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-02 09:26:22,631 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 09:26:26,742 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-02 09:26:28,189 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-02 09:26:28,189 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 61267) 
+2026-02-02 09:26:33,963 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 09:26:33,963 - INFO - [SERVER_BL] Client ('127.0.0.1', 60644) connected 
+2026-02-02 09:26:33,964 - INFO - [SERVER_BL] ACTIVE CONNECTION 10
+2026-02-02 09:26:34,686 - INFO - [CLIENT_GUI] opened Login page
+2026-02-02 09:26:37,878 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:26:37,878 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-02 09:26:37,878 - INFO - [SERVER_BL] received from ('127.0.0.1', 60644) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:26:37,878 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-02 09:26:37,879 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-02 09:26:38,677 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-02 09:26:40,487 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 09:26:43,213 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-02 09:26:43,213 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 60644) 
+2026-02-02 09:27:45,856 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-02 09:27:45,857 - INFO - [SERVER_BL] Client ('127.0.0.1', 53461) connected 
+2026-02-02 09:27:45,857 - INFO - [SERVER_BL] ACTIVE CONNECTION 11
+2026-02-02 09:27:46,487 - INFO - [CLIENT_GUI] opened Login page
+2026-02-02 09:27:51,726 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:27:51,726 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-02 09:27:51,726 - INFO - [SERVER_BL] received from ('127.0.0.1', 53461) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-02 09:27:51,726 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-02 09:27:51,727 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-02 09:27:52,702 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-02 09:27:53,206 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-02 09:27:57,766 - INFO - [CLIENT_GUI] Received data from Expenses window: ('1', (11.0, 'Food', 'Credit'))
+2026-02-02 09:27:57,766 - INFO - [CLIENT_BL] send to server 'EXPENSES>('1', (11.0, 'Food', 'Credit'))'
+2026-02-02 09:27:57,766 - INFO - [SERVER_BL] received from ('127.0.0.1', 53461) - cmd: EXPENSES, args: ('1', (11.0, 'Food', 'Credit'))
+2026-02-02 09:27:57,772 - INFO - [SERVER_BL] sent '('EXPENSES', True)'
+2026-02-02 09:27:57,772 - INFO - [CLIENT_BL] received ('EXPENSES', True) 
+2026-02-02 09:27:57,772 - INFO - [CLIENT_BL] Expense added successfully
