@@ -9,8 +9,9 @@ import sqlite3
 import ast
 from protocol_DB import *
 import random
-import matplotlib.pyplot as plt
-
+import matplotlib
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 clients :{str:(threading.Thread,Event)} = {}
 
@@ -24,7 +25,7 @@ DISCONNECT_MSG = "bye"
 LOG_FILE = 'LOG.log'
 logging.basicConfig(filename=LOG_FILE,level=logging.INFO,format='%(asctime)s - %(levelname)s - %(message)s')
 
-standard_cmd = ["GET_BALANCE","TRANSFER","EXPENSES"]
+standard_cmd = ["GET_BALANCE","TRANSFER","EXPENSES-1", "EXPENSES-2"]
 
 def write_to_log(msg):
     logging.info(msg)
@@ -56,7 +57,7 @@ def create_response_msg(cmd,args):
         response = get_balance(args)
     elif cmd == "TRANSFER":
         response = transfer(args)
-    elif cmd == "EXPENSES":
+    elif cmd == "EXPENSES-1":
         response = expenses(args)
 
     return response

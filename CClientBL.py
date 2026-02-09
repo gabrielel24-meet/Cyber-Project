@@ -49,7 +49,7 @@ class CClientBL:
                 elif cmd == "TRANSFER-2":
                     self.transfer_money()
                     self.responses_flag = (True,"TRANSFER-2")
-                elif cmd == "EXPENSES":
+                elif cmd == "EXPENSES-1":
                     if response:
                         write_to_log("[CLIENT_BL] Expense added successfully")
                     else:

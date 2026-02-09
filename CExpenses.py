@@ -4,7 +4,7 @@ from protocol import *
 
 class CExpensesGUI():
 
-    def __init__(self, root, previous_page,callback_expenses, id):
+    def __init__(self, root, previous_page, callback_expenses, id):
 
         self.root = root
         self.root.title("Purple Trust Bank")
@@ -27,6 +27,10 @@ class CExpensesGUI():
         self.time_label = None
 
         self.expense_window = None
+
+        # Pie Chart data
+        self.sizes = []
+        self.labels = []
 
 
     def create_ui(self):
@@ -89,6 +93,20 @@ class CExpensesGUI():
 
         )
         self.back_button.place(relx=0.01, rely=0.05, anchor="nw")
+
+        if len(self.sizes) > 0:
+            fig = Figure(figsize=(4, 3), dpi=100)
+            ax = fig.add_subplot(111)
+
+            # Create the pie chart
+            ax.pie(self.sizes, labels=self.labels, autopct='%1.1f%%', textprops={'fontsize': 8,'color':'white'})
+            ax.axis('equal')
+            fig.set_facecolor(self.secondary_color)
+
+            # 3. Create Canvas and Place it in the CTkFrame
+            canvas = FigureCanvasTkAgg(fig, master=self.main_frame)
+            canvas.draw()
+            canvas.get_tk_widget().place(anchor="s", relx=0.7, rely=0.85)
 
     def update_time(self):
         current_time = datetime.now().strftime("%H:%M:%S")
@@ -202,7 +220,7 @@ class CExpensesWnd:
         if self.handle_error_massages():
             expenses_data = (float(self.expense_amount_entry.get()), self.types_combo.get(), self.payment_types_buttons.get())
             data = (self.id, expenses_data)
-            self.callback_expenses(data)
+            self.callback_expenses(data, "EXPENSES-1")
 
 
     def run(self):
@@ -212,4 +230,3 @@ class CExpensesWnd:
 
 if __name__ == "__main__":
     pass
-

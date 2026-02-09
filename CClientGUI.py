@@ -190,9 +190,9 @@ class CClientGUI(CClientBL):
 
     def open_expenses(self):
         write_to_log(f"[CLIENT_GUI] opened Expenses page")
-        def callback_expenses(data):
+        def callback_expenses(data, cmd):
             write_to_log(f"[CLIENT_GUI] Received data from Expenses window: {data}")
-            self.send_data("EXPENSES", data)
+            self.send_data("EXPENSES-1", data)
             time.sleep(0.1)
             self.root.after(0, self.expenses_page.expense_window.root.destroy)
 
