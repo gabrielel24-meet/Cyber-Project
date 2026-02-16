@@ -2468,3 +2468,396 @@ nected
 2026-02-09 11:11:58,155 - INFO - [SERVER_BL] sent '('EXPENSES-1', True)'
 2026-02-09 11:11:58,155 - INFO - [CLIENT_BL] received ('EXPENSES-1', True) 
 2026-02-09 11:11:58,155 - INFO - [CLIENT_BL] Expense added successfully
+2026-02-09 11:13:14,528 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-09 11:13:14,528 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 54608) 
+2026-02-16 08:05:36,677 - INFO - [SERVER_BL] listening...
+2026-02-16 08:05:41,763 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 08:05:41,763 - INFO - [SERVER_BL] Client ('127.0.0.1', 54360) connected 
+2026-02-16 08:05:41,764 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-02-16 08:05:51,308 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 08:05:54,923 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 08:05:54,923 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 08:05:54,923 - INFO - [SERVER_BL] received from ('127.0.0.1', 54360) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 08:05:54,932 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 08:05:54,932 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 08:05:55,932 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 08:05:56,947 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-16 08:06:29,011 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 08:06:30,883 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-16 08:06:35,572 - INFO - [CLIENT_GUI] Received data from Expenses window: ('1', (1.0, 'Clothes', 'Credit'))
+2026-02-16 08:06:35,572 - INFO - [CLIENT_BL] send to server 'EXPENSES-1>('1', (1.0, 'Clothes', 'Credit'))'
+2026-02-16 08:06:35,572 - INFO - [SERVER_BL] received from ('127.0.0.1', 54360) - cmd: EXPENSES-1, args: ('1', (1.0, 'Clothes', 'Credit'))
+2026-02-16 08:06:35,580 - INFO - [SERVER_BL] sent '('EXPENSES-1', True)'
+2026-02-16 08:06:35,581 - INFO - [CLIENT_BL] received ('EXPENSES-1', True) 
+2026-02-16 08:06:35,581 - INFO - [CLIENT_BL] Expense added successfully
+2026-02-16 08:06:43,286 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 08:06:43,286 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 54360) 
+2026-02-16 08:10:47,077 - INFO - [SERVER_BL] listening...
+2026-02-16 08:10:49,656 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 08:10:49,656 - INFO - [SERVER_BL] Client ('127.0.0.1', 60759) connected 
+2026-02-16 08:10:49,656 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-02-16 08:10:51,011 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 08:10:54,859 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 08:10:54,859 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 08:10:54,859 - INFO - [SERVER_BL] received from ('127.0.0.1', 60759) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 08:10:54,860 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 08:10:54,860 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 08:10:55,595 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 08:10:56,203 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-16 08:11:00,123 - INFO - [CLIENT_GUI] Received data from Expenses window: ('1', (123.0, 'Gadgets', 'Credit'))
+2026-02-16 08:11:00,123 - INFO - [CLIENT_BL] send to server 'EXPENSES-1>('1', (123.0, 'Gadgets', 'Credit'))'
+2026-02-16 08:11:00,123 - INFO - [SERVER_BL] received from ('127.0.0.1', 60759) - cmd: EXPENSES-1, args: ('1', (123.0, 'Gadgets', 'Credit'))
+2026-02-16 08:11:00,129 - INFO - [SERVER_BL] sent '('EXPENSES-1', True)'
+2026-02-16 08:11:00,129 - INFO - [CLIENT_BL] received ('EXPENSES-1', True) 
+2026-02-16 08:11:00,129 - INFO - [CLIENT_BL] Expense added successfully
+2026-02-16 08:11:04,355 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-16 08:11:09,507 - INFO - [CLIENT_GUI] Received data from Expenses window: ('1', (11.0, 'Gifts', 'Cash'))
+2026-02-16 08:11:09,507 - INFO - [CLIENT_BL] send to server 'EXPENSES-1>('1', (11.0, 'Gifts', 'Cash'))'
+2026-02-16 08:11:09,507 - INFO - [SERVER_BL] received from ('127.0.0.1', 60759) - cmd: EXPENSES-1, args: ('1', (11.0, 'Gifts', 'Cash'))
+2026-02-16 08:11:09,513 - INFO - [SERVER_BL] sent '('EXPENSES-1', True)'
+2026-02-16 08:11:09,514 - INFO - [CLIENT_BL] received ('EXPENSES-1', True) 
+2026-02-16 08:11:09,514 - INFO - [CLIENT_BL] Expense added successfully
+2026-02-16 08:11:14,477 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 08:11:14,477 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 60759) 
+2026-02-16 08:28:14,722 - INFO - malformed node or string: 1
+2026-02-16 08:32:07,431 - INFO - malformed node or string: 1
+2026-02-16 08:32:28,389 - INFO - malformed node or string: 1
+2026-02-16 08:40:43,800 - INFO - [SERVER_BL] listening...
+2026-02-16 08:40:50,210 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 08:40:50,210 - INFO - [SERVER_BL] Client ('127.0.0.1', 65206) connected 
+2026-02-16 08:40:50,210 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-02-16 08:40:50,935 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 08:40:56,648 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 08:40:56,649 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 08:40:56,649 - INFO - [SERVER_BL] received from ('127.0.0.1', 65206) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 08:40:56,650 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 08:40:56,650 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 08:41:00,936 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 08:41:00,937 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 08:41:00,937 - INFO - [SERVER_BL] received from ('127.0.0.1', 65206) - cmd: EXPENSES-2, args: 1
+2026-02-16 08:41:00,937 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0)])'
+2026-02-16 08:41:00,938 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0)]) 
+2026-02-16 08:41:00,938 - INFO - [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0)]
+2026-02-16 08:41:14,423 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 08:41:14,423 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 08:41:14,423 - INFO - [SERVER_BL] received from ('127.0.0.1', 65206) - cmd: EXPENSES-2, args: 1
+2026-02-16 08:41:14,424 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0)])'
+2026-02-16 08:41:14,424 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0)]) 
+2026-02-16 08:41:14,424 - INFO - [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0)]
+2026-02-16 08:41:17,502 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 08:41:17,503 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 65206) 
+2026-02-16 08:59:00,686 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 65206) 
+2026-02-16 08:59:27,454 - INFO - [SERVER_BL] listening...
+2026-02-16 08:59:41,928 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 08:59:41,928 - INFO - [SERVER_BL] Client ('127.0.0.1', 53530) connected 
+2026-02-16 08:59:41,929 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-02-16 08:59:45,006 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 08:59:49,037 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 08:59:49,038 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 08:59:49,038 - INFO - [SERVER_BL] received from ('127.0.0.1', 53530) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 08:59:49,039 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 08:59:49,039 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 08:59:55,383 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 08:59:55,383 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 08:59:55,383 - INFO - [SERVER_BL] received from ('127.0.0.1', 53530) - cmd: EXPENSES-2, args: 1
+2026-02-16 08:59:55,384 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0)])'
+2026-02-16 08:59:55,384 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0)]) 
+2026-02-16 08:59:56,175 - INFO - fffffffffffffffffffffffffffff
+2026-02-16 08:59:58,747 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 08:59:58,747 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 53530) 
+2026-02-16 09:01:46,686 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 09:01:46,686 - INFO - [SERVER_BL] Client ('127.0.0.1', 53543) connected 
+2026-02-16 09:01:46,686 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2026-02-16 09:01:47,629 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 09:01:51,157 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:01:51,157 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 09:01:51,157 - INFO - [SERVER_BL] received from ('127.0.0.1', 53543) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:01:51,159 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 09:01:51,159 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 09:01:52,293 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:01:52,293 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:01:52,293 - INFO - [SERVER_BL] received from ('127.0.0.1', 53543) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:01:52,294 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0)])'
+2026-02-16 09:01:52,294 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0)]) 
+2026-02-16 09:01:58,678 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 09:01:58,679 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 53543) 
+2026-02-16 09:02:55,547 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 09:02:55,547 - INFO - [SERVER_BL] Client ('127.0.0.1', 50383) connected 
+2026-02-16 09:02:55,547 - INFO - [SERVER_BL] ACTIVE CONNECTION 3
+2026-02-16 09:02:56,469 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 09:02:59,357 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:02:59,357 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 09:02:59,357 - INFO - [SERVER_BL] received from ('127.0.0.1', 50383) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:02:59,358 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 09:02:59,358 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 09:03:03,181 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:03:03,181 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:03:03,181 - INFO - [SERVER_BL] received from ('127.0.0.1', 50383) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:03:03,181 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0)])'
+2026-02-16 09:03:03,182 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0)]) 
+2026-02-16 09:03:10,694 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-16 09:03:15,447 - INFO - [CLIENT_GUI] Received data from Expenses window: ('1', (1.0, 'Gadgets', 'Credit'))
+2026-02-16 09:03:15,447 - INFO - [CLIENT_BL] send to server 'EXPENSES-1>('1', (1.0, 'Gadgets', 'Credit'))'
+2026-02-16 09:03:15,447 - INFO - [SERVER_BL] received from ('127.0.0.1', 50383) - cmd: EXPENSES-1, args: ('1', (1.0, 'Gadgets', 'Credit'))
+2026-02-16 09:03:15,452 - INFO - [SERVER_BL] sent '('EXPENSES-1', True)'
+2026-02-16 09:03:15,453 - INFO - [CLIENT_BL] received ('EXPENSES-1', True) 
+2026-02-16 09:03:15,453 - INFO - [CLIENT_BL] Expense added successfully
+2026-02-16 09:03:17,474 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 09:03:17,475 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 50383) 
+2026-02-16 09:04:51,139 - INFO - [SERVER_BL] Client ('127.0.0.1', 57356) connected 
+2026-02-16 09:04:51,139 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 09:04:51,139 - INFO - [SERVER_BL] ACTIVE CONNECTION 4
+2026-02-16 09:04:52,213 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 09:04:55,509 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:04:55,509 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 09:04:55,509 - INFO - [SERVER_BL] received from ('127.0.0.1', 57356) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:04:55,510 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 09:04:55,510 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 09:04:56,270 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:04:56,270 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:04:56,270 - INFO - [SERVER_BL] received from ('127.0.0.1', 57356) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:04:56,271 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:04:56,271 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)]) 
+2026-02-16 09:04:56,391 - INFO - 0
+2026-02-16 09:09:18,104 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-02-16 09:09:18,105 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-02-16 09:09:21,701 - INFO - [SERVER_BL] listening...
+2026-02-16 09:09:38,022 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 09:09:38,022 - INFO - [SERVER_BL] Client ('127.0.0.1', 59304) connected 
+2026-02-16 09:09:38,022 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-02-16 09:09:39,020 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 09:09:43,148 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:09:43,148 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 09:09:43,148 - INFO - [SERVER_BL] received from ('127.0.0.1', 59304) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:09:43,149 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 09:09:43,149 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 09:09:44,900 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:09:44,900 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:09:44,901 - INFO - [SERVER_BL] received from ('127.0.0.1', 59304) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:09:44,901 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:09:44,902 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)]) 
+2026-02-16 09:09:45,024 - INFO - 0
+2026-02-16 09:09:45,261 - INFO - 16
+2026-02-16 09:09:55,974 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 09:09:55,974 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 59304) 
+2026-02-16 09:09:59,514 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 09:09:59,514 - INFO - [SERVER_BL] Client ('127.0.0.1', 59307) connected 
+2026-02-16 09:09:59,515 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2026-02-16 09:10:02,756 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 09:10:06,692 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:10:06,692 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 09:10:06,692 - INFO - [SERVER_BL] received from ('127.0.0.1', 59307) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:10:06,693 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 09:10:06,693 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 09:10:08,588 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:10:08,588 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:10:08,588 - INFO - [SERVER_BL] received from ('127.0.0.1', 59307) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:10:08,589 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:10:08,589 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)]) 
+2026-02-16 09:10:08,710 - INFO - 0
+2026-02-16 09:10:08,710 - INFO - 16
+2026-02-16 09:10:13,913 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 09:10:13,913 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 59307) 
+2026-02-16 09:10:43,354 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 09:10:43,354 - INFO - [SERVER_BL] Client ('127.0.0.1', 56628) connected 
+2026-02-16 09:10:43,355 - INFO - [SERVER_BL] ACTIVE CONNECTION 3
+2026-02-16 09:10:47,846 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 09:10:47,846 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 56628) 
+2026-02-16 09:10:54,211 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 09:10:54,211 - INFO - [SERVER_BL] Client ('127.0.0.1', 61454) connected 
+2026-02-16 09:10:54,212 - INFO - [SERVER_BL] ACTIVE CONNECTION 4
+2026-02-16 09:10:54,957 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 09:10:58,420 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:10:58,420 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 09:10:58,420 - INFO - [SERVER_BL] received from ('127.0.0.1', 61454) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:10:58,421 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 09:10:58,421 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 09:10:59,373 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:10:59,373 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:10:59,373 - INFO - [SERVER_BL] received from ('127.0.0.1', 61454) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:10:59,374 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:10:59,374 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)]) 
+2026-02-16 09:10:59,511 - INFO - 0
+2026-02-16 09:10:59,864 - INFO - 16
+2026-02-16 09:11:01,494 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 09:11:01,494 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 61454) 
+2026-02-16 09:12:07,357 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 09:12:07,357 - INFO - [SERVER_BL] Client ('127.0.0.1', 61466) connected 
+2026-02-16 09:12:07,358 - INFO - [SERVER_BL] ACTIVE CONNECTION 5
+2026-02-16 09:12:08,340 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 09:12:11,589 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:12:11,589 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 09:12:11,589 - INFO - [SERVER_BL] received from ('127.0.0.1', 61466) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:12:11,590 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 09:12:11,590 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 09:12:12,990 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:12:13,108 - INFO - 0
+2026-02-16 09:12:15,918 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:12:15,918 - INFO - [SERVER_BL] received from ('127.0.0.1', 61466) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:12:15,920 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:12:15,963 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 09:12:15,963 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 61466) 
+2026-02-16 09:12:56,923 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 09:12:56,924 - INFO - [SERVER_BL] Client ('127.0.0.1', 50499) connected 
+2026-02-16 09:12:56,924 - INFO - [SERVER_BL] ACTIVE CONNECTION 6
+2026-02-16 09:12:57,836 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 09:13:01,820 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:13:01,820 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 09:13:01,820 - INFO - [SERVER_BL] received from ('127.0.0.1', 50499) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:13:01,821 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 09:13:01,821 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 09:13:04,237 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:13:04,255 - INFO - 0
+2026-02-16 09:13:16,171 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:13:16,172 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:13:16,172 - INFO - [SERVER_BL] received from ('127.0.0.1', 50499) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:13:16,173 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:13:16,173 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)]) 
+2026-02-16 09:13:16,183 - INFO - 16
+2026-02-16 09:13:23,717 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:13:23,719 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:13:23,719 - INFO - [SERVER_BL] received from ('127.0.0.1', 50499) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:13:23,719 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:13:23,720 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)]) 
+2026-02-16 09:13:23,748 - INFO - 32
+2026-02-16 09:13:31,100 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:13:31,100 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:13:31,100 - INFO - [SERVER_BL] received from ('127.0.0.1', 50499) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:13:31,101 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:13:31,102 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)]) 
+2026-02-16 09:13:31,310 - INFO - 48
+2026-02-16 09:13:34,356 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-16 09:13:38,140 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:13:38,144 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:13:38,144 - INFO - [SERVER_BL] received from ('127.0.0.1', 50499) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:13:38,145 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:13:38,145 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)]) 
+2026-02-16 09:13:38,361 - INFO - 64
+2026-02-16 09:13:40,256 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:13:40,256 - INFO - [SERVER_BL] received from ('127.0.0.1', 50499) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:13:40,257 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:13:40,302 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 09:13:40,302 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 50499) 
+2026-02-16 09:16:02,162 - INFO - [SERVER_BL] Client ('127.0.0.1', 61701) connected 
+2026-02-16 09:16:02,162 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 09:16:02,162 - INFO - [SERVER_BL] ACTIVE CONNECTION 7
+2026-02-16 09:16:03,131 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 09:16:06,469 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:16:06,470 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 09:16:06,470 - INFO - [SERVER_BL] received from ('127.0.0.1', 61701) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:16:06,470 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 09:16:06,470 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 09:16:08,700 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:16:08,713 - INFO - 0
+2026-02-16 09:16:12,140 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:16:12,141 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:16:12,141 - INFO - [SERVER_BL] received from ('127.0.0.1', 61701) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:16:12,142 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:16:12,142 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)]) 
+2026-02-16 09:16:12,143 - INFO - [CLIENT_BL] Exception on handle_responses: 'int' object has no attribute 'append'
+2026-02-16 09:16:41,450 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 09:16:41,450 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 61701) 
+2026-02-16 09:16:42,800 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 09:16:42,800 - INFO - [SERVER_BL] Client ('127.0.0.1', 61706) connected 
+2026-02-16 09:16:42,800 - INFO - [SERVER_BL] ACTIVE CONNECTION 8
+2026-02-16 09:16:43,579 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 09:16:47,876 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:16:47,876 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 09:16:47,876 - INFO - [SERVER_BL] received from ('127.0.0.1', 61706) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:16:47,876 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 09:16:47,877 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 09:16:49,269 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:16:49,282 - INFO - 0
+2026-02-16 09:16:53,340 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:16:53,340 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:16:53,340 - INFO - [SERVER_BL] received from ('127.0.0.1', 61706) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:16:53,342 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:16:53,342 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)]) 
+2026-02-16 09:16:53,529 - INFO - 16
+2026-02-16 09:16:59,342 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:16:59,342 - INFO - [SERVER_BL] received from ('127.0.0.1', 61706) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:16:59,343 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:16:59,390 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 09:16:59,390 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 61706) 
+2026-02-16 09:17:44,961 - INFO - [SERVER_BL] Client ('127.0.0.1', 61713) connected 
+2026-02-16 09:17:44,961 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 09:17:44,961 - INFO - [SERVER_BL] ACTIVE CONNECTION 9
+2026-02-16 09:17:46,059 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 09:17:49,155 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:17:49,155 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 09:17:49,155 - INFO - [SERVER_BL] received from ('127.0.0.1', 61713) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:17:49,156 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 09:17:49,156 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 09:17:50,964 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:17:50,977 - INFO - 0
+2026-02-16 09:17:51,403 - INFO - [CLIENT_GUI] opened Expenses window
+2026-02-16 09:17:55,245 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:17:55,248 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:17:55,248 - INFO - [SERVER_BL] received from ('127.0.0.1', 61713) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:17:55,249 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:17:55,249 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)]) 
+2026-02-16 09:17:55,268 - INFO - 16
+2026-02-16 09:18:01,821 - INFO - [SERVER_BL] received from ('127.0.0.1', 61713) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:18:01,822 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:18:01,868 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 09:18:01,868 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 61713) 
+2026-02-16 09:18:46,066 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 09:18:46,066 - INFO - [SERVER_BL] Client ('127.0.0.1', 61720) connected 
+2026-02-16 09:18:46,067 - INFO - [SERVER_BL] ACTIVE CONNECTION 10
+2026-02-16 09:18:47,011 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 09:18:49,796 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:18:49,796 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 09:18:49,796 - INFO - [SERVER_BL] received from ('127.0.0.1', 61720) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:18:49,797 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 09:18:49,797 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 09:18:50,739 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:18:50,750 - INFO - 0
+2026-02-16 09:18:53,212 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:18:53,214 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:18:53,214 - INFO - [SERVER_BL] received from ('127.0.0.1', 61720) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:18:53,215 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:18:53,215 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)]) 
+2026-02-16 09:18:57,403 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:18:57,404 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:18:57,404 - INFO - [SERVER_BL] received from ('127.0.0.1', 61720) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:18:57,404 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:18:57,405 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)]) 
+2026-02-16 09:19:00,970 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:19:00,970 - INFO - [SERVER_BL] received from ('127.0.0.1', 61720) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:19:00,971 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:19:01,016 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 09:19:01,016 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 61720) 
+2026-02-16 09:22:32,968 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 09:22:32,968 - INFO - [SERVER_BL] Client ('127.0.0.1', 56383) connected 
+2026-02-16 09:22:32,968 - INFO - [SERVER_BL] ACTIVE CONNECTION 11
+2026-02-16 09:22:36,132 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 09:22:39,475 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:22:39,476 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 09:22:39,476 - INFO - [SERVER_BL] received from ('127.0.0.1', 56383) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:22:39,477 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 09:22:39,477 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 09:22:39,584 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:22:39,584 - INFO - [SERVER_BL] received from ('127.0.0.1', 56383) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:22:39,584 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:22:39,585 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)]) 
+2026-02-16 09:23:07,812 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 09:23:07,812 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 56383) 
+2026-02-16 09:27:18,972 - INFO - [SERVER_BL] listening...
+2026-02-16 09:27:21,094 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-02-16 09:27:21,094 - INFO - [SERVER_BL] Client ('127.0.0.1', 49484) connected 
+2026-02-16 09:27:21,095 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-02-16 09:27:21,994 - INFO - [CLIENT_GUI] opened Login page
+2026-02-16 09:27:24,939 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:27:24,940 - INFO - [CLIENT_BL] send to server 'LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-02-16 09:27:24,940 - INFO - [SERVER_BL] received from ('127.0.0.1', 49484) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-02-16 09:27:24,941 - INFO - [SERVER_BL] sent '('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0))'
+2026-02-16 09:27:24,941 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '1', '1', 12000.0)) 
+2026-02-16 09:27:25,050 - INFO - [CLIENT_BL] send to server 'EXPENSES-2>1'
+2026-02-16 09:27:25,050 - INFO - [SERVER_BL] received from ('127.0.0.1', 49484) - cmd: EXPENSES-2, args: 1
+2026-02-16 09:27:25,051 - INFO - [SERVER_BL] sent '('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)])'
+2026-02-16 09:27:25,051 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(1, 'Transport', 'Cash', 50.0), (2, 'Food', 'Cash', 70.0), (3, 'Food', 'Credit', 100.0), (8, 'Credit', 'Gifts', 200.0), (10, 'Credit', 'Clothes', 100.0), (11, 'Credit', 'Gadgets', 200.0), (12, 'Credit', 'Clothes', 100.0), (13, 'Cash', 'Food', 10000.0), (14, 'Credit', 'Food', 122.0), (15, 'Credit', 'Clothes', 123456.0), (16, 'Credit', 'Food', 11.0), (17, 'Cash', 'Other', 11111111.0), (18, 'Credit', 'Clothes', 1.0), (19, 'Credit', 'Gadgets', 123.0), (20, 'Cash', 'Gifts', 11.0), (21, 'Credit', 'Gadgets', 1.0)]) 
+2026-02-16 09:27:28,636 - INFO - [CLIENT_GUI] opened Expenses page
+2026-02-16 09:27:28,658 - INFO - 16
+2026-02-16 09:27:28,658 - INFO - 111111111111111111111111111111111111111111111111
+2026-02-16 09:27:39,344 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-02-16 09:27:39,345 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 49484) 

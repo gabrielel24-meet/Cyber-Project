@@ -156,8 +156,10 @@ class CClientGUI(CClientBL):
                 self.update_balance_label()
             elif cmd in register_cmd:
                 self.update_register_page(cmd)
+            elif cmd == "EXPENSES-2":
+                self.update_expenses_window()
         self.responses_flag = False,None
-        self.root.after(1000, self.check_for_responses)
+        self.root.after(500, self.check_for_responses)
 
     def open_login_page(self):
         write_to_log("[CLIENT_GUI] opened Login page")
@@ -173,12 +175,12 @@ class CClientGUI(CClientBL):
                 self.login_button.place_forget()
                 self.transfer_button.place(relx=0.35,rely=0.25)
                 self.expense_button.place(relx=0.5,rely=0.25)
+                self.send_data("EXPENSES-2", self.id)
 
         def callback_register(data):
             write_to_log(f"[CLIENT_GUI] Received data from Register page: {data}")
             self.send_data("REGISTER", data)
             time.sleep(0.1)
-
 
         self.main_frame.pack_forget()
         if self.login_page == None:
@@ -192,13 +194,14 @@ class CClientGUI(CClientBL):
         write_to_log(f"[CLIENT_GUI] opened Expenses page")
         def callback_expenses(data, cmd):
             write_to_log(f"[CLIENT_GUI] Received data from Expenses window: {data}")
-            self.send_data("EXPENSES-1", data)
+            self.send_data(cmd, data)
             time.sleep(0.1)
             self.root.after(0, self.expenses_page.expense_window.root.destroy)
 
         self.main_frame.pack_forget()
         if self.expenses_page == None:
             self.expenses_page = CExpensesGUI(self.root, self.main_frame, callback_expenses, self.id)
+            self.update_expenses_window()
             self.expenses_page.run()
         else:
             self.expenses_page.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
@@ -212,6 +215,11 @@ class CClientGUI(CClientBL):
 
     def update_register_page(self, data):
         self.login_page.register_page.handle_register_message(data)
+
+    def update_expenses_window(self):
+        self.expenses_page.sizes = self.sizes
+        self.expenses_page.labels = self.labels
+        # write_to_log(len(self.expenses_page.sizes))
 
     def on_click_open_transfer(self):
         self.destination_user_frame.pack(pady=60)

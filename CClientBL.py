@@ -17,6 +17,11 @@ class CClientBL:
         self.account_number = None
         self.balance = None
 
+        # Pie Chart data
+        self.expenses = []
+        self.sizes = []
+        self.labels = []
+
         self.responses_flag = (False, None)
         self.login_successfully_flag = None
 
@@ -54,6 +59,8 @@ class CClientBL:
                         write_to_log("[CLIENT_BL] Expense added successfully")
                     else:
                         write_to_log("[CLIENT_BL] Failed on adding expense")
+                elif cmd == "EXPENSES-2":
+                    self.update_expenses(cmd, response)
 
         except Exception as e:
             write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))
@@ -100,6 +107,15 @@ class CClientBL:
     def handle_register(self, response):
         message = response[1]
         self.responses_flag = (True, message)
+
+    def update_expenses(self, cmd, response):
+        self.expenses = response
+        self.sizes = []
+        self.labels = []
+
+        for expense in response:
+            self.sizes.append(expense[3])
+            self.labels.append(expense[1])
 
 
 

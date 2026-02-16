@@ -58,7 +58,9 @@ def create_response_msg(cmd,args):
     elif cmd == "TRANSFER":
         response = transfer(args)
     elif cmd == "EXPENSES-1":
-        response = expenses(args)
+        response = add_expense(args)
+    elif cmd == "EXPENSES-2":
+        response = get_expenses(args)
 
     return response
 
@@ -108,7 +110,7 @@ def transfer(data):
         return False ,f"{e}"
 
 
-def expenses(data):
+def add_expense(data):
     try:
         data = ast.literal_eval(data)
         conn = sqlite3.connect("Bank.db")
@@ -132,6 +134,21 @@ def expenses(data):
         return False
 
 
+def get_expenses(data):
+    try:
+
+        conn = sqlite3.connect("Bank.db")
+        cursor = conn.cursor()
+
+        cursor.execute(f"SELECT expenses_id, expense_type, payment_type, expense_amount  FROM user_expenses WHERE id = ?", (data,))
+        lst = cursor.fetchall()
+        return lst
+
+    except Exception as e:
+        print(e)
+
+
+
 def is_positive_number(str):
     try:
         str = float(str)
@@ -145,4 +162,5 @@ def is_positive_number(str):
 
 
 if __name__ == "__main__":
-    print(expenses("(2,('Food','cash',12))"))
+    # print(expenses("(2,('Food','cash',12))"))
+    get_expenses(1)

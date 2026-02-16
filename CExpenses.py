@@ -94,24 +94,30 @@ class CExpensesGUI():
         )
         self.back_button.place(relx=0.01, rely=0.05, anchor="nw")
 
+        write_to_log(len(self.sizes))
         if len(self.sizes) > 0:
-            fig = Figure(figsize=(4, 3), dpi=100)
-            ax = fig.add_subplot(111)
+            self.create_pie()
 
-            # Create the pie chart
-            ax.pie(self.sizes, labels=self.labels, autopct='%1.1f%%', textprops={'fontsize': 8,'color':'white'})
-            ax.axis('equal')
-            fig.set_facecolor(self.secondary_color)
-
-            # 3. Create Canvas and Place it in the CTkFrame
-            canvas = FigureCanvasTkAgg(fig, master=self.main_frame)
-            canvas.draw()
-            canvas.get_tk_widget().place(anchor="s", relx=0.7, rely=0.85)
 
     def update_time(self):
         current_time = datetime.now().strftime("%H:%M:%S")
         self.time_label.configure(text=f"{current_time}")
         self.root.after(1000, self.update_time)  # Update every second
+
+    def create_pie(self):
+        write_to_log("111111111111111111111111111111111111111111111111")
+        fig = Figure(figsize=(4, 3), dpi=100)
+        ax = fig.add_subplot(111)
+
+        # Create the pie chart
+        ax.pie(self.sizes, labels=self.labels, autopct='%1.1f%%', textprops={'fontsize': 8, 'color': 'white'})
+        ax.axis('equal')
+        fig.set_facecolor(self.secondary_color)
+
+        # 3. Create Canvas and Place it in the CTkFrame
+        canvas = FigureCanvasTkAgg(fig, master=self.main_frame)
+        canvas.draw()
+        canvas.get_tk_widget().place(anchor="s", relx=0.7, rely=0.85)
 
 
     def open_expenses_window(self):
