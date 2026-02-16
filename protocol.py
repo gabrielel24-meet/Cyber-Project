@@ -127,7 +127,8 @@ def add_expense(data):
         conn.commit()
         conn.close()
 
-        return True
+        return get_expenses(id)
+
     except Exception as e:
         conn.close()
         write_to_log(e)
@@ -136,7 +137,6 @@ def add_expense(data):
 
 def get_expenses(data):
     try:
-
         conn = sqlite3.connect("Bank.db")
         cursor = conn.cursor()
 

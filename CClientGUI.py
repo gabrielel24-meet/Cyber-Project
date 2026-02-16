@@ -197,6 +197,8 @@ class CClientGUI(CClientBL):
             self.send_data(cmd, data)
             time.sleep(0.1)
             self.root.after(0, self.expenses_page.expense_window.root.destroy)
+            self.update_expenses_window()
+            self.root.after(0,self.expenses_page.create_pie())
 
         self.main_frame.pack_forget()
         if self.expenses_page == None:

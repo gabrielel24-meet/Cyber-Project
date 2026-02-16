@@ -29,6 +29,7 @@ class CExpensesGUI():
         self.expense_window = None
 
         # Pie Chart data
+        self.pie_canvas = None
         self.sizes = []
         self.labels = []
 
@@ -94,7 +95,6 @@ class CExpensesGUI():
         )
         self.back_button.place(relx=0.01, rely=0.05, anchor="nw")
 
-        write_to_log(len(self.sizes))
         if len(self.sizes) > 0:
             self.create_pie()
 
@@ -105,7 +105,6 @@ class CExpensesGUI():
         self.root.after(1000, self.update_time)  # Update every second
 
     def create_pie(self):
-        write_to_log("111111111111111111111111111111111111111111111111")
         fig = Figure(figsize=(4, 3), dpi=100)
         ax = fig.add_subplot(111)
 
@@ -115,9 +114,9 @@ class CExpensesGUI():
         fig.set_facecolor(self.secondary_color)
 
         # 3. Create Canvas and Place it in the CTkFrame
-        canvas = FigureCanvasTkAgg(fig, master=self.main_frame)
-        canvas.draw()
-        canvas.get_tk_widget().place(anchor="s", relx=0.7, rely=0.85)
+        self.pie_canvas = FigureCanvasTkAgg(fig, master=self.main_frame)
+        self.pie_canvas.draw()
+        self.pie_canvas.get_tk_widget().place(anchor="s", relx=0.7, rely=0.85)
 
 
     def open_expenses_window(self):

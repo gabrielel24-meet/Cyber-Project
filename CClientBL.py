@@ -55,12 +55,9 @@ class CClientBL:
                     self.transfer_money()
                     self.responses_flag = (True,"TRANSFER-2")
                 elif cmd == "EXPENSES-1":
-                    if response:
-                        write_to_log("[CLIENT_BL] Expense added successfully")
-                    else:
-                        write_to_log("[CLIENT_BL] Failed on adding expense")
+                    self.update_expenses(response)
                 elif cmd == "EXPENSES-2":
-                    self.update_expenses(cmd, response)
+                    self.update_expenses(response)
 
         except Exception as e:
             write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))
@@ -108,17 +105,18 @@ class CClientBL:
         message = response[1]
         self.responses_flag = (True, message)
 
-    def update_expenses(self, cmd, response):
-        self.expenses = response
+    def update_expenses(self, response):
         self.sizes = []
         self.labels = []
+        dictionary = {"Food":0, "Clothes":0, "Gadgets":0, "Gifts":0,"Other":0}
 
         for expense in response:
-            self.sizes.append(expense[3])
-            self.labels.append(expense[1])
+            dictionary[expense[2]] += expense[3]
 
-
-
+        for key in dictionary:
+            if dictionary[key] > 0:
+                self.sizes.append(dictionary[key])
+                self.labels.append(key)
 
 if __name__ == "__main__":
     pass

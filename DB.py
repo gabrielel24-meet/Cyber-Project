@@ -49,15 +49,15 @@ cursor.execute("PRAGMA foreign_keys = ON;")
 # cursor.execute("""INSERT INTO expenses (id) VALUES (?)""",
 #                ("1"))
 
-cursor.execute("""INSERT INTO user_expenses (id, expense_type, payment_type, expense_amount) VALUES (?, ?, ?, ?)""",
-               ("3", "Food","Credit",100))
+# cursor.execute("""INSERT INTO user_expenses (id, expense_type, payment_type, expense_amount) VALUES (?, ?, ?, ?)""",
+#                ("3", "Food","Credit",100))
 
 # Update Data
 # cursor.execute("ALTER TABLE users RENAME COLUMN email to phone_number")
 # cursor.execute(f"UPDATE users SET password = ? WHERE account_number = ?", ( 1, 1))
 
 # Delete Data
-# cursor.execute("DELETE FROM users WHERE id = ?",(10,))
+cursor.execute("DELETE FROM user_expenses WHERE id = ?",(3,))
 
 # Drop Table
 # cursor.execute("DROP TABLE IF EXISTS user_expenses")
