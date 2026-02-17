@@ -29,6 +29,7 @@ class CServerBL:
                 # Accept socket request for connection
                 client_socket, address = self._server_socket.accept()
                 write_to_log(f"[SERVER_BL] Client {address} connected ")
+                client_socket.send("True".encode())
 
                 # Start Thread
                 cl_handler = CClientHandler(self._host, self._port,client_socket, address)
@@ -45,6 +46,7 @@ class CServerBL:
 
     def stop_server(self):
         for address in self._client_handlers:
+            self._client_handlers[address]._client_socket.send(("CLOSE","False"))
             self._client_handlers[address].stop()
             write_to_log(f"[SERVER_BL] Thread closed for : {address} ")
 

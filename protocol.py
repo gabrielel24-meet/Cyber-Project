@@ -118,8 +118,9 @@ def add_expense(data):
 
         id = data[0]
         expense_amount = data[1][0]
-        payment_type = data[1][1]
-        expense_type = data[1][2]
+        expense_type = data[1][1]
+        payment_type = data[1][2]
+
 
         cursor.execute("""INSERT INTO user_expenses (id, expense_type, payment_type, expense_amount) VALUES (?, ?, ?, ?)""",
                        (id, expense_type, payment_type, expense_amount))

@@ -27,7 +27,11 @@ class CClientGUI(CClientBL):
         # Time updating thread
         self.time_thread = threading.Thread(target=self.update_time, daemon=True)
         self.time_label = None
-        
+
+        # Connection status updating thread
+        self.connection_status_thread = threading.Thread(target=self.update_connection_status, daemon=True)
+        self.connection_status_label = None
+
         # Client's IP and port
         self._entry_Port = port
         self._entry_IP = host
@@ -135,13 +139,23 @@ class CClientGUI(CClientBL):
 
 
         # Connection Status
-        self.connection_status = ctk.CTkLabel(
+        self.connection_status_label = ctk.CTkLabel(
             self.main_frame,
-            text="connected",
+            text="Not connected",
         )
-        self.connection_status.pack()
-        self.connection_status.place(relx=0.01, rely=1.0, anchor="sw")
+        self.connection_status_label.place(relx=0.01, rely=1.0, anchor="sw")
+
         self.time_thread.start()
+        self.connection_status_thread.start()
+
+    def update_connection_status(self):
+
+        if self.connection_status:
+            self.connection_status_label.configure(text="connected")
+        else:
+            self.connection_status_label.configure(text="Not connected")
+
+        self.root.after(1000, self.update_connection_status)
 
 
     def update_time(self):
