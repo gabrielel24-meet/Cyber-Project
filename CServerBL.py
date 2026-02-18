@@ -12,8 +12,11 @@ class CServerBL:
 
         self._host = host
         self._port = port
+
         self._server_socket = None
+        self.stop_event = threading.Event()
         self._is_srv_running = True
+
         self._client_handlers: {str : CClientHandler} = {}
         self._clients_data = {}
 
@@ -23,18 +26,23 @@ class CServerBL:
             self._server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self._server_socket.bind((self._host, self._port))
             self._server_socket.listen(5)
+            self._server_socket.settimeout(1.0)
             write_to_log(f"[SERVER_BL] listening...")
 
-            while self._is_srv_running and self._server_socket is not None:
-                # Accept socket request for connection
-                client_socket, address = self._server_socket.accept()
+            while self._is_srv_running and not self.stop_event.is_set():
+                try:
+                    client_socket, address = self._server_socket.accept()
+                except socket.timeout:
+                    continue
+                except Exception as e:
+                    break
+
                 write_to_log(f"[SERVER_BL] Client {address} connected ")
                 client_socket.send("True".encode())
 
                 # Start Thread
                 cl_handler = CClientHandler(self._host, self._port,client_socket, address)
                 cl_handler._client_thread.start()
-                stop_event = threading.Event()
                 self._client_handlers[address] = cl_handler
                 cl_handler._client_handlers = self._client_handlers
                 cl_handler._clients_data = self._clients_data
@@ -45,8 +53,16 @@ class CServerBL:
             write_to_log("[SERVER_BL] Exception in start_server fn : {}".format(e))
 
     def stop_server(self):
+        try:
+            self._server_socket.shutdown(socket.SHUT_RDWR)
+        except Exception:
+            pass
+
+        self.stop_event.set()
+        self._server_socket.close()
         for address in self._client_handlers:
-            self._client_handlers[address]._client_socket.send(("CLOSE","False"))
+            write_to_log( self._client_handlers[address]._client_socket)
+            self._client_handlers[address]._client_socket.send('("CLOSE","False")'.encode())
             self._client_handlers[address].stop()
             write_to_log(f"[SERVER_BL] Thread closed for : {address} ")
 

@@ -15,7 +15,6 @@ class CServerGUI(CServerBL):
         super().__init__(host,port)
 
         # Attributes
-        self._server_thread = None
 
         self._root = None
         self._canvas = None
@@ -96,6 +95,7 @@ class CServerGUI(CServerBL):
 
     def run(self):
         self._root.mainloop()
+        self.stop_server()
 
     def on_click_start(self):
         self._port=int(self._entry_Port.get())
@@ -104,7 +104,8 @@ class CServerGUI(CServerBL):
         self._btn_start.config(state="disabled")
         self._btn_stop.config(state="normal")
 
-        self._server_thread = threading.Thread(target=self.start_server)
+        self.stop_event.clear()
+        self._server_thread = threading.Thread(target=self.start_server, daemon=True)
         self._server_thread.start()
 
     def on_click_stop(self):

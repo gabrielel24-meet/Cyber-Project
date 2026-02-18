@@ -1,3 +1,5 @@
+import time
+
 from protocol import *
 
 
@@ -49,7 +51,7 @@ class CClientBL:
                 cmd, response = self.receive_data()
 
                 if cmd == "CLOSE":
-                    self.update_balance(response)
+                    self.connection_status = False
                 elif cmd == "GET_BALANCE":
                     self.update_balance(response)
                 elif cmd == "LOGIN":
