@@ -95,7 +95,6 @@ class CServerGUI(CServerBL):
 
     def run(self):
         self._root.mainloop()
-        self.stop_server()
 
     def on_click_start(self):
         self._port=int(self._entry_Port.get())

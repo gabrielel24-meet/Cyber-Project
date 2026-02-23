@@ -94,6 +94,7 @@ class CExpensesGUI():
 
         )
         self.back_button.place(relx=0.01, rely=0.05, anchor="nw")
+        
 
         if len(self.sizes) > 0:
             self.create_pie()

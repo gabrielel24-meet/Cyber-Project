@@ -27,6 +27,9 @@ logging.basicConfig(filename=LOG_FILE,level=logging.INFO,format='%(asctime)s - %
 
 standard_cmd = ["GET_BALANCE","TRANSFER","EXPENSES-1", "EXPENSES-2"]
 
+clients_data = {}
+client_handlers = {}
+
 def write_to_log(msg):
     logging.info(msg)
     print(msg)

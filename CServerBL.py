@@ -17,12 +17,15 @@ class CServerBL:
         self.stop_event = threading.Event()
         self._is_srv_running = True
 
-        self._client_handlers: {str : CClientHandler} = {}
-        self._clients_data = {}
+
 
 
     def start_server(self):
         try:
+            global clients_data
+            global client_handlers
+            clients_data = {}
+            client_handlers = {}
             self._server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self._server_socket.bind((self._host, self._port))
             self._server_socket.listen(5)
@@ -41,34 +44,29 @@ class CServerBL:
                 client_socket.send("True".encode())
 
                 # Start Thread
-                cl_handler = CClientHandler(self._host, self._port,client_socket, address)
+                cl_handler = CClientHandler(self._host, self._port, client_socket, address)
                 cl_handler._client_thread.start()
-                self._client_handlers[address] = cl_handler
-                cl_handler._client_handlers = self._client_handlers
-                cl_handler._clients_data = self._clients_data
+                client_handlers[address] = cl_handler
 
-                write_to_log(f"[SERVER_BL] ACTIVE CONNECTION {len(self._client_handlers)}")
+                write_to_log(f"[SERVER_BL] ACTIVE CONNECTION {len(client_handlers)}")
 
         except Exception as e:
             write_to_log("[SERVER_BL] Exception in start_server fn : {}".format(e))
 
     def stop_server(self):
-        try:
-            self._server_socket.shutdown(socket.SHUT_RDWR)
-        except Exception:
-            pass
 
         self.stop_event.set()
         self._server_socket.close()
-        for address in self._client_handlers:
-            write_to_log( self._client_handlers[address]._client_socket)
-            self._client_handlers[address]._client_socket.send('("CLOSE","False")'.encode())
-            self._client_handlers[address].stop()
+
+        for address in client_handlers:
+            client_handlers[address]._client_socket.send('("CLOSE","False")'.encode())
+            client_handlers[address].stop()
             write_to_log(f"[SERVER_BL] Thread closed for : {address} ")
 
 
 
-class CClientHandler(CServerBL):
+
+class CClientHandler():
     _client_socket = None
     _address = None
     _client_thread = None
@@ -76,11 +74,13 @@ class CClientHandler(CServerBL):
     port = None
 
     def __init__(self, host, port, client_socket, address):
-        super().__init__(host,  port,)
 
         self._client_socket = client_socket
         self._address = address
         self._client_thread = threading.Thread(target=self.run)
+        self.host = host
+        self.port = port
+
 
     def run(self):
         # This code run in separate thread for every client
@@ -99,7 +99,7 @@ class CClientHandler(CServerBL):
                     response = "Non-supported cmd"
 
                 if cmd == "LOGIN" and response[0] == True:
-                    self._clients_data[self._address] = response[1]
+                    clients_data[self._address] = response[1]
                     response = str((cmd,response[1]))
                     self._client_socket.send(response.encode())
                     write_to_log(f"[SERVER_BL] sent '{response}'")
@@ -126,11 +126,11 @@ class CClientHandler(CServerBL):
             self._client_socket.send(response.encode())
             write_to_log(f"[SERVER_BL] sent to {current} - '{response}'")
 
-            for address, client in self._clients_data.items():
+            for address, client in clients_data.items():
                 if client[5] == destination:
                     destination_ip = address
                     response = str(("TRANSFER-2",f"Received {amount}₪ from client {current}"))
-                    self._client_handlers[destination_ip]._client_socket.send(response.encode())
+                    client_handlers[destination_ip]._client_socket.send(response.encode())
                     write_to_log(f"[SERVER_BL] sent to {destination} - '{response}'")
 
         except Exception as e:
