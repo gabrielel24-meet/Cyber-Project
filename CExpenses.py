@@ -95,9 +95,22 @@ class CExpensesGUI():
         )
         self.back_button.place(relx=0.01, rely=0.05, anchor="nw")
         
+        self.insights_frame = ctk.CTkFrame(
+            self.main_frame,
+            fg_color=self.secondary_color
+        )
+        self.insights_frame.place(anchor = 'w')
+
+        self.insights_label = ctk.CTkLabel(
+            text="back",
+            font=("Arial", 14, "bold"),
+        )
+
 
         if len(self.sizes) > 0:
             self.create_pie()
+
+        
 
 
     def update_time(self):
