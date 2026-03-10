@@ -115,7 +115,7 @@ class CClientGUI(CClientBL):
         self.destination_user_frame = ctk.CTkFrame(self.main_frame, fg_color=self.secondary_color)
         self.destination_user_label = ctk.CTkLabel(self.destination_user_frame, text="Transfer destination account", font=("Arial", 15, "bold"))
         self.destination_user_entry = ctk.CTkEntry(self.destination_user_frame, width=220, height=25, border_width=1)
-        self.error_message = ctk.CTkLabel(self.destination_user_frame,text="can't transfer to yourself")
+        self.destination_error_message = ctk.CTkLabel(self.destination_user_frame,text="can't transfer to yourself")
 
         self.destination_user_label.pack(anchor="w", padx=10)
         self.destination_user_entry.pack()
@@ -123,6 +123,8 @@ class CClientGUI(CClientBL):
         self.transfer_amount_frame = ctk.CTkFrame(self.main_frame, fg_color=self.secondary_color)
         self.transfer_amount_label = ctk.CTkLabel(self.transfer_amount_frame, text="Amount", font=("Arial", 15, "bold"))
         self.transfer_amount_entry = ctk.CTkEntry(self.transfer_amount_frame, width=220, height=25, border_width=1)
+        self.amount_error_message = ctk.CTkLabel(self.transfer_amount_frame)
+
 
         self.transfer_amount_label.pack(anchor="w", padx=10)
         self.transfer_amount_entry.pack()
@@ -212,7 +214,8 @@ class CClientGUI(CClientBL):
             time.sleep(0.1)
             self.root.after(0, self.expenses_page.expense_window.root.destroy)
             self.update_expenses_window()
-            self.root.after(0,self.expenses_page.create_pie())
+            self.root.after(0,self.expenses_page.show_chart_insights())
+
 
         self.main_frame.pack_forget()
         if self.expenses_page == None:
@@ -250,14 +253,24 @@ class CClientGUI(CClientBL):
         self.on_click_transfer.pack_forget()
 
     def on_click_transfer_money(self):
-        if self.destination_user_entry.get() != self.account_number:
-            self.error_message.pack_forget()
-            self.send_data("TRANSFER",(self.account_number ,self.destination_user_entry.get(), int(self.transfer_amount_entry.get())))
+        error_flag = True
+        self.destination_error_message.pack_forget()
+        self.amount_error_message.pack_forget()
+
+        if self.destination_user_entry.get() == self.account_number:
+            self.destination_error_message.pack(anchor="w")
+            error_flag = False
+        if not is_positive_number(self.transfer_amount_entry.get()):
+            self.amount_error_message.configure(text="please enter a positive number")
+            self.amount_error_message.pack(anchor="w")
+            error_flag = False
+
+
+        if error_flag:
+            self.send_data("TRANSFER", (self.account_number, self.destination_user_entry.get(), int(self.transfer_amount_entry.get())))
             self.on_click_close_transfer()
             time.sleep(0.1)
             self.update_balance_label()
-        else:
-            self.error_message.pack(anchor="w")
 
     def run(self):
         self._client_socket = threading.Thread(target=self.connect_to_server, daemon=True).start()

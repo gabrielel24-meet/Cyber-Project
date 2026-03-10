@@ -32,6 +32,7 @@ class CExpensesGUI():
         self.pie_canvas = None
         self.sizes = []
         self.labels = []
+        self.colors= ["#84E22C","#FFD700","#56ccba","#FF69B4","#57777d"]
 
 
     def create_ui(self):
@@ -69,7 +70,7 @@ class CExpensesGUI():
         )
 
 
-        self.expense_button.place(relx=0.45, rely=0.25)
+        self.expense_button.place(relx=0.45, rely=0.2)
 
         # Connection Status
         self.connection_status = ctk.CTkLabel(
@@ -94,23 +95,40 @@ class CExpensesGUI():
 
         )
         self.back_button.place(relx=0.01, rely=0.05, anchor="nw")
-        
-        self.insights_frame = ctk.CTkFrame(
+
+        self.monthly_insights_frame = ctk.CTkFrame(
             self.main_frame,
             fg_color=self.secondary_color
         )
-        self.insights_frame.place(anchor = 'w')
 
-        self.insights_label = ctk.CTkLabel(
-            text="back",
-            font=("Arial", 14, "bold"),
+        self.insights_title = ctk.CTkLabel(
+            self.monthly_insights_frame,
+            text="Insights",
+            font=("Arial", 22, "bold"),
         )
 
+        self.insights_label = ctk.CTkLabel(
+            self.monthly_insights_frame,
+            font=("Arial", 17),
+            text=f"""You spend most of your money on """
+        )
 
+        self.bold_expense_label = ctk.CTkLabel(
+            self.monthly_insights_frame,
+            font=("Arial", 20, "bold")
+        )
+
+        try:
+            self.show_chart_insights()
+        except Exception as e:
+            write_to_log(f"Error on char: {e}")
+
+
+
+    def show_chart_insights(self):
         if len(self.sizes) > 0:
             self.create_pie()
-
-        
+            self.create_insights()
 
 
     def update_time(self):
@@ -119,19 +137,43 @@ class CExpensesGUI():
         self.root.after(1000, self.update_time)  # Update every second
 
     def create_pie(self):
-        fig = Figure(figsize=(4, 3), dpi=100)
+        fig = Figure(figsize=(5, 4), dpi=100)
         ax = fig.add_subplot(111)
 
         # Create the pie chart
-        ax.pie(self.sizes, labels=self.labels, autopct='%1.1f%%', textprops={'fontsize': 8, 'color': 'white'})
+        ax.pie(self.sizes, labels=self.labels, colors=self.colors, autopct='%1.1f%%', textprops={'fontsize': 10, 'color': 'white'})
         ax.axis('equal')
         fig.set_facecolor(self.secondary_color)
 
         # 3. Create Canvas and Place it in the CTkFrame
         self.pie_canvas = FigureCanvasTkAgg(fig, master=self.main_frame)
         self.pie_canvas.draw()
-        self.pie_canvas.get_tk_widget().place(anchor="s", relx=0.7, rely=0.85)
+        self.pie_canvas.get_tk_widget().place(anchor="s", relx=0.7, rely=0.9)
 
+
+    def create_insights(self):
+        biggest_expense = self.insights()
+        color_index = self.labels.index(biggest_expense)
+        color = self.colors[color_index]
+
+        self.bold_expense_label.configure(text=f"""{biggest_expense}""",text_color=color)
+
+        self.monthly_insights_frame.pack(anchor='w',padx=70,pady=200, fill="both")
+        self.insights_title.pack(anchor='w')
+        self.insights_label.pack(anchor='w')
+        self.bold_expense_label.place(anchor='w',relx=0.32,rely=0.71)
+
+        # self.insights_title.place(anchor='s', relx=0.5, rely=0.4)
+        # self.insights_label.place(anchor='w', relx=0.05, rely=0.5)
+        # self.bold_expense_label.place(anchor='w', relx=0.32, rely=0.495)
+
+
+    def insights(self):
+        max_num = max(self.sizes)
+        place = self.sizes.index(max_num)
+        expense = self.labels[place]
+
+        return expense
 
     def open_expenses_window(self):
         write_to_log(f"[CLIENT_GUI] opened Expenses window")
@@ -150,7 +192,6 @@ class CExpensesGUI():
     def run(self):
         self.create_ui()
         self.root.mainloop()
-
 
 
 
@@ -247,5 +288,10 @@ class CExpensesWnd:
         self.root.mainloop()
 
 
-if __name__ == "__main__":
+
+
+def test():
     pass
+if __name__ == "__main__":
+    exp = CExpensesGUI(ctk.CTk, ctk.CTkFrame, test,"1")
+    exp.run()
