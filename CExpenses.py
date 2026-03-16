@@ -32,7 +32,8 @@ class CExpensesGUI():
         self.pie_canvas = None
         self.sizes = []
         self.labels = []
-        self.colors= ["#84E22C","#FFD700","#56ccba","#FF69B4","#57777d"]
+        self.colors= ['#5dade2', '#ec7063', '#58d68d','#FFD700','#60888F']
+
 
 
     def create_ui(self):
@@ -68,9 +69,27 @@ class CExpensesGUI():
             fg_color=self.primary_color,
             command=self.open_expenses_window
         )
-
-
         self.expense_button.place(relx=0.45, rely=0.2)
+
+
+        self.arrow_img = Image.open(ARROW_IMAGE)
+        my_image = ctk.CTkImage(
+            light_image= Image.open(ARROW_IMAGE),
+            dark_image= Image.open(ARROW_IMAGE),
+            size=(30, 30),
+        )
+
+        self.hide_chart_insights_button = ctk.CTkButton(
+            self.main_frame,
+            image=my_image,
+            text="",
+            width=20,
+            fg_color=self.secondary_color,
+            hover_color=self.primary_color,
+            command=self.hide_chart_insights
+        )
+
+
 
         # Connection Status
         self.connection_status = ctk.CTkLabel(
@@ -96,18 +115,30 @@ class CExpensesGUI():
         )
         self.back_button.place(relx=0.01, rely=0.05, anchor="nw")
 
-        self.monthly_insights_frame = ctk.CTkFrame(
-            self.main_frame,
-            fg_color=self.secondary_color
-        )
+
 
         self.insights_title = ctk.CTkLabel(
-            self.monthly_insights_frame,
+            self.main_frame,
             text="Insights",
             font=("Arial", 22, "bold"),
         )
+        self.title_label.place(relx=0.5, rely=0.08, anchor="center")  
 
-        self.insights_label = ctk.CTkLabel(
+        self.monthly_insights_frame = ctk.CTkFrame(
+            self.main_frame,
+            width=700,
+            height=380,
+            fg_color=self.secondary_color
+        )
+        self.monthly_insights_frame.place(anchor='s', relx=0.5, rely=0.96)  
+        self.monthly_insights_frame.pack_propagate(False)  
+        
+        self.monthly_title = ctk.CTkLabel(
+            self.monthly_insights_frame,
+            font=("Arial", 20, "bold"),
+            text="Monthly Insights"
+        )
+        self.monthly_insights_label = ctk.CTkLabel(
             self.monthly_insights_frame,
             font=("Arial", 17),
             text=f"""You spend most of your money on """
@@ -118,17 +149,35 @@ class CExpensesGUI():
             font=("Arial", 20, "bold")
         )
 
+        self.yearly_insights_frame = ctk.CTkFrame(
+            self.main_frame,
+            width=700,
+            height=380,
+            fg_color=self.secondary_color
+        )
+        self.monthly_insights_frame.place(anchor='s', relx=0.5, rely=0.96)  
+        self.monthly_insights_frame.pack_propagate(False)  
+
         try:
-            self.show_chart_insights()
+            self.show_pie()
         except Exception as e:
             write_to_log(f"Error on char: {e}")
 
 
 
-    def show_chart_insights(self):
+
+    def show_pie(self):
         if len(self.sizes) > 0:
             self.create_pie()
             self.create_insights()
+            self.hide_chart_insights_button.place(relx=0.9, rely=0.5)
+
+
+    def hide_chart_insights(self):
+        if self.pie_canvas:
+            self.pie_canvas.get_tk_widget().place_forget()
+        self.monthly_insights_frame.place_forget()
+        self.create_bar()
 
 
     def update_time(self):
@@ -140,15 +189,13 @@ class CExpensesGUI():
         fig = Figure(figsize=(5, 4), dpi=100)
         ax = fig.add_subplot(111)
 
-        # Create the pie chart
         ax.pie(self.sizes, labels=self.labels, colors=self.colors, autopct='%1.1f%%', textprops={'fontsize': 10, 'color': 'white'})
         ax.axis('equal')
         fig.set_facecolor(self.secondary_color)
 
-        # 3. Create Canvas and Place it in the CTkFrame
-        self.pie_canvas = FigureCanvasTkAgg(fig, master=self.main_frame)
+        self.pie_canvas = FigureCanvasTkAgg(fig, master=self.monthly_insights_frame)
         self.pie_canvas.draw()
-        self.pie_canvas.get_tk_widget().place(anchor="s", relx=0.7, rely=0.9)
+        self.pie_canvas.get_tk_widget().place(anchor="center", relx=0.8, rely=0.5)
 
 
     def create_insights(self):
@@ -158,14 +205,46 @@ class CExpensesGUI():
 
         self.bold_expense_label.configure(text=f"""{biggest_expense}""",text_color=color)
 
-        self.monthly_insights_frame.pack(anchor='w',padx=70,pady=200, fill="both")
-        self.insights_title.pack(anchor='w')
-        self.insights_label.pack(anchor='w')
-        self.bold_expense_label.place(anchor='w',relx=0.32,rely=0.71)
+        self.monthly_insights_frame.place(anchor='s',relx=0.5, rely=0.96)
+        self.monthly_title.place(x=20, y=50)
+        self.monthly_insights_label.place(x=20, y=80)
+        self.bold_expense_label.place(x=280, y=80)
 
-        # self.insights_title.place(anchor='s', relx=0.5, rely=0.4)
-        # self.insights_label.place(anchor='w', relx=0.05, rely=0.5)
-        # self.bold_expense_label.place(anchor='w', relx=0.32, rely=0.495)
+     
+
+    def create_bar(self):
+        data = {
+            'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            'Food': [1200, 1500, 1100, 1300, 1400, 1200, 1100, 1250, 1350, 1450, 1550, 1650],
+            'Clothes': [400, 200, 800, 600, 700, 500, 400, 450, 550, 650, 750, 850],
+            'Gifts': [600, 900, 500, 700, 800, 3000, 500, 550, 650, 750, 850, 950],
+            'Gadgets': [300, 400, 200, 500, 600, 400, 300, 350, 450, 550, 650, 750],
+            'Other': [300, 400, 200, 500, 600, 400, 300, 350, 450, 550, 650, 750]
+        }
+        df = pd.DataFrame(data)
+        df.set_index('Month', inplace=True)
+
+        # 2. יצירת האובייקט של Matplotlib (Figure)
+        # שימוש ב-facecolor תואם לרקע של ה-UI (אופציונלי)
+        fig, ax = plt.subplots(figsize=(8,5), dpi=100, facecolor=self.secondary_color,)
+        
+        # יצירת הגרף הנערם
+        df.plot(kind='bar', stacked=True, ax=ax, color=self.colors)
+
+        # עיצוב הגרף באנגלית
+        ax.set_xlabel('Month',color='white',fontsize=12)
+        ax.set_ylabel('Amount (₪)',color='white',fontsize=12)
+        ax.legend(title='Categories',)
+        plt.xticks(rotation=0,color='white')
+        plt.yticks(color='white')
+
+        # 3. שילוב הגרף בתוך CustomTkinter
+        self.bar_canvas = FigureCanvasTkAgg(fig, master=self.yearly_insights_frame)
+        self.bar_canvas.draw()
+
+        self.yearly_insights_frame.place(anchor='s', relx=0.5, rely=0.96)
+        self.bar_canvas.get_tk_widget().place(anchor="center", relx=0.65, rely=0.5)
+
 
 
     def insights(self):
@@ -293,5 +372,5 @@ class CExpensesWnd:
 def test():
     pass
 if __name__ == "__main__":
-    exp = CExpensesGUI(ctk.CTk, ctk.CTkFrame, test,"1")
+    exp = CExpensesGUI()
     exp.run()

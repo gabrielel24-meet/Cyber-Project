@@ -1,3 +1,4 @@
+import customtkinter
 from protocol import *
 from protocol_DB import *
 from CClientBL import *
@@ -72,7 +73,7 @@ class CClientGUI(CClientBL):
         self.balance_label = ctk.CTkLabel(
             self.main_frame,
             text=f"Balance: {self.balance}₪",
-            font=("Arial", 20, "bold"),
+                    font=("Arial", 20, "bold"),
             text_color="white"
         )
 
@@ -139,6 +140,7 @@ class CClientGUI(CClientBL):
             command= self.on_click_transfer_money
         )
 
+        
 
         # Connection Status
         self.connection_status_label = ctk.CTkLabel(
@@ -214,7 +216,7 @@ class CClientGUI(CClientBL):
             time.sleep(0.1)
             self.root.after(0, self.expenses_page.expense_window.root.destroy)
             self.update_expenses_window()
-            self.root.after(0,self.expenses_page.show_chart_insights())
+            self.root.after(0,self.expenses_page.show_pie())
 
 
         self.main_frame.pack_forget()

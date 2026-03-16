@@ -27,6 +27,7 @@ cursor.execute("PRAGMA foreign_keys = ON;")
 #         expense_type TEXT NOT NULL,
 #         payment_type TEXT NOT NULL,
 #         expense_amount REAL,
+#         date TEXT NOT NULL,
 
 #         FOREIGN KEY (id) REFERENCES users(id)
 #             ON DELETE CASCADE
@@ -57,7 +58,7 @@ cursor.execute("PRAGMA foreign_keys = ON;")
 # cursor.execute(f"UPDATE users SET password = ? WHERE account_number = ?", ( 1, 1))
 
 # Delete Data
-cursor.execute("DELETE FROM user_expenses",())
+# cursor.execute("DELETE FROM user_expenses",())
 
 # Drop Table
 # cursor.execute("DROP TABLE IF EXISTS user_expenses")

@@ -10,8 +10,15 @@ import ast
 from protocol_DB import *
 import random
 import matplotlib
+import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import pandas as pd
+import tkinter as tk
+from tkinter import PhotoImage
+from PIL import Image
+
+
 
 clients :{str:(threading.Thread,Event)} = {}
 
@@ -26,6 +33,12 @@ LOG_FILE = 'LOG.log'
 logging.basicConfig(filename=LOG_FILE,level=logging.INFO,format='%(asctime)s - %(levelname)s - %(message)s')
 
 standard_cmd = ["GET_BALANCE","TRANSFER","EXPENSES-1", "EXPENSES-2"]
+
+BTN_IMAGE = "./Images/GUI - button.png"
+BG_IMAGE = "./Images/YellowBG.png"
+ARROW_IMAGE = "./Images/right.png"
+FONT = "Calibri"
+FONT_BUTTON = (FONT, 16)
 
 clients_data = {}
 client_handlers = {}
@@ -123,10 +136,11 @@ def add_expense(data):
         expense_amount = data[1][0]
         expense_type = data[1][1]
         payment_type = data[1][2]
+        month = str(datetime.now().strftime("%B"))
+        year = str(datetime.today().year)
 
-
-        cursor.execute("""INSERT INTO user_expenses (id, expense_type, payment_type, expense_amount) VALUES (?, ?, ?, ?)""",
-                       (id, expense_type, payment_type, expense_amount))
+        cursor.execute("""INSERT INTO user_expenses (id, expense_type, payment_type, expense_amount, month, year) VALUES (?, ?, ?, ?, ?, ?)""",
+                       (id, expense_type, payment_type, expense_amount, month, year))
 
         conn.commit()
         conn.close()
