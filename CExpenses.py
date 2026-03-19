@@ -32,6 +32,9 @@ class CExpensesGUI():
         self.pie_canvas = None
         self.sizes = []
         self.labels = []
+
+        # Bar Chart data
+        self.bar_canvas = None
         self.colors= ['#5dade2', '#ec7063', '#58d68d','#FFD700','#60888F']
 
 
@@ -71,22 +74,37 @@ class CExpensesGUI():
         )
         self.expense_button.place(relx=0.45, rely=0.2)
 
-
-        self.arrow_img = Image.open(ARROW_IMAGE)
-        my_image = ctk.CTkImage(
-            light_image= Image.open(ARROW_IMAGE),
-            dark_image= Image.open(ARROW_IMAGE),
+        # Arrow button
+        
+        right_arrow_img = ctk.CTkImage(
+            light_image= Image.open(RIGHT_ARROW_IMAGE),
+            dark_image= Image.open(RIGHT_ARROW_IMAGE),
+            size=(30, 30),
+        )
+        left_arrow_img = ctk.CTkImage(
+            light_image= Image.open(LEFT_ARROW_IMAGE),
+            dark_image= Image.open(LEFT_ARROW_IMAGE),
             size=(30, 30),
         )
 
-        self.hide_chart_insights_button = ctk.CTkButton(
+        self.switch_chat_btn_1 = ctk.CTkButton(
             self.main_frame,
-            image=my_image,
+            image=right_arrow_img,
             text="",
             width=20,
             fg_color=self.secondary_color,
             hover_color=self.primary_color,
-            command=self.hide_chart_insights
+            command=self.hide_pie_insights
+        )
+
+        self.switch_chat_btn_2 = ctk.CTkButton(
+            self.main_frame,
+            image=left_arrow_img,
+            text="",
+            width=20,
+            fg_color=self.secondary_color,
+            hover_color=self.primary_color,
+            command=self.hide_bar
         )
 
 
@@ -126,7 +144,7 @@ class CExpensesGUI():
 
         self.monthly_insights_frame = ctk.CTkFrame(
             self.main_frame,
-            width=700,
+            width=750,
             height=380,
             fg_color=self.secondary_color
         )
@@ -155,7 +173,7 @@ class CExpensesGUI():
             height=380,
             fg_color=self.secondary_color
         )
-        self.monthly_insights_frame.place(anchor='s', relx=0.5, rely=0.96)  
+        self.monthly_insights_frame.place(anchor='s', relx=0.4, rely=0.96)
         self.monthly_insights_frame.pack_propagate(False)  
 
         try:
@@ -170,15 +188,27 @@ class CExpensesGUI():
         if len(self.sizes) > 0:
             self.create_pie()
             self.create_insights()
-            self.hide_chart_insights_button.place(relx=0.9, rely=0.5)
+            self.switch_chat_btn_1.place(relx=0.9, rely=0.5)
 
+            
+    def show_bar(self):
+        self.create_bar()
+        self.switch_chat_btn_2.place(relx=0.05, rely=0.5)
 
-    def hide_chart_insights(self):
+        
+    def hide_pie_insights(self):
         if self.pie_canvas:
             self.pie_canvas.get_tk_widget().place_forget()
         self.monthly_insights_frame.place_forget()
-        self.create_bar()
+        self.switch_chat_btn_1.place_forget()
+        self.show_bar()
 
+    def hide_bar(self):
+        if self.bar_canvas:
+            self.bar_canvas.get_tk_widget().place_forget()
+        self.yearly_insights_frame.place_forget()
+        self.switch_chat_btn_2.place_forget()
+        self.show_pie()
 
     def update_time(self):
         current_time = datetime.now().strftime("%H:%M:%S")
@@ -195,7 +225,7 @@ class CExpensesGUI():
 
         self.pie_canvas = FigureCanvasTkAgg(fig, master=self.monthly_insights_frame)
         self.pie_canvas.draw()
-        self.pie_canvas.get_tk_widget().place(anchor="center", relx=0.8, rely=0.5)
+        self.pie_canvas.get_tk_widget().place(anchor="center", relx=0.75, rely=0.5)
 
 
     def create_insights(self):
@@ -206,9 +236,9 @@ class CExpensesGUI():
         self.bold_expense_label.configure(text=f"""{biggest_expense}""",text_color=color)
 
         self.monthly_insights_frame.place(anchor='s',relx=0.5, rely=0.96)
-        self.monthly_title.place(x=20, y=50)
-        self.monthly_insights_label.place(x=20, y=80)
-        self.bold_expense_label.place(x=280, y=80)
+        self.monthly_title.place(x=10, y=50)
+        self.monthly_insights_label.place(x=10, y=80)
+        self.bold_expense_label.place(x=270, y=80)
 
      
 

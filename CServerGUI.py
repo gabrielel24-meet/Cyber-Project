@@ -9,6 +9,7 @@ class CServerGUI(CServerBL):
     def __init__(self, host, port):
         super().__init__(host,port)
 
+
         # Attributes
 
         self._root = None

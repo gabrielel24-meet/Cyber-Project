@@ -1,9 +1,5 @@
-import threading
-from base64 import encode
-
-
+from protocol_DB import *
 from protocol import *
-import socket
 
 
 class CServerBL:
@@ -16,8 +12,6 @@ class CServerBL:
         self._server_socket = None
         self.stop_event = threading.Event()
         self._is_srv_running = True
-
-
 
 
     def start_server(self):
@@ -43,8 +37,18 @@ class CServerBL:
                 write_to_log(f"[SERVER_BL] Client {address} connected ")
                 client_socket.send("True".encode())
 
+                # Set encryption
+                private_key, public_key = self.generate_rsa_keys()
+                public_pem = self.public_key_to_pem(public_key)
+                client_socket.send(public_pem)
+                write_to_log(f"[SERVER_BL] Public key sent to client")
+
+                encrypted_session_key = client_socket.recv(1024)
+                session_key = self.decrypt_session_key(private_key,encrypted_session_key)
+                write_to_log(f"[SERVER_BL] Session key received and decrypted")
+
                 # Start Thread
-                cl_handler = CClientHandler(self._host, self._port, client_socket, address)
+                cl_handler = CClientHandler(self._host, self._port, client_socket, address, session_key)
                 cl_handler._client_thread.start()
                 client_handlers[address] = cl_handler
 
@@ -63,6 +67,18 @@ class CServerBL:
             client_handlers[address].stop()
             write_to_log(f"[SERVER_BL] Thread closed for : {address} ")
 
+    def generate_rsa_keys(self):
+        private_key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
+        public_key = private_key.public_key()
+        return private_key, public_key
+
+    def public_key_to_pem(self, public_key):
+        public_pem = public_key.public_bytes(encoding=serialization.Encoding.PEM, format=serialization.PublicFormat.SubjectPublicKeyInfo)
+        return public_pem
+
+    def decrypt_session_key(self, private_key, encrypted_session_key):
+        session_key = private_key.decrypt(encrypted_session_key, padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None))
+        return session_key
 
 
 
@@ -73,22 +89,24 @@ class CClientHandler():
     host = None
     port = None
 
-    def __init__(self, host, port, client_socket, address):
+    def __init__(self, host, port, client_socket, address, session_key):
 
         self._client_socket = client_socket
         self._address = address
         self._client_thread = threading.Thread(target=self.run)
         self.host = host
         self.port = port
+        self.session_key = session_key
+        self.fernet = Fernet(self.session_key)
 
 
     def run(self):
-        # This code run in separate thread for every client
+        #This code run in separate thread for every client
         try:
             while True:
-                request = self._client_socket.recv(1024).decode()
+                encrypted_request = self._client_socket.recv(1024)
+                request = self.fernet.decrypt(encrypted_request).decode()
                 cmd, args = get_cmd_and_args(request)
-
                 write_to_log(f"[SERVER_BL] received from {self._address} - cmd: {cmd}, args: {args}")
 
                 if check_cmd(cmd) == 1:
@@ -100,15 +118,15 @@ class CClientHandler():
 
                 if cmd == "LOGIN" and response[0] == True:
                     clients_data[self._address] = response[1]
-                    response = str((cmd,response[1]))
-                    self._client_socket.send(response.encode())
+                    response = self.fernet.encrypt((str((cmd,response[1]))).encode())
+                    self._client_socket.send(response)
                     write_to_log(f"[SERVER_BL] sent '{response}'")
                 elif cmd == "TRANSFER" and response[0] == True:
                     self.notify_transfer(response[1])
                 else:
-                    response = cmd, response
+                    response = self.fernet.encrypt((str((cmd,response))).encode())
                     write_to_log(f"[SERVER_BL] sent '{response}'")
-                    self._client_socket.send(str(response).encode())
+                    self._client_socket.send(response)
 
         except Exception as e:
             self._client_socket.close()
@@ -123,14 +141,16 @@ class CClientHandler():
             amount = data["amount"]
 
             response = str(("TRANSFER-1",f"Client {current} transferred {amount}₪ to client {destination}"))
-            self._client_socket.send(response.encode())
+            response = self.fernet.encrypt(response.encode())
+            self._client_socket.send(response)
             write_to_log(f"[SERVER_BL] sent to {current} - '{response}'")
 
             for address, client in clients_data.items():
                 if client[5] == destination:
                     destination_ip = address
                     response = str(("TRANSFER-2",f"Received {amount}₪ from client {current}"))
-                    client_handlers[destination_ip]._client_socket.send(response.encode())
+                    response = self.fernet.encrypt(response.encode())
+                    client_handlers[destination_ip]._client_socket.send(response)
                     write_to_log(f"[SERVER_BL] sent to {destination} - '{response}'")
 
         except Exception as e:

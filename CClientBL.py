@@ -1,5 +1,7 @@
 import time
 
+from fontTools.misc.eexec import encrypt
+
 from protocol import *
 
 
@@ -33,10 +35,25 @@ class CClientBL:
         while True:
             try:
                 if self.connection_status == False:
+                    # Connecting to server
                     self._client_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
                     self._client_socket.connect((self._host, self._port))
                     write_to_log(f"[CLIENT_BL] connected to server {CLIENT_HOST}")
                     self.connection_status = ast.literal_eval(self._client_socket.recv(1024).decode())
+
+                    # Setting encryption
+                    public_pem = self._client_socket.recv(1024)
+                    public_key = self.load_public_key(public_pem)
+                    write_to_log("[CLIENT_BL] Public key received")
+
+                    session_key = Fernet.generate_key()
+                    self.fernet = Fernet(session_key)
+                    write_to_log("[CLIENT_BL] Session key generated")
+
+                    encrypted_session_key = self.encrypt_session_key(public_key,session_key)
+                    self._client_socket.send(encrypted_session_key)
+                    write_to_log("[CLIENT_BL] Encrypted session key sent to server")
+
 
                     server_handler = threading.Thread(target=self.handle_responses)
                     server_handler.start()
@@ -44,6 +61,15 @@ class CClientBL:
             except Exception as e:
                 write_to_log("[CLIENT_BL] Exception on connect: {}".format(e))
             time.sleep(1)
+
+    def load_public_key(self, public_pem: bytes):
+        public_key = serialization.load_pem_public_key(public_pem)
+        return public_key
+
+    def encrypt_session_key(self,public_key, session_key):
+        encrypted_session_key = public_key.encrypt(session_key,padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None))
+        return encrypted_session_key
+
 
     def handle_responses(self):
         try:
@@ -76,11 +102,13 @@ class CClientBL:
     def update_balance(self,data):
         self.balance = float(data)
 
+
     def send_data(self, cmd, args):
         try:
-            request = create_request_msg(cmd, args)
-            self._client_socket.send(request.encode())
-            write_to_log(f"[CLIENT_BL] send to server '{request}'")
+            request = create_request_msg(cmd, args).encode()
+            encrypted_request = self.fernet.encrypt(request)
+            self._client_socket.send(encrypted_request)
+            write_to_log(f"[CLIENT_BL] send to server '{encrypted_request}'")
             return True
         except Exception as e:
             write_to_log("[CLIENT_BL] Exception on send_data: {}".format(e))
@@ -89,15 +117,18 @@ class CClientBL:
 
     def receive_data(self) -> str:
         try:
-            msg = ast.literal_eval(self._client_socket.recv(1024).decode())
-            write_to_log(f"[CLIENT_BL] received {msg} ")
-            return msg
+            encrypted_request = self._client_socket.recv(1024)
+            request = self.fernet.decrypt(encrypted_request).decode()
+            request = ast.literal_eval(request)
+            write_to_log(f"[CLIENT_BL] received {request} ")
+            return request
         except Exception as e:
             write_to_log("[CLIENT_BL] Exception on receive: {}".format(e))
             return "Error"
 
     def update_user_data(self,data):
-        if data != "Error":
+        write_to_log(data)
+        if data[1] != "Error":
             self.login_successfully_flag = True
             self.id = data[0]
             self.first_name = data[1]

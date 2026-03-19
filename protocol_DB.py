@@ -1,6 +1,7 @@
-import random
-
 from protocol import *
+import random
+from argon2 import PasswordHasher
+from argon2.exceptions import VerifyMismatchError
 
 
 login_cmd = ["LOGIN", "REGISTER"]
@@ -31,10 +32,17 @@ def login(data):
     if user == None:
         return "None"
     else:
-        if (data["phone_number"] == user[3] and data["password"] == user[4]):
+        phone_number = data["phone_number"]
+
+        ph = PasswordHasher()
+        password = data["password"]
+        password_flag = (ph.verify(user[4],password))
+
+        if (phone_number == user[3] and password_flag):
             return True, user
         else:
             return False, "Error"
+
 
 def register(data):
 
@@ -61,6 +69,9 @@ def register(data):
             account_number = str(random.randint(1, 6))
 
         id1,first,last,phone,password = data["id"], data["first_name"], data["last_name"], data["phone_number"], data["password"]
+
+        ph = PasswordHasher()
+        password = ph.hash(password)
 
         cursor.execute(
             """INSERT INTO users (id, first_name, last_name, phone_number, password, account_number, balance) VALUES (?, ?, ?, ?, ?, ?, ?)""",

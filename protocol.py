@@ -3,11 +3,11 @@ import threading
 from threading import Event
 import customtkinter as ctk
 from datetime import datetime
+from base64 import encode
 import socket
 import time
 import sqlite3
 import ast
-from protocol_DB import *
 import random
 import matplotlib
 import matplotlib.pyplot as plt
@@ -17,6 +17,9 @@ import pandas as pd
 import tkinter as tk
 from tkinter import PhotoImage
 from PIL import Image
+from cryptography.fernet import Fernet
+from cryptography.hazmat.primitives import serialization, hashes
+from cryptography.hazmat.primitives.asymmetric import rsa, padding
 
 
 
@@ -33,10 +36,13 @@ LOG_FILE = 'LOG.log'
 logging.basicConfig(filename=LOG_FILE,level=logging.INFO,format='%(asctime)s - %(levelname)s - %(message)s')
 
 standard_cmd = ["GET_BALANCE","TRANSFER","EXPENSES-1", "EXPENSES-2"]
+login_cmd = ["LOGIN", "REGISTER"]
+
 
 BTN_IMAGE = "./Images/GUI - button.png"
 BG_IMAGE = "./Images/YellowBG.png"
-ARROW_IMAGE = "./Images/right.png"
+RIGHT_ARROW_IMAGE = "./Images/right.png"
+LEFT_ARROW_IMAGE = "./Images/left.png"
 FONT = "Calibri"
 FONT_BUTTON = (FONT, 16)
 
@@ -84,7 +90,6 @@ def get_cmd_and_args(request):
     split_request = request.split(">")
     cmd = split_request[0]
     args = split_request[1]
-
     return cmd, args
 
 def get_balance(account_number):
