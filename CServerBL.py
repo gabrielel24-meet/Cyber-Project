@@ -58,12 +58,11 @@ class CServerBL:
             write_to_log("[SERVER_BL] Exception in start_server fn : {}".format(e))
 
     def stop_server(self):
-
         self.stop_event.set()
         self._server_socket.close()
-
         for address in client_handlers:
-            client_handlers[address]._client_socket.send('("CLOSE","False")'.encode())
+            fernet = client_handlers[address].fernet
+            client_handlers[address]._client_socket.send(fernet.encrypt('("CLOSE","False")'.encode()))
             client_handlers[address].stop()
             write_to_log(f"[SERVER_BL] Thread closed for : {address} ")
 
@@ -102,12 +101,9 @@ class CClientHandler():
 
     def run(self):
         #This code run in separate thread for every client
-        try:
+        # try:
             while True:
-                encrypted_request = self._client_socket.recv(1024)
-                request = self.fernet.decrypt(encrypted_request).decode()
-                cmd, args = get_cmd_and_args(request)
-                write_to_log(f"[SERVER_BL] received from {self._address} - cmd: {cmd}, args: {args}")
+                cmd, args = self.receive_data(self._address)
 
                 if check_cmd(cmd) == 1:
                     response = create_response_msg(cmd,args)
@@ -118,43 +114,48 @@ class CClientHandler():
 
                 if cmd == "LOGIN" and response[0] == True:
                     clients_data[self._address] = response[1]
-                    response = self.fernet.encrypt((str((cmd,response[1]))).encode())
-                    self._client_socket.send(response)
-                    write_to_log(f"[SERVER_BL] sent '{response}'")
+                    self.send_data(cmd,response,self._address)
                 elif cmd == "TRANSFER" and response[0] == True:
                     self.notify_transfer(response[1])
                 else:
-                    response = self.fernet.encrypt((str((cmd,response))).encode())
-                    write_to_log(f"[SERVER_BL] sent '{response}'")
-                    self._client_socket.send(response)
+                    self.send_data(cmd, response, self._address)
+        # except Exception as e:
+        #     self._client_socket.close()
+        #     write_to_log(f"[SERVER_BL] error - '{e}'")
+        #     write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")
 
-        except Exception as e:
-            self._client_socket.close()
-            write_to_log(f"[SERVER_BL] error - '{e}'")
-            write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")
+
+    def send_data(self, cmd, args, address):
+       protocol_send_data(cmd, args, self._client_socket, self.fernet, )
+       write_to_log(f"[SERVER_BL] send to {address}: {cmd} > {args}")
+
+    def receive_data(self, address) -> tuple:
+        cmd, args = protocol_receive_data(self._client_socket, self.fernet,)
+        write_to_log(f"[SERVER_BL] received from {address}: {cmd} > {args}")
+        return cmd, args
 
 
     def notify_transfer(self, data):
-        try:
+        # try:
             current = data["source"]
             destination = data["destination"]
             amount = data["amount"]
 
-            response = str(("TRANSFER-1",f"Client {current} transferred {amount}₪ to client {destination}"))
-            response = self.fernet.encrypt(response.encode())
-            self._client_socket.send(response)
-            write_to_log(f"[SERVER_BL] sent to {current} - '{response}'")
+            response = f"Client {current} transferred {amount}₪ to client {destination}"
+            self.send_data("TRANSFER-1", response, self._address)
 
             for address, client in clients_data.items():
                 if client[5] == destination:
                     destination_ip = address
-                    response = str(("TRANSFER-2",f"Received {amount}₪ from client {current}"))
-                    response = self.fernet.encrypt(response.encode())
-                    client_handlers[destination_ip]._client_socket.send(response)
-                    write_to_log(f"[SERVER_BL] sent to {destination} - '{response}'")
+                    response = f"Received {amount}₪ from client {current}"
+                    destination_fernet = client_handlers[destination_ip].fernet
+                    destination_socket = client_handlers[destination_ip]._client_socket
+                    protocol_send_data("TRANSFER-2", response, destination_socket, destination_fernet)
+                    write_to_log(f"[SERVER_BL] send to {address}: {"TRANSFER-2"} > {response}")
 
-        except Exception as e:
-            self._client_socket.send(f"Error - {e}")
+        # except Exception as e:
+        #     self.send_data("TRANSFER-1", "Error", self._address)
+        #     write_to_log(f"[SERVER_BL] Error on notify_transfer: {e}")
 
 
 

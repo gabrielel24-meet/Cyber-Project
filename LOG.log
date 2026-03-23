@@ -1,0 +1,930 @@
+2026-03-19 23:47:21,773 - INFO - [SERVER_BL] listening...
+2026-03-19 23:47:25,193 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-19 23:47:25,193 - INFO - [SERVER_BL] Client ('127.0.0.1', 60391) connected 
+2026-03-19 23:47:25,258 - INFO - [SERVER_BL] Public key sent to client
+2026-03-19 23:47:25,262 - INFO - [CLIENT_BL] Public key received
+2026-03-19 23:47:25,263 - INFO - [CLIENT_BL] Session key generated
+2026-03-19 23:47:25,272 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-19 23:47:25,275 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-19 23:47:25,276 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-19 23:47:28,965 - INFO - [CLIENT_GUI] opened Login page
+2026-03-19 23:47:32,550 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-19 23:47:32,561 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpvG70njl_svQI_BOxwdc82CPTj4mVY42q8IzudteEmKGUKhuG0D4zQLFX87awCwE8IPBN7p2C9bSt9m0NzDgT-x2S-fpH8C4q3tQAmlid-WCKna8DSB6EuYdkNYMETjXuZcxBA4ITkJ9O65PtXaw3Skg1bQ==''
+2026-03-19 23:47:32,563 - INFO - [SERVER_BL] received from ('127.0.0.1', 60391) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-19 23:47:32,666 - INFO - [SERVER_BL] sent 'b'gAAAAABpvG70MP7MA27WJ0NFGqezTQ7WH5FI-z6TR6UU8xMf9qJFByvl09dkqibamELHP0z0aGV2m32XDsBSiZaZO5oylwWF1CbNDTGUR7T9V0qHN08KaPY96TtyC4c2VHBkottR-9XuA483jNM73oqLHl9Dx6HrdIzeHX2NstoHj8IMfk3NZddf9_mryrFkpL1f05eMmnsJTd1HjTkzRa9PpRvUx5NpdGNkjoE-wEJWm8lFNE0U0YKApKx0jdLuF7uHda0KtbL0xZYU1lb2MEsKabAriZ05fA==''
+2026-03-19 23:47:32,670 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0)) 
+2026-03-19 23:47:32,670 - INFO - ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0)
+2026-03-19 23:47:38,495 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-19 23:47:38,495 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpvG76Ulb0jxUHANkqV8-rPuo0H6FT202XZSH8EyMIpVCw16OBLTdy-fWpoTyPXdRNqb-RUfwEZ409B30KMVLO8TBmzFH8PhR4qbkXkNtNPmx0t-13F__8HTQPt5xibqBbbSVnM952A-HIfZZnR3WEcZF3LA==''
+2026-03-19 23:47:38,496 - INFO - [SERVER_BL] received from ('127.0.0.1', 60391) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-19 23:47:38,582 - INFO - [SERVER_BL] sent 'b'gAAAAABpvG76fx0cQtBTjjAMbYenzNFXUmYAKCCZX6oiFc6Wx9imFkIrq2R9s6sXVw-5mS39kM6hBJ-KdhcQXsw6RkqAEMBnL_3ZJO3KkCqvIgRihrpLn71DSHN009tHT953BqfIBDTwKEP0UvNo9rbVV7OxOuViVQpSc0WpU9a9eHXrQ7zCs0ERLA0r_ky-1sUGfeP1vxuXMiGL_-H0aTgUX26SAL-A0FOGa1h6YUg15phm9WBX4w_fi9ObX8BJmeE-ddNhJk80hhqbDC644XSwmgXnWROMTQ==''
+2026-03-19 23:47:38,585 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0)) 
+2026-03-19 23:47:38,585 - INFO - ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0)
+2026-03-19 23:47:38,599 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpvG76bPZUO7eInSb65EqpFgs0og4koBX6ExGyt39zQsL4rleVQLc8UsJ8_B4wzguZokaBjGm4D7-PoIREzAyIq6EA8Q==''
+2026-03-19 23:47:38,599 - INFO - [SERVER_BL] received from ('127.0.0.1', 60391) - cmd: EXPENSES-2, args: 1
+2026-03-19 23:47:38,601 - INFO - [SERVER_BL] sent 'b'gAAAAABpvG76D_eMOhcAfFAnA3mh3OFNAarJi6peLE8SXpDGIJ2zT8B1sl61q4Q3li8iu30yOlekSGEsHsWS1ochB_GY-ri9mJ7Sv8HFH3LyZJeJMyorTm91270i_nBb-4aX7IDB41YS9NhoR4uRrnaPQfVaGDBtJnqpi6t-D0DWTQZRakIwlUo=''
+2026-03-19 23:47:38,601 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0)]) 
+2026-03-19 23:47:43,726 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-03-19 23:47:43,728 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 60391) 
+2026-03-19 23:48:05,537 - INFO - [SERVER_BL] listening...
+2026-03-19 23:48:08,270 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-19 23:48:08,270 - INFO - [SERVER_BL] Client ('127.0.0.1', 23528) connected 
+2026-03-19 23:48:08,345 - INFO - [SERVER_BL] Public key sent to client
+2026-03-19 23:48:08,347 - INFO - [CLIENT_BL] Public key received
+2026-03-19 23:48:08,347 - INFO - [CLIENT_BL] Session key generated
+2026-03-19 23:48:08,352 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-19 23:48:08,354 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-19 23:48:08,354 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-19 23:48:09,941 - INFO - [CLIENT_GUI] opened Login page
+2026-03-19 23:48:14,133 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-19 23:48:14,134 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpvG8eJ8i47fu9LrToNLaisqkp9rFq1xqMRgwvPEYAZEFFI75cmdWThBszYR2XwDFwBdkV7Y06f4_UOzhkM4WbxeVzvy386181wpvvVaHrXIQUwm1t6l5giwI2W-HiPiZQCXmgsMTvI0Gin6DKTywcxhR8wg==''
+2026-03-19 23:48:14,136 - INFO - [SERVER_BL] received from ('127.0.0.1', 23528) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-19 23:48:14,225 - INFO - [SERVER_BL] sent 'b'gAAAAABpvG8eKsDhhDdEZ2oKKQbkNhVZzoRLDfGM2jhyOwX_TskJJq9nNLwzLgnhiAjE8bm-NcY-i8AQyjo668xtrf5IBLVo1ZBTowHzWhF3g5biaJxENEbtd43bh6rPgkfeJF5fZKj9xKcKEjxmYkIDymQTZOB_B9_MwyF6Axf_0h3suqL399VzbniQiEL3aopk9j6vg5GgUB9AbbwPQKbMFPg5ZL06_-uhqP0V00X97Q95xOtkl5s6Gj4En35KCvUNRjvkCP7ttwn5SQuDsLVlVS7SXUdUog==''
+2026-03-19 23:48:14,225 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0)) 
+2026-03-19 23:48:14,225 - INFO - ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0)
+2026-03-19 23:48:14,237 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpvG8er3-tgE28ENJyK7Jr4B_nyzn9P88wSjql9Lkq1HkVLqN2MTkuBh890dIQwQiaol5OiIR5cD2vLKSt_7ZlYH9gaA==''
+2026-03-19 23:48:14,237 - INFO - [SERVER_BL] received from ('127.0.0.1', 23528) - cmd: EXPENSES-2, args: 1
+2026-03-19 23:48:14,239 - INFO - [SERVER_BL] sent 'b'gAAAAABpvG8eJTHvRYYLrTGCQp1bUY5SFmploeKWVa7vFoxFqNX5Zt0gpM78r79NYk4oT1cbEnVAElrEBntcp81DmdI9fceAuSSXc1fmhBuFdo_2eplERGzPkabmTUmJbzrvUB6ub3ELGqOyavWV7qUnUJp9Ezy1Ja35Dk2bs9eP7-oHsXklHLA=''
+2026-03-19 23:48:14,239 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0)]) 
+2026-03-19 23:48:17,716 - INFO - [CLIENT_BL] Exception on receive: 
+2026-03-19 23:48:17,716 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-19 23:48:17,716 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-19 23:48:17,716 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 23528) 
+2026-03-19 23:48:17,716 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 23528) 
+2026-03-19 23:48:25,418 - INFO - [SERVER_BL] listening...
+2026-03-19 23:48:29,074 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-19 23:48:29,074 - INFO - [SERVER_BL] Client ('127.0.0.1', 23530) connected 
+2026-03-19 23:48:29,113 - INFO - [SERVER_BL] Public key sent to client
+2026-03-19 23:48:29,114 - INFO - [CLIENT_BL] Public key received
+2026-03-19 23:48:29,114 - INFO - [CLIENT_BL] Session key generated
+2026-03-19 23:48:29,118 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-19 23:48:29,119 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-19 23:48:29,120 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-19 23:48:31,610 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-19 23:48:31,610 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-19 23:48:38,351 - INFO - [SERVER_BL] listening...
+2026-03-19 23:48:40,919 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-19 23:48:40,919 - INFO - [SERVER_BL] Client ('127.0.0.1', 23531) connected 
+2026-03-19 23:48:40,958 - INFO - [SERVER_BL] Public key sent to client
+2026-03-19 23:48:40,959 - INFO - [CLIENT_BL] Public key received
+2026-03-19 23:48:40,959 - INFO - [CLIENT_BL] Session key generated
+2026-03-19 23:48:40,964 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-19 23:48:40,966 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-19 23:48:40,966 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-19 23:48:45,594 - INFO - [CLIENT_BL] Exception on receive: 
+2026-03-19 23:48:45,594 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-19 23:48:45,595 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-19 23:48:45,595 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 23531) 
+2026-03-19 23:48:45,595 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 23531) 
+2026-03-19 23:48:47,535 - INFO - [SERVER_BL] listening...
+2026-03-19 23:48:55,982 - INFO - [SERVER_BL] listening...
+2026-03-19 23:49:00,569 - INFO - [SERVER_BL] listening...
+2026-03-19 23:49:05,726 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-19 23:49:06,540 - INFO - [SERVER_BL] listening...
+2026-03-19 23:49:06,729 - INFO - [SERVER_BL] Client ('127.0.0.1', 23534) connected 
+2026-03-19 23:49:06,774 - INFO - [SERVER_BL] Public key sent to client
+2026-03-19 23:49:06,775 - INFO - [CLIENT_BL] Public key received
+2026-03-19 23:49:06,775 - INFO - [CLIENT_BL] Session key generated
+2026-03-19 23:49:06,779 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-19 23:49:06,781 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-19 23:49:06,781 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-19 23:49:08,140 - INFO - [CLIENT_BL] Exception on receive: 
+] An established connection was aborted by the software in your host machine'
+2026-03-19 23:49:08,140 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 23534) 
+2026-03-19 23:49:08,140 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-19 23:49:08,140 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 23534) 
+2026-03-19 23:49:09,772 - INFO - [SERVER_BL] listening...
+2026-03-19 23:49:25,373 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-19 23:49:28,404 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-19 23:49:31,464 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-19 23:49:32,865 - INFO - [SERVER_BL] listening...
+2026-03-19 23:49:32,979 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+nected 
+2026-03-19 23:49:33,032 - INFO - [SERVER_BL] Public key sent to client
+2026-03-19 23:49:33,033 - INFO - [CLIENT_BL] Public key received
+2026-03-19 23:49:33,033 - INFO - [CLIENT_BL] Session key generated
+2026-03-19 23:49:33,039 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-19 23:49:33,039 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-19 23:49:33,041 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-19 23:49:37,702 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-03-19 23:49:37,702 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 37145) 
+2026-03-19 23:50:49,288 - INFO - [SERVER_BL] listening...
+2026-03-19 23:50:54,827 - INFO - False
+2026-03-19 23:50:56,867 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-19 23:50:57,869 - INFO - False
+2026-03-19 23:50:59,910 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-19 23:51:00,997 - INFO - False
+2026-03-19 23:51:03,015 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-19 23:51:04,016 - INFO - False
+2026-03-19 23:51:05,666 - INFO - [SERVER_BL] listening...
+2026-03-19 23:51:06,066 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-19 23:51:06,066 - INFO - [SERVER_BL] Client ('127.0.0.1', 54584) connected 
+2026-03-19 23:51:06,123 - INFO - [SERVER_BL] Public key sent to client
+2026-03-19 23:51:06,123 - INFO - [CLIENT_BL] Public key received
+2026-03-19 23:51:06,124 - INFO - [CLIENT_BL] Session key generated
+2026-03-19 23:51:06,127 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-19 23:51:06,129 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-19 23:51:06,129 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-19 23:51:07,129 - INFO - True
+2026-03-19 23:51:08,129 - INFO - True
+2026-03-19 23:51:09,130 - INFO - True
+2026-03-19 23:51:10,131 - INFO - True
+2026-03-19 23:51:11,132 - INFO - True
+2026-03-19 23:51:12,133 - INFO - True
+2026-03-19 23:51:12,575 - INFO - [CLIENT_BL] Exception on receive: 
+2026-03-19 23:51:12,575 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-19 23:51:12,575 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-19 23:51:12,577 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 54584) 
+2026-03-19 23:51:12,577 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 54584) 
+2026-03-19 23:51:13,133 - INFO - True
+2026-03-19 23:51:14,134 - INFO - True
+2026-03-19 23:51:15,135 - INFO - True
+2026-03-19 23:51:16,135 - INFO - True
+2026-03-19 23:51:17,136 - INFO - True
+2026-03-19 23:51:18,138 - INFO - True
+2026-03-19 23:51:19,138 - INFO - True
+2026-03-19 23:51:20,139 - INFO - True
+2026-03-19 23:51:21,140 - INFO - True
+2026-03-19 23:51:22,141 - INFO - True
+2026-03-19 23:51:23,142 - INFO - True
+2026-03-19 23:51:24,143 - INFO - True
+2026-03-19 23:51:24,491 - INFO - [SERVER_BL] listening...
+2026-03-19 23:51:25,144 - INFO - True
+2026-03-19 23:51:26,145 - INFO - True
+2026-03-19 23:51:27,145 - INFO - True
+2026-03-19 23:51:28,146 - INFO - True
+2026-03-19 23:52:30,389 - INFO - False
+2026-03-19 23:52:32,426 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-19 23:52:33,428 - INFO - False
+2026-03-19 23:52:35,089 - INFO - [SERVER_BL] listening...
+2026-03-19 23:52:35,458 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-19 23:52:35,458 - INFO - [SERVER_BL] Client ('127.0.0.1', 43403) connected 
+2026-03-19 23:52:35,485 - INFO - [SERVER_BL] Public key sent to client
+2026-03-19 23:52:35,486 - INFO - [CLIENT_BL] Public key received
+2026-03-19 23:52:35,486 - INFO - [CLIENT_BL] Session key generated
+2026-03-19 23:52:35,493 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-19 23:52:35,494 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-19 23:52:35,495 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-19 23:52:36,494 - INFO - True
+2026-03-19 23:52:37,489 - INFO - 111111111111111111111111111111111111111111111111
+2026-03-19 23:52:37,490 - INFO - [CLIENT_BL] Exception on receive: 
+2026-03-19 23:52:37,490 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-19 23:52:37,490 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-19 23:52:37,490 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 43403) 
+2026-03-19 23:52:37,490 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 43403) 
+2026-03-19 23:52:37,495 - INFO - True
+2026-03-19 23:52:38,496 - INFO - True
+2026-03-19 23:52:39,497 - INFO - True
+2026-03-19 23:52:40,498 - INFO - True
+2026-03-19 23:52:41,499 - INFO - True
+2026-03-19 23:52:42,500 - INFO - True
+2026-03-19 23:52:43,500 - INFO - True
+2026-03-19 23:52:44,501 - INFO - True
+2026-03-19 23:52:45,502 - INFO - True
+2026-03-19 23:52:46,503 - INFO - True
+2026-03-19 23:52:47,504 - INFO - True
+2026-03-19 23:52:48,504 - INFO - True
+2026-03-19 23:52:48,618 - INFO - [SERVER_BL] listening...
+2026-03-19 23:52:49,505 - INFO - True
+2026-03-19 23:52:49,897 - INFO - 111111111111111111111111111111111111111111111111
+2026-03-19 23:52:50,506 - INFO - True
+2026-03-19 23:52:51,506 - INFO - True
+2026-03-19 23:52:52,025 - INFO - [SERVER_BL] listening...
+2026-03-19 23:52:52,507 - INFO - True
+2026-03-19 23:52:52,664 - INFO - 111111111111111111111111111111111111111111111111
+2026-03-19 23:52:53,508 - INFO - True
+2026-03-19 23:52:54,509 - INFO - True
+2026-03-19 23:52:55,509 - INFO - True
+2026-03-19 23:52:56,510 - INFO - True
+2026-03-19 23:52:57,511 - INFO - True
+2026-03-19 23:52:58,512 - INFO - True
+2026-03-19 23:53:01,488 - INFO - False
+2026-03-19 23:53:03,518 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-19 23:53:04,519 - INFO - False
+2026-03-19 23:53:06,058 - INFO - [SERVER_BL] listening...
+2026-03-19 23:53:06,568 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-19 23:53:06,569 - INFO - [SERVER_BL] Client ('127.0.0.1', 11665) connected 
+2026-03-19 23:53:06,663 - INFO - [SERVER_BL] Public key sent to client
+2026-03-19 23:53:06,664 - INFO - [CLIENT_BL] Public key received
+2026-03-19 23:53:06,664 - INFO - [CLIENT_BL] Session key generated
+2026-03-19 23:53:06,670 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-19 23:53:06,671 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-19 23:53:06,672 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-19 23:53:07,671 - INFO - True
+2026-03-19 23:53:08,672 - INFO - True
+2026-03-19 23:53:09,657 - INFO - 111111111111111111111111111111111111111111111111
+2026-03-19 23:53:09,659 - INFO - [CLIENT_BL] Exception on receive: 
+2026-03-19 23:53:09,659 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-19 23:53:09,659 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-19 23:53:09,659 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 11665) 
+2026-03-19 23:53:09,659 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 11665) 
+2026-03-19 23:53:09,673 - INFO - True
+2026-03-19 23:53:10,674 - INFO - True
+2026-03-19 23:53:11,674 - INFO - True
+2026-03-19 23:53:12,675 - INFO - True
+2026-03-19 23:53:13,676 - INFO - True
+2026-03-19 23:53:14,677 - INFO - True
+2026-03-19 23:53:15,678 - INFO - True
+2026-03-19 23:53:16,678 - INFO - True
+2026-03-19 23:53:17,679 - INFO - True
+2026-03-19 23:53:18,680 - INFO - True
+2026-03-19 23:53:19,681 - INFO - True
+2026-03-19 23:53:20,682 - INFO - True
+2026-03-19 23:53:21,683 - INFO - True
+2026-03-19 23:53:22,684 - INFO - True
+2026-03-19 23:53:23,684 - INFO - True
+2026-03-19 23:53:24,685 - INFO - True
+2026-03-19 23:53:25,686 - INFO - True
+2026-03-19 23:53:26,687 - INFO - True
+2026-03-19 23:53:27,688 - INFO - True
+2026-03-19 23:53:28,688 - INFO - True
+2026-03-19 23:53:29,689 - INFO - True
+2026-03-19 23:53:30,690 - INFO - True
+2026-03-19 23:53:31,690 - INFO - True
+2026-03-19 23:53:32,691 - INFO - True
+2026-03-19 23:53:33,692 - INFO - True
+2026-03-19 23:53:34,693 - INFO - True
+2026-03-19 23:53:35,693 - INFO - True
+2026-03-19 23:53:36,694 - INFO - True
+2026-03-19 23:53:37,695 - INFO - True
+2026-03-19 23:53:38,696 - INFO - True
+2026-03-19 23:53:39,697 - INFO - True
+2026-03-19 23:53:40,697 - INFO - True
+2026-03-19 23:53:41,698 - INFO - True
+2026-03-19 23:53:42,698 - INFO - True
+2026-03-19 23:53:43,699 - INFO - True
+2026-03-19 23:53:44,700 - INFO - True
+2026-03-19 23:53:45,701 - INFO - True
+2026-03-19 23:53:46,702 - INFO - True
+2026-03-19 23:53:47,703 - INFO - True
+2026-03-19 23:53:48,704 - INFO - True
+2026-03-19 23:53:49,705 - INFO - True
+2026-03-19 23:53:50,706 - INFO - True
+2026-03-19 23:53:51,707 - INFO - True
+2026-03-19 23:53:52,708 - INFO - True
+2026-03-19 23:53:53,709 - INFO - True
+2026-03-19 23:53:54,710 - INFO - True
+2026-03-19 23:53:55,712 - INFO - True
+2026-03-19 23:53:56,712 - INFO - True
+2026-03-19 23:53:57,713 - INFO - True
+2026-03-19 23:53:58,713 - INFO - True
+2026-03-19 23:53:59,714 - INFO - True
+2026-03-19 23:54:00,715 - INFO - True
+2026-03-19 23:54:01,715 - INFO - True
+2026-03-19 23:54:02,716 - INFO - True
+2026-03-19 23:54:03,717 - INFO - True
+2026-03-19 23:54:04,717 - INFO - True
+2026-03-19 23:54:05,718 - INFO - True
+2026-03-19 23:54:06,719 - INFO - True
+2026-03-19 23:54:07,719 - INFO - True
+2026-03-19 23:54:08,720 - INFO - True
+2026-03-19 23:54:09,721 - INFO - True
+2026-03-19 23:54:10,722 - INFO - True
+2026-03-19 23:54:11,723 - INFO - True
+2026-03-19 23:54:12,724 - INFO - True
+2026-03-19 23:54:13,724 - INFO - True
+2026-03-19 23:54:14,725 - INFO - True
+2026-03-19 23:54:15,726 - INFO - True
+2026-03-19 23:54:16,727 - INFO - True
+2026-03-19 23:54:17,728 - INFO - True
+2026-03-19 23:54:18,728 - INFO - True
+2026-03-19 23:54:19,729 - INFO - True
+2026-03-19 23:54:20,729 - INFO - True
+2026-03-19 23:54:21,730 - INFO - True
+2026-03-19 23:54:22,730 - INFO - True
+2026-03-19 23:54:23,731 - INFO - True
+2026-03-19 23:54:24,732 - INFO - True
+2026-03-19 23:54:25,732 - INFO - True
+2026-03-19 23:54:26,733 - INFO - True
+2026-03-19 23:54:27,734 - INFO - True
+2026-03-19 23:54:28,735 - INFO - True
+2026-03-19 23:54:29,736 - INFO - True
+2026-03-19 23:54:30,737 - INFO - True
+2026-03-19 23:54:31,738 - INFO - True
+2026-03-19 23:54:32,739 - INFO - True
+2026-03-19 23:54:33,739 - INFO - True
+2026-03-19 23:54:34,739 - INFO - True
+2026-03-19 23:54:35,740 - INFO - True
+2026-03-19 23:54:36,741 - INFO - True
+2026-03-19 23:54:37,741 - INFO - True
+2026-03-19 23:54:38,742 - INFO - True
+2026-03-19 23:54:39,743 - INFO - True
+2026-03-19 23:54:40,744 - INFO - True
+2026-03-19 23:54:41,744 - INFO - True
+2026-03-19 23:54:42,745 - INFO - True
+2026-03-19 23:54:43,746 - INFO - True
+2026-03-19 23:54:44,746 - INFO - True
+2026-03-19 23:54:45,750 - INFO - True
+2026-03-19 23:54:46,751 - INFO - True
+2026-03-19 23:54:47,751 - INFO - True
+2026-03-19 23:54:48,752 - INFO - True
+2026-03-19 23:54:49,753 - INFO - True
+2026-03-19 23:54:50,754 - INFO - True
+2026-03-19 23:54:51,755 - INFO - True
+2026-03-19 23:54:52,756 - INFO - True
+2026-03-19 23:54:53,757 - INFO - True
+2026-03-19 23:54:54,758 - INFO - True
+2026-03-19 23:54:55,758 - INFO - True
+2026-03-19 23:54:56,760 - INFO - True
+2026-03-19 23:54:57,760 - INFO - True
+2026-03-19 23:54:58,761 - INFO - True
+2026-03-19 23:54:59,762 - INFO - True
+2026-03-19 23:55:00,763 - INFO - True
+2026-03-19 23:55:01,764 - INFO - True
+2026-03-19 23:55:02,764 - INFO - True
+2026-03-19 23:55:09,898 - INFO - False
+2026-03-19 23:55:11,944 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-19 23:55:12,945 - INFO - False
+2026-03-19 23:55:14,556 - INFO - [SERVER_BL] listening...
+2026-03-19 23:55:14,984 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-19 23:55:14,984 - INFO - [SERVER_BL] Client ('127.0.0.1', 54654) connected 
+2026-03-19 23:55:15,009 - INFO - [SERVER_BL] Public key sent to client
+2026-03-19 23:55:15,009 - INFO - [CLIENT_BL] Public key received
+2026-03-19 23:55:15,010 - INFO - [CLIENT_BL] Session key generated
+2026-03-19 23:55:15,014 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-19 23:55:15,016 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-19 23:55:15,017 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-19 23:55:16,015 - INFO - True
+2026-03-19 23:55:17,015 - INFO - True
+2026-03-19 23:55:17,709 - INFO - 111111111111111111111111111111111111111111111111
+2026-03-19 23:55:17,710 - INFO - [CLIENT_BL] Exception on receive: 
+2026-03-19 23:55:17,710 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+software in your host machine'
+2026-03-19 23:55:17,710 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 54654) 
+2026-03-19 23:55:17,711 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 54654) 
+2026-03-19 23:55:18,016 - INFO - True
+2026-03-19 23:55:19,017 - INFO - True
+2026-03-19 23:55:20,018 - INFO - True
+2026-03-19 23:55:21,019 - INFO - True
+2026-03-19 23:55:22,020 - INFO - True
+2026-03-19 23:55:23,021 - INFO - True
+2026-03-19 23:55:24,021 - INFO - True
+2026-03-19 23:55:25,022 - INFO - True
+2026-03-19 23:55:26,023 - INFO - True
+2026-03-19 23:55:27,024 - INFO - True
+2026-03-19 23:55:28,025 - INFO - True
+2026-03-19 23:55:29,026 - INFO - True
+2026-03-19 23:55:30,026 - INFO - True
+2026-03-19 23:55:31,027 - INFO - True
+2026-03-19 23:55:32,027 - INFO - True
+2026-03-19 23:55:33,029 - INFO - True
+2026-03-19 23:55:34,029 - INFO - True
+2026-03-19 23:55:35,030 - INFO - True
+2026-03-19 23:55:36,031 - INFO - True
+2026-03-19 23:55:37,031 - INFO - True
+2026-03-19 23:55:38,032 - INFO - True
+2026-03-19 23:55:39,033 - INFO - True
+2026-03-19 23:55:40,034 - INFO - True
+2026-03-19 23:55:41,035 - INFO - True
+2026-03-19 23:55:42,036 - INFO - True
+2026-03-19 23:55:43,036 - INFO - True
+2026-03-19 23:55:44,037 - INFO - True
+2026-03-19 23:55:45,037 - INFO - True
+2026-03-19 23:55:46,038 - INFO - True
+2026-03-19 23:55:47,039 - INFO - True
+2026-03-19 23:55:48,040 - INFO - True
+2026-03-19 23:55:49,041 - INFO - True
+2026-03-19 23:55:50,042 - INFO - True
+2026-03-19 23:55:51,042 - INFO - True
+2026-03-19 23:55:52,043 - INFO - True
+2026-03-19 23:55:53,044 - INFO - True
+2026-03-19 23:55:54,045 - INFO - True
+2026-03-19 23:55:55,045 - INFO - True
+2026-03-19 23:55:56,047 - INFO - True
+2026-03-19 23:55:57,047 - INFO - True
+2026-03-19 23:55:58,048 - INFO - True
+2026-03-19 23:55:59,049 - INFO - True
+2026-03-19 23:56:00,050 - INFO - True
+2026-03-19 23:56:01,050 - INFO - True
+2026-03-19 23:56:02,052 - INFO - True
+2026-03-19 23:56:03,052 - INFO - True
+2026-03-19 23:56:04,053 - INFO - True
+2026-03-19 23:56:05,054 - INFO - True
+2026-03-19 23:56:06,056 - INFO - True
+2026-03-19 23:56:07,056 - INFO - True
+2026-03-20 00:14:38,587 - INFO - False
+2026-03-20 00:14:40,628 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-20 00:14:41,629 - INFO - False
+2026-03-20 00:14:42,902 - INFO - [SERVER_BL] listening...
+2026-03-20 00:14:43,163 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-20 00:14:43,163 - INFO - [SERVER_BL] Client ('127.0.0.1', 58261) connected 
+2026-03-20 00:14:43,273 - INFO - [SERVER_BL] Public key sent to client
+2026-03-20 00:14:43,281 - INFO - [CLIENT_BL] Public key received
+2026-03-20 00:14:43,282 - INFO - [CLIENT_BL] Session key generated
+2026-03-20 00:14:43,298 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-20 00:14:43,300 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-20 00:14:43,301 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-20 00:14:44,299 - INFO - True
+2026-03-20 00:14:45,300 - INFO - True
+2026-03-20 00:14:46,301 - INFO - True
+2026-03-20 00:14:47,302 - INFO - True
+2026-03-20 00:14:48,303 - INFO - True
+2026-03-20 00:14:49,304 - INFO - True
+2026-03-20 00:14:50,304 - INFO - True
+2026-03-20 00:14:51,305 - INFO - True
+2026-03-20 00:14:52,306 - INFO - True
+2026-03-20 00:14:53,307 - INFO - True
+2026-03-20 00:14:54,308 - INFO - True
+2026-03-20 00:14:54,792 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-20 00:14:54,792 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-20 00:14:55,309 - INFO - True
+2026-03-20 00:14:56,309 - INFO - True
+2026-03-20 00:14:57,310 - INFO - True
+2026-03-20 00:16:55,880 - INFO - False
+2026-03-20 00:16:57,923 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-20 00:16:58,804 - INFO - [SERVER_BL] listening...
+2026-03-20 00:16:58,924 - INFO - False
+2026-03-20 00:16:58,926 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-20 00:16:58,926 - INFO - [SERVER_BL] Client ('127.0.0.1', 45174) connected 
+2026-03-20 00:16:58,981 - INFO - [SERVER_BL] Public key sent to client
+2026-03-20 00:16:58,981 - INFO - [CLIENT_BL] Public key received
+2026-03-20 00:16:58,981 - INFO - [CLIENT_BL] Session key generated
+2026-03-20 00:16:58,989 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-20 00:16:58,992 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-20 00:16:58,993 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-20 00:16:59,991 - INFO - True
+2026-03-20 00:17:00,991 - INFO - True
+2026-03-20 00:17:01,703 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-20 00:17:01,704 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 45174) 
+2026-03-20 00:17:01,705 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 45174) 
+2026-03-20 00:17:01,706 - INFO - [CLIENT_BL] received ('CLOSE', 'False') 
+2026-03-20 00:17:01,707 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-20 00:17:01,707 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-20 00:17:01,993 - INFO - False
+2026-03-20 00:17:04,033 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-20 00:17:05,034 - INFO - False
+2026-03-20 00:17:07,069 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-20 00:17:08,070 - INFO - False
+2026-03-20 00:17:09,485 - INFO - [SERVER_BL] listening...
+2026-03-20 00:17:09,595 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-20 00:17:09,595 - INFO - [SERVER_BL] Client ('127.0.0.1', 45177) connected 
+2026-03-20 00:17:09,767 - INFO - [SERVER_BL] Public key sent to client
+2026-03-20 00:17:09,767 - INFO - [CLIENT_BL] Public key received
+2026-03-20 00:17:09,768 - INFO - [CLIENT_BL] Session key generated
+2026-03-20 00:17:09,768 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-20 00:17:09,769 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-20 00:17:09,769 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-20 00:17:10,770 - INFO - True
+2026-03-20 00:17:11,770 - INFO - True
+2026-03-20 00:17:12,771 - INFO - True
+2026-03-20 00:17:13,772 - INFO - True
+2026-03-20 00:17:14,772 - INFO - True
+2026-03-20 00:17:15,773 - INFO - True
+2026-03-20 00:17:16,363 - INFO - [CLIENT_BL] received ('CLOSE', 'False') 
+2026-03-20 00:17:16,363 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-20 00:17:16,363 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 45177) 
+2026-03-20 00:17:16,363 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-20 00:17:16,364 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-20 00:17:16,774 - INFO - False
+2026-03-20 00:17:18,816 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-20 00:17:19,817 - INFO - False
+2026-03-20 00:17:21,863 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-20 00:17:22,864 - INFO - False
+2026-03-20 00:17:24,898 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-20 00:17:25,899 - INFO - False
+2026-03-20 00:17:27,940 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-20 00:17:28,941 - INFO - False
+2026-03-20 00:17:30,979 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-20 00:17:31,993 - INFO - False
+2026-03-20 00:17:34,044 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-20 00:17:35,046 - INFO - False
+2026-03-20 00:17:37,090 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-20 00:17:38,091 - INFO - False
+2026-03-20 00:17:40,123 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-20 00:17:41,124 - INFO - False
+2026-03-20 00:17:43,152 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-22 19:56:36,631 - INFO - [SERVER_BL] listening...
+2026-03-22 19:56:42,722 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-22 19:56:42,723 - INFO - [SERVER_BL] Client ('127.0.0.1', 5079) connected 
+2026-03-22 19:56:42,824 - INFO - [SERVER_BL] Public key sent to client
+2026-03-22 19:56:42,830 - INFO - [CLIENT_BL] Public key received
+2026-03-22 19:56:42,831 - INFO - [CLIENT_BL] Session key generated
+2026-03-22 19:56:42,842 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-22 19:56:42,844 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-22 19:56:42,845 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-22 19:56:44,397 - INFO - [CLIENT_GUI] opened Login page
+2026-03-22 19:56:49,790 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-22 19:56:49,795 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwC1hT8-Gomsh5WI-mcs4E-ZkHOqXdOvcMN816TZxbrmPR-hr_zPt5LJnEj6I_ONESDHragcrPrWSiwW2Nvd43IEV0hfq8hOCAhUW9Z2AcM78J89PS2RS6adLnRWPWarR1kiy4rnxDfousYypbyWPX2uUCw==''
+2026-03-22 19:56:49,795 - INFO - [SERVER_BL] error - ''
+2026-03-22 19:56:49,795 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 5079) 
+2026-03-22 19:56:49,796 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-22 19:56:49,796 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-22 19:57:03,210 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-22 19:57:03,210 - INFO - [CLIENT_BL] Exception on send_data: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-22 19:57:33,938 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-22 19:57:33,939 - INFO - [SERVER_BL] Client ('127.0.0.1', 5085) connected 
+2026-03-22 19:57:34,001 - INFO - [SERVER_BL] Public key sent to client
+2026-03-22 19:57:34,002 - INFO - [CLIENT_BL] Public key received
+2026-03-22 19:57:34,002 - INFO - [CLIENT_BL] Session key generated
+2026-03-22 19:57:34,006 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-22 19:57:34,007 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-22 19:57:34,009 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2026-03-22 19:57:34,997 - INFO - [CLIENT_GUI] opened Login page
+2026-03-22 19:57:39,606 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-22 19:57:39,609 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwC2T9J8-d5ICN6Q1UrsclYvZzQs-PKtg94FW4y5V7R2OV3_RTC528OcfjtCQsL7tJsCkXlJukLiGuj9TfQ759eIWsEgGtSNW3XeOnhpLW0UCg0aIe30GzKMg8Fv9VSqMSaFJnlcAvIx-DhL5CposzR45mA==''
+2026-03-22 19:57:39,609 - INFO - [SERVER_BL] error - ''
+2026-03-22 19:57:39,609 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 5085) 
+2026-03-22 19:57:39,609 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-22 19:57:39,612 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-22 19:58:29,153 - INFO - [SERVER_BL] listening...
+2026-03-22 19:58:33,329 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-22 19:58:33,329 - INFO - [SERVER_BL] Client ('127.0.0.1', 24831) connected 
+2026-03-22 19:58:33,477 - INFO - [SERVER_BL] Public key sent to client
+2026-03-22 19:58:33,477 - INFO - [CLIENT_BL] Public key received
+2026-03-22 19:58:33,477 - INFO - [CLIENT_BL] Session key generated
+2026-03-22 19:58:33,481 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-22 19:58:33,482 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-22 19:58:33,483 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-22 19:58:34,111 - INFO - [CLIENT_GUI] opened Login page
+2026-03-22 19:58:37,166 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-22 19:58:37,169 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwC3Nd6pfnbwk4iuaufDnWYPtJapFN3JKX6kA2_GTaQLL0DdCKK64PurB1eb06pkDqYOSTP1c0rOqPrj6Ns3KNCqxS4cL1u4JjD3skL8tV-GU1G-22dheAP2VsoehZiaf-p2tGH-hrACFJhWmz055HrK1lg==''
+2026-03-22 19:58:37,174 - INFO - [SERVER_BL] received from ('127.0.0.1', 24831) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-22 19:58:37,296 - INFO - [SERVER_BL] sent 'b'gAAAAABpwC3NgBnhS3hKl-EWe8OwKMUx5bcBt3P863nj2eQck_hxshLZQzcO_Hy_wxnajBV76MSI9VZblTTaHCeXTb309-3WpmEXpUV8ytF_p6WJLdKK-2O2q-DwJNP9ovDqeXplO4P-RZ52-xrf_gg49MR1TsJJW0EvizAKXwl-bIl720Mob1Sz4L2ucBqgOEbBJJ0jVz4rQCYSnupA3xsiYga_7sMAJhyykPdn7jLErLtcgcUMnD5j1nZYYIPlLjS6VipDXFK0XUzA8MRA5t_Bv-aGxWCeQA==''
+2026-03-22 19:58:37,298 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0)) 
+2026-03-22 19:58:37,298 - INFO - ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0)
+2026-03-22 19:58:42,758 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-22 19:58:42,759 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwC3S5rWLZ9ezYlJYRzMYkSfLN9JdPphZKeECXBhFGqCRQDI5ixVgnaT8zUybxhObc-Dqbs1OhjxrUN4dK4ueZhw4MEj5Imf8ZtVA1tqzJoCUzdONj5YVkryOcO0slPIctHz6wUKz69oOHTnB5ehOpQtomw==''
+2026-03-22 19:58:42,760 - INFO - [SERVER_BL] received from ('127.0.0.1', 24831) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-22 19:58:42,864 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwC3S3qfMWuXKq_BJfbFBKc22TsCz6Ls0Fnlr53OVnfW5ooorkt7Pvl8KNbO1K0ysexfnmSASaX8vaWJ54MeHH6zm7A==''
+2026-03-22 19:58:42,879 - INFO - [SERVER_BL] sent 'b'gAAAAABpwC3Ss0YqBg-4yMh0XGqlJkMEzYw9fdjw9dRdOrn4lUefpEHq4WgWExsVnJJXkQJxIsnHXpH63VFJWN3PeOTyK6P6R9mu4bZnG7H-HDQ4-dpSsy0S4IKI82NIo2rV_LIJLiQN3Jy2aAKiM0wgga8fMSDXLCdxdg2lkwqw1EWr4mFqqKn8_t2seWVDZzXm5SqE-MX4PtljyO7nlWCp4VP-4tzmaanzgCfeR5FLougFsj00U2Zp_cJT2Qs832IxbX78AvC5kxoAHEsS0jkZ7N0XuheZNQ==''
+2026-03-22 19:58:42,879 - INFO - [CLIENT_BL] received ('LOGIN', ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0)) 
+2026-03-22 19:58:42,880 - INFO - [SERVER_BL] received from ('127.0.0.1', 24831) - cmd: EXPENSES-2, args: 1
+2026-03-22 19:58:42,880 - INFO - ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0)
+2026-03-22 19:58:42,881 - INFO - [SERVER_BL] sent 'b'gAAAAABpwC3SfyViUHsQYGsomrMWb6Evih1LeZxkZDILx3sswHh4Wy2zQL8KkjVHI-Tcl1_bASJhWymKhMzB8proJassBOCZHBjNDuS0X0YTaNMRsUSH0Eiv0QZKp5yNnu02G_tHm8aT_dzp5odDtwcbFBKsjzC37-5wH1mqYbHNtAOAeObzfDA=''
+2026-03-22 19:58:42,881 - INFO - [CLIENT_BL] received ('EXPENSES-2', [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0)]) 
+2026-03-22 19:58:57,297 - INFO - [CLIENT_GUI] opened Expenses page
+2026-03-22 19:58:59,406 - INFO - [CLIENT_GUI] opened Expenses window
+2026-03-22 19:59:07,760 - INFO - [CLIENT_GUI] Received data from Expenses window: ('1', (100.0, 'Gadgets', 'Cash'))
+2026-03-22 19:59:07,760 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwC3r6yv5gV-y3345DrYkLjkyzwLmubqFfGmC1uFbzppWIcYt20cTkmYJNqKT9s5h032fTR5IdqZ9DrXN8w5LS-NbsWuWGB-8jEIeAwenl4zv8Db4PIxKQ8tOVGJ4Pt1h1fgW''
+2026-03-22 19:59:07,761 - INFO - [SERVER_BL] received from ('127.0.0.1', 24831) - cmd: EXPENSES-1, args: ('1', (100.0, 'Gadgets', 'Cash'))
+2026-03-22 19:59:07,782 - INFO - [SERVER_BL] sent 'b'gAAAAABpwC3r9b7wZnYpRtfrwyneNu7c_luT1XAOWB6sfPsg_NHQmmKPiKHoIpeg-9gKj8EZ3JAO5wSnTLdlkEID_i05ysK5fRsvNhe5SWbeJRtQm9LxEau9ZdBgoYlv-2jsnEU9hln8szp7s0UpvFNOf_VyB-sgtemVyjgkgL-GVdyZ76RmdVrcY9uogNH7g-BUgJLydh8fzFqn8k_dRSKrrXcQY3nrwA==''
+2026-03-22 19:59:07,783 - INFO - [CLIENT_BL] received ('EXPENSES-1', [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0)]) 
+2026-03-22 19:59:14,293 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-03-22 19:59:14,293 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 24831) 
+2026-03-22 19:59:59,128 - INFO - [SERVER_BL] listening...
+2026-03-22 20:00:02,271 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-22 20:00:02,271 - INFO - [SERVER_BL] Client ('127.0.0.1', 40206) connected 
+2026-03-22 20:00:02,584 - INFO - [SERVER_BL] Public key sent to client
+2026-03-22 20:00:02,584 - INFO - [CLIENT_BL] Public key received
+2026-03-22 20:00:02,585 - INFO - [CLIENT_BL] Session key generated
+2026-03-22 20:00:02,588 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-22 20:00:02,590 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-22 20:00:02,591 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-22 20:00:03,032 - INFO - [CLIENT_GUI] opened Login page
+2026-03-22 20:00:06,655 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-22 20:00:06,656 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwC4mzaPcLsi1xZG7aCAfFpR6A1aVK4vwmKqiHlggLuKbPge7bRAfviwKFtMv2X1Fm9o07WgpngxLCItDD_gic8nG1vmwRk2NzK3cM5oZzTOu-Z6tQ3vyLXYLFAyAb_bYgFDZgc3xYv3i0nHJqMXTuNWufA==''
+2026-03-22 20:00:06,657 - INFO - [SERVER_BL] error - ''
+2026-03-22 20:00:06,657 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-22 20:00:06,657 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 40206) 
+2026-03-22 20:00:35,089 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 10:37:50,503 - INFO - [SERVER_BL] listening...
+2026-03-23 10:37:57,500 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 10:37:57,502 - INFO - [SERVER_BL] Client ('127.0.0.1', 33071) connected 
+2026-03-23 10:37:57,577 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 10:37:57,582 - INFO - [CLIENT_BL] Public key received
+2026-03-23 10:37:57,582 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 10:37:57,592 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 10:37:57,597 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 10:37:57,598 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 10:37:58,875 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 10:38:03,355 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 10:43:29,109 - INFO - [SERVER_BL] error - '[WinError 10054] An existing connection was forcibly closed by the remote host'
+2026-03-23 10:43:29,110 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 33071) 
+2026-03-23 13:25:33,117 - INFO - [SERVER_BL] listening...
+2026-03-23 13:25:36,201 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 13:25:36,203 - INFO - [SERVER_BL] Client ('127.0.0.1', 1288) connected 
+2026-03-23 13:25:36,350 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 13:25:36,355 - INFO - [CLIENT_BL] Public key received
+2026-03-23 13:25:36,355 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 13:25:36,363 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 13:25:36,367 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 13:25:36,368 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 13:25:37,873 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 13:25:41,579 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:25:41,587 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwSM1thdT7Ngba9PMdMqHJXy7ZaCOjTEk0lbH7JFAGKuAtTiAQKBHK6pHUIAlhcfpIb0_W_MAx6XZYetJrFG0K-LsqrkEq4SgNBExXBW2TpON0eOAFNib-zR_Ll2tfZNH1YntHUnLGSE5ZhvDTIT4HEOZPg==''
+2026-03-23 13:25:41,587 - INFO - [SERVER_BL] error - ''
+2026-03-23 13:25:41,587 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 1288) 
+2026-03-23 13:25:41,587 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-23 13:28:13,974 - INFO - [SERVER_BL] listening...
+2026-03-23 13:28:17,163 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 13:28:17,163 - INFO - [SERVER_BL] Client ('127.0.0.1', 49429) connected 
+2026-03-23 13:28:17,269 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 13:28:17,269 - INFO - [CLIENT_BL] Public key received
+2026-03-23 13:28:17,269 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 13:28:17,272 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 13:28:17,274 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 13:28:17,275 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 13:28:19,117 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 13:28:21,933 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:28:21,934 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwSPVL7pF3y-abIKWtedo9jMBF1l-zz4b2nLve_vlThosW-X4h1J8_cczXcTlf8bc3U0DlR7d4y_N9ATw0eBRXErbw9UBR2NtAzh9C5az8MTlViiTR5bQUDN7jX5XgnL5-OZwvGgIhDQBQ4IL-Iu7mfaPMQ==''
+2026-03-23 13:28:21,934 - INFO - [SERVER_BL] error - ''<' not supported between instances of 'int' and 'bytes''
+2026-03-23 13:28:21,935 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-23 13:28:21,935 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 49429) 
+2026-03-23 13:30:17,791 - INFO - [SERVER_BL] listening...
+2026-03-23 13:30:20,952 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 13:30:20,952 - INFO - [SERVER_BL] Client ('127.0.0.1', 24520) connected 
+2026-03-23 13:30:21,044 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 13:30:21,044 - INFO - [CLIENT_BL] Public key received
+2026-03-23 13:30:21,044 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 13:30:21,049 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 13:30:21,051 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 13:30:21,052 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 13:30:21,702 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 13:30:25,085 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:30:25,089 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwSRRzw6ScDX-WcaMD-SHiIkYsxYG3D3YI-a_3tWuPEDszMqYSGz5yQ3gQULYZdwJlCCOvNvgf0_7lu29Z_D3ZRPTnAw3VZ-7CGgHmxp1aS0N0YWnLzUjJ19XM753-ppq2fds4VVpu846OGj_wtNPB_MJPA==''
+2026-03-23 13:31:37,104 - INFO - [SERVER_BL] listening...
+2026-03-23 13:31:39,441 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 13:31:39,441 - INFO - [SERVER_BL] Client ('127.0.0.1', 5090) connected 
+2026-03-23 13:31:39,502 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 13:31:39,503 - INFO - [CLIENT_BL] Public key received
+2026-03-23 13:31:39,503 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 13:31:39,510 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 13:31:39,513 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 13:31:39,513 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 13:31:40,223 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 13:31:42,888 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:31:42,889 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwSSer35tNIjrBxZ_Aw9d4Zq3s2xbh4vtpKGzh6rnmElZHP7ZIMwJ-rcgsRc-LphD02tUOgRzxJHDV5yaxCtgSXHS2hwH60mb_3uwLadFUiqi6r8VFIIVnpSaV22k48UK1UxrEIrrbog4ThgRaVTx-XJLwA==''
+2026-03-23 13:33:17,164 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-23 13:33:20,625 - INFO - [SERVER_BL] listening...
+2026-03-23 13:33:24,046 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 13:33:24,046 - INFO - [SERVER_BL] Client ('127.0.0.1', 5093) connected 
+2026-03-23 13:33:24,127 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 13:33:24,128 - INFO - [CLIENT_BL] Public key received
+2026-03-23 13:33:24,128 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 13:33:24,133 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 13:33:24,136 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 13:33:24,137 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 13:33:24,895 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 13:33:28,055 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:33:28,057 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwSUILPLfUA9SXmTO6-1Bu_DTpi-rOOzIfgCZX7GSVyAYOsqfUWMslpbtTwq9iJIRmOYXpoEfbPuBpNYFevekzE97Jr0ljkaDub3-hV6HOQye_TRjGX-xynFNm9V7sF_L6LFZ6XMXEMD2w_pHEYpPDQHn6g==''
+2026-03-23 13:34:29,244 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-23 13:34:33,705 - INFO - [SERVER_BL] listening...
+2026-03-23 13:34:36,153 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 13:34:36,153 - INFO - [SERVER_BL] Client ('127.0.0.1', 60112) connected 
+2026-03-23 13:34:36,238 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 13:34:36,239 - INFO - [CLIENT_BL] Public key received
+2026-03-23 13:34:36,239 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 13:34:36,245 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 13:34:36,248 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 13:34:36,249 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 13:34:36,816 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 13:34:39,689 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:34:39,691 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwSVPrhofS09G15aN0G3yA8NOAPTOlyJ--wBG-LW7D9LCUja3TFYVRigw4nKGyANG7CVqiQr8Z4DDSpLUi-CTTc40_F1OdtKFEpP7HXtfJmQz6eN94NeR8I8yW6lBud1sBkVzWHb6QiAUHb4QZ8BWSP2hwg==''
+2026-03-23 13:34:39,691 - INFO - b'\x00\x00\x00\xa4'
+2026-03-23 13:34:39,691 - INFO - (164,)
+2026-03-23 13:35:07,196 - INFO - [SERVER_BL] listening...
+2026-03-23 13:35:09,571 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 13:35:09,571 - INFO - [SERVER_BL] Client ('127.0.0.1', 44831) connected 
+2026-03-23 13:35:09,650 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 13:35:09,650 - INFO - [CLIENT_BL] Public key received
+2026-03-23 13:35:09,651 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 13:35:09,656 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 13:35:09,658 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 13:35:09,659 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 13:35:11,009 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 13:35:14,016 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:35:14,016 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwSVyYLa-Tlq73K0_4MUdg8T1Y0G_NBxMnTxaDKAJ5kIJfmp97pnuQb9WdVUqsKRlFSk-Ygf613BVmK-Z94S1ix4LevDiPpXg9zbZL_UBgV-iS3jD8knKxl5n-2bS2LtPECtSMjQ5sei28PdyjALqy40gbA==''
+2026-03-23 13:35:14,016 - INFO - b'\x00\x00\x00\xa4'
+2026-03-23 13:35:14,018 - INFO - 164
+2026-03-23 13:36:14,409 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-23 13:36:19,501 - INFO - [SERVER_BL] listening...
+2026-03-23 13:36:21,821 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 13:36:21,821 - INFO - [SERVER_BL] Client ('127.0.0.1', 9526) connected 
+2026-03-23 13:36:21,869 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 13:36:21,870 - INFO - [CLIENT_BL] Public key received
+2026-03-23 13:36:21,870 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 13:36:21,874 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 13:36:21,877 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 13:36:21,877 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 13:36:22,545 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 13:36:25,394 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:36:25,395 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwSW52jbwI_JgvCtr1QxwY_dWQbxVa5zesSoE9YOaNYJY1e270d5Xz5jWxkU9nqL74z2gQBRYxeqdDc15LptKQF_aBt-f6EKLMt--ynPdS4yGDAqYIQds9DGjsBIfOaHUEl-T01hW09wn83ZCSBxED_3rFw==''
+2026-03-23 13:36:25,395 - INFO - b'\x00\x00\x00\xa4'
+2026-03-23 13:36:25,395 - INFO - 164
+2026-03-23 13:36:25,398 - INFO - LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:37:22,070 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-23 13:37:27,638 - INFO - [SERVER_BL] listening...
+2026-03-23 13:37:30,618 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 13:37:30,618 - INFO - [SERVER_BL] Client ('127.0.0.1', 9529) connected 
+2026-03-23 13:37:30,699 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 13:37:30,701 - INFO - [CLIENT_BL] Public key received
+2026-03-23 13:37:30,701 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 13:37:30,704 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 13:37:30,707 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 13:37:30,708 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 13:37:31,468 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 13:37:34,148 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:37:34,150 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwSX-9Lxwr9F1bEnWvhrV6ENIaVurPwARtsTn8MEYwBpPNLz1aTcs1XDc0i1tfQU4Vao5YBUVCPUvsXKekdUdTjsYkva3I_IQUpDdjSmRILyAa3HHOOWTGmKe4hHHcIAm8OoaQg24h74BHJgPhPmREYve4A==''
+2026-03-23 13:37:34,150 - INFO - b'\x00\x00\x00\xa4'
+2026-03-23 13:37:34,150 - INFO - 164
+2026-03-23 13:37:34,151 - INFO - LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}   <class 'str'>
+2026-03-23 13:40:22,326 - INFO - [SERVER_BL] listening...
+2026-03-23 13:40:24,642 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 13:40:24,642 - INFO - [SERVER_BL] Client ('127.0.0.1', 63220) connected 
+2026-03-23 13:40:24,729 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 13:40:24,729 - INFO - [CLIENT_BL] Public key received
+2026-03-23 13:40:24,729 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 13:40:24,733 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 13:40:24,734 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 13:40:24,735 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 13:40:25,948 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 13:40:29,428 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:40:29,430 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwSatwGC3yr1N1EJ4i2ykOmlI_az7DtrdqUY6MoLGejRwMhez46JAVc3uPbyQEhetEySZluKG7phYtzUHlDtIgWse0AyiMKZgaYqs6qtkgPo8BRLonpcSaEPzNpCV-XLLVgRIe6oIrXIJidJbHVq737ou_Q==''
+2026-03-23 13:40:29,430 - INFO - b'\x00\x00\x00\xa4'
+2026-03-23 13:40:29,430 - INFO - 164
+2026-03-23 13:40:29,432 - INFO - LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}   <class 'str'>
+2026-03-23 13:40:29,432 - INFO - [CLIENT_BL] received LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'} 
+2026-03-23 13:40:29,432 - INFO - [SERVER_BL] received from ('127.0.0.1', 63220) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:40:29,538 - INFO - [SERVER_BL] sent 'b'gAAAAABpwSatlM8X5Z9DfPMD_SuXNTsFNnSWc46dKCeacp5qyuh4Ykg41Bs0dPDsWRAUVetLtL7vbPk3X6G9qtR4b6tNQD4az9r0ixXWIErtHxGAJUr_ATvmhvk9VGP7OGAXXUP1ZCBOvlNINgSXcsoxClR4HHpiui6D0IPJB_HOnZy0DKgPH7f2PxQI4WfoI4PiVnY8UsDtGAc6GFwBdlsa9fIyah82_zHx7OuFsCEzOMVk5YRGoWwa0QIq-Bkj9EubmfaY5W_dEdEXg9fo-fZ-jOpfAZMGEg==''
+2026-03-23 13:40:29,538 - INFO - b'gAAA'
+2026-03-23 13:40:29,538 - INFO - 1732329793
+2026-03-23 13:40:48,345 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:40:48,350 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwSbANXneK3qdngO-Ss9xL0ZPDtUpTlc0IOxvsV7IRdZuTe1jquxv4fvPDmOM9d8PxM_jf8sVXLeknkPWQxOG5X8RWXqd20eiaqitRNRbXYkA6Scucy0mb8WaUhiFPCdWzCmQ5ag-1Oze8rrITEqvM3E8Sg==''
+2026-03-23 13:40:48,350 - INFO - b'\x00\x00\x00\xa4'
+2026-03-23 13:40:48,350 - INFO - 164
+2026-03-23 13:40:48,350 - INFO - LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}   <class 'str'>
+2026-03-23 13:40:48,350 - INFO - [CLIENT_BL] received LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'} 
+2026-03-23 13:40:48,350 - INFO - [SERVER_BL] received from ('127.0.0.1', 63220) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:40:48,488 - INFO - [SERVER_BL] sent 'b'gAAAAABpwSbA8FRWacyg8-hgXBrvHg41Kve22dycTDoFXcOl9JooOO_5yE69XF2b9Pd4KoF2Ya7HK3u1KDJyHScckD4BTKXE2G-LVfvlwiJx3VNvHThLBJ3bt0FTPQwVML7ECctSIrNsWg2Jn3lZOZN6U9SEyXkLRiuQGUqjYiObnANeI5Nqe7AwYbafZPbRrC8SzAEKs9ELobojvOBQrTxBHA-_sKz_Rip8vJx-1E_yXzE6pPj7mK6e_mCsEcUArHtWQg_HGrVNcntPxuPKeWLwwOS_nQBkNQ==''
+2026-03-23 13:40:56,766 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:40:56,767 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwSbIGmlIFsv-1y0Yyzop2doD2TQHyKneiMoH-hn-IAg7Z8Bt0ypl38MzK7Ve4V0G-c9STOvn-q4N7paMxG7VEvGpDa_xEnGzJ23NnTHyuMjjICC4azHGqJmo_Dm9gXZ_lDNYrnqtPBwuYlnlJOP6FXecrA==''
+2026-03-23 13:40:56,767 - INFO - b'\x00\x00\x00\xa4'
+2026-03-23 13:40:56,767 - INFO - 164
+2026-03-23 13:40:56,767 - INFO - LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}   <class 'str'>
+2026-03-23 13:40:56,767 - INFO - [CLIENT_BL] received LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'} 
+2026-03-23 13:40:56,767 - INFO - [SERVER_BL] received from ('127.0.0.1', 63220) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:40:56,906 - INFO - [SERVER_BL] sent 'b'gAAAAABpwSbIv9ZmaMw_YLYs4N4DnHgKgn47gb5vxukY3h9fvY3BuoyltdJueyRZRFJ6iPh8xAD-mCDc5fqF3vGfapAjKVl5rg_P237fJgAnjDxaLGqAE4-go7drKWQiDJG5lvtE-qcHR1HzKe9Hl1-f4zBvXcpnwZkuxySjIyIahMPzK2Jd5ogVUzjrWbXBoYsz-YhUXQsx2796xN1lyWDTHhpCn0LVoPd2eiO2Ofdfb9uIlLy7ZA1nuNmyI_VLpgU8wOGCJLGb-mUOYRijRfjNo7LJwJmPXA==''
+2026-03-23 13:42:30,727 - INFO - [SERVER_BL] listening...
+2026-03-23 13:42:33,695 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 13:42:33,695 - INFO - [SERVER_BL] Client ('127.0.0.1', 64124) connected 
+2026-03-23 13:42:33,796 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 13:42:33,802 - INFO - [CLIENT_BL] Public key received
+2026-03-23 13:42:33,802 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 13:42:33,808 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 13:42:33,810 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 13:42:33,811 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 13:42:34,574 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 13:42:37,392 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:42:37,400 - INFO - [CLIENT_BL] send to server 'b'gAAAAABpwSctnzmRcdNSrenlMFXEQhi7y_QfBqZmqgdsVvUUt3A8wCocaLg057lMLSeL3vH9Pm6RljIgFgLAJm8UZY9f8ChzekZhb5X1lWhE1KAU5f4i1Cdn95iy0mxVm4c6UqsPNb5cUAEPtTsrf4PIE0M636EBTA==''
+2026-03-23 13:42:37,400 - INFO - b'\x00\x00\x00\xa4'
+2026-03-23 13:42:37,400 - INFO - 164
+2026-03-23 13:42:37,402 - INFO - LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}   <class 'str'>
+2026-03-23 13:42:37,402 - INFO - [CLIENT_BL] received LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'} 
+2026-03-23 13:42:37,402 - INFO - [SERVER_BL] received from ('127.0.0.1', 64124) - cmd: LOGIN, args: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 13:42:37,484 - INFO - [CLIENT_BL] send to s2026-03-23 13:42:37,484 - INFO - 164
+zLbi6PaZaP3e-QWRwvuPb37Ngl-JDpeoVD4NoocWuEFl-ieTBczQZgY002QeUv0-nWxnWVymRmf_-2WfMO5YZikO6KYKL8ah6GkF8gIM__88LTyUjFrWPphh_xh-smqs2v2oQ==''
+2026-03-23 13:42:37,484 - INFO - [SERVER_BL] sent 'b'gAAAAABpwSctmbwUg-Q8KwaSGaasZPYkY12xOin9v7Mr1kVhI6CrSUb-s9OU5FLPuVqKHMqmNp-fLe8Sh89B9FMdOQoy74RegX5Jl8vt3qMyRosXFCbSXYtTAbgKjg7MmPV_ytk72Y9cb0H5ycp37WxTR7HUTnHzZGnBMrjfvOmMJwLQBhJQOW230fVjOyJepjRMeT4ycCPw5ikhd9TVVC8NAsiLDA104yG1kL9fRnHxt1_4N_VjleWkmvEKzeOb6JwJXHXEE64So9CWjjmoceSJRkLO5zqOvg==''
+2026-03-23 13:42:37,484 - INFO - LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'}   <class 'str'>
+2026-03-23 13:42:37,484 - INFO - [CLIENT_BL] received LOGIN>{'id': '1', 'phone_number': '1', 'password': '1'} 
+2026-03-23 13:42:37,484 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-23 14:55:50,663 - INFO - [SERVER_BL] listening...
+2026-03-23 14:55:53,461 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 14:55:53,461 - INFO - [SERVER_BL] Client ('127.0.0.1', 61909) connected 
+2026-03-23 14:55:53,565 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 14:55:53,570 - INFO - [CLIENT_BL] Public key received
+2026-03-23 14:55:53,570 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 14:55:53,579 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 14:55:53,581 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 14:55:53,581 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 14:55:55,062 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 14:55:58,624 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 14:55:58,629 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 14:55:58,632 - INFO - [SERVER_BL] error - ''<' not supported between instances of 'int' and 'bytes''
+2026-03-23 14:55:58,632 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 61909) 
+2026-03-23 14:55:58,632 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-23 14:57:28,920 - INFO - [SERVER_BL] listening...
+2026-03-23 14:57:31,424 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 14:57:31,425 - INFO - [SERVER_BL] Client ('127.0.0.1', 62359) connected 
+2026-03-23 14:57:31,505 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 14:57:31,506 - INFO - [CLIENT_BL] Public key received
+2026-03-23 14:57:31,506 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 14:57:31,510 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 14:57:31,512 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 14:57:31,513 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 14:57:32,248 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 14:57:35,447 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 14:57:35,447 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 14:57:35,453 - INFO - [SERVER_BL] received from ('127.0.0.1', 62359): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 14:57:35,464 - INFO - [SERVER_BL] error - 'malformed node or string: {'id': '1', 'phone_number': '1', 'password': '1'}'
+2026-03-23 14:57:35,464 - INFO - [CLIENT_BL] Exception on handle_responses: unpack requires a buffer of 4 bytes
+2026-03-23 14:57:35,465 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 62359) 
+2026-03-23 14:58:23,977 - INFO - [SERVER_BL] listening...
+2026-03-23 14:58:26,490 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 14:58:26,490 - INFO - [SERVER_BL] Client ('127.0.0.1', 45405) connected 
+2026-03-23 14:58:26,546 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 14:58:26,546 - INFO - [CLIENT_BL] Public key received
+2026-03-23 14:58:26,547 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 14:58:26,553 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 14:58:26,554 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 14:58:26,556 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 14:58:27,480 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 14:58:30,632 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 14:58:30,633 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 14:58:30,634 - INFO - [SERVER_BL] received from ('127.0.0.1', 45405): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 14:59:18,041 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-23 14:59:21,770 - INFO - [SERVER_BL] listening...
+2026-03-23 14:59:23,987 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 14:59:23,987 - INFO - [SERVER_BL] Client ('127.0.0.1', 62454) connected 
+2026-03-23 14:59:24,054 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 14:59:24,054 - INFO - [CLIENT_BL] Public key received
+2026-03-23 14:59:24,054 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 14:59:24,057 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 14:59:24,059 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 14:59:24,059 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 14:59:24,585 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 14:59:27,849 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 14:59:27,851 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 14:59:27,853 - INFO - [SERVER_BL] received from ('127.0.0.1', 62454): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 14:59:27,948 - INFO - [SERVER_BL] send to ('127.0.0.1', 62454): LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0))
+2026-03-23 14:59:27,948 - INFO - [SERVER_BL] sent '(True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0))'
+2026-03-23 14:59:27,948 - INFO - [CLIENT_BL] received LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0)) 
+2026-03-23 14:59:27,948 - INFO - (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0))
+2026-03-23 14:59:27,949 - INFO - [CLIENT_BL] Exception on handle_responses: tuple index out of range
+2026-03-23 14:59:27,954 - INFO - [CLIENT_BL] send to server EXPENSES-2 > True
+2026-03-23 14:59:27,954 - INFO - [SERVER_BL] received from ('127.0.0.1', 62454): EXPENSES-2 > True
+2026-03-23 14:59:27,955 - INFO - [SERVER_BL] send to ('127.0.0.1', 62454): EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0)]
+2026-03-23 14:59:36,145 - INFO - [CLIENT_GUI] opened Expenses page
+2026-03-23 15:06:10,610 - INFO - [SERVER_BL] listening...
+2026-03-23 15:06:13,005 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 15:06:13,006 - INFO - [SERVER_BL] Client ('127.0.0.1', 1981) connected 
+2026-03-23 15:06:13,094 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 15:06:13,094 - INFO - [CLIENT_BL] Public key received
+2026-03-23 15:06:13,094 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 15:06:13,099 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 15:06:13,101 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 15:06:13,102 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 15:06:14,271 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 15:06:17,150 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 15:06:17,155 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 15:06:17,157 - INFO - [SERVER_BL] received from ('127.0.0.1', 1981): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 15:06:17,239 - INFO - [SERVER_BL] send to ('127.0.0.1', 1981): LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0))
+2026-03-23 15:06:17,239 - INFO - [CLIENT_BL] received LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0)) 
+2026-03-23 15:06:17,239 - INFO - (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0))
+2026-03-23 15:06:17,258 - INFO - [CLIENT_BL] send to server EXPENSES-2 > 1
+2026-03-23 15:06:17,258 - INFO - [SERVER_BL] received from ('127.0.0.1', 1981): EXPENSES-2 > 1
+2026-03-23 15:06:17,260 - INFO - [SERVER_BL] send to ('127.0.0.1', 1981): EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0)]
+2026-03-23 15:06:17,260 - INFO - [CLIENT_BL] received EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0)] 
+2026-03-23 15:06:27,484 - INFO - [CLIENT_GUI] opened Expenses page
+2026-03-23 15:07:17,127 - INFO - [CLIENT_GUI] opened Expenses window
+2026-03-23 15:07:26,728 - INFO - [CLIENT_GUI] Received data from Expenses window: ('1', (100.0, 'Gifts', 'Cash'))
+2026-03-23 15:07:26,729 - INFO - [CLIENT_BL] send to server EXPENSES-1 > ('1', (100.0, 'Gifts', 'Cash'))
+2026-03-23 15:07:26,729 - INFO - [SERVER_BL] received from ('127.0.0.1', 1981): EXPENSES-1 > ('1', (100.0, 'Gifts', 'Cash'))
+2026-03-23 15:07:46,365 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-23 15:07:49,937 - INFO - [SERVER_BL] listening...
+2026-03-23 15:07:52,627 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 15:07:52,627 - INFO - [SERVER_BL] Client ('127.0.0.1', 29057) connected 
+2026-03-23 15:07:52,680 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 15:07:52,681 - INFO - [CLIENT_BL] Public key received
+2026-03-23 15:07:52,683 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 15:07:52,690 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 15:07:52,694 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 15:07:52,695 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 15:07:53,560 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 15:07:58,335 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '2', 'phone_number': '2', 'password': '2'}
+2026-03-23 15:07:58,338 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '2', 'phone_number': '2', 'password': '2'}
+2026-03-23 15:07:58,340 - INFO - [SERVER_BL] received from ('127.0.0.1', 29057): LOGIN > {'id': '2', 'phone_number': '2', 'password': '2'}
+2026-03-23 15:07:58,430 - INFO - [SERVER_BL] send to ('127.0.0.1', 29057): LOGIN > (True, ('2', 'big', 'yahu', '2', '$argon2id$v=19$m=65536,t=3,p=4$YhIVSk8gi03WIZR+12hQHQ$/+DLyLFm09e57GV4pIOQYHKaxeBMhNUNtBkzY1cRE6g', '23', 0.0))
+2026-03-23 15:07:58,430 - INFO - [CLIENT_BL] received LOGIN > (True, ('2', 'big', 'yahu', '2', '$argon2id$v=19$m=65536,t=3,p=4$YhIVSk8gi03WIZR+12hQHQ$/+DLyLFm09e57GV4pIOQYHKaxeBMhNUNtBkzY1cRE6g', '23', 0.0)) 
+2026-03-23 15:07:58,430 - INFO - (True, ('2', 'big', 'yahu', '2', '$argon2id$v=19$m=65536,t=3,p=4$YhIVSk8gi03WIZR+12hQHQ$/+DLyLFm09e57GV4pIOQYHKaxeBMhNUNtBkzY1cRE6g', '23', 0.0))
+2026-03-23 15:07:58,441 - INFO - [CLIENT_BL] send to server EXPENSES-2 > 2
+2026-03-23 15:07:58,441 - INFO - [SERVER_BL] received from ('127.0.0.1', 29057): EXPENSES-2 > 2
+2026-03-23 15:07:58,442 - INFO - [SERVER_BL] send to ('127.0.0.1', 29057): EXPENSES-2 > []
+2026-03-23 15:07:58,442 - INFO - [CLIENT_BL] received EXPENSES-2 > [] 
+2026-03-23 15:07:59,896 - INFO - [CLIENT_GUI] opened Expenses page
+2026-03-23 15:08:00,479 - INFO - [CLIENT_GUI] opened Expenses window
+2026-03-23 15:08:05,752 - INFO - [CLIENT_GUI] Received data from Expenses window: ('2', (100.0, 'Gadgets', 'Cash'))
+2026-03-23 15:08:05,753 - INFO - [CLIENT_BL] send to server EXPENSES-1 > ('2', (100.0, 'Gadgets', 'Cash'))
+2026-03-23 15:08:05,754 - INFO - [SERVER_BL] received from ('127.0.0.1', 29057): EXPENSES-1 > ('2', (100.0, 'Gadgets', 'Cash'))
+2026-03-23 15:08:05,776 - INFO - [SERVER_BL] send to ('127.0.0.1', 29057): EXPENSES-1 > [(83, 'Gadgets', 'Cash', 100.0)]
+2026-03-23 15:08:05,777 - INFO - [CLIENT_BL] received EXPENSES-1 > [(83, 'Gadgets', 'Cash', 100.0)] 
+2026-03-23 15:08:12,456 - INFO - [CLIENT_GUI] opened Expenses page
+2026-03-23 15:08:17,017 - INFO - [CLIENT_GUI] opened Expenses page
+2026-03-23 15:08:22,527 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '1', 2000)
+2026-03-23 15:08:22,527 - INFO - [SERVER_BL] received from ('127.0.0.1', 29057): TRANSFER > ('23', '1', 2000)
+2026-03-23 15:08:22,529 - INFO - [SERVER_BL] send to ('127.0.0.1', 29057): TRANSFER > (False, "malformed node or string: ('23', '1', 2000)")
+2026-03-23 15:08:22,529 - INFO - [CLIENT_BL] received TRANSFER > (False, "malformed node or string: ('23', '1', 2000)") 
+2026-03-23 15:09:54,168 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-23 15:09:58,081 - INFO - [SERVER_BL] listening...
+2026-03-23 15:10:01,179 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-23 15:10:01,180 - INFO - [SERVER_BL] Client ('127.0.0.1', 39976) connected 
+2026-03-23 15:10:01,239 - INFO - [SERVER_BL] Public key sent to client
+2026-03-23 15:10:01,239 - INFO - [CLIENT_BL] Public key received
+2026-03-23 15:10:01,240 - INFO - [CLIENT_BL] Session key generated
+2026-03-23 15:10:01,244 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-23 15:10:01,247 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-23 15:10:01,248 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-23 15:10:02,377 - INFO - [CLIENT_GUI] opened Login page
+2026-03-23 15:10:05,248 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 15:10:05,249 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 15:10:05,250 - INFO - [SERVER_BL] received from ('127.0.0.1', 39976): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-23 15:10:05,337 - INFO - [SERVER_BL] send to ('127.0.0.1', 39976): LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0))
+2026-03-23 15:10:05,337 - INFO - [CLIENT_BL] received LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0)) 
+2026-03-23 15:10:05,337 - INFO - (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0))
+2026-03-23 15:10:05,351 - INFO - [CLIENT_BL] send to server EXPENSES-2 > 1
+2026-03-23 15:10:05,352 - INFO - [SERVER_BL] received from ('127.0.0.1', 39976): EXPENSES-2 > 1
+2026-03-23 15:10:05,353 - INFO - [SERVER_BL] send to ('127.0.0.1', 39976): EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0)]
+2026-03-23 15:10:05,353 - INFO - [CLIENT_BL] received EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0)] 
+2026-03-23 15:10:09,945 - INFO - [CLIENT_BL] send to server TRANSFER > ('813', '2', 1000)
+2026-03-23 15:10:09,945 - INFO - [SERVER_BL] received from ('127.0.0.1', 39976): TRANSFER > ('813', '2', 1000)
+2026-03-23 15:10:09,946 - INFO - [SERVER_BL] send to ('127.0.0.1', 39976): TRANSFER > (False, "malformed node or string: ('813', '2', 1000)")
+2026-03-23 15:10:09,946 - INFO - [CLIENT_BL] received TRANSFER > (False, "malformed node or string: ('813', '2', 1000)") 

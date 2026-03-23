@@ -22,7 +22,6 @@ def login(data):
     conn = sqlite3.connect("Bank.db")
     cursor = conn.cursor()
 
-    data = ast.literal_eval(data)
     id = data["id"]
 
     cursor.execute(f"SELECT * FROM users WHERE id = ?", (id,))
@@ -48,7 +47,6 @@ def register(data):
 
         conn = sqlite3.connect("Bank.db")
         cursor = conn.cursor()
-        data = ast.literal_eval(data)
         cursor.execute("SELECT id, phone_number, account_number FROM users")
         rows = cursor.fetchall()
 

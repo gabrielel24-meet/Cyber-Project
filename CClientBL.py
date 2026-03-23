@@ -104,39 +104,28 @@ class CClientBL:
 
 
     def send_data(self, cmd, args):
-        try:
-            request = create_request_msg(cmd, args).encode()
-            encrypted_request = self.fernet.encrypt(request)
-            self._client_socket.send(encrypted_request)
-            write_to_log(f"[CLIENT_BL] send to server '{encrypted_request}'")
-            return True
-        except Exception as e:
-            write_to_log("[CLIENT_BL] Exception on send_data: {}".format(e))
-            return False
+       protocol_send_data(cmd, args, self._client_socket, self.fernet)
+       write_to_log(f"[CLIENT_BL] send to server {cmd} > {args}")
 
+    def receive_data(self) -> tuple:
+        cmd, args = protocol_receive_data(self._client_socket, self.fernet)
+        write_to_log(f"[CLIENT_BL] received {cmd} > {args} ")
+        return cmd,args
 
-    def receive_data(self) -> str:
-        try:
-            encrypted_request = self._client_socket.recv(1024)
-            request = self.fernet.decrypt(encrypted_request).decode()
-            request = ast.literal_eval(request)
-            write_to_log(f"[CLIENT_BL] received {request} ")
-            return request
-        except Exception as e:
-            write_to_log("[CLIENT_BL] Exception on receive: {}".format(e))
-            return "Error"
 
     def update_user_data(self,data):
         write_to_log(data)
-        if data[1] != "Error":
+        flag = data[1]
+        if flag != "Error":
+            account_data = data[1]
             self.login_successfully_flag = True
-            self.id = data[0]
-            self.first_name = data[1]
-            self.last_name = data[2]
-            self.phone_number = data[3]
-            self.password = data[4]
-            self.account_number = data[5]
-            self.balance = data[6]
+            self.id = account_data[0]
+            self.first_name = account_data[1]
+            self.last_name = account_data[2]
+            self.phone_number = account_data[3]
+            self.password = account_data[4]
+            self.account_number = account_data[5]
+            self.balance = account_data[6]
 
     def transfer_money(self):
         self.send_data("GET_BALANCE",self.account_number)

@@ -1,4 +1,5 @@
 import sqlite3
+from protocol import *
 
 # Connect to DB (if it doesn't exist it will be created)
 conn = sqlite3.connect("Bank.db")
@@ -68,3 +69,5 @@ conn.commit()
 
 # Close connection
 conn.close()
+
+

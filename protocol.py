@@ -20,6 +20,7 @@ from PIL import Image
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.asymmetric import rsa, padding
+import struct
 
 
 
@@ -65,7 +66,7 @@ def check_cmd(cmd) -> int:
 def create_request_msg(cmd,args):
     request = ""
     if check_cmd(cmd) == 1:
-        request = f"{cmd}>{args}"
+        request = f"{cmd}>{args})"
     elif check_cmd(cmd) == 2:
         request = f"{cmd}>{args}"
 
@@ -91,6 +92,50 @@ def get_cmd_and_args(request):
     cmd = split_request[0]
     args = split_request[1]
     return cmd, args
+
+
+def protocol_send_data(cmd, args, socket, fernet):
+    # try:
+        def send_message(msg):
+            # Encrypt msg
+            request = str(msg).encode()
+            request = fernet.encrypt(request)
+            # Send  msg length & msg
+            length = len(request)
+            socket.send(struct.pack("!I", length))
+            socket.send(request)
+
+        send_message(cmd)
+        send_message(args)
+
+
+    # except Exception as e:
+    #     write_to_log("[CLIENT_BL] Exception on send_data: {}".format(e))
+
+def protocol_receive_data( socket, fernet) -> tuple:
+    # try:
+        def receive_msg():
+            # Receive request length & request
+            length = socket.recv(4)
+            length = struct.unpack("!I", length)[0]
+            msg = b""
+            while len(msg) < length:
+                chunk = socket.recv(length - len(msg))
+                msg += chunk
+
+            # Decrypt request
+            msg =fernet.decrypt(msg).decode()
+
+            return msg
+
+        cmd = receive_msg()
+        args = ast.literal_eval(receive_msg())
+
+        return cmd, args
+
+    # except Exception as e:
+    #     write_to_log("[CLIENT_BL] Exception on receive: {}".format(e))
+    #     return "Error"
 
 def get_balance(account_number):
     conn = sqlite3.connect("Bank.db")
@@ -133,7 +178,6 @@ def transfer(data):
 
 def add_expense(data):
     try:
-        data = ast.literal_eval(data)
         conn = sqlite3.connect("Bank.db")
         cursor = conn.cursor()
 

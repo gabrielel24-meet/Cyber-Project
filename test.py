@@ -45,5 +45,6 @@ class App(ctk.CTk):
         self.canvas.get_tk_widget().pack(side=ctk.TOP, fill=ctk.BOTH, expand=True, padx=20, pady=20)
 
 if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+    # app = App()
+    # app.mainloop()
+    print(len("True"))
