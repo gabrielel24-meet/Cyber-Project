@@ -233,6 +233,7 @@ class CClientGUI(CClientBL):
 
     def update_balance_label(self):
         self.balance_label.configure(text=f"Balance: {self.balance}₪")
+        write_to_log(f"[CLIENT_GUI] updated balance label to {self.balance}₪")
 
     def update_register_page(self, data):
         self.login_page.register_page.handle_register_message(data)

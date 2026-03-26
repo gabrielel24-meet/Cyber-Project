@@ -88,7 +88,6 @@ class CClientBL:
                     self.transfer_money(response)
                 elif cmd == "TRANSFER-2":
                     self.receive_money(response)
-                    self.responses_flag = (True,"TRANSFER-2")
                 elif cmd == "EXPENSES-1":
                     self.update_expenses(response)
                 elif cmd == "EXPENSES-2":
@@ -138,7 +137,7 @@ class CClientBL:
     def receive_money(self, data):
         amount = data[0]
         source = data[1]
-        write_to_log(f"Received {amount}₪ from client {source}")
+        write_to_log(f"[CLIENT_BL] Received {amount}₪ from client {source}")
 
         self.send_data("GET_BALANCE", self.account_number)
         self.responses_flag = (True, "TRANSFER")
