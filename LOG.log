@@ -1719,3 +1719,1069 @@ ER-1 > (100, '23')
 2026-03-26 17:41:55,319 - INFO - [SERVER_BL] received from ('192.168.1.106', 58433): GET_BALANCE > 23
 2026-03-26 17:41:55,322 - INFO - [SERVER_BL] send to ('192.168.1.106', 58433): GET_BALANCE > -200.0
 2026-03-26 17:41:55,395 - INFO - [CLIENT_GUI] updated balance label to 200.0\u20aa
+2026-03-26 17:48:37,366 - INFO - [SERVER_BL] listening...
+2026-03-26 17:48:39,686 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 17:48:39,686 - INFO - [SERVER_BL] Client ('127.0.0.1', 11684) connected 
+2026-03-26 17:48:39,794 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 17:48:39,794 - INFO - [CLIENT_BL] Public key received
+2026-03-26 17:48:39,794 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 17:48:39,800 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 17:48:39,802 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 17:48:39,803 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 17:49:36,635 - INFO - [SERVER_BL] Client ('192.168.1.106', 60871) connected 
+2026-03-26 17:49:36,705 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 17:49:36,718 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 17:49:36,719 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2026-03-26 17:49:51,183 - INFO - [SERVER_BL] received from ('192.168.1.106', 60871): LOGIN > {'id': '2', 'phone_number': '2', 'password': '2'}
+2026-03-26 17:49:51,253 - INFO - [SERVER_BL] send to ('192.168.1.106', 60871): LOGIN > (True, ('2', 'big', 'yahu', '2', '$argon2id$v=19$m=65536,t=3,p=4$YhIVSk8gi03WIZR+12hQHQ$/+DLyLFm09e57GV4pIOQYHKaxeBMhNUNtBkzY1cRE6g', '23', -200.0))
+2026-03-26 17:49:52,184 - INFO - [SERVER_BL] received from ('192.168.1.106', 60871): LOGIN > {'id': '2', 'phone_number': '2', 'password': '2'}
+2026-03-26 17:49:52,253 - INFO - [SERVER_BL] send to ('192.168.1.106', 60871): LOGIN > (True, ('2', 'big', 'yahu', '2', '$argon2id$v=19$m=65536,t=3,p=4$YhIVSk8gi03WIZR+12hQHQ$/+DLyLFm09e57GV4pIOQYHKaxeBMhNUNtBkzY1cRE6g', '23', -200.0))
+2026-03-26 17:49:52,257 - INFO - [SERVER_BL] received from ('192.168.1.106', 60871): EXPENSES-2 > 2
+2026-03-26 17:49:52,258 - INFO - [SERVER_BL] send to ('192.168.1.106', 60871): EXPENSES-2 > [(83, 'Gadgets', 'Cash', 100.0)]
+2026-03-26 17:49:56,568 - INFO - [CLIENT_GUI] opened Login page
+2026-03-26 17:50:00,671 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 17:50:00,672 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 17:50:00,674 - INFO - [SERVER_BL] received from ('127.0.0.1', 11684): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 17:50:00,791 - INFO - [SERVER_BL] send to ('127.0.0.1', 11684): LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 200.0))
+2026-03-26 17:50:00,792 - INFO - [CLIENT_BL] received LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 200.0)) 
+2026-03-26 17:50:00,792 - INFO - (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 200.0))
+2026-03-26 17:50:01,894 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 17:50:01,895 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 17:50:01,895 - INFO - [SERVER_BL] received from ('127.0.0.1', 11684): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 17:50:01,997 - INFO - [CLIENT_GUI] updated balance label to 200.0\u20aa
+2026-03-26 17:50:01,998 - INFO - [CLIENT_BL] send to server EXPENSES-2 > 1
+2026-03-26 17:50:02,018 - INFO - [SERVER_BL] send to ('127.0.0.1', 11684): LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 200.0))
+2026-03-26 17:50:02,018 - INFO - [CLIENT_BL] received LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 200.0)) 
+2026-03-26 17:50:02,018 - INFO - (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 200.0))
+2026-03-26 17:50:02,018 - INFO - [SERVER_BL] received from ('127.0.0.1', 11684): EXPENSES-2 > 1
+2026-03-26 17:50:02,020 - INFO - [SERVER_BL] send to ('127.0.0.1', 11684): EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0), (84, 'Gifts', 'Credit', 300.0)]
+2026-03-26 17:50:02,020 - INFO - [CLIENT_BL] received EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0), (84, 'Gifts', 'Credit', 300.0)] 
+2026-03-26 17:50:04,103 - INFO - [CLIENT_GUI] opened Expenses page
+2026-03-26 17:50:09,751 - INFO - [CLIENT_BL] send to server TRANSFER > ('813', '23', 100)
+2026-03-26 17:50:09,751 - INFO - [SERVER_BL] received from ('127.0.0.1', 11684): TRANSFER > ('813', '23', 100)
+2026-03-26 17:50:09,765 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '23') 
+2026-03-26 17:50:09,765 - INFO - [SERVER_BL] send to ('127.0.0.1', 11684): TRANSFER-1 > (100, '23')
+2026-03-26 17:50:09,766 - INFO - [CLIENT_BL] transferred 100\u20aa to client 23
+2026-03-26 17:50:09,766 - INFO - [CLIENT_BL] send to server GET_BALANCE > 813
+2026-03-26 17:50:09,766 - INFO - [SERVER_BL] send to ('192.168.1.106', 60871): TRANSFER-2 > (100, '813')
+2026-03-26 17:50:09,767 - INFO - [SERVER_BL] received from ('127.0.0.1', 11684): GET_BALANCE > 813
+2026-03-26 17:50:09,770 - INFO - [CLIENT_BL] received GET_BALANCE > 100.0 
+2026-03-26 17:50:09,770 - INFO - [SERVER_BL] send to ('127.0.0.1', 11684): GET_BALANCE > 100.0
+2026-03-26 17:50:09,855 - INFO - [CLIENT_GUI] updated balance label to 100.0\u20aa
+2026-03-26 17:50:09,856 - INFO - [CLIENT_GUI] updated balance label to 100.0\u20aa
+2026-03-26 17:50:09,900 - INFO - [SERVER_BL] received from ('192.168.1.106', 60871): GET_BALANCE > 23
+2026-03-26 17:50:09,902 - INFO - [SERVER_BL] send to ('192.168.1.106', 60871): GET_BALANCE > -100.0
+2026-03-26 17:51:09,979 - INFO - [SERVER_BL] received from ('192.168.1.106', 60871): TRANSFER > ('23', '813', 100)
+2026-03-26 17:51:09,994 - INFO - [SERVER_BL] send to ('192.168.1.106', 60871): TRANSFER-1 > (100, '813')
+2026-03-26 17:51:09,995 - INFO - [SERVER_BL] send to ('127.0.0.1', 11684): TRANSFER-2 > (100, '23')
+2026-03-26 17:51:09,996 - INFO - [CLIENT_BL] received TRANSFER-2 > (100, '23') 
+2026-03-26 17:51:09,996 - INFO - [CLIENT_BL] Received 100\u20aa from client 23
+2026-03-26 17:51:09,998 - INFO - [CLIENT_BL] send to server GET_BALANCE > 813
+2026-03-26 17:51:09,998 - INFO - [SERVER_BL] received from ('127.0.0.1', 11684): GET_BALANCE > 813
+2026-03-26 17:51:10,001 - INFO - [SERVER_BL] send to ('127.0.0.1', 11684): GET_BALANCE > 200.0
+2026-03-26 17:51:10,001 - INFO - [CLIENT_BL] received GET_BALANCE > 200.0 
+2026-03-26 17:51:10,101 - INFO - [SERVER_BL] received from ('192.168.1.106', 60871): GET_BALANCE > 23
+2026-03-26 17:51:10,104 - INFO - [SERVER_BL] send to ('192.168.1.106', 60871): GET_BALANCE > -200.0
+2026-03-26 17:51:10,192 - INFO - [CLIENT_GUI] updated balance label to 200.0\u20aa
+2026-03-26 17:51:13,405 - INFO - [SERVER_BL] received from ('192.168.1.106', 60871): TRANSFER > ('23', '813', 100)
+2026-03-26 17:51:13,418 - INFO - [SERVER_BL] send to ('192.168.1.106', 60871): TRANSFER-1 > (100, '813')
+2026-03-26 17:51:13,420 - INFO - [SERVER_BL] send to ('127.0.0.1', 11684): TRANSFER-2 > (100, '23')
+2026-03-26 17:51:13,420 - INFO - [CLIENT_BL] received TRANSFER-2 > (100, '23') 
+2026-03-26 17:51:13,420 - INFO - [CLIENT_BL] Received 100\u20aa from client 23
+2026-03-26 17:51:13,421 - INFO - [CLIENT_BL] send to server GET_BALANCE > 813
+2026-03-26 17:51:13,421 - INFO - [SERVER_BL] received from ('127.0.0.1', 11684): GET_BALANCE > 813
+2026-03-26 17:51:13,425 - INFO - [SERVER_BL] send to ('127.0.0.1', 11684): GET_BALANCE > 300.0
+2026-03-26 17:51:13,425 - INFO - [CLIENT_BL] received GET_BALANCE > 300.0 
+2026-03-26 17:51:13,546 - INFO - [SERVER_BL] received from ('192.168.1.106', 60871): GET_BALANCE > 23
+2026-03-26 17:51:13,549 - INFO - [SERVER_BL] send to ('192.168.1.106', 60871): GET_BALANCE > -300.0
+2026-03-26 17:51:13,743 - INFO - [CLIENT_GUI] updated balance label to 300.0\u20aa
+2026-03-26 17:54:05,987 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 17:54:09,016 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 17:54:12,068 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 17:54:13,140 - INFO - [SERVER_BL] listening...
+2026-03-26 17:54:13,579 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 17:54:13,580 - INFO - [SERVER_BL] Client ('127.0.0.1', 26973) connected 
+2026-03-26 17:54:14,010 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 17:54:14,012 - INFO - [CLIENT_BL] Public key received
+2026-03-26 17:54:14,012 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 17:54:14,018 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 17:54:14,024 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 17:54:14,025 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 17:54:16,101 - INFO - [SERVER_BL] Client ('192.168.1.106', 58061) connected 
+2026-03-26 17:54:16,149 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 17:54:16,200 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 17:54:16,201 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2026-03-26 17:54:26,767 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 17:54:26,854 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 300.0))
+2026-03-26 17:54:28,137 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 17:54:28,206 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 300.0))
+2026-03-26 17:54:28,210 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): EXPENSES-2 > 1
+2026-03-26 17:54:28,211 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0), (84, 'Gifts', 'Credit', 300.0)]
+2026-03-26 17:54:30,917 - INFO - [CLIENT_GUI] opened Login page
+2026-03-26 17:54:36,433 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '2', 'phone_number': '2', 'password': '2'}
+2026-03-26 17:54:36,440 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '2', 'phone_number': '2', 'password': '2'}
+2026-03-26 17:54:36,440 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): LOGIN > {'id': '2', 'phone_number': '2', 'password': '2'}
+2026-03-26 17:54:36,545 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): LOGIN > (True, ('2', 'big', 'yahu', '2', '$argon2id$v=19$m=65536,t=3,p=4$YhIVSk8gi03WIZR+12hQHQ$/+DLyLFm09e57GV4pIOQYHKaxeBMhNUNtBkzY1cRE6g', '23', -300.0))
+2026-03-26 17:54:36,545 - INFO - [CLIENT_BL] received LOGIN > (True, ('2', 'big', 'yahu', '2', '$argon2id$v=19$m=65536,t=3,p=4$YhIVSk8gi03WIZR+12hQHQ$/+DLyLFm09e57GV4pIOQYHKaxeBMhNUNtBkzY1cRE6g', '23', -300.0)) 
+2026-03-26 17:54:36,546 - INFO - (True, ('2', 'big', 'yahu', '2', '$argon2id$v=19$m=65536,t=3,p=4$YhIVSk8gi03WIZR+12hQHQ$/+DLyLFm09e57GV4pIOQYHKaxeBMhNUNtBkzY1cRE6g', '23', -300.0))
+2026-03-26 17:54:37,185 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '2', 'phone_number': '2', 'password': '2'}
+2026-03-26 17:54:37,186 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '2', 'phone_number': '2', 'password': '2'}
+2026-03-26 17:54:37,186 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): LOGIN > {'id': '2', 'phone_number': '2', 'password': '2'}
+2026-03-26 17:54:37,289 - INFO - [CLIENT_GUI] updated balance label to -300.0\u20aa
+2026-03-26 17:54:37,290 - INFO - [CLIENT_BL] send to server EXPENSES-2 > 2
+2026-03-26 17:54:37,294 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): LOGIN > (True, ('2', 'big', 'yahu', '2', '$argon2id$v=19$m=65536,t=3,p=4$YhIVSk8gi03WIZR+12hQHQ$/+DLyLFm09e57GV4pIOQYHKaxeBMhNUNtBkzY1cRE6g', '23', -300.0))
+2026-03-26 17:54:37,294 - INFO - [CLIENT_BL] received LOGIN > (True, ('2', 'big', 'yahu', '2', '$argon2id$v=19$m=65536,t=3,p=4$YhIVSk8gi03WIZR+12hQHQ$/+DLyLFm09e57GV4pIOQYHKaxeBMhNUNtBkzY1cRE6g', '23', -300.0)) 
+2026-03-26 17:54:37,294 - INFO - (True, ('2', 'big', 'yahu', '2', '$argon2id$v=19$m=65536,t=3,p=4$YhIVSk8gi03WIZR+12hQHQ$/+DLyLFm09e57GV4pIOQYHKaxeBMhNUNtBkzY1cRE6g', '23', -300.0))
+2026-03-26 17:54:37,295 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): EXPENSES-2 > 2
+2026-03-26 17:54:37,297 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): EXPENSES-2 > [(83, 'Gadgets', 'Cash', 100.0)]
+2026-03-26 17:54:37,298 - INFO - [CLIENT_BL] received EXPENSES-2 > [(83, 'Gadgets', 'Cash', 100.0)] 
+2026-03-26 17:54:49,019 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '813', 100)
+2026-03-26 17:54:49,019 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): TRANSFER > ('23', '813', 100)
+2026-03-26 17:54:49,039 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '813') 
+R-1 > (100, '813')
+2026-03-26 17:54:49,039 - INFO - [CLIENT_BL] transferred 100\u20aa to client 813
+2026-03-26 17:54:49,039 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-2 > (100, '23')
+2026-03-26 17:54:49,039 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:54:49,040 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:54:49,042 - INFO - [CLIENT_BL] received GET_BALANCE > -400.0 
+2026-03-26 17:54:49,042 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -400.0
+2026-03-26 17:54:49,122 - INFO - [CLIENT_GUI] updated balance label to -400.0\u20aa
+2026-03-26 17:54:49,173 - INFO - [CLIENT_GUI] updated balance label to -400.0\u20aa
+2026-03-26 17:54:49,237 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:54:49,240 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 400.0
+2026-03-26 17:55:05,699 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '813', 100)
+2026-03-26 17:55:05,700 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): TRANSFER > ('23', '813', 100)
+2026-03-26 17:55:05,806 - INFO - [CLIENT_GUI] updated balance label to -400.0\u20aa
+2026-03-26 17:55:06,018 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-1 > (100, '813')
+2026-03-26 17:55:06,019 - INFO - [CLIENT_BL] transferred 100\u20aa to client 813
+2026-03-26 17:55:06,019 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:55:06,019 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-2 > (100, '23')
+2026-03-26 17:55:06,020 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:55:06,024 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -500.0
+2026-03-26 17:55:06,024 - INFO - [CLIENT_BL] received GET_BALANCE > -500.0 
+2026-03-26 17:55:06,241 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:55:06,244 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 500.0
+2026-03-26 17:55:06,435 - INFO - [CLIENT_GUI] updated balance label to -500.0\u20aa
+2026-03-26 17:55:10,980 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '813', 100)
+2026-03-26 17:55:10,981 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): TRANSFER > ('23', '813', 100)
+2026-03-26 17:55:11,083 - INFO - [CLIENT_GUI] updated balance label to -500.0\u20aa
+2026-03-26 17:55:11,653 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-1 > (100, '813')
+2026-03-26 17:55:11,654 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '813') 
+2026-03-26 17:55:11,654 - INFO - [CLIENT_BL] transferred 100\u20aa to client 813
+2026-03-26 17:55:11,654 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:55:11,654 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-2 > (100, '23')
+2026-03-26 17:55:11,655 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:55:11,656 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -600.0
+2026-03-26 17:55:11,658 - INFO - [CLIENT_BL] received GET_BALANCE > -600.0 
+2026-03-26 17:55:11,764 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:55:11,766 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 600.0
+2026-03-26 17:55:12,089 - INFO - [CLIENT_GUI] updated balance label to -600.0\u20aa
+2026-03-26 17:55:22,821 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): TRANSFER > ('813', '23', 100)
+2026-03-26 17:55:22,884 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-1 > (100, '23')
+2026-03-26 17:55:22,886 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-2 > (100, '813')
+2026-03-26 17:55:22,886 - INFO - [CLIENT_BL] received TRANSFER-2 > (100, '813') 
+2026-03-26 17:55:22,887 - INFO - [CLIENT_BL] Received 100\u20aa from client 813
+2026-03-26 17:55:22,887 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:55:22,890 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:55:22,893 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -500.0
+2026-03-26 17:55:22,893 - INFO - [CLIENT_BL] received GET_BALANCE > -500.0 
+2026-03-26 17:55:22,991 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:55:22,993 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 500.0
+2026-03-26 17:55:23,251 - INFO - [CLIENT_GUI] updated balance label to -500.0\u20aa
+2026-03-26 17:55:27,223 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): TRANSFER > ('813', '23', 100)
+2026-03-26 17:55:27,308 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-1 > (100, '23')
+2026-03-26 17:55:27,309 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-2 > (100, '813')
+2026-03-26 17:55:27,309 - INFO - [CLIENT_BL] received TRANSFER-2 > (100, '813') 
+2026-03-26 17:55:27,309 - INFO - [CLIENT_BL] Received 100\u20aa from client 813
+2026-03-26 17:55:27,310 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:55:27,310 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:55:27,314 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -400.0
+2026-03-26 17:55:27,314 - INFO - [CLIENT_BL] received GET_BALANCE > -400.0 
+2026-03-26 17:55:27,330 - INFO - [CLIENT_GUI] updated balance label to -400.0\u20aa
+2026-03-26 17:55:27,425 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:55:27,427 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 400.0
+2026-03-26 17:55:29,889 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): TRANSFER > ('813', '23', 100)
+2026-03-26 17:55:29,919 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-1 > (100, '23')
+2026-03-26 17:55:29,920 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-2 > (100, '813')
+2026-03-26 17:55:29,921 - INFO - [CLIENT_BL] received TRANSFER-2 > (100, '813') 
+2026-03-26 17:55:29,921 - INFO - [CLIENT_BL] Received 100\u20aa from client 813
+2026-03-26 17:55:29,922 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:55:29,922 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:55:29,927 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -300.0
+2026-03-26 17:55:29,927 - INFO - [CLIENT_BL] received GET_BALANCE > -300.0 
+2026-03-26 17:55:30,029 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:55:30,031 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 300.0
+2026-03-26 17:55:30,368 - INFO - [CLIENT_GUI] updated balance label to -300.0\u20aa
+2026-03-26 17:55:32,724 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '813', 100)
+2026-03-26 17:55:32,724 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): TRANSFER > ('23', '813', 100)
+2026-03-26 17:55:32,831 - INFO - [CLIENT_GUI] updated balance label to -300.0\u20aa
+2026-03-26 17:55:33,047 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-1 > (100, '813')
+2026-03-26 17:55:33,047 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '813') 
+2026-03-26 17:55:33,047 - INFO - [CLIENT_BL] transferred 100\u20aa to client 813
+2026-03-26 17:55:33,048 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:55:33,048 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-2 > (100, '23')
+2026-03-26 17:55:33,048 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:55:33,051 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -400.0
+2026-03-26 17:55:33,051 - INFO - [CLIENT_BL] received GET_BALANCE > -400.0 
+2026-03-26 17:55:33,265 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:55:33,266 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 400.0
+2026-03-26 17:55:33,405 - INFO - [CLIENT_GUI] updated balance label to -400.0\u20aa
+2026-03-26 17:55:37,828 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '813', 100)
+2026-03-26 17:55:37,828 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): TRANSFER > ('23', '813', 100)
+2026-03-26 17:55:37,933 - INFO - [CLIENT_GUI] updated balance label to -400.0\u20aa
+2026-03-26 17:55:38,106 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-1 > (100, '813')
+2026-03-26 17:55:38,106 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '813') 
+2026-03-26 17:55:38,107 - INFO - [CLIENT_BL] transferred 100\u20aa to client 813
+2026-03-26 17:55:38,107 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-2 > (100, '23')
+2026-03-26 17:55:38,107 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:55:38,107 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:55:38,110 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -500.0
+2026-03-26 17:55:38,110 - INFO - [CLIENT_BL] received GET_BALANCE > -500.0 
+2026-03-26 17:55:38,279 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:55:38,281 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 500.0
+2026-03-26 17:55:38,480 - INFO - [CLIENT_GUI] updated balance label to -500.0\u20aa
+2026-03-26 17:55:40,796 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '813', 100)
+2026-03-26 17:55:40,796 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): TRANSFER > ('23', '813', 100)
+2026-03-26 17:55:40,903 - INFO - [CLIENT_GUI] updated balance label to -500.0\u20aa
+2026-03-26 17:55:40,907 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-1 > (100, '813')
+2026-03-26 17:55:40,907 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '813') 
+2026-03-26 17:55:40,907 - INFO - [CLIENT_BL] transferred 100\u20aa to client 813
+2026-03-26 17:55:40,907 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-2 > (100, '23')
+2026-03-26 17:55:40,908 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:55:40,908 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:55:40,912 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -600.0
+2026-03-26 17:55:40,913 - INFO - [CLIENT_BL] received GET_BALANCE > -600.0 
+2026-03-26 17:55:41,026 - INFO - [CLIENT_GUI] updated balance label to -600.0\u20aa
+2026-03-26 17:55:41,060 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:55:41,062 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 600.0
+2026-03-26 17:55:49,234 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '813', 100)
+2026-03-26 17:55:49,234 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): TRANSFER > ('23', '813', 100)
+2026-03-26 17:55:49,250 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-1 > (100, '813')
+2026-03-26 17:55:49,250 - INFO - [CLIENT_BL] transferred 100\u20aa to client 813
+2026-03-26 17:55:49,250 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:55:49,250 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-2 > (100, '23')
+2026-03-26 17:55:49,251 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:55:49,253 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -700.0
+2026-03-26 17:55:49,253 - INFO - [CLIENT_BL] received GET_BALANCE > -700.0 
+2026-03-26 17:55:49,337 - INFO - [CLIENT_GUI] updated balance label to -700.0\u20aa
+2026-03-26 17:55:49,434 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:55:49,437 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 700.0
+2026-03-26 17:55:49,651 - INFO - [CLIENT_GUI] updated balance label to -700.0\u20aa
+2026-03-26 17:55:58,112 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): TRANSFER > ('813', '23', 100)
+2026-03-26 17:55:58,126 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-1 > (100, '23')
+2026-03-26 17:55:58,127 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-2 > (100, '813')
+2026-03-26 17:55:58,127 - INFO - [CLIENT_BL] received TRANSFER-2 > (100, '813') 
+2026-03-26 17:55:58,128 - INFO - [CLIENT_BL] Received 100\u20aa from client 813
+2026-03-26 17:55:58,129 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:55:58,129 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:55:58,132 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -600.0
+2026-03-26 17:55:58,132 - INFO - [CLIENT_BL] received GET_BALANCE > -600.0 
+2026-03-26 17:55:58,237 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:55:58,240 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 600.0
+2026-03-26 17:55:58,297 - INFO - [CLIENT_GUI] updated balance label to -600.0\u20aa
+2026-03-26 17:56:04,781 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): TRANSFER > ('813', '23', 100)
+2026-03-26 17:56:04,796 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-1 > (100, '23')
+2026-03-26 17:56:04,797 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-2 > (100, '813')
+2026-03-26 17:56:04,797 - INFO - [CLIENT_BL] received TRANSFER-2 > (100, '813') 
+2026-03-26 17:56:04,797 - INFO - [CLIENT_BL] Received 100\u20aa from client 813
+2026-03-26 17:56:04,798 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:56:04,798 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:56:04,801 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -500.0
+2026-03-26 17:56:04,801 - INFO - [CLIENT_BL] received GET_BALANCE > -500.0 
+2026-03-26 17:56:04,890 - INFO - [CLIENT_GUI] updated balance label to -500.0\u20aa
+2026-03-26 17:56:04,907 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:56:04,909 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 500.0
+2026-03-26 17:56:13,923 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '813', 100)
+2026-03-26 17:56:13,924 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): TRANSFER > ('23', '813', 100)
+2026-03-26 17:56:13,938 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-1 > (100, '813')
+2026-03-26 17:56:13,938 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '813') 
+2026-03-26 17:56:13,939 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-2 > (100, '23')
+2026-03-26 17:56:13,939 - INFO - [CLIENT_BL] transferred 100\u20aa to client 813
+2026-03-26 17:56:13,939 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:56:13,939 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:56:13,942 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -600.0
+2026-03-26 17:56:13,943 - INFO - [CLIENT_BL] received GET_BALANCE > -600.0 
+2026-03-26 17:56:14,027 - INFO - [CLIENT_GUI] updated balance label to -600.0\u20aa
+2026-03-26 17:56:14,036 - INFO - [CLIENT_GUI] updated balance label to -600.0\u20aa
+2026-03-26 17:56:14,119 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:56:14,124 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 600.0
+2026-03-26 17:56:16,371 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '813', 100)
+2026-03-26 17:56:16,371 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): TRANSFER > ('23', '813', 100)
+2026-03-26 17:56:16,382 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-1 > (100, '813')
+2026-03-26 17:56:16,382 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '813') 
+2026-03-26 17:56:16,384 - INFO - [CLIENT_BL] transferred 100\u20aa to client 813
+2026-03-26 17:56:16,384 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-2 > (100, '23')
+2026-03-26 17:56:16,384 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:56:16,384 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:56:16,385 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -700.0
+2026-03-26 17:56:16,386 - INFO - [CLIENT_BL] received GET_BALANCE > -700.0 
+2026-03-26 17:56:16,477 - INFO - [CLIENT_GUI] updated balance label to -700.0\u20aa
+2026-03-26 17:56:16,553 - INFO - [CLIENT_GUI] updated balance label to -700.0\u20aa
+2026-03-26 17:56:16,573 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:56:16,574 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 700.0
+2026-03-26 17:56:19,331 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '813', 100)
+2026-03-26 17:56:19,332 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): TRANSFER > ('23', '813', 100)
+2026-03-26 17:56:19,348 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-1 > (100, '813')
+2026-03-26 17:56:19,348 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '813') 
+2026-03-26 17:56:19,348 - INFO - [CLIENT_BL] transferred 100\u20aa to client 813
+2026-03-26 17:56:19,349 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:56:19,349 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-2 > (100, '23')
+2026-03-26 17:56:19,350 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:56:19,353 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -800.0
+2026-03-26 17:56:19,353 - INFO - [CLIENT_BL] received GET_BALANCE > -800.0 
+2026-03-26 17:56:19,436 - INFO - [CLIENT_GUI] updated balance label to -800.0\u20aa
+2026-03-26 17:56:19,508 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:56:19,511 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 800.0
+2026-03-26 17:56:19,584 - INFO - [CLIENT_GUI] updated balance label to -800.0\u20aa
+2026-03-26 17:56:30,548 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '813', 100)
+2026-03-26 17:56:30,548 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): TRANSFER > ('23', '813', 100)
+2026-03-26 17:56:30,566 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '813') 
+R-1 > (100, '813')
+2026-03-26 17:56:30,566 - INFO - [CLIENT_BL] transferred 100\u20aa to client 813
+2026-03-26 17:56:30,566 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-2 > (100, '23')
+2026-03-26 17:56:30,566 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:56:30,566 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:56:30,569 - INFO - [CLIENT_BL] received GET_BALANCE > -900.0 
+2026-03-26 17:56:30,569 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -900.0
+2026-03-26 17:56:30,654 - INFO - [CLIENT_GUI] updated balance label to -900.0\u20aa
+2026-03-26 17:56:30,706 - INFO - [CLIENT_GUI] updated balance label to -900.0\u20aa
+2026-03-26 17:56:30,709 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:56:30,712 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 900.0
+2026-03-26 17:56:36,227 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): TRANSFER > ('813', '23', 100)
+2026-03-26 17:56:36,239 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-1 > (100, '23')
+2026-03-26 17:56:36,240 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-2 > (100, '813')
+2026-03-26 17:56:36,240 - INFO - [CLIENT_BL] received TRANSFER-2 > (100, '813') 
+2026-03-26 17:56:36,240 - INFO - [CLIENT_BL] Received 100\u20aa from client 813
+2026-03-26 17:56:36,240 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:56:36,242 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:56:36,244 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -800.0
+2026-03-26 17:56:36,287 - INFO - [CLIENT_GUI] updated balance label to -800.0\u20aa
+2026-03-26 17:56:36,352 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:56:36,354 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 800.0
+2026-03-26 17:56:39,388 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): TRANSFER > ('813', '23', 100)
+2026-03-26 17:56:39,853 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-1 > (100, '23')
+2026-03-26 17:56:39,854 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-2 > (100, '813')
+2026-03-26 17:56:39,856 - INFO - [CLIENT_BL] Received 100\u20aa from client 813
+2026-03-26 17:56:39,856 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:56:39,856 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:56:39,859 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -700.0
+2026-03-26 17:56:39,859 - INFO - [CLIENT_BL] received GET_BALANCE > -700.0 
+2026-03-26 17:56:40,042 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:56:40,044 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 700.0
+2026-03-26 17:56:40,352 - INFO - [CLIENT_GUI] updated balance label to -700.0\u20aa
+2026-03-26 17:56:43,728 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): TRANSFER > ('813', '23', 100)
+2026-03-26 17:56:43,747 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-1 > (100, '23')
+2026-03-26 17:56:43,748 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-2 > (100, '813')
+2026-03-26 17:56:43,748 - INFO - [CLIENT_BL] received TRANSFER-2 > (100, '813') 
+2026-03-26 17:56:43,748 - INFO - [CLIENT_BL] Received 100\u20aa from client 813
+2026-03-26 17:56:43,749 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:56:43,749 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:56:43,753 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -600.0
+2026-03-26 17:56:43,753 - INFO - [CLIENT_BL] received GET_BALANCE > -600.0 
+2026-03-26 17:56:43,883 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:56:43,887 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 600.0
+2026-03-26 17:56:43,944 - INFO - [CLIENT_GUI] updated balance label to -600.0\u20aa
+2026-03-26 17:56:51,781 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '813', 100)
+2026-03-26 17:56:51,781 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): TRANSFER > ('23', '813', 100)
+2026-03-26 17:56:51,803 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-1 > (100, '813')
+2026-03-26 17:56:51,803 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '813') 
+2026-03-26 17:56:51,804 - INFO - [CLIENT_BL] transferred 100\u20aa to client 813
+2026-03-26 17:56:51,804 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-2 > (100, '23')
+2026-03-26 17:56:51,804 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:56:51,804 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:56:51,808 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -700.0
+2026-03-26 17:56:51,808 - INFO - [CLIENT_BL] received GET_BALANCE > -700.0 
+2026-03-26 17:56:51,886 - INFO - [CLIENT_GUI] updated balance label to -700.0\u20aa
+2026-03-26 17:56:52,009 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:56:52,011 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 700.0
+2026-03-26 17:56:52,039 - INFO - [CLIENT_GUI] updated balance label to -700.0\u20aa
+2026-03-26 17:57:02,821 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '813', 100)
+2026-03-26 17:57:02,821 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): TRANSFER > ('23', '813', 100)
+2026-03-26 17:57:02,834 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-1 > (100, '813')
+2026-03-26 17:57:02,834 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '813') 
+2026-03-26 17:57:02,834 - INFO - [CLIENT_BL] transferred 100\u20aa to client 813
+2026-03-26 17:57:02,835 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-2 > (100, '23')
+2026-03-26 17:57:02,835 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:57:02,835 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:57:02,839 - INFO - [CLIENT_BL] received GET_BALANCE > -800.0 
+T_BALANCE > -800.0
+2026-03-26 17:57:02,909 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): TRANSFER > ('813', '23', 100)
+2026-03-26 17:57:02,921 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-1 > (100, '23')
+2026-03-26 17:57:02,922 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-2 > (100, '813')
+2026-03-26 17:57:02,922 - INFO - [CLIENT_BL] Received 100\u20aa from client 813
+2026-03-26 17:57:02,923 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:57:02,923 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:57:02,923 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:57:02,926 - INFO - [CLIENT_GUI] updated balance label to -800.0\u20aa
+2026-03-26 17:57:02,926 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 700.0
+2026-03-26 17:57:02,927 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -700.0
+2026-03-26 17:57:02,927 - INFO - [CLIENT_BL] received GET_BALANCE > -700.0 
+2026-03-26 17:57:03,018 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:57:03,020 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 700.0
+2026-03-26 17:57:03,178 - INFO - [CLIENT_GUI] updated balance label to -700.0\u20aa
+2026-03-26 17:57:57,415 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '813', 100)
+2026-03-26 17:57:57,416 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): TRANSFER > ('23', '813', 100)
+2026-03-26 17:57:57,477 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-1 > (100, '813')
+2026-03-26 17:57:57,477 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '813') 
+2026-03-26 17:57:57,477 - INFO - [CLIENT_BL] transferred 100\u20aa to client 813
+2026-03-26 17:57:57,477 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 17:57:57,477 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-2 > (100, '23')
+2026-03-26 17:57:57,478 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 17:57:57,481 - INFO - [CLIENT_BL] received GET_BALANCE > -800.0 
+2026-03-26 17:57:57,481 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -800.0
+2026-03-26 17:57:57,521 - INFO - [CLIENT_GUI] updated balance label to -800.0\u20aa
+2026-03-26 17:57:57,524 - INFO - [CLIENT_GUI] updated balance label to -800.0\u20aa
+2026-03-26 17:57:57,665 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 17:57:57,668 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 800.0
+2026-03-26 18:25:56,208 - INFO - [CLIENT_BL] send to server TRANSFER > ('23', '813', 100)
+2026-03-26 18:25:56,256 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): TRANSFER > ('23', '813', 100)
+2026-03-26 18:25:56,292 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): TRANSFER-1 > (100, '813')
+2026-03-26 18:25:56,292 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): TRANSFER-2 > (100, '23')
+2026-03-26 18:25:56,292 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '813') 
+2026-03-26 18:25:56,292 - INFO - [CLIENT_BL] transferred 100\u20aa to client 813
+2026-03-26 18:25:56,292 - INFO - [CLIENT_BL] send to server GET_BALANCE > 23
+2026-03-26 18:25:56,292 - INFO - [SERVER_BL] received from ('127.0.0.1', 26973): GET_BALANCE > 23
+2026-03-26 18:25:56,292 - INFO - [SERVER_BL] send to ('127.0.0.1', 26973): GET_BALANCE > -900.0
+2026-03-26 18:25:56,313 - INFO - [CLIENT_GUI] updated balance label to -900.0\u20aa
+2026-03-26 18:25:56,526 - INFO - [SERVER_BL] received from ('192.168.1.106', 58061): GET_BALANCE > 813
+2026-03-26 18:25:56,530 - INFO - [SERVER_BL] send to ('192.168.1.106', 58061): GET_BALANCE > 900.0
+2026-03-26 18:25:56,554 - INFO - [CLIENT_GUI] updated balance label to -900.0\u20aa
+2026-03-26 18:26:05,095 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 18:26:23,648 - INFO - [SERVER_BL] listening...
+2026-03-26 18:26:36,150 - INFO - [SERVER_BL] listening...
+2026-03-26 18:26:38,997 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 18:26:38,998 - INFO - [SERVER_BL] Client ('127.0.0.1', 60903) connected 
+2026-03-26 18:26:39,181 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 18:26:39,187 - INFO - [CLIENT_BL] Public key received
+2026-03-26 18:26:39,187 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 18:26:39,197 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 18:26:39,199 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 18:26:39,199 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 18:26:43,619 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 18:26:53,725 - INFO - [SERVER_BL] listening...
+2026-03-26 18:26:58,324 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 18:26:58,324 - INFO - [SERVER_BL] Client ('127.0.0.1', 43766) connected 
+2026-03-26 18:26:58,428 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 18:26:58,430 - INFO - [CLIENT_BL] Public key received
+2026-03-26 18:26:58,430 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 18:26:58,433 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 18:26:58,436 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 18:26:58,436 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 18:27:01,029 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-26 18:27:01,030 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 43766) 
+2026-03-26 18:27:01,030 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 43766) 
+2026-03-26 18:27:03,151 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 18:43:27,659 - INFO - [CLIENT_GUI] opened Login page
+2026-03-26 18:43:29,016 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 18:43:32,045 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 18:43:35,091 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 18:43:38,129 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 18:43:41,168 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 18:43:42,742 - INFO - [SERVER_BL] listening...
+2026-03-26 18:43:43,193 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 18:43:43,193 - INFO - [SERVER_BL] Client ('127.0.0.1', 62562) connected 
+2026-03-26 18:43:43,251 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 18:43:43,259 - INFO - [CLIENT_BL] Public key received
+2026-03-26 18:43:43,260 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 18:43:43,274 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 18:43:43,276 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 18:43:43,277 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 18:43:45,031 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-26 18:43:45,031 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 62562) 
+2026-03-26 18:43:45,032 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 62562) 
+2026-03-26 18:43:47,092 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 18:49:22,885 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 18:49:25,910 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 18:49:27,168 - INFO - [SERVER_BL] listening...
+2026-03-26 18:49:27,421 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+nected 
+2026-03-26 18:49:27,493 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 18:49:27,502 - INFO - [CLIENT_BL] Public key received
+2026-03-26 18:49:27,502 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 18:49:27,512 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 18:49:27,513 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 18:49:27,514 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 18:49:44,803 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 18:49:51,094 - INFO - [CLIENT_GUI] opened Login page
+2026-03-26 18:49:52,233 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 18:49:55,254 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 18:49:56,511 - INFO - [SERVER_BL] listening...
+2026-03-26 18:49:56,759 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 18:49:56,759 - INFO - [SERVER_BL] Client ('127.0.0.1', 5303) connected 
+2026-03-26 18:49:56,795 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 18:49:56,797 - INFO - [CLIENT_BL] Public key received
+2026-03-26 18:49:56,798 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 18:49:56,804 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 18:49:56,807 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 18:49:56,808 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 18:51:59,896 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 18:52:06,024 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 18:52:09,064 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 18:52:12,051 - INFO - [SERVER_BL] listening...
+2026-03-26 18:52:12,101 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 18:52:12,103 - INFO - [SERVER_BL] Client ('127.0.0.1', 23047) connected 
+2026-03-26 18:52:12,132 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 18:52:12,133 - INFO - [CLIENT_BL] Public key received
+2026-03-26 18:52:12,133 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 18:52:12,140 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 18:52:12,143 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 18:52:12,144 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 18:52:14,234 - INFO - [SERVER_BL] send to ('127.0.0.1', 23047): CLOSE > False
+2026-03-26 18:52:14,235 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-26 18:52:14,236 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 23047) 
+2026-03-26 18:52:14,236 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 23047) 
+2026-03-26 18:52:14,237 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:00:19,932 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:00:22,975 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:00:24,273 - INFO - [SERVER_BL] listening...
+2026-03-26 19:00:24,491 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 19:00:24,491 - INFO - [SERVER_BL] Client ('127.0.0.1', 30261) connected 
+2026-03-26 19:00:24,554 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:00:24,554 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:00:24,556 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:00:24,562 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:00:24,563 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:00:24,564 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 19:00:29,609 - INFO - [SERVER_BL] send to ('127.0.0.1', 30261): CLOSE > False
+2026-03-26 19:00:29,610 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-26 19:00:29,610 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 30261) 
+2026-03-26 19:00:29,610 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 30261) 
+2026-03-26 19:00:29,612 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:16:55,612 - INFO - [CLIENT_GUI] opened Login page
+2026-03-26 19:16:56,603 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:16:59,649 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:17:01,844 - INFO - [SERVER_BL] listening...
+2026-03-26 19:17:02,172 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 19:17:02,172 - INFO - [SERVER_BL] Client ('127.0.0.1', 33802) connected 
+2026-03-26 19:17:02,233 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:17:02,239 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:17:02,240 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:17:02,249 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:17:02,251 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:17:02,252 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 19:17:03,869 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-26 19:17:03,869 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 33802) 
+2026-03-26 19:17:03,870 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 33802) 
+2026-03-26 19:17:06,512 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:17:09,524 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:17:12,576 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:17:14,129 - INFO - [SERVER_BL] listening...
+2026-03-26 19:17:14,602 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 19:17:14,602 - INFO - [SERVER_BL] Client ('127.0.0.1', 33805) connected 
+2026-03-26 19:17:14,655 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:17:14,669 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:17:14,669 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:17:14,671 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:17:14,672 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:17:14,672 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 19:17:17,595 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-26 19:17:17,595 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 33805) 
+2026-03-26 19:17:17,595 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 33805) 
+2026-03-26 19:17:18,097 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:17:18,195 - INFO - [SERVER_BL] listening...
+2026-03-26 19:17:18,675 - INFO - [SERVER_BL] Client ('127.0.0.1', 33806) connected 
+2026-03-26 19:17:18,674 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 19:17:18,718 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:17:18,718 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:17:18,720 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:17:18,720 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:17:18,721 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:17:18,722 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 19:17:20,851 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-26 19:17:20,851 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 33806) 
+2026-03-26 19:17:20,851 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 33806) 
+2026-03-26 19:17:21,336 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:17:23,766 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:17:26,801 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:17:29,855 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:17:32,906 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:17:35,933 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:17:38,988 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:17:42,043 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:17:45,090 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:17:48,132 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:18:16,798 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:18:19,849 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:18:22,324 - INFO - [SERVER_BL] listening...
+2026-03-26 19:18:22,376 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 19:18:22,376 - INFO - [SERVER_BL] Client ('127.0.0.1', 42944) connected 
+2026-03-26 19:18:22,394 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:18:22,394 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:18:22,394 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:18:22,399 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:18:22,401 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:18:22,402 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 19:18:24,139 - INFO - {('127.0.0.1', 42944): <CServerBL.CClientHandler object at 0x00000278EDF18980>}
+2026-03-26 19:18:24,140 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-26 19:18:24,140 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 42944) 
+2026-03-26 19:18:24,140 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:18:24,140 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 42944) 
+2026-03-26 19:18:26,446 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:18:29,493 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:18:32,517 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:18:35,552 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:18:38,585 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:18:41,636 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:18:44,688 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:18:47,732 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:18:50,761 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:18:53,807 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:18:56,839 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:18:59,874 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:02,921 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:05,949 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:09,004 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:12,055 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:15,106 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:18,164 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:21,204 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:24,232 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:27,275 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:30,318 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:33,356 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:36,406 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:39,462 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:42,482 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:45,527 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:48,570 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:51,598 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:54,628 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:19:57,670 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:00,689 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:03,721 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:06,765 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:09,784 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:12,816 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:15,851 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:18,881 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:21,932 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:24,965 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:27,986 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:30,999 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:34,032 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:37,064 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:40,097 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:43,133 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:46,161 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:49,199 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:52,229 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:55,279 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:20:58,307 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:01,330 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:04,353 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:07,408 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:10,459 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:13,500 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:16,521 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:19,575 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:22,612 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:25,658 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:28,672 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:31,711 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:34,746 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:37,783 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:40,830 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:43,870 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:46,892 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:49,931 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:52,974 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:56,013 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:21:59,043 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:22:02,062 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:22:07,789 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:22:07,938 - INFO - [SERVER_BL] listening...
+2026-03-26 19:22:08,790 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 19:22:08,790 - INFO - [SERVER_BL] Client ('127.0.0.1', 3374) connected 
+2026-03-26 19:22:08,823 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:22:08,824 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:22:08,824 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:22:08,831 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:22:08,832 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:22:08,834 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 19:22:10,670 - INFO - {('127.0.0.1', 3374): <CServerBL.CClientHandler object at 0x000001EBEAADD970>}
+2026-03-26 19:22:23,076 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:22:25,868 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:22:38,392 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:22:39,793 - INFO - [SERVER_BL] listening...
+2026-03-26 19:22:39,900 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 19:22:39,900 - INFO - [SERVER_BL] Client ('127.0.0.1', 16857) connected 
+2026-03-26 19:22:39,983 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:22:39,984 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:22:39,984 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:22:39,989 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:22:39,990 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:22:39,991 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 19:22:43,223 - INFO - {('127.0.0.1', 16857): <CServerBL.CClientHandler object at 0x0000017D6CF60680>}
+2026-03-26 19:23:03,291 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:23:06,046 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:23:09,094 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:23:12,134 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:23:18,522 - INFO - [SERVER_BL] listening...
+2026-03-26 19:23:21,264 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 19:23:21,264 - INFO - [SERVER_BL] Client ('127.0.0.1', 17731) connected 
+2026-03-26 19:23:21,353 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:23:21,354 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:23:21,354 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:23:21,358 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:23:21,361 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:23:21,361 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 19:23:23,503 - INFO - {('127.0.0.1', 17731): <CServerBL.CClientHandler object at 0x000001F313308770>}
+2026-03-26 19:23:23,503 - INFO - [SERVER_BL] error - '[WinError 10053] An established connection was aborted by the software in your host machine'
+2026-03-26 19:23:23,503 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 17731) 
+2026-03-26 19:23:23,504 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 17731) 
+2026-03-26 19:23:23,503 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:23:26,418 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:23:29,460 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:23:32,482 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:23:35,520 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:23:38,563 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:23:41,607 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:23:44,656 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:23:47,684 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:23:50,723 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:23:53,777 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:23:56,814 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:23:59,861 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:02,891 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:05,930 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:08,970 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:12,005 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:15,059 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:18,098 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:21,141 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:24,200 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:27,241 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:30,276 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:33,320 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:36,358 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:39,375 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:42,406 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:45,437 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:48,494 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:51,532 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:54,561 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:24:57,600 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:00,631 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:03,664 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:06,694 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:09,724 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:12,768 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:15,813 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:18,858 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:21,897 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:24,948 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:28,004 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:31,036 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:34,081 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:37,129 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:40,161 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:43,197 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:46,256 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:49,291 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:52,329 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:55,368 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:25:58,399 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:01,448 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:04,490 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:07,525 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:10,568 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:13,622 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:16,674 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:19,712 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:22,720 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:25,778 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:28,828 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:31,880 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:34,925 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:37,962 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:41,019 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:44,047 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:47,087 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:53,265 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:56,289 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:26:56,918 - INFO - [SERVER_BL] listening...
+2026-03-26 19:26:57,291 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 19:26:57,291 - INFO - [SERVER_BL] Client ('127.0.0.1', 57127) connected 
+2026-03-26 19:26:57,361 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:26:57,366 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:26:57,367 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:26:57,373 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:26:57,376 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:26:57,377 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 19:26:58,835 - INFO - [CLIENT_BL] Exception on handle_responses: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:26:58,838 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 57127) 
+2026-03-26 19:27:01,412 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:04,448 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:07,484 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:10,505 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:13,529 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:16,551 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:19,584 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:22,621 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:25,664 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:28,698 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:31,734 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:34,774 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:37,806 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:40,836 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:43,880 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:46,925 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:49,942 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:52,991 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:56,055 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:27:59,102 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:02,154 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:05,200 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:08,255 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:14,116 - INFO - [CLIENT_GUI] opened Login page
+2026-03-26 19:28:14,886 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:17,924 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:20,050 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 19:28:20,949 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:23,989 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:27,029 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:30,067 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:33,104 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:36,148 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:39,179 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:42,241 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:45,283 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:48,331 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:51,357 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:54,381 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:28:57,423 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:00,470 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:03,498 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:06,534 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:09,590 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:12,641 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:15,687 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:18,719 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:21,770 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:24,788 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:27,825 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:30,861 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:33,879 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:36,928 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:39,986 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:43,012 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:46,067 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:49,103 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:52,139 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:55,170 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:29:58,208 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:01,250 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:04,282 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:07,337 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:10,364 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:13,420 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:16,467 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:19,504 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:22,568 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:25,600 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:28,641 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:31,674 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:38,551 - INFO - [SERVER_BL] listening...
+2026-03-26 19:30:41,265 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 19:30:41,266 - INFO - [SERVER_BL] Client ('127.0.0.1', 2339) connected 
+2026-03-26 19:30:41,409 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:30:41,410 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:30:41,410 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:30:41,415 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:30:41,418 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:30:41,419 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 19:30:43,925 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:30:43,926 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-26 19:30:43,926 - INFO - [CLIENT_BL] Exception on receive: [WinError 10053] An established connection was aborted by the software in your host machine
+2026-03-26 19:30:43,927 - INFO - [SERVER_BL] error - 'too many values to unpack (expected 2)'
+2026-03-26 19:30:43,927 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 2339) 
+2026-03-26 19:30:43,927 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 2339) 
+2026-03-26 19:30:45,369 - INFO - [CLIENT_GUI] opened Login page
+2026-03-26 19:30:46,448 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:49,475 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:49,688 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 19:30:49,702 - INFO - [CLIENT_BL] Exception on send_data: [WinError 10057] A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
+2026-03-26 19:30:49,702 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 19:30:52,533 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:53,293 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 19:30:53,295 - INFO - [CLIENT_BL] Exception on send_data: [WinError 10057] A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
+2026-03-26 19:30:53,295 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 19:30:55,580 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:58,612 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:30:59,037 - INFO - [SERVER_BL] listening...
+2026-03-26 19:30:59,615 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 19:30:59,615 - INFO - [SERVER_BL] Client ('127.0.0.1', 2345) connected 
+2026-03-26 19:30:59,673 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:30:59,674 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:30:59,674 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:30:59,675 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:30:59,675 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:30:59,677 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 19:31:00,843 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 19:31:00,845 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 19:31:00,846 - INFO - [SERVER_BL] received from ('127.0.0.1', 2345): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 19:31:00,940 - INFO - [SERVER_BL] send to ('127.0.0.1', 2345): LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 900.0))
+2026-03-26 19:31:00,941 - INFO - [CLIENT_BL] received LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 900.0)) 
+2026-03-26 19:31:00,941 - INFO - (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 900.0))
+2026-03-26 19:31:00,948 - INFO - [CLIENT_GUI] updated balance label to 900.0\u20aa
+2026-03-26 19:31:00,948 - INFO - [CLIENT_BL] send to server EXPENSES-2 > 1
+2026-03-26 19:31:00,948 - INFO - [SERVER_BL] received from ('127.0.0.1', 2345): EXPENSES-2 > 1
+2026-03-26 19:31:00,951 - INFO - [SERVER_BL] send to ('127.0.0.1', 2345): EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0), (84, 'Gifts', 'Credit', 300.0)]
+2026-03-26 19:31:03,486 - INFO - [CLIENT_GUI] opened Expenses page
+2026-03-26 19:31:13,247 - INFO - [CLIENT_BL] Exception on receive: [WinError 10053] An established connection was aborted by the software in your host machine
+2026-03-26 19:31:13,247 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:31:13,248 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-26 19:31:13,248 - INFO - [SERVER_BL] error - 'too many values to unpack (expected 2)'
+2026-03-26 19:31:13,248 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 2345) 
+2026-03-26 19:31:13,248 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 2345) 
+2026-03-26 19:31:15,730 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:31:18,771 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:31:21,806 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:31:24,835 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:31:27,874 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:31:30,892 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:31:33,930 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:31:36,953 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:31:39,986 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:31:43,042 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:31:46,068 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:31:49,122 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:31:52,179 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:31:55,222 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:31:58,261 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:32:01,310 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:32:04,361 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:32:07,418 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:32:10,473 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:32:13,501 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:32:16,552 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:32:18,160 - INFO - [CLIENT_BL] Exception on send_data: [WinError 10057] A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
+2026-03-26 19:32:18,160 - INFO - [CLIENT_BL] send to server TRANSFER > ('813', '23', 100)
+2026-03-26 19:32:19,583 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:32:22,639 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:32:25,675 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:32:28,733 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:32:29,337 - INFO - [SERVER_BL] listening...
+2026-03-26 19:32:29,734 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 19:32:29,735 - INFO - [SERVER_BL] Client ('127.0.0.1', 61677) connected 
+2026-03-26 19:32:29,801 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:32:29,804 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:32:29,804 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:32:29,804 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:32:29,805 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:32:29,806 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 19:32:31,744 - INFO - [CLIENT_BL] send to server TRANSFER > ('813', '23', 100)
+2026-03-26 19:32:31,744 - INFO - [SERVER_BL] received from ('127.0.0.1', 61677): TRANSFER > ('813', '23', 100)
+2026-03-26 19:32:31,762 - INFO - [SERVER_BL] send to ('127.0.0.1', 61677): TRANSFER-1 > (100, '23')
+2026-03-26 19:32:31,762 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '23') 
+2026-03-26 19:32:31,762 - INFO - [CLIENT_BL] transferred 100\u20aa to client 23
+2026-03-26 19:32:31,762 - INFO - [CLIENT_BL] send to server GET_BALANCE > 813
+2026-03-26 19:32:31,763 - INFO - [SERVER_BL] received from ('127.0.0.1', 61677): GET_BALANCE > 813
+2026-03-26 19:32:31,764 - INFO - [CLIENT_GUI] updated balance label to 900.0\u20aa
+2026-03-26 19:32:31,766 - INFO - [SERVER_BL] send to ('127.0.0.1', 61677): GET_BALANCE > 800.0
+2026-03-26 19:32:31,766 - INFO - [CLIENT_BL] received GET_BALANCE > 800.0 
+2026-03-26 19:32:36,704 - INFO - [CLIENT_BL] send to server TRANSFER > ('813', '23', 100)
+2026-03-26 19:32:36,704 - INFO - [SERVER_BL] received from ('127.0.0.1', 61677): TRANSFER > ('813', '23', 100)
+2026-03-26 19:32:36,731 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '23') 
+ER-1 > (100, '23')
+2026-03-26 19:32:36,731 - INFO - [CLIENT_BL] transferred 100\u20aa to client 23
+2026-03-26 19:32:36,731 - INFO - [CLIENT_BL] send to server GET_BALANCE > 813
+2026-03-26 19:32:36,732 - INFO - [SERVER_BL] received from ('127.0.0.1', 61677): GET_BALANCE > 813
+2026-03-26 19:32:36,736 - INFO - [SERVER_BL] send to ('127.0.0.1', 61677): GET_BALANCE > 700.0
+2026-03-26 19:32:36,822 - INFO - [CLIENT_GUI] updated balance label to 700.0\u20aa
+2026-03-26 19:32:47,575 - INFO - [CLIENT_BL] send to server TRANSFER > ('813', '23', 100)
+2026-03-26 19:32:47,577 - INFO - [SERVER_BL] received from ('127.0.0.1', 61677): TRANSFER > ('813', '23', 100)
+2026-03-26 19:32:47,711 - INFO - [SERVER_BL] send to ('127.0.0.1', 61677): TRANSFER-1 > (100, '23')
+2026-03-26 19:32:47,711 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '23') 
+2026-03-26 19:32:47,712 - INFO - [CLIENT_BL] transferred 100\u20aa to client 23
+2026-03-26 19:32:47,712 - INFO - [CLIENT_BL] send to server GET_BALANCE > 813
+2026-03-26 19:32:47,713 - INFO - [SERVER_BL] received from ('127.0.0.1', 61677): GET_BALANCE > 813
+2026-03-26 19:32:47,717 - INFO - [SERVER_BL] send to ('127.0.0.1', 61677): GET_BALANCE > 600.0
+2026-03-26 19:32:47,717 - INFO - [CLIENT_BL] received GET_BALANCE > 600.0 
+2026-03-26 19:32:47,942 - INFO - [CLIENT_GUI] updated balance label to 600.0\u20aa
+2026-03-26 19:33:09,732 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:33:09,732 - INFO - [SERVER_BL] error - 'too many values to unpack (expected 2)'
+2026-03-26 19:33:09,732 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 61677) 
+2026-03-26 19:33:12,383 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 19:33:12,383 - INFO - [SERVER_BL] Client ('127.0.0.1', 63737) connected 
+2026-03-26 19:33:12,488 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:33:12,488 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:33:12,488 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:33:12,492 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:33:12,494 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:33:12,495 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2026-03-26 19:36:11,877 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:36:11,877 - INFO - [SERVER_BL] error - 'too many values to unpack (expected 2)'
+2026-03-26 19:36:11,877 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 63737) 
+2026-03-26 19:36:15,088 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+nected 
+2026-03-26 19:36:15,148 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:36:15,148 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:36:15,148 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:36:15,152 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:36:15,154 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:36:15,155 - INFO - [SERVER_BL] ACTIVE CONNECTION 3
+2026-03-26 19:36:19,621 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:36:19,621 - INFO - [CLIENT_BL] Exception on handle_responses: too many values to unpack (expected 2)
+2026-03-26 19:36:22,208 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:36:25,238 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:36:28,269 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:36:31,306 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:36:31,941 - INFO - [SERVER_BL] listening...
+2026-03-26 19:36:32,309 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 19:36:32,309 - INFO - [SERVER_BL] Client ('127.0.0.1', 13195) connected 
+2026-03-26 19:36:32,443 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:36:32,443 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:36:32,443 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:36:32,444 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:36:32,446 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:36:32,448 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 19:36:36,154 - INFO - [CLIENT_GUI] opened Login page
+2026-03-26 19:36:40,226 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 19:36:40,230 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 19:36:40,233 - INFO - [SERVER_BL] received from ('127.0.0.1', 13195): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 19:36:40,313 - INFO - [SERVER_BL] send to ('127.0.0.1', 13195): LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 600.0))
+2026-03-26 19:36:40,314 - INFO - [CLIENT_BL] received LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 600.0)) 
+2026-03-26 19:36:40,314 - INFO - (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 600.0))
+2026-03-26 19:36:40,335 - INFO - [CLIENT_GUI] updated balance label to 600.0\u20aa
+2026-03-26 19:36:40,335 - INFO - [CLIENT_BL] send to server EXPENSES-2 > 1
+2026-03-26 19:36:40,335 - INFO - [SERVER_BL] received from ('127.0.0.1', 13195): EXPENSES-2 > 1
+2026-03-26 19:36:40,338 - INFO - [SERVER_BL] send to ('127.0.0.1', 13195): EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0), (84, 'Gifts', 'Credit', 300.0)]
+2026-03-26 19:36:40,338 - INFO - [CLIENT_BL] received EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0), (84, 'Gifts', 'Credit', 300.0)] 
+2026-03-26 19:36:42,584 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:36:42,586 - INFO - [SERVER_BL] error - 'too many values to unpack (expected 2)'
+2026-03-26 19:36:42,586 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 13195) 
+2026-03-26 19:36:47,776 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 19:36:48,093 - INFO - [SERVER_BL] listening...
+2026-03-26 19:36:48,778 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 19:36:48,779 - INFO - [SERVER_BL] Client ('127.0.0.1', 13197) connected 
+2026-03-26 19:36:48,841 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 19:36:48,842 - INFO - [CLIENT_BL] Public key received
+2026-03-26 19:36:48,842 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 19:36:48,847 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 19:36:48,850 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 19:36:48,851 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 19:36:50,008 - INFO - [CLIENT_GUI] opened Login page
+2026-03-26 19:36:55,298 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 19:36:55,301 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 19:36:55,303 - INFO - [SERVER_BL] received from ('127.0.0.1', 13197): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 19:36:55,385 - INFO - [CLIENT_BL] received LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 600.0)) 
+M', '813', 600.0))
+2026-03-26 19:36:55,386 - INFO - (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 600.0))
+2026-03-26 19:36:55,404 - INFO - [CLIENT_GUI] updated balance label to 600.0\u20aa
+2026-03-26 19:36:55,404 - INFO - [CLIENT_BL] send to server EXPENSES-2 > 1
+2026-03-26 19:36:55,404 - INFO - [SERVER_BL] received from ('127.0.0.1', 13197): EXPENSES-2 > 1
+2026-03-26 19:36:55,405 - INFO - [SERVER_BL] send to ('127.0.0.1', 13197): EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0), (84, 'Gifts', 'Credit', 300.0)]
+2026-03-26 19:36:55,405 - INFO - [CLIENT_BL] received EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0), (84, 'Gifts', 'Credit', 300.0)] 
+2026-03-26 19:37:09,499 - INFO - [CLIENT_BL] send to server TRANSFER > ('813', '23', 100)
+2026-03-26 19:37:09,499 - INFO - [SERVER_BL] received from ('127.0.0.1', 13197): TRANSFER > ('813', '23', 100)
+2026-03-26 19:37:09,515 - INFO - [SERVER_BL] send to ('127.0.0.1', 13197): TRANSFER-1 > (100, '23')
+2026-03-26 19:37:09,515 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '23') 
+2026-03-26 19:37:09,515 - INFO - [CLIENT_BL] transferred 100\u20aa to client 23
+2026-03-26 19:37:09,516 - INFO - [CLIENT_BL] send to server GET_BALANCE > 813
+2026-03-26 19:37:09,518 - INFO - [SERVER_BL] received from ('127.0.0.1', 13197): GET_BALANCE > 813
+2026-03-26 19:37:09,520 - INFO - [SERVER_BL] send to ('127.0.0.1', 13197): GET_BALANCE > 500.0
+2026-03-26 19:37:09,623 - INFO - [CLIENT_GUI] updated balance label to 500.0\u20aa
+2026-03-26 19:37:17,819 - INFO - [CLIENT_BL] Exception on receive: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-03-26 19:37:17,820 - INFO - [SERVER_BL] error - 'too many values to unpack (expected 2)'
+2026-03-26 19:37:17,820 - INFO - [SERVER_BL] Thread closed for : ('127.0.0.1', 13197) 

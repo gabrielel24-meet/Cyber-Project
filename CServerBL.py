@@ -61,8 +61,6 @@ class CServerBL:
         self.stop_event.set()
         self._server_socket.close()
         for address in client_handlers:
-            fernet = client_handlers[address].fernet
-            client_handlers[address]._client_socket.send(fernet.encrypt('("CLOSE","False")'.encode()))
             client_handlers[address].stop()
             write_to_log(f"[SERVER_BL] Thread closed for : {address} ")
 
@@ -101,7 +99,7 @@ class CClientHandler():
 
     def run(self):
         #This code run in separate thread for every client
-        # try:
+        try:
             while True:
                 cmd, args = self.receive_data(self._address)
 
@@ -119,10 +117,11 @@ class CClientHandler():
                     self.notify_transfer(response[1])
                 else:
                     self.send_data(cmd, response, self._address)
-        # except Exception as e:
-        #     self._client_socket.close()
-        #     write_to_log(f"[SERVER_BL] error - '{e}'")
-        #     write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")
+
+        except Exception as e:
+            self._client_socket.close()
+            write_to_log(f"[SERVER_BL] error - '{e}'")
+            write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")
 
 
     def send_data(self, cmd, args, address):
@@ -136,7 +135,7 @@ class CClientHandler():
 
 
     def notify_transfer(self, data):
-        # try:
+        try:
             current = data["source"]
             destination = data["destination"]
             amount = data["amount"]
@@ -153,10 +152,9 @@ class CClientHandler():
                     protocol_send_data("TRANSFER-2", response, destination_socket, destination_fernet)
                     write_to_log(f"[SERVER_BL] send to {address}: {"TRANSFER-2"} > {response}")
 
-        # except Exception as e:
-        #     self.send_data("TRANSFER-1", "Error", self._address)
-        #     write_to_log(f"[SERVER_BL] Error on notify_transfer: {e}")
-
+        except Exception as e:
+            self.send_data("TRANSFER-1", "Error", self._address)
+            write_to_log(f"[SERVER_BL] Error on notify_transfer: {e}")
 
 
     def stop(self):

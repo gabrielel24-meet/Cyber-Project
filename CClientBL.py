@@ -55,7 +55,7 @@ class CClientBL:
                     write_to_log("[CLIENT_BL] Encrypted session key sent to server")
 
 
-                    server_handler = threading.Thread(target=self.handle_responses)
+                    server_handler = threading.Thread(target=self.handle_responses, daemon=True)
                     server_handler.start()
 
             except Exception as e:
@@ -72,7 +72,7 @@ class CClientBL:
 
 
     def handle_responses(self):
-        # try:
+        try:
             while True:
                 cmd, response = self.receive_data()
 
@@ -93,9 +93,10 @@ class CClientBL:
                 elif cmd == "EXPENSES-2":
                     self.update_expenses(response)
 
-        # except Exception as e:
-        #     write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))
-        #     return False
+        except Exception as e:
+            write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))
+            self.connection_status = False
+            return False
 
 
     def update_balance(self,data):

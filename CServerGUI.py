@@ -9,9 +9,7 @@ class CServerGUI(CServerBL):
     def __init__(self, host, port):
         super().__init__(host,port)
 
-
         # Attributes
-
         self._root = None
         self._canvas = None
         self._img_bg = None
@@ -81,13 +79,7 @@ class CServerGUI(CServerBL):
         self._entry_Port.insert(0,"8822")
         self._entry_Port.place(x=200,y=218)
 
-        self._entry_Send = tk.Entry(self._canvas,font=('Calibri',16),fg='#808080')
-        self._entry_Send.insert(0,"text message")
-        self._entry_Send.place(x=200,y=268)
 
-        self._entry_Received = tk.Entry(self._canvas,font=('Calibri',16),fg='#808080')
-        self._entry_Received.insert(0,"...")
-        self._entry_Received.place(x=200,y=318)
 
     def run(self):
         self._root.mainloop()

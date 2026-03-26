@@ -95,7 +95,7 @@ def get_cmd_and_args(request):
 
 
 def protocol_send_data(cmd, args, socket, fernet):
-    # try:
+     try:
         def send_message(msg):
             # Encrypt msg
             request = str(msg).encode()
@@ -108,12 +108,12 @@ def protocol_send_data(cmd, args, socket, fernet):
         send_message(cmd)
         send_message(args)
 
+     except Exception as e:
+        write_to_log("[CLIENT_BL] Exception on send_data: {}".format(e))
 
-    # except Exception as e:
-    #     write_to_log("[CLIENT_BL] Exception on send_data: {}".format(e))
 
 def protocol_receive_data( socket, fernet) -> tuple:
-    # try:
+    try:
         def receive_msg():
             # Receive request length & request
             length = socket.recv(4)
@@ -133,9 +133,9 @@ def protocol_receive_data( socket, fernet) -> tuple:
 
         return cmd, args
 
-    # except Exception as e:
-    #     write_to_log("[CLIENT_BL] Exception on receive: {}".format(e))
-    #     return "Error"
+    except Exception as e:
+        write_to_log("[CLIENT_BL] Exception on receive: {}".format(e))
+        return "Error"
 
 def get_balance(account_number):
     conn = sqlite3.connect("Bank.db")

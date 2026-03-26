@@ -272,8 +272,7 @@ class CClientGUI(CClientBL):
         if error_flag:
             self.send_data("TRANSFER", (self.account_number, self.destination_user_entry.get(), int(self.transfer_amount_entry.get())))
             self.on_click_close_transfer()
-            time.sleep(0.1)
-            self.update_balance_label()
+
 
     def run(self):
         self._client_socket = threading.Thread(target=self.connect_to_server, daemon=True).start()
