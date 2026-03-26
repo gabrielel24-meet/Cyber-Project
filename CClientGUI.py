@@ -170,7 +170,7 @@ class CClientGUI(CClientBL):
     def check_for_responses(self):
         flag, cmd = self.responses_flag
         if flag == True:
-            if cmd == "TRANSFER-2":
+            if cmd == "TRANSFER":
                 self.update_balance_label()
             elif cmd in register_cmd:
                 self.update_register_page(cmd)

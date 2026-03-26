@@ -133,11 +133,15 @@ class CClientBL:
         write_to_log(f"[CLIENT_BL] transferred {amount}₪ to client {destination}")
 
         self.send_data("GET_BALANCE", self.account_number)
+        self.responses_flag = (True, "TRANSFER")
 
     def receive_money(self, data):
         amount = data[0]
         source = data[1]
         write_to_log(f"Received {amount}₪ from client {source}")
+
+        self.send_data("GET_BALANCE", self.account_number)
+        self.responses_flag = (True, "TRANSFER")
 
     def handle_register(self, response):
         message = response[1]

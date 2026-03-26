@@ -1197,3 +1197,168 @@ TRANSFER-2 > (100, '813')
 2026-03-26 16:44:45,689 - INFO - Received 100\u20aa from client 23
 2026-03-26 16:44:45,791 - INFO - [SERVER_BL] received from ('192.168.1.106', 55319): GET_BALANCE > 23
 2026-03-26 16:44:45,795 - INFO - [SERVER_BL] send to ('192.168.1.106', 55319): GET_BALANCE > 0.0
+2026-03-26 16:48:22,069 - INFO - [SERVER_BL] Client ('192.168.1.106', 56084) connected 
+2026-03-26 16:48:22,119 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 16:48:22,139 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 16:48:22,140 - INFO - [SERVER_BL] ACTIVE CONNECTION 3
+2026-03-26 16:48:39,198 - INFO - [SERVER_BL] received from ('192.168.1.106', 56084): LOGIN > {'id': '2', 'phone_number': '2', 'password': '2'}
+2026-03-26 16:48:39,280 - INFO - [SERVER_BL] send to ('192.168.1.106', 56084): LOGIN > (True, ('2', 'big', 'yahu', '2', '$argon2id$v=19$m=65536,t=3,p=4$YhIVSk8gi03WIZR+12hQHQ$/+DLyLFm09e57GV4pIOQYHKaxeBMhNUNtBkzY1cRE6g', '23', 0.0))
+2026-03-26 16:48:41,284 - INFO - [SERVER_BL] received from ('192.168.1.106', 56084): LOGIN > {'id': '2', 'phone_number': '2', 'password': '2'}
+2026-03-26 16:48:41,365 - INFO - [SERVER_BL] send to ('192.168.1.106', 56084): LOGIN > (True, ('2', 'big', 'yahu', '2', '$argon2id$v=19$m=65536,t=3,p=4$YhIVSk8gi03WIZR+12hQHQ$/+DLyLFm09e57GV4pIOQYHKaxeBMhNUNtBkzY1cRE6g', '23', 0.0))
+2026-03-26 16:48:41,366 - INFO - [SERVER_BL] received from ('192.168.1.106', 56084): EXPENSES-2 > 2
+2026-03-26 16:48:41,366 - INFO - [SERVER_BL] send to ('192.168.1.106', 56084): EXPENSES-2 > [(83, 'Gadgets', 'Cash', 100.0)]
+2026-03-26 16:48:49,932 - INFO - [CLIENT_BL] send to server TRANSFER > ('813', '23', 100)
+2026-03-26 16:48:49,932 - INFO - [SERVER_BL] received from ('127.0.0.1', 6974): TRANSFER > ('813', '23', 100)
+2026-03-26 16:48:49,946 - INFO - [SERVER_BL] send to ('127.0.0.1', 6974): TRANSFER-1 > (100, '23')
+2026-03-26 16:48:49,946 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '23') 
+2026-03-26 16:48:49,946 - INFO - [CLIENT_BL] transferred 100\u20aa to client 23
+2026-03-26 16:48:49,947 - INFO - [CLIENT_BL] send to server GET_BALANCE > 813
+2026-03-26 16:49:11,548 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 16:49:11,549 - INFO - [SERVER_BL] Client ('127.0.0.1', 22006) connected 
+2026-03-26 16:49:11,596 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 16:49:11,596 - INFO - [CLIENT_BL] Public key received
+2026-03-26 16:49:11,596 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 16:49:11,601 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 16:49:11,602 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 16:49:11,603 - INFO - [SERVER_BL] ACTIVE CONNECTION 4
+2026-03-26 16:49:13,279 - INFO - [CLIENT_GUI] opened Login page
+2026-03-26 16:49:18,846 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 16:49:18,848 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 16:49:18,848 - INFO - [SERVER_BL] received from ('127.0.0.1', 22006): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 16:49:18,928 - INFO - [SERVER_BL] send to ('127.0.0.1', 22006): LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', -100.0))
+2026-03-26 16:49:18,928 - INFO - [CLIENT_BL] received LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', -100.0)) 
+2026-03-26 16:49:18,928 - INFO - (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', -100.0))
+2026-03-26 16:49:18,950 - INFO - [CLIENT_BL] send to server EXPENSES-2 > 1
+2026-03-26 16:49:18,951 - INFO - [SERVER_BL] received from ('127.0.0.1', 22006): EXPENSES-2 > 1
+2026-03-26 16:49:18,953 - INFO - [SERVER_BL] send to ('127.0.0.1', 22006): EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0), (84, 'Gifts', 'Credit', 300.0)]
+2026-03-26 16:49:18,953 - INFO - [CLIENT_BL] received EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0), (84, 'Gifts', 'Credit', 300.0)] 
+2026-03-26 16:49:21,231 - INFO - [CLIENT_GUI] opened Expenses page
+2026-03-26 16:49:33,417 - INFO - [CLIENT_BL] send to server TRANSFER > ('813', '23', 100)
+2026-03-26 16:49:33,417 - INFO - [SERVER_BL] received from ('127.0.0.1', 22006): TRANSFER > ('813', '23', 100)
+2026-03-26 16:49:33,440 - INFO - [SERVER_BL] send to ('127.0.0.1', 22006): TRANSFER-1 > (100, '23')
+2026-03-26 16:49:33,440 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '23') 
+2026-03-26 16:49:33,440 - INFO - [CLIENT_BL] transferred 100\u20aa to client 23
+2026-03-26 16:49:33,441 - INFO - [CLIENT_BL] send to server GET_BALANCE > 813
+2026-03-26 16:50:17,057 - INFO - [SERVER_BL] received from ('192.168.1.106', 56084): TRANSFER > ('23', '813', 100)
+2026-03-26 16:50:17,070 - INFO - [SERVER_BL] send to ('192.168.1.106', 56084): TRANSFER-1 > (100, '813')
+2026-03-26 16:50:37,877 - INFO - [CLIENT_GUI] opened Expenses page
+2026-03-26 16:50:43,991 - INFO - [CLIENT_BL] send to server TRANSFER > ('813', '23', 100)
+2026-03-26 16:51:08,452 - INFO - [SERVER_BL] listening...
+2026-03-26 16:51:11,579 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 16:51:11,579 - INFO - [SERVER_BL] Client ('127.0.0.1', 5943) connected 
+2026-03-26 16:51:11,621 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 16:51:11,622 - INFO - [CLIENT_BL] Public key received
+2026-03-26 16:51:11,622 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 16:51:11,626 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 16:51:11,628 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 16:51:11,628 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 16:51:18,783 - INFO - [SERVER_BL] Client ('192.168.1.106', 55798) connected 
+2026-03-26 16:51:18,924 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 16:51:18,934 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 16:51:18,935 - INFO - [SERVER_BL] ACTIVE CONNECTION 2
+2026-03-26 16:51:22,959 - INFO - [CLIENT_GUI] opened Login page
+2026-03-26 16:51:40,768 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 16:51:40,777 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 16:51:40,779 - INFO - [SERVER_BL] received from ('127.0.0.1', 5943): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 16:51:40,853 - INFO - [SERVER_BL] send to ('127.0.0.1', 5943): LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', -100.0))
+2026-03-26 16:51:40,855 - INFO - [CLIENT_BL] received LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', -100.0)) 
+2026-03-26 16:51:40,855 - INFO - (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', -100.0))
+2026-03-26 16:51:40,879 - INFO - [CLIENT_BL] send to server EXPENSES-2 > 1
+2026-03-26 16:51:40,880 - INFO - [SERVER_BL] received from ('127.0.0.1', 5943): EXPENSES-2 > 1
+2026-03-26 16:51:40,881 - INFO - [SERVER_BL] send to ('127.0.0.1', 5943): EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0), (84, 'Gifts', 'Credit', 300.0)]
+2026-03-26 16:51:40,881 - INFO - [CLIENT_BL] received EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0), (84, 'Gifts', 'Credit', 300.0)] 
+2026-03-26 16:51:56,467 - INFO - [SERVER_BL] received from ('192.168.1.106', 55798): LOGIN > {'id': '2', 'phone_number': '2', 'password': '2'}
+2026-03-26 16:51:56,546 - INFO - [SERVER_BL] send to ('192.168.1.106', 55798): LOGIN > (True, ('2', 'big', 'yahu', '2', '$argon2id$v=19$m=65536,t=3,p=4$YhIVSk8gi03WIZR+12hQHQ$/+DLyLFm09e57GV4pIOQYHKaxeBMhNUNtBkzY1cRE6g', '23', 100.0))
+2026-03-26 16:51:59,714 - INFO - [SERVER_BL] received from ('192.168.1.106', 55798): LOGIN > {'id': '2', 'phone_number': '2', 'password': '2'}
+2026-03-26 16:51:59,800 - INFO - [SERVER_BL] send to ('192.168.1.106', 55798): LOGIN > (True, ('2', 'big', 'yahu', '2', '$argon2id$v=19$m=65536,t=3,p=4$YhIVSk8gi03WIZR+12hQHQ$/+DLyLFm09e57GV4pIOQYHKaxeBMhNUNtBkzY1cRE6g', '23', 100.0))
+2026-03-26 16:51:59,803 - INFO - [SERVER_BL] received from ('192.168.1.106', 55798): EXPENSES-2 > 2
+2026-03-26 16:51:59,805 - INFO - [SERVER_BL] send to ('192.168.1.106', 55798): EXPENSES-2 > [(83, 'Gadgets', 'Cash', 100.0)]
+2026-03-26 16:52:41,804 - INFO - [SERVER_BL] received from ('192.168.1.106', 55798): TRANSFER > ('23', '813', 200)
+2026-03-26 16:52:41,819 - INFO - [SERVER_BL] send to ('192.168.1.106', 55798): TRANSFER-1 > (200, '813')
+2026-03-26 16:52:41,820 - INFO - [SERVER_BL] send to ('127.0.0.1', 5943): TRANSFER-2 > (200, '23')
+2026-03-26 16:52:41,820 - INFO - [CLIENT_BL] received TRANSFER-2 > (200, '23') 
+2026-03-26 16:52:41,821 - INFO - Received 200\u20aa from client 23
+2026-03-26 16:52:41,926 - INFO - [SERVER_BL] received from ('192.168.1.106', 55798): GET_BALANCE > 23
+2026-03-26 16:52:41,931 - INFO - [SERVER_BL] send to ('192.168.1.106', 55798): GET_BALANCE > -100.0
+2026-03-26 16:53:00,770 - INFO - [CLIENT_GUI] opened Expenses page
+2026-03-26 16:53:12,541 - INFO - [CLIENT_BL] send to server TRANSFER > ('813', '23', 500)
+2026-03-26 16:53:12,541 - INFO - [SERVER_BL] received from ('127.0.0.1', 5943): TRANSFER > ('813', '23', 500)
+2026-03-26 16:53:12,553 - INFO - [SERVER_BL] send to ('127.0.0.1', 5943): TRANSFER-1 > (500, '23')
+2026-03-26 16:53:12,553 - INFO - [CLIENT_BL] received TRANSFER-1 > (500, '23') 
+2026-03-26 16:53:12,553 - INFO - [SERVER_BL] send to ('192.168.1.106', 55798): TRANSFER-2 > (500, '813')
+2026-03-26 16:53:12,554 - INFO - [CLIENT_BL] transferred 500\u20aa to client 23
+2026-03-26 16:53:12,554 - INFO - [CLIENT_BL] send to server GET_BALANCE > 813
+2026-03-26 16:53:12,555 - INFO - [SERVER_BL] received from ('127.0.0.1', 5943): GET_BALANCE > 813
+2026-03-26 16:53:12,556 - INFO - [SERVER_BL] send to ('127.0.0.1', 5943): GET_BALANCE > -400.0
+2026-03-26 16:53:12,557 - INFO - [CLIENT_BL] received GET_BALANCE > -400.0 
+2026-03-26 16:56:59,377 - INFO - [CLIENT_GUI] opened Expenses page
+2026-03-26 16:57:12,142 - INFO - [SERVER_BL] received from ('192.168.1.106', 55798): TRANSFER > ('23', '813', 600)
+2026-03-26 16:57:12,160 - INFO - [SERVER_BL] send to ('192.168.1.106', 55798): TRANSFER-1 > (600, '813')
+2026-03-26 16:57:12,162 - INFO - [SERVER_BL] send to ('127.0.0.1', 5943): TRANSFER-2 > (600, '23')
+2026-03-26 16:57:12,163 - INFO - [CLIENT_BL] received TRANSFER-2 > (600, '23') 
+2026-03-26 16:57:12,163 - INFO - Received 600\u20aa from client 23
+2026-03-26 16:57:12,280 - INFO - [SERVER_BL] received from ('192.168.1.106', 55798): GET_BALANCE > 23
+2026-03-26 16:57:12,283 - INFO - [SERVER_BL] send to ('192.168.1.106', 55798): GET_BALANCE > -200.0
+2026-03-26 16:57:23,874 - INFO - [SERVER_BL] received from ('192.168.1.106', 55798): TRANSFER > ('23', '813', 600)
+2026-03-26 16:57:23,888 - INFO - [SERVER_BL] send to ('192.168.1.106', 55798): TRANSFER-1 > (600, '813')
+2026-03-26 16:57:23,888 - INFO - [SERVER_BL] send to ('127.0.0.1', 5943): TRANSFER-2 > (600, '23')
+2026-03-26 16:57:23,888 - INFO - [CLIENT_BL] received TRANSFER-2 > (600, '23') 
+2026-03-26 16:57:23,890 - INFO - Received 600\u20aa from client 23
+2026-03-26 16:57:23,990 - INFO - [SERVER_BL] received from ('192.168.1.106', 55798): GET_BALANCE > 23
+2026-03-26 16:57:23,993 - INFO - [SERVER_BL] send to ('192.168.1.106', 55798): GET_BALANCE > -800.0
+2026-03-26 16:57:34,915 - INFO - [CLIENT_BL] send to server TRANSFER > ('813', '23', 800)
+2026-03-26 16:57:34,916 - INFO - [SERVER_BL] received from ('127.0.0.1', 5943): TRANSFER > ('813', '23', 800)
+2026-03-26 16:57:34,931 - INFO - [SERVER_BL] send to ('127.0.0.1', 5943): TRANSFER-1 > (800, '23')
+2026-03-26 16:57:34,931 - INFO - [CLIENT_BL] received TRANSFER-1 > (800, '23') 
+2026-03-26 16:57:34,931 - INFO - [CLIENT_BL] transferred 800\u20aa to client 23
+2026-03-26 16:57:34,932 - INFO - [SERVER_BL] send to ('192.168.1.106', 55798): TRANSFER-2 > (800, '813')
+2026-03-26 16:57:34,932 - INFO - [CLIENT_BL] send to server GET_BALANCE > 813
+2026-03-26 16:57:34,932 - INFO - [SERVER_BL] received from ('127.0.0.1', 5943): GET_BALANCE > 813
+2026-03-26 16:57:34,936 - INFO - [SERVER_BL] send to ('127.0.0.1', 5943): GET_BALANCE > 0.0
+2026-03-26 17:20:27,978 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 17:20:30,995 - INFO - [CLIENT_BL] Exception on connect: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-03-26 17:20:33,135 - INFO - [SERVER_BL] listening...
+2026-03-26 17:20:33,536 - INFO - [CLIENT_BL] connected to server 127.0.0.1
+2026-03-26 17:20:33,536 - INFO - [SERVER_BL] Client ('127.0.0.1', 33053) connected 
+2026-03-26 17:20:33,594 - INFO - [SERVER_BL] Public key sent to client
+2026-03-26 17:20:33,602 - INFO - [CLIENT_BL] Public key received
+2026-03-26 17:20:33,604 - INFO - [CLIENT_BL] Session key generated
+2026-03-26 17:20:33,618 - INFO - [CLIENT_BL] Encrypted session key sent to server
+2026-03-26 17:20:33,620 - INFO - [SERVER_BL] Session key received and decrypted
+2026-03-26 17:20:33,620 - INFO - [SERVER_BL] ACTIVE CONNECTION 1
+2026-03-26 17:20:35,355 - INFO - [CLIENT_GUI] opened Login page
+2026-03-26 17:20:41,479 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 17:20:41,490 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 17:20:41,493 - INFO - [SERVER_BL] received from ('127.0.0.1', 33053): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 17:20:41,596 - INFO - [SERVER_BL] send to ('127.0.0.1', 33053): LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0))
+2026-03-26 17:20:41,596 - INFO - [CLIENT_BL] received LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0)) 
+2026-03-26 17:20:41,596 - INFO - (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0))
+2026-03-26 17:20:42,967 - INFO - [CLIENT_GUI] Received data from Login page: {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 17:20:42,968 - INFO - [CLIENT_BL] send to server LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 17:20:42,968 - INFO - [SERVER_BL] received from ('127.0.0.1', 33053): LOGIN > {'id': '1', 'phone_number': '1', 'password': '1'}
+2026-03-26 17:20:43,053 - INFO - [SERVER_BL] send to ('127.0.0.1', 33053): LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0))
+2026-03-26 17:20:43,053 - INFO - [CLIENT_BL] received LOGIN > (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0)) 
+2026-03-26 17:20:43,053 - INFO - (True, ('1', 'gabi', 'eliav', '1', '$argon2id$v=19$m=65536,t=3,p=4$v9TiMVs9ZPK1VNNWX4qVog$YEWph7Tk/DO17xHH5bq5BdInLt+pjw/z2O33MXSKVvM', '813', 0.0))
+2026-03-26 17:20:43,070 - INFO - [CLIENT_BL] send to server EXPENSES-2 > 1
+2026-03-26 17:20:43,070 - INFO - [SERVER_BL] received from ('127.0.0.1', 33053): EXPENSES-2 > 1
+2026-03-26 17:20:43,072 - INFO - [SERVER_BL] send to ('127.0.0.1', 33053): EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0), (84, 'Gifts', 'Credit', 300.0)]
+2026-03-26 17:20:43,072 - INFO - [CLIENT_BL] received EXPENSES-2 > [(80, 'Food', 'Cash', 100.0), (81, 'Clothes', 'Cash', 200.0), (82, 'Gadgets', 'Cash', 100.0), (84, 'Gifts', 'Credit', 300.0)] 
+2026-03-26 17:20:44,198 - INFO - [CLIENT_GUI] opened Expenses page
+2026-03-26 17:20:52,975 - INFO - [CLIENT_BL] send to server TRANSFER > ('813', '23', 100)
+2026-03-26 17:20:52,975 - INFO - [SERVER_BL] received from ('127.0.0.1', 33053): TRANSFER > ('813', '23', 100)
+2026-03-26 17:20:52,989 - INFO - [SERVER_BL] send to ('127.0.0.1', 33053): TRANSFER-1 > (100, '23')
+2026-03-26 17:20:52,989 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '23') 
+2026-03-26 17:20:52,989 - INFO - [CLIENT_BL] transferred 100\u20aa to client 23
+2026-03-26 17:20:52,990 - INFO - [CLIENT_BL] send to server GET_BALANCE > 813
+2026-03-26 17:20:52,990 - INFO - [SERVER_BL] received from ('127.0.0.1', 33053): GET_BALANCE > 813
+2026-03-26 17:20:52,992 - INFO - [SERVER_BL] send to ('127.0.0.1', 33053): GET_BALANCE > -100.0
+2026-03-26 17:20:52,992 - INFO - [CLIENT_BL] received GET_BALANCE > -100.0 
+2026-03-26 17:21:02,050 - INFO - [CLIENT_BL] send to server TRANSFER > ('813', '23', 100)
+2026-03-26 17:21:02,050 - INFO - [SERVER_BL] received from ('127.0.0.1', 33053): TRANSFER > ('813', '23', 100)
+2026-03-26 17:21:02,066 - INFO - [SERVER_BL] send to ('127.0.0.1', 33053): TRANSFER-1 > (100, '23')
+2026-03-26 17:21:02,067 - INFO - [CLIENT_BL] received TRANSFER-1 > (100, '23') 
+2026-03-26 17:21:02,067 - INFO - [CLIENT_BL] transferred 100\u20aa to client 23
+2026-03-26 17:21:02,068 - INFO - [CLIENT_BL] send to server GET_BALANCE > 813
+2026-03-26 17:21:02,068 - INFO - [SERVER_BL] received from ('127.0.0.1', 33053): GET_BALANCE > 813
+2026-03-26 17:21:02,072 - INFO - [CLIENT_BL] received GET_BALANCE > -200.0 
+2026-03-26 17:21:02,072 - INFO - [SERVER_BL] send to ('127.0.0.1', 33053): GET_BALANCE > -200.0
