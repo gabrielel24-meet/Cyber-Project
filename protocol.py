@@ -150,7 +150,6 @@ def get_balance(account_number):
 
 def transfer(data):
     try:
-        data = ast.literal_eval(data)
         current = data[0]
         destination = data[1]
         amount = data[2]

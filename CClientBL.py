@@ -72,7 +72,7 @@ class CClientBL:
 
 
     def handle_responses(self):
-        try:
+        # try:
             while True:
                 cmd, response = self.receive_data()
 
@@ -85,18 +85,18 @@ class CClientBL:
                 elif cmd == "REGISTER":
                     self.handle_register(response)
                 elif cmd == "TRANSFER-1":
-                    self.transfer_money()
+                    self.transfer_money(response)
                 elif cmd == "TRANSFER-2":
-                    self.transfer_money()
+                    self.receive_money(response)
                     self.responses_flag = (True,"TRANSFER-2")
                 elif cmd == "EXPENSES-1":
                     self.update_expenses(response)
                 elif cmd == "EXPENSES-2":
                     self.update_expenses(response)
 
-        except Exception as e:
-            write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))
-            return False
+        # except Exception as e:
+        #     write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))
+        #     return False
 
 
     def update_balance(self,data):
@@ -127,8 +127,17 @@ class CClientBL:
             self.account_number = account_data[5]
             self.balance = account_data[6]
 
-    def transfer_money(self):
-        self.send_data("GET_BALANCE",self.account_number)
+    def transfer_money(self, data):
+        amount = data[0]
+        destination = data[1]
+        write_to_log(f"[CLIENT_BL] transferred {amount}₪ to client {destination}")
+
+        self.send_data("GET_BALANCE", self.account_number)
+
+    def receive_money(self, data):
+        amount = data[0]
+        source = data[1]
+        write_to_log(f"Received {amount}₪ from client {source}")
 
     def handle_register(self, response):
         message = response[1]

@@ -141,13 +141,13 @@ class CClientHandler():
             destination = data["destination"]
             amount = data["amount"]
 
-            response = f"Client {current} transferred {amount}₪ to client {destination}"
+            response = amount, destination
             self.send_data("TRANSFER-1", response, self._address)
 
             for address, client in clients_data.items():
                 if client[5] == destination:
                     destination_ip = address
-                    response = f"Received {amount}₪ from client {current}"
+                    response = amount, current
                     destination_fernet = client_handlers[destination_ip].fernet
                     destination_socket = client_handlers[destination_ip]._client_socket
                     protocol_send_data("TRANSFER-2", response, destination_socket, destination_fernet)
