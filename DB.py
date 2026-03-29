@@ -48,8 +48,44 @@ cursor.execute("PRAGMA foreign_keys = ON;")
 # cursor.execute("""INSERT INTO users (id, first_name, last_name, phone_number, password, account_number, balance) VALUES (?, ?, ?, ?, ?, ?, ?)""",
 #                ("1", "gabi", "eliav", "1","1",1,10000))
 
-# cursor.execute("""INSERT INTO expenses (id) VALUES (?)""",
-#                ("1"))
+# cursor.execute("""INSERT INTO user_expenses (id, expense_type, payment_type, expense_amount, month, year)
+# VALUES
+# (1, 'Food',     'Cash',   (ABS(RANDOM()%10)+1)*100, 'Jan', strftime('%Y','now')),
+# (1, 'Clothes',  'Credit', (ABS(RANDOM()%10)+1)*100, 'Feb', strftime('%Y','now')),
+# (1, 'Gadgets',  'Cash',   (ABS(RANDOM()%10)+1)*100, 'Mar', strftime('%Y','now')),
+# (1, 'Gifts',    'Credit', (ABS(RANDOM()%10)+1)*100, 'Apr', strftime('%Y','now')),
+# (1, 'Other',    'Cash',   (ABS(RANDOM()%10)+1)*100, 'May', strftime('%Y','now')),
+#
+# (1, 'Food',     'Credit', (ABS(RANDOM()%10)+1)*100, 'Jun', strftime('%Y','now')),
+# (1, 'Clothes',  'Cash',   (ABS(RANDOM()%10)+1)*100, 'Jul', strftime('%Y','now')),
+# (1, 'Gadgets',  'Credit', (ABS(RANDOM()%10)+1)*100, 'Aug', strftime('%Y','now')),
+# (1, 'Gifts',    'Cash',   (ABS(RANDOM()%10)+1)*100, 'Sep', strftime('%Y','now')),
+# (1, 'Other',    'Credit', (ABS(RANDOM()%10)+1)*100, 'Oct', strftime('%Y','now')),
+#
+# (1, 'Food',     'Cash',   (ABS(RANDOM()%10)+1)*100, 'Nov', strftime('%Y','now')),
+# (1, 'Clothes',  'Credit', (ABS(RANDOM()%10)+1)*100, 'Dec', strftime('%Y','now')),
+# (1, 'Gadgets',  'Cash',   (ABS(RANDOM()%10)+1)*100, 'Jan', strftime('%Y','now')),
+# (1, 'Gifts',    'Credit', (ABS(RANDOM()%10)+1)*100, 'Feb', strftime('%Y','now')),
+# (1, 'Other',    'Cash',   (ABS(RANDOM()%10)+1)*100, 'Mar', strftime('%Y','now')),
+#
+# (1, 'Food',     'Credit', (ABS(RANDOM()%10)+1)*100, 'Apr', strftime('%Y','now')),
+# (1, 'Clothes',  'Cash',   (ABS(RANDOM()%10)+1)*100, 'May', strftime('%Y','now')),
+# (1, 'Gadgets',  'Credit', (ABS(RANDOM()%10)+1)*100, 'Jun', strftime('%Y','now')),
+# (1, 'Gifts',    'Cash',   (ABS(RANDOM()%10)+1)*100, 'Jul', strftime('%Y','now')),
+# (1, 'Other',    'Credit', (ABS(RANDOM()%10)+1)*100, 'Aug', strftime('%Y','now')),
+#
+# (1, 'Food',     'Cash',   (ABS(RANDOM()%10)+1)*100, 'Sep', strftime('%Y','now')),
+# (1, 'Clothes',  'Credit', (ABS(RANDOM()%10)+1)*100, 'Oct', strftime('%Y','now')),
+# (1, 'Gadgets',  'Cash',   (ABS(RANDOM()%10)+1)*100, 'Nov', strftime('%Y','now')),
+# (1, 'Gifts',    'Credit', (ABS(RANDOM()%10)+1)*100, 'Dec', strftime('%Y','now')),
+# (1, 'Other',    'Cash',   (ABS(RANDOM()%10)+1)*100, 'Jan', strftime('%Y','now')),
+#
+# (1, 'Food',     'Credit', (ABS(RANDOM()%10)+1)*100, 'Feb', strftime('%Y','now')),
+# (1, 'Clothes',  'Cash',   (ABS(RANDOM()%10)+1)*100, 'Mar', strftime('%Y','now')),
+# (1, 'Gadgets',  'Credit', (ABS(RANDOM()%10)+1)*100, 'Apr', strftime('%Y','now')),
+# (1, 'Gifts',    'Cash',   (ABS(RANDOM()%10)+1)*100, 'May', strftime('%Y','now')),
+# (1, 'Other',    'Credit', (ABS(RANDOM()%10)+1)*100, 'Jun', strftime('%Y','now'));""")
+
 
 # cursor.execute("""INSERT INTO user_expenses (id, expense_type, payment_type, expense_amount) VALUES (?, ?, ?, ?)""",
 #                ("3", "Food","Credit",100))
@@ -59,7 +95,7 @@ cursor.execute("PRAGMA foreign_keys = ON;")
 # cursor.execute(f"UPDATE users SET password = ? WHERE account_number = ?", ( 1, 1))
 
 # Delete Data
-cursor.execute("DELETE FROM users",())
+cursor.execute("DELETE FROM user_expenses WHERE expenses_id > 144",())
 
 # Drop Table
 # cursor.execute("DROP TABLE IF EXISTS user_expenses")

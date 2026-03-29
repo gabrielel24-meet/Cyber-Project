@@ -184,7 +184,7 @@ def add_expense(data):
         expense_amount = data[1][0]
         expense_type = data[1][1]
         payment_type = data[1][2]
-        month = str(datetime.now().strftime("%B"))
+        month = str(datetime.now().strftime("%b"))
         year = str(datetime.today().year)
 
         cursor.execute("""INSERT INTO user_expenses (id, expense_type, payment_type, expense_amount, month, year) VALUES (?, ?, ?, ?, ?, ?)""",
@@ -201,12 +201,12 @@ def add_expense(data):
         return False
 
 
-def get_expenses(data):
+def get_expenses(data) -> list:
     try:
         conn = sqlite3.connect("Bank.db")
         cursor = conn.cursor()
 
-        cursor.execute(f"SELECT expenses_id, expense_type, payment_type, expense_amount  FROM user_expenses WHERE id = ?", (data,))
+        cursor.execute(f"SELECT expenses_id, expense_type, payment_type, expense_amount, month, year  FROM user_expenses WHERE id = ?", (data,))
         lst = cursor.fetchall()
         return lst
 

@@ -12,7 +12,7 @@ class CRegister:
 
         self.root = root
         self.root.title("Purple Trust Bank")
-        self.root.geometry("1000x700")
+        self.root.geometry("1100x700")
 
         self.previous_page = previous_page
         self.callback_register = callback_register

@@ -26,6 +26,15 @@ class CClientBL:
         self.expenses = []
         self.sizes = []
         self.labels = []
+        self.yearly_data = {
+            'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            'Food': [0,0,0,0,0,0,0,0,0,0,0,0],
+            'Clothes': [0,0,0,0,0,0,0,0,0,0,0,0],
+            'Gadgets': [0,0,0,0,0,0,0,0,0,0,0,0],
+            'Gifts': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            'Other': [0,0,0,0,0,0,0,0,0,0,0,0]
+        }
+
 
         self.responses_flag = (False, None)
         self.login_successfully_flag = None
@@ -72,7 +81,7 @@ class CClientBL:
 
 
     def handle_responses(self):
-        try:
+        # try:
             while True:
                 cmd, response = self.receive_data()
 
@@ -93,10 +102,10 @@ class CClientBL:
                 elif cmd == "EXPENSES-2":
                     self.update_expenses(response)
 
-        except Exception as e:
-            write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))
-            self.connection_status = False
-            return False
+        # except Exception as e:
+        #     write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))
+        #     self.connection_status = False
+        #     return False
 
 
     def update_balance(self,data):
@@ -150,15 +159,36 @@ class CClientBL:
     def update_expenses(self, response):
         self.sizes = []
         self.labels = []
+        self.yearly_data = {
+            'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            'Food': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            'Clothes': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            'Gadgets': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            'Gifts': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            'Other': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
         dictionary = {"Food":0, "Clothes":0, "Gadgets":0, "Gifts":0,"Other":0}
 
+        # Expense: (expense_id, expense_type, payment_type, expense_amount, month, year)
         for expense in response:
-            dictionary[expense[1]] += expense[3]
+            expense_type = expense[1]
+            expense_amount = expense[3]
+            dictionary[expense_type] += expense_amount
 
         for key in dictionary:
             if dictionary[key] > 0:
                 self.sizes.append(dictionary[key])
                 self.labels.append(key)
+
+        for expense in response:
+            expense_month = expense[4]
+            month_index = self.yearly_data['Month'].index(expense_month)
+            expense_type = expense[1]
+            expense_amount = expense[3]
+
+            self.yearly_data[expense_type][month_index] += expense_amount
+
+        write_to_log(self.yearly_data)
 
 if __name__ == "__main__":
     pass

@@ -15,7 +15,7 @@ class CClientGUI(CClientBL):
 
         self.root = ctk.CTk()
         self.root.title("Purple Trust Bank")
-        self.root.geometry("1000x700")
+        self.root.geometry("1100x700")
 
         # Configure purple color scheme
         self.primary_color = "#6A0DAD"  # Purple
@@ -176,6 +176,7 @@ class CClientGUI(CClientBL):
                 self.update_register_page(cmd)
             elif cmd == "EXPENSES-2":
                 self.update_expenses_window()
+
         self.responses_flag = False,None
         self.root.after(500, self.check_for_responses)
 
@@ -216,7 +217,8 @@ class CClientGUI(CClientBL):
             time.sleep(0.1)
             self.root.after(0, self.expenses_page.expense_window.root.destroy)
             self.update_expenses_window()
-            self.root.after(0,self.expenses_page.show_pie())
+            self.root.after(0,self.expenses_page.update_graphs())
+
 
 
         self.main_frame.pack_forget()
@@ -241,7 +243,7 @@ class CClientGUI(CClientBL):
     def update_expenses_window(self):
         self.expenses_page.sizes = self.sizes
         self.expenses_page.labels = self.labels
-        # write_to_log(len(self.expenses_page.sizes))
+        self.expenses_page.yearly_data = self.yearly_data
 
     def on_click_open_transfer(self):
         self.destination_user_frame.pack(pady=60)
