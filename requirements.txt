@@ -1,0 +1,11 @@
+customtkinter
+Pillow
+matplotlib
+pandas
+cryptography
+argon2-cffi
+fonttools
+opencv-python
+face-recognition
+dlib
+numpy

@@ -1,50 +1,63 @@
-import customtkinter as ctk
-import pandas as pd
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from protocol import *
 
-# הגדרת מראה ה-UI
-ctk.set_appearance_mode("System")
-ctk.set_default_color_theme("blue")
+# === Load reference image ===
+reference_image_path = """C:\\Users\\Gabi\\Desktop\\family_photos\\gaya.jpeg"""  # <-- change this to your image path
 
-class App(ctk.CTk):
-    def __init__(self):
-        super().__init__()
+reference_image = face_recognition.load_image_file(reference_image_path)
+reference_encodings = face_recognition.face_encodings(reference_image)
 
-        self.title("Expense Tracker Visualization")
-        self.geometry("800x600")
+if len(reference_encodings) == 0:
+    print("No face found in the reference image!")
+    exit()
 
-        data = {
-            'Month': ['January', 'February', 'March'],
-            'Food': [1200, 1500, 1100],
-            'Clothing': [400, 200, 800],
-            'Leisure': [600, 900, 500]
-        }
-        df = pd.DataFrame(data)
-        df.set_index('Month', inplace=True)
+reference_encoding = reference_encodings[0]
 
-        # 2. יצירת האובייקט של Matplotlib (Figure)
-        # שימוש ב-facecolor תואם לרקע של ה-UI (אופציונלי)
-        fig, ax = plt.subplots(figsize=(6, 4), dpi=100)
-        
-        # יצירת הגרף הנערם
-        df.plot(kind='bar', stacked=True, ax=ax, color=['#5dade2', '#ec7063', '#58d68d'])
+video_capture = cv2.VideoCapture(0)
 
-        # עיצוב הגרף באנגלית
-        ax.set_title('Monthly Expenses by Category')
-        ax.set_xlabel('Month')
-        ax.set_ylabel('Amount ($)')
-        ax.legend(title='Categories')
-        plt.xticks(rotation=0)
+print("Press 'q' to quit.")
 
-        # 3. שילוב הגרף בתוך CustomTkinter
-        self.canvas = FigureCanvasTkAgg(fig, master=self)
-        self.canvas.draw()
-        
-        # הצבת הווידג'ט בחלון
-        self.canvas.get_tk_widget().pack(side=ctk.TOP, fill=ctk.BOTH, expand=True, padx=20, pady=20)
+while True:
+    ret, frame = video_capture.read()
+    if not ret:
+        break
 
-if __name__ == "__main__":
-    # app = App()
-    # app.mainloop()
-    print(len("True"))
+    # Convert BGR (OpenCV) to RGB (face_recognition)
+    frame = cv2.flip(frame, 1)
+    rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+
+
+    face_locations = face_recognition.face_locations(rgb_frame, model= "hog") # Detects face from camera
+    face_encodings = face_recognition.face_encodings(rgb_frame, face_locations) # Encodes the face
+
+    for (top, right, bottom, left), face_encoding in zip(face_locations, face_encodings):
+        # Compare with reference
+        matches = face_recognition.compare_faces([reference_encoding], face_encoding)
+
+        match_text = "Unknown"
+
+        if matches[0]:
+            match_text = "MATCH!"
+            color = (0, 255, 0)
+        else:
+            match_text = "NOT MATCH"
+            color = (0, 0, 255)
+
+
+        # Draw rectangle around face
+        cv2.rectangle(frame, (left, top), (right, bottom), color, 2)
+
+        # Display result
+        cv2.putText(frame, match_text, (left, top - 10),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.9, color, 2)
+
+    # Show frame
+    cv2.imshow('Face Recognition', frame)
+
+    # Exit on 'q'
+    key = cv2.waitKey(1)
+    if key == ord('q'):
+        break
+
+# Cleanup
+video_capture.release()
+cv2.destroyAllWindows()

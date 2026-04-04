@@ -150,7 +150,7 @@ class CClientHandler():
                     destination_fernet = client_handlers[destination_ip].fernet
                     destination_socket = client_handlers[destination_ip]._client_socket
                     protocol_send_data("TRANSFER-2", response, destination_socket, destination_fernet)
-                    write_to_log(f"[SERVER_BL] send to {address}: {"TRANSFER-2"} > {response}")
+                    write_to_log(f"[SERVER_BL] send to {address}: 'TRANSFER-2' > {response}")
 
         except Exception as e:
             self.send_data("TRANSFER-1", "Error", self._address)

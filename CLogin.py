@@ -11,7 +11,7 @@ class CLogin:
     def __init__(self, root, previous_page, callback_login, callback_register):
 
         self.root = root
-        self.root.title("Purple Trust Bank")
+        self.root.title("Finance Plan")
         self.root.geometry("1100x700")
 
         self.previous_page = previous_page

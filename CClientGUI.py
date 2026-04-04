@@ -14,13 +14,15 @@ class CClientGUI(CClientBL):
         super().__init__(host, port)
 
         self.root = ctk.CTk()
-        self.root.title("Purple Trust Bank")
+        self.root.title("Finance Plan")
         self.root.geometry("1100x700")
 
         # Configure purple color scheme
         self.primary_color = "#6A0DAD"  # Purple
         self.secondary_color = "#8A2BE2"  # Blue violet
         self.accent_color = "#9370DB"  # Medium purple
+
+        self.hidden_secondary_color = "#481a73"
 
         # Set the background color
         self.root.configure(fg_color=self.primary_color)
@@ -37,9 +39,13 @@ class CClientGUI(CClientBL):
         self._entry_Port = port
         self._entry_IP = host
 
+        # Menu
+        self.menu_frame = None
+        self.menu_open = False
+        self.menu_img = None
+
         self.login_page = None
         self.expenses_page = None
-
 
         self.destination_user_frame = None
         self.transfer_amount_frame = None
@@ -54,11 +60,11 @@ class CClientGUI(CClientBL):
         # Bank name header
         self.bank_name_label = ctk.CTkLabel(
             self.main_frame,
-            text="PURPLE TRUST BANK",
-            font=("Arial", 24, "bold"),
+            text="FINANCE PLAN BANK",
+            font=("Arial", 50, "bold"),
             text_color="white"
         )
-        self.bank_name_label.pack(pady=(40, 20))
+        self.bank_name_label.pack(pady=(80, 20))
 
         # Time display
         self.time_label = ctk.CTkLabel(
@@ -69,49 +75,26 @@ class CClientGUI(CClientBL):
         )
         self.time_label.place(relx=0.01,rely=0.01, anchor="nw")
 
-        # Currency/Balance display
+
+        # Balance display
         self.balance_label = ctk.CTkLabel(
             self.main_frame,
             text=f"Balance: {self.balance}₪",
-                    font=("Arial", 20, "bold"),
+            font=("Arial", 20, "bold"),
             text_color="white"
         )
 
-        self.login_button = ctk.CTkButton(
-            self.main_frame,
-            text = "sign in",
-            width=110,
-            height=30,
-            border_width=2,
-            fg_color= self.primary_color,
-            hover_color=self.accent_color,
-            command= self.open_login_page
-
-        )
-        self.login_button.place(relx=0.99, rely=0.01, anchor="ne")
-
-
         # Transfer Button
-        self.transfer_button = ctk.CTkButton(
+        self.cancel_transfer_button = ctk.CTkButton(
             self.main_frame,
-            text="Transfer",
+            text="Cancel Transfer",
             width=110,
             height=30,
             border_width=1,
             fg_color=self.primary_color,
-            command=self.on_click_open_transfer
+            command=self.on_click_close_transfer
         )
 
-        # Expense Button
-        self.expense_button = ctk.CTkButton(
-            self.main_frame,
-            text="Enter expense",
-            width=110,
-            height=30,
-            border_width=1,
-            fg_color=self.primary_color,
-            command=self.open_expenses
-        )
 
         self.destination_user_frame = ctk.CTkFrame(self.main_frame, fg_color=self.secondary_color)
         self.destination_user_label = ctk.CTkLabel(self.destination_user_frame, text="Transfer destination account", font=("Arial", 15, "bold"))
@@ -140,7 +123,59 @@ class CClientGUI(CClientBL):
             command= self.on_click_transfer_money
         )
 
-        
+
+        # Welcome Text
+        self.welcome_frame = ctk.CTkFrame(
+            self.main_frame,
+            width=800,
+            height=280,
+            fg_color= self.secondary_color,
+        )
+        self.welcome_title = ctk.CTkLabel(
+            self.welcome_frame,
+            text="Welcome!",
+            font = ("Arial", 40, "bold"),
+        )
+        self.welcome_text = ctk.CTkLabel(
+            self.welcome_frame,
+            text="Finance Plan is the first and only bank that cares for you! \n Here, our top priorities are to make sure you always know your financial situation \n & help you spend your money smarter.",
+            font=("Arial", 20),
+            # text_color=self.accent_color
+        )
+
+        self.login_button = ctk.CTkButton(
+            self.welcome_frame,
+            text="sign in",
+            width=110,
+            height=30,
+            border_width=2,
+            fg_color=self.primary_color,
+            hover_color=self.accent_color,
+            command=self.open_login_page
+
+        )
+        self.welcome_title.place(relx = 0.5, rely=0.1, anchor = 'center')
+        self.welcome_text.place(relx = 0.5, rely=0.4, anchor = 'center')
+        if not self.login_successfully_flag:
+            self.welcome_frame.place(relx = 0.5, rely=0.5, anchor = 'center')
+            self.login_button.place(relx = 0.5, rely=0.75, anchor = 'center')
+
+
+        image_path = "Images/bank.png"
+        pil_image = Image.open(image_path)
+
+        self.bank_img = ctk.CTkImage(
+            light_image=pil_image,
+            dark_image=pil_image,
+            size=(100, 100)
+        )
+
+        self.bank_img_label = ctk.CTkLabel(
+            self.main_frame,
+            image=self.bank_img,
+            text = "",
+        )
+        self.bank_img_label.place(relx = 0.5, rely=0.8, anchor = 'center')
 
         # Connection Status
         self.connection_status_label = ctk.CTkLabel(
@@ -149,11 +184,111 @@ class CClientGUI(CClientBL):
         )
         self.connection_status_label.place(relx=0.01, rely=1.0, anchor="sw")
 
+        # Menu
+        self.menu_img = ctk.CTkImage(
+            light_image=Image.open("Images/menu.png"),
+            dark_image=Image.open("Images/menu.png"),
+            size=(25, 25)
+        )
+
+        self.menu_button = ctk.CTkButton(
+            self.main_frame,
+            image=self.menu_img,
+            text="",
+            width=30,
+            fg_color="transparent",
+            hover_color=self.primary_color,
+            command=self.toggle_menu
+        )
+
+        self.menu_frame = ctk.CTkFrame(
+            self.main_frame,
+            width=0,
+            fg_color=self.secondary_color,
+            corner_radius=0,
+        )
+
+        self.menu_frame.place(x=0, y=0, relheight=1)
+
+        # Close (X) button
+        self.close_menu_btn = ctk.CTkButton(
+            self.menu_frame,
+            text="X",
+            width=30,
+            height=30,
+            fg_color="transparent",
+            hover_color=self.primary_color,
+            command=self.toggle_menu
+        )
+
+        self.close_menu_btn.place(x=10, y=10)
+
+        self.menu_title = ctk.CTkLabel(
+            self.menu_frame,
+            text="Menu",
+            font=("Arial", 25, "bold")
+        )
+        self.menu_title.place(relx = 0.4, rely = 0.07)
+
+
+        # Expenses button
+        self.expense_img = ctk.CTkImage(
+            light_image=Image.open("Images/expenses.png"),
+            dark_image=Image.open("Images/expenses.png"),
+            size=(25, 25)
+        )
+        self.menu_expenses_btn = ctk.CTkButton(
+            self.menu_frame,
+            text="  Expenses",
+            font=('Arial',18,"bold"),
+            image=self.expense_img,
+            width=250,
+            height=50,
+            fg_color=self.primary_color,
+            hover_color=self.accent_color,
+            compound="left",
+            anchor="w",
+            command=self.open_expenses,
+        )
+        self.menu_expenses_btn.place(relx = 0.05, rely = 0.2)
+
+        # Transfer button
+        self.transfer = ctk.CTkImage(
+            light_image=Image.open("Images/icon2.png"),
+            dark_image=Image.open("Images/icon2.png"),
+            size=(25, 25)
+        )
+        self.menu_transfer_btn = ctk.CTkButton(
+            self.menu_frame,
+            text="  Transfer",
+            font=('Arial', 18, "bold"),
+            image=self.transfer,
+            width=250,
+            height=50,
+            fg_color=self.primary_color,
+            hover_color=self.accent_color,
+            compound="left",
+            anchor="w",
+            command=self.on_click_open_transfer,
+        )
+        self.menu_transfer_btn.place(relx=0.05, rely=0.3)
+
+        self.menu_signout_btn = ctk.CTkButton(
+            self.menu_frame,
+            text="Sign Out",
+            width=180,
+            height=40,
+            fg_color="#8B0000",  # darker red for emphasis
+            hover_color="#A52A2A",
+            # command=self.on_click_sign_out
+        )
+
+        self.menu_signout_btn.place(relx=0.5, rely=0.95, anchor="s")
+
         self.time_thread.start()
         self.connection_status_thread.start()
 
     def update_connection_status(self):
-
         if self.connection_status:
             self.connection_status_label.configure(text="connected")
         else:
@@ -166,6 +301,33 @@ class CClientGUI(CClientBL):
         current_time = datetime.now().strftime("%H:%M:%S")
         self.time_label.configure(text=f"{current_time}")
         self.root.after(1000, self.update_time)  # Update every second
+
+    def toggle_menu(self):
+        if not self.menu_open:
+            self.open_menu()
+        else:
+            self.close_menu()
+
+    def open_menu(self):
+        self.main_frame.configure(fg_color=self.hidden_secondary_color)
+        self.welcome_frame.configure(fg_color=self.hidden_secondary_color)
+        self.welcome_title.configure(text_color="#928f94")
+        self.bank_name_label.configure(text_color="#928f94")
+        self.welcome_text.configure(text_color="#928f94")
+
+        self.menu_open = True
+        self.menu_frame.configure(width=300)
+
+    def close_menu(self):
+        self.menu_open = False
+        self.main_frame.configure(fg_color=self.secondary_color)
+        self.welcome_frame.configure(fg_color=self.secondary_color)
+        self.welcome_title.configure(text_color="white")
+        self.bank_name_label.configure(text_color="white")
+        self.welcome_text.configure(text_color="white")
+
+        self.menu_frame.configure(width=0)
+
 
     def check_for_responses(self):
         flag, cmd = self.responses_flag
@@ -186,14 +348,15 @@ class CClientGUI(CClientBL):
             write_to_log(f"[CLIENT_GUI] Received data from Login page: {data}")
             self.send_data("LOGIN", data)
             time.sleep(0.1)
-            if self.login_successfully_flag == True:
-                self.bank_name_label.configure(text=f"Hi {self.first_name} {self.last_name}")
+            if self.login_successfully_flag:
+                self.menu_button.place(relx=0.01, rely=0.05, anchor="nw")
+                self.bank_name_label.pack(pady=(40, 20))
+                self.bank_name_label.configure(text=f"Hi {self.first_name} {self.last_name}", font=("Arial", 30, "bold"))
                 self.balance_label.pack(pady=20)
                 self.show_page(self.main_frame, self.login_page.main_frame)
                 self.update_balance_label()
-                self.login_button.place_forget()
-                self.transfer_button.place(relx=0.35,rely=0.25)
-                self.expense_button.place(relx=0.5,rely=0.25)
+                self.welcome_frame.place_forget()
+                self.bank_img_label.place_forget()
                 self.send_data("EXPENSES-2", self.id)
 
         def callback_register(data):
@@ -203,6 +366,7 @@ class CClientGUI(CClientBL):
 
         self.main_frame.pack_forget()
         if self.login_page == None:
+            
             self.login_page = CLogin(self.root,self.main_frame, callback_login, callback_register)
             self.login_page.run()
         else:
@@ -210,6 +374,7 @@ class CClientGUI(CClientBL):
 
 
     def open_expenses(self):
+        self.toggle_menu()
         write_to_log(f"[CLIENT_GUI] opened Expenses page")
         def callback_expenses(data, cmd):
             write_to_log(f"[CLIENT_GUI] Received data from Expenses window: {data}")
@@ -246,16 +411,20 @@ class CClientGUI(CClientBL):
         self.expenses_page.yearly_data = self.yearly_data
 
     def on_click_open_transfer(self):
-        self.destination_user_frame.pack(pady=60)
-        self.transfer_amount_frame.pack()
-        self.transfer_button.configure(command=self.on_click_close_transfer, text="Cancel Transfer")
-        self.on_click_transfer.pack(pady = 10)
+        self.toggle_menu()
+        self.cancel_transfer_button.place(relx=0.45, rely=0.3)
+        self.destination_user_frame.place(relx=0.4, rely=0.4)
+        self.transfer_amount_frame.place(relx=0.41, rely=0.55)
+        self.on_click_transfer.place(relx=0.44, rely=0.7)
 
     def on_click_close_transfer(self):
-        self.destination_user_frame.pack_forget()
-        self.transfer_amount_frame.pack_forget()
-        self.transfer_button.configure(command=self.on_click_open_transfer, text="Transfer")
-        self.on_click_transfer.pack_forget()
+        self.on_click_transfer.place_forget()
+        self.cancel_transfer_button.place_forget()
+        self.destination_user_frame.place_forget()
+        self.transfer_amount_frame.place_forget()
+        self.destination_user_entry.delete(0, "end")
+        self.transfer_amount_entry.delete(0, "end")
+
 
     def on_click_transfer_money(self):
         error_flag = True
@@ -269,7 +438,6 @@ class CClientGUI(CClientBL):
             self.amount_error_message.configure(text="please enter a positive number")
             self.amount_error_message.pack(anchor="w")
             error_flag = False
-
 
         if error_flag:
             self.send_data("TRANSFER", (self.account_number, self.destination_user_entry.get(), int(self.transfer_amount_entry.get())))
