@@ -38,6 +38,8 @@ class CClientBL:
 
         self.responses_flag = (False, None)
         self.login_successfully_flag = None
+        self.face_matches = False
+        self.id_exists = False
 
 
     def connect_to_server(self):
@@ -81,7 +83,7 @@ class CClientBL:
 
 
     def handle_responses(self):
-        # try:
+        try:
             while True:
                 cmd, response = self.receive_data()
 
@@ -89,8 +91,12 @@ class CClientBL:
                     self.connection_status = False
                 elif cmd == "GET_BALANCE":
                     self.update_balance(response)
-                elif cmd == "LOGIN":
+                elif cmd == "LOGIN-1":
                     self.update_user_data(response)
+                elif cmd == "LOGIN-2":
+                    self.update_face_id_login_data(response)
+                elif cmd == "CHECK_ID":
+                    self.update_id_login(response)
                 elif cmd == "REGISTER":
                     self.handle_register(response)
                 elif cmd == "TRANSFER-1":
@@ -102,10 +108,10 @@ class CClientBL:
                 elif cmd == "EXPENSES-2":
                     self.update_expenses(response)
 
-        # except Exception as e:
-        #     write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))
-        #     self.connection_status = False
-        #     return False
+        except Exception as e:
+            write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))
+            self.connection_status = False
+            return False
 
 
     def update_balance(self,data):
@@ -124,8 +130,8 @@ class CClientBL:
 
     def update_user_data(self,data):
         write_to_log(data)
-        flag = data[1]
-        if flag != "Error":
+        flag = data[0]
+        if flag:
             account_data = data[1]
             self.login_successfully_flag = True
             self.id = account_data[0]
@@ -135,6 +141,30 @@ class CClientBL:
             self.password = account_data[4]
             self.account_number = account_data[5]
             self.balance = account_data[6]
+
+
+    def update_face_id_login_data(self, data):
+        flag = data[0]
+
+        if flag:
+            account_data = data[1]
+            self.login_successfully_flag = True
+            self.id = account_data[0]
+            self.first_name = account_data[1]
+            self.last_name = account_data[2]
+            self.phone_number = account_data[3]
+            self.password = account_data[4]
+            self.account_number = account_data[5]
+            self.balance = account_data[6]
+
+            self.face_matches = True
+            self.responses_flag = (True, "LOGIN-2")
+        else:
+            self.responses_flag = (True, "LOGIN-2")
+
+    def update_id_login(self, data):
+        self.id_exists = data
+        self.responses_flag = (True, "CHECK_ID")
 
     def transfer_money(self, data):
         amount = data[0]

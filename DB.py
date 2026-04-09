@@ -95,7 +95,12 @@ cursor.execute("PRAGMA foreign_keys = ON;")
 # cursor.execute(f"UPDATE users SET password = ? WHERE account_number = ?", ( 1, 1))
 
 # Delete Data
-cursor.execute("DELETE FROM user_expenses WHERE expenses_id > 144",())
+cursor.execute("DELETE FROM users WHERE balance = 0",())
+
+# cursor.execute(f"SELECT * FROM users WHERE id = ?", (1,))
+user = cursor.fetchone()
+
+print(user)
 
 # Drop Table
 # cursor.execute("DROP TABLE IF EXISTS user_expenses")

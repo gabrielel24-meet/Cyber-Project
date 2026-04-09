@@ -338,39 +338,67 @@ class CClientGUI(CClientBL):
                 self.update_register_page(cmd)
             elif cmd == "EXPENSES-2":
                 self.update_expenses_window()
+            elif cmd == "LOGIN-2":
+                self.update_login_page()
+            elif cmd == "CHECK_ID":
+                print(self.id_exists)
+                self.update_login_id_page()
 
         self.responses_flag = False,None
-        self.root.after(500, self.check_for_responses)
+        self.root.after(10, self.check_for_responses)
 
     def open_login_page(self):
         write_to_log("[CLIENT_GUI] opened Login page")
         def callback_login(data):
             write_to_log(f"[CLIENT_GUI] Received data from Login page: {data}")
-            self.send_data("LOGIN", data)
+            cmd, args = data
+            self.send_data(cmd, args)
             time.sleep(0.1)
-            if self.login_successfully_flag:
-                self.menu_button.place(relx=0.01, rely=0.05, anchor="nw")
-                self.bank_name_label.pack(pady=(40, 20))
-                self.bank_name_label.configure(text=f"Hi {self.first_name} {self.last_name}", font=("Arial", 30, "bold"))
-                self.balance_label.pack(pady=20)
-                self.show_page(self.main_frame, self.login_page.main_frame)
-                self.update_balance_label()
-                self.welcome_frame.place_forget()
-                self.bank_img_label.place_forget()
-                self.send_data("EXPENSES-2", self.id)
+            if cmd == "LOGIN-1":
+                if self.login_successfully_flag:
+                    create_home_page()
+                    self.show_page(self.main_frame, self.login_page.main_frame)
+            if cmd == "LOGIN-2":
+                if self.login_successfully_flag:
+                    create_home_page()
 
         def callback_register(data):
             write_to_log(f"[CLIENT_GUI] Received data from Register page: {data}")
             self.send_data("REGISTER", data)
             time.sleep(0.1)
 
+        def create_home_page():
+            self.menu_button.place(relx=0.01, rely=0.05, anchor="nw")
+            self.bank_name_label.pack(pady=(40, 20))
+            self.bank_name_label.configure(text=f"Hi {self.first_name} {self.last_name}", font=("Arial", 30, "bold"))
+            self.balance_label.pack(pady=20)
+            self.update_balance_label()
+            self.welcome_frame.place_forget()
+            self.bank_img_label.place_forget()
+            self.send_data("EXPENSES-2", self.id)
+
         self.main_frame.pack_forget()
         if self.login_page == None:
-            
             self.login_page = CLogin(self.root,self.main_frame, callback_login, callback_register)
             self.login_page.run()
         else:
+            write_to_log(f"22222222222222222222222222222222222222222222222")
+            self.login_page.show_choose_frame()
             self.login_page.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
+
+
+    def update_login_page(self):
+        self.login_page.face_recognized = True
+
+        if self.face_matches:
+            self.login_page.face_matches = True
+        else:
+            self.login_page.face_matches = False
+
+    def update_login_id_page(self):
+            self.login_page.id_exists = self.id_exists
+
+
 
 
     def open_expenses(self):
@@ -383,8 +411,6 @@ class CClientGUI(CClientBL):
             self.root.after(0, self.expenses_page.expense_window.root.destroy)
             self.update_expenses_window()
             self.root.after(0,self.expenses_page.update_graphs())
-
-
 
         self.main_frame.pack_forget()
         if self.expenses_page == None:

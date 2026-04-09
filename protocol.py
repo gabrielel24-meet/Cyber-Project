@@ -23,6 +23,9 @@ from cryptography.hazmat.primitives.asymmetric import rsa, padding
 import struct
 import cv2
 import face_recognition
+import json
+import numpy as np
+
 
 
 clients :{str:(threading.Thread,Event)} = {}
@@ -38,7 +41,7 @@ LOG_FILE = 'LOG.log'
 logging.basicConfig(filename=LOG_FILE,level=logging.INFO,format='%(asctime)s - %(levelname)s - %(message)s')
 
 standard_cmd = ["GET_BALANCE","TRANSFER","EXPENSES-1", "EXPENSES-2"]
-login_cmd = ["LOGIN", "REGISTER"]
+login_cmd = ["LOGIN-1","LOGIN-2","CHECK_ID", "REGISTER"]
 
 
 BTN_IMAGE = "./Images/GUI - button.png"
@@ -135,7 +138,7 @@ def protocol_receive_data( socket, fernet) -> tuple:
         return cmd, args
 
     except Exception as e:
-        write_to_log("[CLIENT_BL] Exception on receive: {}".format(e))
+        write_to_log("Exception on receive: {}".format(e))
         return "Error"
 
 def get_balance(account_number):

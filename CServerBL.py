@@ -110,7 +110,10 @@ class CClientHandler():
                 else:
                     response = "Non-supported cmd"
 
-                if cmd == "LOGIN" and response[0] == True:
+                if cmd == "LOGIN-1" and response[0] == True:
+                    clients_data[self._address] = response[1]
+                    self.send_data(cmd,response,self._address)
+                elif cmd == "LOGIN-2" and response[0] == True:
                     clients_data[self._address] = response[1]
                     self.send_data(cmd,response,self._address)
                 elif cmd == "TRANSFER" and response[0] == True:
