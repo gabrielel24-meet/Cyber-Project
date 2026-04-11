@@ -17,12 +17,20 @@ class CClientGUI(CClientBL):
         self.root.title("Finance Plan")
         self.root.geometry("1100x700")
 
-        # Configure purple color scheme
-        self.primary_color = "#6A0DAD"  # Purple
-        self.secondary_color = "#8A2BE2"  # Blue violet
-        self.accent_color = "#9370DB"  # Medium purple
+        ctk.set_appearance_mode("light")
+        self.is_dark_mode = True
 
-        self.hidden_secondary_color = "#481a73"
+        # Configure purple color scheme
+        self.primary_color = ("#6A0DAD", "#2D1B4E")
+        self.secondary_color = ("#8A2BE2", "#3E2A6D")
+        self.accent_color = ("#9370DB", "#9B5DE5")
+        self.text_color = ("#2B2B2B", "#F1F1F1")
+        self.card_color = ("#F3E8FF", "#4B357D")
+        self.rows_color = ("#E9D5FF", "#5B3B8C")
+
+        self.hidden_secondary_color = ("#6E2DB5", "#2A1F3D")
+        self.hidden_card_color = ("#E0CFFF", "#3A2A5A")
+        self.hidden_rows_color = ("#D8C2F0", "#4A3475")
 
         # Set the background color
         self.root.configure(fg_color=self.primary_color)
@@ -49,6 +57,7 @@ class CClientGUI(CClientBL):
 
         self.destination_user_frame = None
         self.transfer_amount_frame = None
+        self.transaction_rows = []
 
         self.check_for_responses_thread = threading.Thread(target=self.check_for_responses).start()
 
@@ -85,6 +94,7 @@ class CClientGUI(CClientBL):
         )
 
         # Transfer Button
+
         self.cancel_transfer_button = ctk.CTkButton(
             self.main_frame,
             text="Cancel Transfer",
@@ -92,6 +102,7 @@ class CClientGUI(CClientBL):
             height=30,
             border_width=1,
             fg_color=self.primary_color,
+            hover_color=self.accent_color,
             command=self.on_click_close_transfer
         )
 
@@ -176,6 +187,29 @@ class CClientGUI(CClientBL):
             text = "",
         )
         self.bank_img_label.place(relx = 0.5, rely=0.8, anchor = 'center')
+
+
+        # Transactions Frame
+        self.transactions_frame = ctk.CTkFrame(
+            self.main_frame,
+            width=350,
+            fg_color=self.card_color
+        )
+        self.transactions_title = ctk.CTkLabel(
+            self.transactions_frame,
+            text="Transactions",
+            font=("Arial", 22, "bold")
+        )
+        self.transactions_list_frame = ctk.CTkScrollableFrame(
+            self.transactions_frame,
+            width=400,
+            height=400,
+            fg_color=self.card_color
+
+        )
+        self.transactions_title.pack(pady=10)
+        self.transactions_list_frame.pack(padx=10, pady=10, fill="both", expand=True)
+
 
         # Connection Status
         self.connection_status_label = ctk.CTkLabel(
@@ -285,8 +319,31 @@ class CClientGUI(CClientBL):
 
         self.menu_signout_btn.place(relx=0.5, rely=0.95, anchor="s")
 
+
+        self.theme_frame = ctk.CTkFrame(
+            self.menu_frame,
+            fg_color="transparent"
+        )
+
+        self.theme_frame.place(relx=0.05, rely=0.4)
+
+        self.theme_label = ctk.CTkLabel(
+            self.theme_frame,
+            text="Theme",
+            font=("Arial", 18, "bold")
+        )
+        self.theme_label.pack(anchor="w", pady=(0, 5))
+
+        self.theme_switch = ctk.CTkSwitch(
+            self.theme_frame,
+            text="Dark Mode",
+            command=self.toggle_theme
+        )
+        self.theme_switch.select()
+        self.theme_switch.pack(anchor="w")
         self.time_thread.start()
         self.connection_status_thread.start()
+
 
     def update_connection_status(self):
         if self.connection_status:
@@ -310,22 +367,26 @@ class CClientGUI(CClientBL):
 
     def open_menu(self):
         self.main_frame.configure(fg_color=self.hidden_secondary_color)
-        self.welcome_frame.configure(fg_color=self.hidden_secondary_color)
-        self.welcome_title.configure(text_color="#928f94")
+        self.transactions_frame.configure(fg_color=self.hidden_card_color)
+        self.transactions_list_frame.configure(fg_color=self.hidden_card_color)
+        self.update_transaction_rows_color()
+        self.transactions_title.configure(text_color="#928f94")
         self.bank_name_label.configure(text_color="#928f94")
-        self.welcome_text.configure(text_color="#928f94")
+        self.balance_label.configure(text_color="#928f94")
 
         self.menu_open = True
         self.menu_frame.configure(width=300)
 
     def close_menu(self):
-        self.menu_open = False
         self.main_frame.configure(fg_color=self.secondary_color)
-        self.welcome_frame.configure(fg_color=self.secondary_color)
-        self.welcome_title.configure(text_color="white")
+        self.transactions_frame.configure(fg_color=self.card_color)
+        self.transactions_list_frame.configure(fg_color=self.card_color)
+        self.update_transaction_rows_color()
+        self.transactions_title.configure(text_color="white")
         self.bank_name_label.configure(text_color="white")
-        self.welcome_text.configure(text_color="white")
+        self.balance_label.configure(text_color="white")
 
+        self.menu_open = False
         self.menu_frame.configure(width=0)
 
 
@@ -341,8 +402,9 @@ class CClientGUI(CClientBL):
             elif cmd == "LOGIN-2":
                 self.update_login_page()
             elif cmd == "CHECK_ID":
-                print(self.id_exists)
                 self.update_login_id_page()
+            elif cmd == "TRANSACTIONS":
+                self.display_transactions()
 
         self.responses_flag = False,None
         self.root.after(10, self.check_for_responses)
@@ -373,16 +435,17 @@ class CClientGUI(CClientBL):
             self.bank_name_label.configure(text=f"Hi {self.first_name} {self.last_name}", font=("Arial", 30, "bold"))
             self.balance_label.pack(pady=20)
             self.update_balance_label()
+            self.transactions_frame.place(relx=0.1, rely=0.3, relheight=0.55, relwidth=0.4)
             self.welcome_frame.place_forget()
             self.bank_img_label.place_forget()
             self.send_data("EXPENSES-2", self.id)
+            self.send_data("TRANSACTIONS", self.account_number)
 
         self.main_frame.pack_forget()
         if self.login_page == None:
             self.login_page = CLogin(self.root,self.main_frame, callback_login, callback_register)
             self.login_page.run()
         else:
-            write_to_log(f"22222222222222222222222222222222222222222222222")
             self.login_page.show_choose_frame()
             self.login_page.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
 
@@ -398,7 +461,94 @@ class CClientGUI(CClientBL):
     def update_login_id_page(self):
             self.login_page.id_exists = self.id_exists
 
+    def display_transactions(self):
 
+        for widget in self.transactions_list_frame.winfo_children():
+            widget.destroy()
+
+        self.transactions.sort(reverse=True)
+        self.transaction_rows.clear()
+
+        for t in self.transactions:
+
+            current = t[1]
+            destination = t[2]
+            amount = t[3]
+            date = t[4]
+
+            row = ctk.CTkFrame(
+                self.transactions_list_frame,
+                fg_color=self.rows_color,
+                corner_radius=10,
+            )
+            self.transaction_rows.append(row)
+            row.pack(fill="x", pady=6, padx=6)
+
+            top_frame = ctk.CTkFrame(row, fg_color="transparent")
+            top_frame.pack(anchor="w", padx=8, pady=(6, 0))
+
+            if current == self.account_number:
+
+                ctk.CTkLabel(
+                    top_frame,
+                    text="Sent ",
+                    font=("Arial", 15)
+                ).pack(side="left")
+
+                ctk.CTkLabel(
+                    top_frame,
+                    text=f"{amount}₪ ",
+                    text_color="#FF6B6B",
+                    font=("Arial", 16, "bold")
+                ).pack(side="left")
+
+                ctk.CTkLabel(
+                    top_frame,
+                    text="to ",
+                    font=("Arial", 15)
+                ).pack(side="left")
+
+                ctk.CTkLabel(
+                    top_frame,
+                    text=f"[{destination}]",
+                    text_color="#4DABF7",
+                    font=("Arial", 15, "bold")
+                ).pack(side="left")
+
+            elif destination == self.account_number:
+
+                ctk.CTkLabel(
+                    top_frame,
+                    text="Received ",
+                    font=("Arial", 15)
+                ).pack(side="left")
+
+                ctk.CTkLabel(
+                    top_frame,
+                    text=f"{amount}₪ ",
+                    text_color="#51CF66",
+                    font=("Arial", 16, "bold")
+                ).pack(side="left")
+
+                ctk.CTkLabel(
+                    top_frame,
+                    text="from ",
+                    font=("Arial", 15)
+                ).pack(side="left")
+
+                ctk.CTkLabel(
+                    top_frame,
+                    text=f"[{current}]",
+                    text_color="#4DABF7",
+                    font=("Arial", 15, "bold")
+                ).pack(side="left")
+
+            ctk.CTkLabel(
+                row,
+                text=date,
+                text_color="#D0B3FF",
+                font=("Arial", 12)
+            ).pack(anchor="w", padx=8, pady=(0, 6))
 
 
     def open_expenses(self):
@@ -410,7 +560,7 @@ class CClientGUI(CClientBL):
             time.sleep(0.1)
             self.root.after(0, self.expenses_page.expense_window.root.destroy)
             self.update_expenses_window()
-            self.root.after(0,self.expenses_page.update_graphs())
+            self.root.after(0,self.expenses_page.update_graphs)
 
         self.main_frame.pack_forget()
         if self.expenses_page == None:
@@ -431,10 +581,27 @@ class CClientGUI(CClientBL):
     def update_register_page(self, data):
         self.login_page.register_page.handle_register_message(data)
 
+    def toggle_theme(self):
+        if self.is_dark_mode:
+            ctk.set_appearance_mode("light")
+            self.is_dark_mode = False
+        else:
+            ctk.set_appearance_mode("dark")
+            self.is_dark_mode = True
+
     def update_expenses_window(self):
-        self.expenses_page.sizes = self.sizes
-        self.expenses_page.labels = self.labels
         self.expenses_page.yearly_data = self.yearly_data
+
+    def update_transaction_rows_color(self):
+
+        if self.menu_open:
+            color = self.rows_color
+        else:
+            color = self.hidden_rows_color
+
+        for row in self.transaction_rows:
+            row.configure(fg_color=color)
+
 
     def on_click_open_transfer(self):
         self.toggle_menu()
@@ -466,7 +633,8 @@ class CClientGUI(CClientBL):
             error_flag = False
 
         if error_flag:
-            self.send_data("TRANSFER", (self.account_number, self.destination_user_entry.get(), int(self.transfer_amount_entry.get())))
+            args = (self.account_number, self.destination_user_entry.get(), int(self.transfer_amount_entry.get()))
+            self.send_data("TRANSFER", args)
             self.on_click_close_transfer()
 
 

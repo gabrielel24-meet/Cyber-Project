@@ -35,58 +35,45 @@ cursor.execute("PRAGMA foreign_keys = ON;")
 # )
 # """)
 
-# cursor.execute("""CREATE TABLE IF NOT EXISTS expenses (
-#         id TEXT PRIMARY KEY,
-#         expense_type TEXT NOT NULL,
-#         payment_type TEXT NOT NULL,
-#         expense_amount REAL,
-#         FOREIGN KEY (id) REFERENCES users(id)
+# cursor.execute("""CREATE TABLE IF NOT EXISTS transfers (
+#         transfer_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#         source_account TEXT NOT NULL,
+#         destination_account TEXT NOT NULL,
+#         transfer_amount REAL,
+#         date TEXT NOT NULL
 #     );
-#     """)
+# """)
 
 # # Insert data record
 # cursor.execute("""INSERT INTO users (id, first_name, last_name, phone_number, password, account_number, balance) VALUES (?, ?, ?, ?, ?, ?, ?)""",
 #                ("1", "gabi", "eliav", "1","1",1,10000))
 
-# cursor.execute("""INSERT INTO user_expenses (id, expense_type, payment_type, expense_amount, month, year)
+# cursor.execute("""INSERT INTO user_expenses
+# (id, expense_type, payment_type, expense_amount, month, year)
 # VALUES
-# (1, 'Food',     'Cash',   (ABS(RANDOM()%10)+1)*100, 'Jan', strftime('%Y','now')),
-# (1, 'Clothes',  'Credit', (ABS(RANDOM()%10)+1)*100, 'Feb', strftime('%Y','now')),
-# (1, 'Gadgets',  'Cash',   (ABS(RANDOM()%10)+1)*100, 'Mar', strftime('%Y','now')),
-# (1, 'Gifts',    'Credit', (ABS(RANDOM()%10)+1)*100, 'Apr', strftime('%Y','now')),
-# (1, 'Other',    'Cash',   (ABS(RANDOM()%10)+1)*100, 'May', strftime('%Y','now')),
+# (1, 'Food',     'Cash',   200, 'Jan', strftime('%Y','now')),
+# (1, 'Gadgets',  'Credit', 800, 'Jan', strftime('%Y','now')),
+# (1, 'Clothes',  'Cash',   300, 'Jan', strftime('%Y','now')),
+# (1, 'Food',     'Credit', 500, 'Jan', strftime('%Y','now')),
 #
-# (1, 'Food',     'Credit', (ABS(RANDOM()%10)+1)*100, 'Jun', strftime('%Y','now')),
-# (1, 'Clothes',  'Cash',   (ABS(RANDOM()%10)+1)*100, 'Jul', strftime('%Y','now')),
-# (1, 'Gadgets',  'Credit', (ABS(RANDOM()%10)+1)*100, 'Aug', strftime('%Y','now')),
-# (1, 'Gifts',    'Cash',   (ABS(RANDOM()%10)+1)*100, 'Sep', strftime('%Y','now')),
-# (1, 'Other',    'Credit', (ABS(RANDOM()%10)+1)*100, 'Oct', strftime('%Y','now')),
+# (1, 'Food',     'Credit', 600, 'Feb', strftime('%Y','now')),
+# (1, 'Clothes',  'Cash',   200, 'Feb', strftime('%Y','now')),
+# (1, 'Gifts',    'Credit', 150, 'Feb', strftime('%Y','now')),
+# (1, 'Food',     'Cash',   400, 'Feb', strftime('%Y','now')),
+# (1, 'Other',    'Credit', 350, 'Feb', strftime('%Y','now')),
 #
-# (1, 'Food',     'Cash',   (ABS(RANDOM()%10)+1)*100, 'Nov', strftime('%Y','now')),
-# (1, 'Clothes',  'Credit', (ABS(RANDOM()%10)+1)*100, 'Dec', strftime('%Y','now')),
-# (1, 'Gadgets',  'Cash',   (ABS(RANDOM()%10)+1)*100, 'Jan', strftime('%Y','now')),
-# (1, 'Gifts',    'Credit', (ABS(RANDOM()%10)+1)*100, 'Feb', strftime('%Y','now')),
-# (1, 'Other',    'Cash',   (ABS(RANDOM()%10)+1)*100, 'Mar', strftime('%Y','now')),
+# (1, 'Gadgets',  'Cash',   900, 'Mar', strftime('%Y','now')),
+# (1, 'Food',     'Credit', 300, 'Mar', strftime('%Y','now')),
+# (1, 'Clothes',  'Credit', 450, 'Mar', strftime('%Y','now')),
+# (1, 'Gifts',    'Cash',   200, 'Mar', strftime('%Y','now')),
+# (1, 'Food',     'Cash',   250, 'Mar', strftime('%Y','now')),
 #
-# (1, 'Food',     'Credit', (ABS(RANDOM()%10)+1)*100, 'Apr', strftime('%Y','now')),
-# (1, 'Clothes',  'Cash',   (ABS(RANDOM()%10)+1)*100, 'May', strftime('%Y','now')),
-# (1, 'Gadgets',  'Credit', (ABS(RANDOM()%10)+1)*100, 'Jun', strftime('%Y','now')),
-# (1, 'Gifts',    'Cash',   (ABS(RANDOM()%10)+1)*100, 'Jul', strftime('%Y','now')),
-# (1, 'Other',    'Credit', (ABS(RANDOM()%10)+1)*100, 'Aug', strftime('%Y','now')),
-#
-# (1, 'Food',     'Cash',   (ABS(RANDOM()%10)+1)*100, 'Sep', strftime('%Y','now')),
-# (1, 'Clothes',  'Credit', (ABS(RANDOM()%10)+1)*100, 'Oct', strftime('%Y','now')),
-# (1, 'Gadgets',  'Cash',   (ABS(RANDOM()%10)+1)*100, 'Nov', strftime('%Y','now')),
-# (1, 'Gifts',    'Credit', (ABS(RANDOM()%10)+1)*100, 'Dec', strftime('%Y','now')),
-# (1, 'Other',    'Cash',   (ABS(RANDOM()%10)+1)*100, 'Jan', strftime('%Y','now')),
-#
-# (1, 'Food',     'Credit', (ABS(RANDOM()%10)+1)*100, 'Feb', strftime('%Y','now')),
-# (1, 'Clothes',  'Cash',   (ABS(RANDOM()%10)+1)*100, 'Mar', strftime('%Y','now')),
-# (1, 'Gadgets',  'Credit', (ABS(RANDOM()%10)+1)*100, 'Apr', strftime('%Y','now')),
-# (1, 'Gifts',    'Cash',   (ABS(RANDOM()%10)+1)*100, 'May', strftime('%Y','now')),
-# (1, 'Other',    'Credit', (ABS(RANDOM()%10)+1)*100, 'Jun', strftime('%Y','now'));""")
-
-
+# (1, 'Other',    'Credit', 500, 'Apr', strftime('%Y','now')),
+# (1, 'Food',     'Cash',   350, 'Apr', strftime('%Y','now')),
+# (1, 'Clothes',  'Credit', 600, 'Apr', strftime('%Y','now')),
+# (1, 'Gadgets',  'Credit', 700, 'Apr', strftime('%Y','now')),
+# (1, 'Gifts',    'Cash',   180, 'Apr', strftime('%Y','now'));
+# """)
 # cursor.execute("""INSERT INTO user_expenses (id, expense_type, payment_type, expense_amount) VALUES (?, ?, ?, ?)""",
 #                ("3", "Food","Credit",100))
 
@@ -94,16 +81,19 @@ cursor.execute("PRAGMA foreign_keys = ON;")
 # cursor.execute("ALTER TABLE users RENAME COLUMN email to phone_number")
 # cursor.execute(f"UPDATE users SET password = ? WHERE account_number = ?", ( 1, 1))
 
+# Add a column
+# cursor.execute("ALTER TABLE transfers ADD COLUMN date TEXT")
+
 # Delete Data
-cursor.execute("DELETE FROM users WHERE balance = 0",())
+# cursor.execute("DELETE FROM user_expenses WHERE expenses_id = 267",())
 
 # cursor.execute(f"SELECT * FROM users WHERE id = ?", (1,))
-user = cursor.fetchone()
-
-print(user)
+# user = cursor.fetchone()
+#
+# print(user)
 
 # Drop Table
-# cursor.execute("DROP TABLE IF EXISTS user_expenses")
+# cursor.execute("DROP TABLE IF EXISTS transfers")
 
 #Confirm and save data into DataBase
 conn.commit()

@@ -40,6 +40,8 @@ class CClientBL:
         self.login_successfully_flag = None
         self.face_matches = False
         self.id_exists = False
+        self.transactions = None
+
 
 
     def connect_to_server(self):
@@ -107,6 +109,8 @@ class CClientBL:
                     self.update_expenses(response)
                 elif cmd == "EXPENSES-2":
                     self.update_expenses(response)
+                elif cmd == "TRANSACTIONS":
+                    self.update_transactions(response)
 
         except Exception as e:
             write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))
@@ -117,6 +121,9 @@ class CClientBL:
     def update_balance(self,data):
         self.balance = float(data)
 
+    def update_transactions(self, data):
+        self.transactions = data
+        self.responses_flag = (True, "TRANSACTIONS")
 
     def send_data(self, cmd, args):
        protocol_send_data(cmd, args, self._client_socket, self.fernet)
@@ -155,6 +162,7 @@ class CClientBL:
             self.phone_number = account_data[3]
             self.password = account_data[4]
             self.account_number = account_data[5]
+            print(type(self.account_number))
             self.balance = account_data[6]
 
             self.face_matches = True
@@ -187,8 +195,8 @@ class CClientBL:
         self.responses_flag = (True, message)
 
     def update_expenses(self, response):
-        self.sizes = []
-        self.labels = []
+        # self.sizes = []
+        # self.labels = []
         self.yearly_data = {
             'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             'Food': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -205,10 +213,10 @@ class CClientBL:
             expense_amount = expense[3]
             dictionary[expense_type] += expense_amount
 
-        for key in dictionary:
-            if dictionary[key] > 0:
-                self.sizes.append(dictionary[key])
-                self.labels.append(key)
+        # for key in dictionary:
+        #     if dictionary[key] > 0:
+        #         self.sizes.append(dictionary[key])
+        #         self.labels.append(key)
 
         for expense in response:
             expense_month = expense[4]
@@ -217,8 +225,6 @@ class CClientBL:
             expense_amount = expense[3]
 
             self.yearly_data[expense_type][month_index] += expense_amount
-
-        write_to_log(self.yearly_data)
 
 if __name__ == "__main__":
     pass

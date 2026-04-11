@@ -22,9 +22,11 @@ class CRegister:
         self.callback_register = callback_register
 
         # Configure purple color scheme
-        self.primary_color = "#6A0DAD"  # Purple
-        self.secondary_color = "#8A2BE2"  # Blue violet
-        self.accent_color = "#9370DB"  # Medium purple
+        self.primary_color = ("#6A0DAD", "#2D1B4E")
+        self.secondary_color = ("#8A2BE2", "#3E2A6D")
+        self.accent_color = ("#9370DB", "#9B5DE5")
+        self.text_color = ("#2B2B2B", "#F1F1F1")
+
 
         # Set the background color
         self.root.configure(fg_color=self.primary_color)

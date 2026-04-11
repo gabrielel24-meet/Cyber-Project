@@ -25,6 +25,8 @@ import cv2
 import face_recognition
 import json
 import numpy as np
+import calendar
+
 
 
 
@@ -40,7 +42,7 @@ DISCONNECT_MSG = "bye"
 LOG_FILE = 'LOG.log'
 logging.basicConfig(filename=LOG_FILE,level=logging.INFO,format='%(asctime)s - %(levelname)s - %(message)s')
 
-standard_cmd = ["GET_BALANCE","TRANSFER","EXPENSES-1", "EXPENSES-2"]
+standard_cmd = ["GET_BALANCE","TRANSFER","EXPENSES-1", "EXPENSES-2", "TRANSACTIONS"]
 login_cmd = ["LOGIN-1","LOGIN-2","CHECK_ID", "REGISTER"]
 
 
@@ -88,6 +90,9 @@ def create_response_msg(cmd,args):
         response = add_expense(args)
     elif cmd == "EXPENSES-2":
         response = get_expenses(args)
+    elif cmd == "TRANSACTIONS":
+        response = get_transactions(args)
+
 
     return response
 
@@ -152,6 +157,27 @@ def get_balance(account_number):
     return balance
 
 
+def get_transactions(data):
+    conn = sqlite3.connect("Bank.db")
+    cursor = conn.cursor()
+
+    account = str(data)
+    transactions = []
+
+    cursor.execute(f"SELECT * FROM transfers", ())
+    all_transactions = cursor.fetchall()
+
+    for t in all_transactions:
+        current = t[1]
+        destination = t[2]
+
+        if current == account or destination == account:
+            transactions.append(t)
+
+    conn.close()
+    return transactions
+
+
 def transfer(data):
     try:
         current = data[0]
@@ -161,6 +187,7 @@ def transfer(data):
         conn = sqlite3.connect("Bank.db")
         cursor = conn.cursor()
 
+        # Change "users" table
         cursor.execute(f"SELECT balance FROM users WHERE account_number = ?", (current,))
         current_balance = cursor.fetchone()[0]
 
@@ -169,6 +196,11 @@ def transfer(data):
 
         cursor.execute(f"UPDATE users SET balance = ? WHERE account_number = ?",((current_balance - amount),current))
         cursor.execute(f"UPDATE users SET balance = ? WHERE account_number = ?",(destination_balance + amount,destination))
+
+        # Add transfer to "transfers" table
+        cursor.execute("""INSERT INTO transfers (source_account, destination_account, transfer_amount, date) VALUES (?, ?, ?, ?)""",
+                       (current, destination, amount, datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+
         conn.commit()
         conn.close()
 
@@ -232,5 +264,4 @@ def is_positive_number(str):
 
 
 if __name__ == "__main__":
-    # print(expenses("(2,('Food','cash',12))"))
-    get_expenses(1)
+    get_transactions('777')
