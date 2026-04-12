@@ -14,7 +14,9 @@ class CExpensesGUI():
         self.primary_color = ("#6A0DAD", "#2D1B4E")
         self.secondary_color = ("#8A2BE2", "#3E2A6D")
         self.accent_color = ("#9370DB", "#9B5DE5")
-        self.text_color = ("#FFFFFF", "#6f4cba")
+        self.text_color = "#FFFFFF"
+        self.month_color = ("#a166ed","#6f4cba")
+        self.entry_color = ("#aa80d9","#c49fed")
 
         self.previous_page = previous_page
         self.callback_expenses = callback_expenses
@@ -52,7 +54,7 @@ class CExpensesGUI():
             self.main_frame,
             text="Expenses",
             font=("Arial", 24, "bold"),
-            text_color="white"
+            text_color=self.text_color,
         )
         self.title_label.pack(pady=(40, 20))
 
@@ -75,6 +77,7 @@ class CExpensesGUI():
             height=30,
             border_width=1,
             fg_color=self.primary_color,
+            hover_color=self.accent_color,
             command=self.open_expenses_window
         )
         self.expense_button.place(relx=0.45, rely=0.2)
@@ -128,6 +131,7 @@ class CExpensesGUI():
         self.connection_status = ctk.CTkLabel(
             self.main_frame,
             text="connected",
+            text_color=self.text_color,
         )
         self.connection_status.pack()
         self.connection_status.place(relx=0.01, rely=1.0, anchor="sw")
@@ -153,6 +157,7 @@ class CExpensesGUI():
             self.main_frame,
             text="Insights",
             font=("Arial", 22, "bold"),
+            text_color=self.text_color,
         )
         self.title_label.place(relx=0.5, rely=0.08, anchor="center")  
 
@@ -186,17 +191,19 @@ class CExpensesGUI():
         self.monthly_title = ctk.CTkLabel(
             self.monthly_insights_frame,
             font=("Arial", 25, "bold"),
-            text="Monthly Insights"
+            text="Monthly Insights",
+            text_color = self.text_color,
         )
         self.month_label = ctk.CTkLabel(
             self.monthly_insights_frame,
             font=("Arial", 23, "bold"),
-            text_color=self.text_color,
+            text_color=self.month_color,
         )
         self.monthly_insights_label = ctk.CTkLabel(
             self.monthly_insights_frame,
             font=("Arial", 20),
-            text=f"""You spend most of your money on """
+            text=f"""You spend most of your money on """,
+            text_color = self.text_color,
         )
         self.bold_montly_expense_label = ctk.CTkLabel(
             self.monthly_insights_frame,
@@ -205,21 +212,25 @@ class CExpensesGUI():
         self.monthly_first_half = ctk.CTkLabel(
             self.monthly_insights_frame,
             font=("Arial", 20),
-            text=f""" """
+            text=f"",
+            text_color = self.text_color,
         )
         self.monthly_second_half = ctk.CTkLabel(
             self.monthly_insights_frame,
             font=("Arial", 20),
-            text=f""" """
+            text=f"",
+            text_color=self.text_color,
         )
         self.bold_monthly_total_amount = ctk.CTkLabel(
             self.monthly_insights_frame,
-            font=("Arial", 22, "bold")
+            font=("Arial", 22, "bold"),
+            text_color = self.text_color,
         )
         self.monthly_insights_label_3 = ctk.CTkLabel(
             self.monthly_insights_frame,
             font=("Arial", 20),
-            text=f""" """
+            text=f"",
+            text_color=self.text_color,
         )
         self.bold_montly_change = ctk.CTkLabel(
             self.monthly_insights_frame,
@@ -228,7 +239,8 @@ class CExpensesGUI():
         self.monthly_insights_label_4 = ctk.CTkLabel(
             self.monthly_insights_frame,
             font=("Arial", 20),
-            text=f""" """
+            text=f"",
+            text_color=self.text_color,
         )
 
 
@@ -243,12 +255,14 @@ class CExpensesGUI():
         self.yearly_title = ctk.CTkLabel(
             self.yearly_insights_frame,
             font=("Arial", 25, "bold"),
-            text="Yearly Insights"
+            text="Yearly Insights",
+            text_color = self.text_color,
         )
         self.yearly_insights_label = ctk.CTkLabel(
             self.yearly_insights_frame,
             font=("Arial", 17),
-            text=f"""You spend most of your money on """
+            text=f"""You spend most of your money on """,
+            text_color=self.text_color,
         )
 
         self.bold_yearly_expense_label = ctk.CTkLabel(
@@ -366,7 +380,7 @@ class CExpensesGUI():
         if direction == "increased":
             change_color = "red"
         else:
-            change_color = "green"
+            change_color = ("#98eda6","green")
 
         rank = self.get_month_rank_insight()
 
@@ -533,9 +547,13 @@ class CExpensesWnd:
         self.root.resizable(False, False)
 
         # Configure purple color scheme
-        self.primary_color = "#6A0DAD"  # Purple
-        self.secondary_color = "#8A2BE2"  # Blue violet
-        self.accent_color = "#9370DB"  # Medium purple
+        self.primary_color = ("#6A0DAD", "#2D1B4E")
+        self.secondary_color = ("#8A2BE2", "#3E2A6D")
+        self.accent_color = ("#9370DB", "#9B5DE5")
+        self.text_color = "#FFFFFF"
+        self.month_color = ("#bd98ed","6f4cba")
+        self.entry_color = ("#aa80d9","#c49fed")
+
 
         # Set the background color
         self.root.configure(fg_color=self.primary_color)
@@ -549,26 +567,34 @@ class CExpensesWnd:
         self.main_frame = ctk.CTkFrame(self.root, fg_color=self.secondary_color)
         self.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
 
-
         self.expense_amount_frame = ctk.CTkFrame(self.main_frame, fg_color=self.secondary_color)
-        self.expense_amount_label = ctk.CTkLabel(self.expense_amount_frame, text="Expense amount", font=("Arial", 15, "bold")).pack(anchor="w")
+        self.expense_amount_label = ctk.CTkLabel(self.expense_amount_frame, text="Expense amount", font=("Arial", 15, "bold"), text_color=self.text_color).pack(anchor="w")
         self.expense_amount_frame.place(anchor="nw",relx=0.15, rely=0.05)
-        self.expense_amount_entry = ctk.CTkEntry(self.expense_amount_frame, width=220, height=25, border_width=1)
-        self.amount_error_message = ctk.CTkLabel(self.main_frame, text="error")
+        self.expense_amount_entry = ctk.CTkEntry(self.expense_amount_frame, width=220, height=25, border_width=1, border_color="white", text_color="black", fg_color=self.entry_color)
+        self.amount_error_message = ctk.CTkLabel(self.main_frame, text="error", text_color=self.text_color)
         self.expense_amount_entry.pack()
 
         self.types_combo_frame = ctk.CTkFrame(self.main_frame, fg_color=self.secondary_color)
-        self.types_combo_label = ctk.CTkLabel(self.types_combo_frame, text="Expense type", font=("Arial", 15, "bold")).pack(anchor="w")
+        self.types_combo_label = ctk.CTkLabel(self.types_combo_frame, text="Expense type", font=("Arial", 15, "bold"), text_color=self.text_color).pack(anchor="w")
         self.types_combo_frame.place(anchor="w",relx=0.15, rely=0.36)
-        self.type_error_message = ctk.CTkLabel(self.main_frame, text="Choose an expense type")
-        self.types_combo = ctk.CTkComboBox(self.types_combo_frame, values=self.expense_types, state="readonly")
+        self.type_error_message = ctk.CTkLabel(self.main_frame, text="Choose an expense type", text_color=self.text_color)
+        self.types_combo = ctk.CTkComboBox(self.types_combo_frame, values=self.expense_types, state="readonly", text_color="black",fg_color=self.entry_color)
         self.types_combo.pack()
 
         self.payment_types_frame = ctk.CTkFrame(self.main_frame, fg_color=self.secondary_color)
-        self.payment_types_label = ctk.CTkLabel(self.payment_types_frame, text="How did you pay?", font=("Arial", 15, "bold")).pack(anchor="w")
+        self.payment_types_label = ctk.CTkLabel(self.payment_types_frame, text="How did you pay?", font=("Arial", 15, "bold"), text_color=self.text_color).pack(anchor="w")
         self.payment_types_frame.place(anchor="w",relx=0.15, rely=0.6)
-        self.payment_error_message = ctk.CTkLabel(self.main_frame, text="Choose a payment type")
-        self.payment_types_buttons = ctk.CTkSegmentedButton(self.payment_types_frame, values=self.payment_types)
+        self.payment_error_message = ctk.CTkLabel(self.main_frame, text="Choose a payment type", text_color=self.text_color)
+        self.payment_types_buttons = ctk.CTkSegmentedButton(
+            self.payment_types_frame,
+            values=self.payment_types,
+            text_color="black",
+            fg_color=self.entry_color,
+            unselected_color=("#c49fed", "#c9b4ed"),
+            selected_color=("#9370DB", "#7b4fc9"),
+            selected_hover_color=("#a685e2", "#8f63db"),
+            unselected_hover_color=("#d8b7f5", "#6d4fc2")
+        )
         self.payment_types_buttons.pack(anchor="w")
 
         self.submit_button = ctk.CTkButton(

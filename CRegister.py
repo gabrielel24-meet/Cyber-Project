@@ -25,7 +25,8 @@ class CRegister:
         self.primary_color = ("#6A0DAD", "#2D1B4E")
         self.secondary_color = ("#8A2BE2", "#3E2A6D")
         self.accent_color = ("#9370DB", "#9B5DE5")
-        self.text_color = ("#2B2B2B", "#F1F1F1")
+        self.text_color = "#FFFFFF"
+        self.entry_color = ("#aa80d9","#c49fed")
 
 
         # Set the background color
@@ -61,7 +62,7 @@ class CRegister:
             self.main_frame,
             text="Sign up",
             font=("Arial", 25, "bold"),
-            text_color="white"
+            text_color= self.text_color,
         )
         self.Register_label.pack(pady=(40, 20))
 
@@ -70,7 +71,7 @@ class CRegister:
             self.main_frame,
             text="",
             font=("Arial", 16),
-            text_color="#ada6b3"
+            text_color= self.text_color,
         )
         self.time_label.place(relx=0.01,rely=0.01, anchor="nw")
 
@@ -108,7 +109,7 @@ class CRegister:
             self.main_frame,
             text="Face ID",
             font=("Arial", 18, "bold"),
-            text_color="white"
+            text_color= self.text_color,
         )
 
 
@@ -127,6 +128,7 @@ class CRegister:
         self.connection_status = ctk.CTkLabel(
             self.main_frame,
             text="connected",
+            text_color=self.text_color,
         )
 
         # Camera
@@ -145,12 +147,14 @@ class CRegister:
         self.camera_instructions_label = ctk.CTkLabel(
             self.camera_frame,
             text="Please look into the camera:",
-            font=("Arial",22,"bold")
+            font=("Arial",22,"bold"),
+            text_color= self.text_color
         )
         self.face_id_result_label = ctk.CTkLabel(
             self.camera_frame,
             text="",
-            font=("Arial", 20, "bold")
+            font=("Arial", 20, "bold"),
+            text_color = self.text_color,
         )
 
         try_again_img = ctk.CTkImage(
@@ -195,6 +199,8 @@ class CRegister:
             frame,
             text=label_text,
             font=("Arial", 15, "bold"),
+            text_color=self.text_color,
+
         )
         label.pack(anchor="w", padx=10)
 
@@ -203,6 +209,9 @@ class CRegister:
             width=220,
             height=25,
             border_width=1,
+            border_color="white",
+            text_color="black",
+            fg_color=self.entry_color,
         )
         textbox.pack()
 
@@ -213,10 +222,10 @@ class CRegister:
         self.last_name_frame, self.last_name_entry = self.create_entry(self.main_frame, "Last Name", 0.2, 0.4)
 
         self.id_frame,  self.id_entry = self.create_entry(self.main_frame, "ID", 0.2, 0.6)
-        self.id_error_message = ctk.CTkLabel(self.main_frame, text="ID taken")
+        self.id_error_message = ctk.CTkLabel(self.main_frame, text_color= self.text_color, text="ID taken")
 
         self.phone_number_frame, self.phone_number_entry = self.create_entry(self.main_frame, "Phone Number", 0.6, 0.2)
-        self.phone_error_message = ctk.CTkLabel(self.main_frame, text="Phone Number taken")
+        self.phone_error_message = ctk.CTkLabel(self.main_frame, text_color= self.text_color, text="Phone Number taken")
 
         self.password_frame, self.password_entry = self.create_entry(self.main_frame, "Password", 0.6, 0.4)
         self.face_id_label.place(relx=0.67, rely=0.52)

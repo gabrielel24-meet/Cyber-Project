@@ -4,9 +4,6 @@ from protocol import *
 from CClientBL import *
 from CRegister import *
 # Set appearance mode and color theme
-ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("dark-blue")
-
 
 class CLogin:
 
@@ -24,7 +21,9 @@ class CLogin:
         self.primary_color = ("#6A0DAD", "#2D1B4E")
         self.secondary_color = ("#8A2BE2", "#3E2A6D")
         self.accent_color = ("#9370DB", "#9B5DE5")
-        self.text_color = ("#2B2B2B", "#F1F1F1")
+        self.text_color = "#FFFFFF"
+        self.entry_color = ("#aa80d9","#c49fed")
+        self.link_color = ("blue","#565fc7")
 
 
         # Set the background color
@@ -70,7 +69,7 @@ class CLogin:
             self.main_frame,
             text="Sign In",
             font=("Arial", 30, "bold"),
-            text_color="white"
+            text_color=self.text_color,
         )
         self.Login_label.pack(pady=(40, 20))
 
@@ -94,7 +93,6 @@ class CLogin:
             command=self.open_register_page
 
         )
-        # self.register_button.place(relx=0.99, rely=0.01, anchor="ne")
 
 
         self.back_button = ctk.CTkButton(
@@ -104,7 +102,7 @@ class CLogin:
             fg_color="transparent",
             hover_color=self.secondary_color,
             border_width=0,
-            text_color="white",
+            text_color=self.text_color,
             width=0,
             command=self.open_previous_page
 
@@ -122,7 +120,7 @@ class CLogin:
             self.choose_frame,
             text="Choose your preferred way of Signing in:",
             font=("Arial", 20,"bold"),
-            text_color="white"
+            text_color=self.text_color,
         )
         self.choose_label.place(relx = 0.23, rely = 0.1)
 
@@ -147,7 +145,7 @@ class CLogin:
             self.choose_frame,
             text="Face ID",
             font=("Arial", 18, "bold"),
-            text_color="white"
+            text_color=self.text_color,
         )
         self.face_id_button.place(relx = 0.2, rely = 0.2)
         self.face_id_label.place(relx=0.295, rely=0.6)
@@ -172,7 +170,7 @@ class CLogin:
             self.choose_frame,
             text="Regular Form",
             font=("Arial", 18, "bold"),
-            text_color="white"
+            text_color=self.text_color,
         )
         self.form_button.place(relx=0.53, rely=0.2)
         self.form_label.place(relx=0.58, rely=0.6)
@@ -193,12 +191,15 @@ class CLogin:
         self.camera_instructions_label = ctk.CTkLabel(
             self.camera_frame,
             text="Please look into the camera:",
-            font=("Arial", 22, "bold")
+            font=("Arial", 22, "bold"),
+            text_color = self.text_color,
+
         )
         self.fce_id_result_label = ctk.CTkLabel(
             self.camera_frame,
             text="",
-            font=("Arial", 20, "bold")
+            font=("Arial", 20, "bold"),
+            text_color=self.text_color,
         )
         self.submit_face_id_button = ctk.CTkButton(
             self.camera_frame,
@@ -214,7 +215,8 @@ class CLogin:
         self.id_error_message = ctk.CTkLabel(
             self.camera_frame,
             text="ID not found",
-            font=("Arial",18,"bold")
+            font=("Arial",18,"bold"),
+            text_color=self.text_color,
         )
 
 
@@ -240,9 +242,9 @@ class CLogin:
             fg_color="transparent",
             hover_color=self.secondary_color,
             border_width=0,
-            text_color="white",
+            text_color = self.text_color,
             width=0,
-            command=self.try_again_later
+            command=self.try_again_later,
         )
 
         # Sign Up label
@@ -250,7 +252,7 @@ class CLogin:
             self.choose_frame,
             text="Don't have an account?",
             font=("Arial", 15, "bold"),
-            text_color="white"
+            text_color = self.text_color,
         )
         self.second_sign_up_button = ctk.CTkButton(
             self.choose_frame,
@@ -259,7 +261,7 @@ class CLogin:
             fg_color="transparent",
             hover_color=self.secondary_color,
             border_width=0,
-            text_color="#565fc7",
+            text_color=self.link_color,
             width=0,
             command=self.open_register_page
 
@@ -283,12 +285,14 @@ class CLogin:
         )
 
 
-        self.connection_status = ctk.CTkLabel(
-            self.main_frame,
-            text="connected",
-        )
-        self.connection_status.pack()
-        self.connection_status.place(relx=0.01, rely=1.0, anchor="sw")
+        # self.connection_status = ctk.CTkLabel(
+        #     self.main_frame,
+        #     text="connected",
+        #     text_color = self.text_color,
+
+        # )
+        # self.connection_status.pack()
+        # self.connection_status.place(relx=0.01, rely=1.0, anchor="sw")
         self.time_thread.start()
 
 
@@ -301,6 +305,7 @@ class CLogin:
             frame,
             text=label_text,
             font=("Arial", 15, "bold"),
+            text_color=self.text_color,
         )
         label.pack(anchor="w", padx=10)
 
@@ -309,6 +314,9 @@ class CLogin:
             width=220,
             height=25,
             border_width=1,
+            border_color="white",
+            text_color="black",
+            fg_color=self.entry_color,
         )
         textbox.pack()
 

@@ -1,3 +1,5 @@
+from doctest import master
+
 import customtkinter
 from protocol import *
 from protocol_DB import *
@@ -18,15 +20,15 @@ class CClientGUI(CClientBL):
         self.root.geometry("1100x700")
 
         ctk.set_appearance_mode("light")
-        self.is_dark_mode = True
+        self.is_dark_mode = False
 
         # Configure purple color scheme
         self.primary_color = ("#6A0DAD", "#2D1B4E")
         self.secondary_color = ("#8A2BE2", "#3E2A6D")
         self.accent_color = ("#9370DB", "#9B5DE5")
-        self.text_color = ("#2B2B2B", "#F1F1F1")
-        self.card_color = ("#F3E8FF", "#4B357D")
-        self.rows_color = ("#E9D5FF", "#5B3B8C")
+        self.text_color = "#FFFFFF"
+        self.card_color = ("#a187d6", "#4B357D")  # סגול מעושן עדין
+        self.rows_color = ("#D8C7F7", "#5B3B8C")  # יותר מודגש אבל רגוע
 
         self.hidden_secondary_color = ("#6E2DB5", "#2A1F3D")
         self.hidden_card_color = ("#E0CFFF", "#3A2A5A")
@@ -71,7 +73,7 @@ class CClientGUI(CClientBL):
             self.main_frame,
             text="FINANCE PLAN BANK",
             font=("Arial", 50, "bold"),
-            text_color="white"
+            text_color=self.text_color
         )
         self.bank_name_label.pack(pady=(80, 20))
 
@@ -90,7 +92,7 @@ class CClientGUI(CClientBL):
             self.main_frame,
             text=f"Balance: {self.balance}₪",
             font=("Arial", 20, "bold"),
-            text_color="white"
+            text_color=self.text_color
         )
 
         # Transfer Button
@@ -146,12 +148,15 @@ class CClientGUI(CClientBL):
             self.welcome_frame,
             text="Welcome!",
             font = ("Arial", 40, "bold"),
+            text_color=self.text_color,
         )
         self.welcome_text = ctk.CTkLabel(
             self.welcome_frame,
             text="Finance Plan is the first and only bank that cares for you! \n Here, our top priorities are to make sure you always know your financial situation \n & help you spend your money smarter.",
             font=("Arial", 20),
-            # text_color=self.accent_color
+            # text_color=self.accent_color,
+            text_color=self.text_color,
+
         )
 
         self.login_button = ctk.CTkButton(
@@ -198,6 +203,7 @@ class CClientGUI(CClientBL):
         self.transactions_title = ctk.CTkLabel(
             self.transactions_frame,
             text="Transactions",
+            text_color=self.text_color,
             font=("Arial", 22, "bold")
         )
         self.transactions_list_frame = ctk.CTkScrollableFrame(
@@ -215,6 +221,7 @@ class CClientGUI(CClientBL):
         self.connection_status_label = ctk.CTkLabel(
             self.main_frame,
             text="Not connected",
+            text_color = self.text_color,
         )
         self.connection_status_label.place(relx=0.01, rely=1.0, anchor="sw")
 
@@ -260,7 +267,8 @@ class CClientGUI(CClientBL):
         self.menu_title = ctk.CTkLabel(
             self.menu_frame,
             text="Menu",
-            font=("Arial", 25, "bold")
+            font=("Arial", 25, "bold"),
+            text_color=self.text_color,
         )
         self.menu_title.place(relx = 0.4, rely = 0.07)
 
@@ -320,30 +328,30 @@ class CClientGUI(CClientBL):
         self.menu_signout_btn.place(relx=0.5, rely=0.95, anchor="s")
 
 
-        self.theme_frame = ctk.CTkFrame(
-            self.menu_frame,
-            fg_color="transparent"
-        )
-
-        self.theme_frame.place(relx=0.05, rely=0.4)
-
-        self.theme_label = ctk.CTkLabel(
-            self.theme_frame,
-            text="Theme",
-            font=("Arial", 18, "bold")
-        )
-        self.theme_label.pack(anchor="w", pady=(0, 5))
-
-        self.theme_switch = ctk.CTkSwitch(
-            self.theme_frame,
-            text="Dark Mode",
-            command=self.toggle_theme
-        )
-        self.theme_switch.select()
-        self.theme_switch.pack(anchor="w")
         self.time_thread.start()
         self.connection_status_thread.start()
 
+        # Theme
+        self.theme_frame = self.create_theme_switch(self.main_frame)
+        self.theme_frame.place(relx=0.45, rely = 0.9)
+
+
+    def create_theme_switch(self, frame):
+        theme_frame = ctk.CTkFrame(
+            frame,
+            fg_color="transparent"
+        )
+
+        theme_switch = ctk.CTkSwitch(
+            theme_frame,
+            text="Dark Mode",
+            text_color=self.text_color,
+            command=self.toggle_theme
+        )
+
+        theme_switch.pack(anchor="w")
+
+        return theme_frame
 
     def update_connection_status(self):
         if self.connection_status:
@@ -438,6 +446,10 @@ class CClientGUI(CClientBL):
             self.transactions_frame.place(relx=0.1, rely=0.3, relheight=0.55, relwidth=0.4)
             self.welcome_frame.place_forget()
             self.bank_img_label.place_forget()
+            self.theme_frame.destroy()
+            self.theme_frame = self.create_theme_switch(self.menu_frame)
+            self.theme_frame.place(relx=0.05, rely=0.4)
+
             self.send_data("EXPENSES-2", self.id)
             self.send_data("TRANSACTIONS", self.account_number)
 
@@ -492,7 +504,7 @@ class CClientGUI(CClientBL):
                 ctk.CTkLabel(
                     top_frame,
                     text="Sent ",
-                    font=("Arial", 15)
+                    font=("Arial", 15),
                 ).pack(side="left")
 
                 ctk.CTkLabel(
@@ -520,7 +532,7 @@ class CClientGUI(CClientBL):
                 ctk.CTkLabel(
                     top_frame,
                     text="Received ",
-                    font=("Arial", 15)
+                    font=("Arial", 15),
                 ).pack(side="left")
 
                 ctk.CTkLabel(
@@ -546,8 +558,8 @@ class CClientGUI(CClientBL):
             ctk.CTkLabel(
                 row,
                 text=date,
-                text_color="#D0B3FF",
-                font=("Arial", 12)
+                text_color="#9E8CC9",
+                font=("Arial", 12),
             ).pack(anchor="w", padx=8, pady=(0, 6))
 
 
