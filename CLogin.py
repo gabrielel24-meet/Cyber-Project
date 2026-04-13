@@ -393,7 +393,7 @@ class CLogin:
         self.camera_label.place(relx = 0.2, rely = 0.15)
         self.camera_instructions_label.place(relx = 0.3, rely = 0.1)
 
-        self.video_capture = cv2.VideoCapture(0)
+        self.video_capture = cv2.VideoCapture(0, cv2.CAP_DSHOW)
         self.timer = 500
         self.found_face_flag = False
         self.face_recognized = False

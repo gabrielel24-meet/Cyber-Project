@@ -111,6 +111,7 @@ class CClientBL:
                     self.update_expenses(response)
                 elif cmd == "TRANSACTIONS":
                     self.update_transactions(response)
+                    self.update_right_panel()
 
         except Exception as e:
             write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))

@@ -1,6 +1,5 @@
 from doctest import master
 
-import customtkinter
 from protocol import *
 from protocol_DB import *
 from CClientBL import *
@@ -222,6 +221,87 @@ class CClientGUI(CClientBL):
         self.transactions_title.pack(pady=10)
         self.transactions_list_frame.pack(padx=10, pady=10, fill="both", expand=True)
 
+        # Quick menu
+        self.right_panel = ctk.CTkFrame(
+            self.main_frame,
+            fg_color=self.secondary_color,
+        )
+
+        self.user_title = ctk.CTkLabel(
+            self.right_panel,
+            text="User",
+            font=("Arial", 25, "bold"),
+            text_color=self.text_color,
+        )
+        self.user_name_label = ctk.CTkLabel(
+            self.right_panel,
+            text="",
+            font=("Arial", 18, "bold"),
+            text_color = self.text_color,
+        )
+        self.account_label = ctk.CTkLabel(
+            self.right_panel,
+            text="",
+            font=("Arial", 16),
+            text_color = self.text_color,
+        )
+        self.phone_label = ctk.CTkLabel(
+            self.right_panel,
+            text="",
+            font=("Arial", 16),
+            text_color = self.text_color,
+        )
+        self.user_title.place(relx=0.07, rely=0.07)
+        self.user_name_label.place(relx=0.07, rely=0.1)
+        self.phone_label.place(relx=0.07, rely=0.2)
+        self.account_label.place(relx=0.07, rely=0.3)
+
+
+        self.summary_title = ctk.CTkLabel(
+            self.right_panel,
+            text="This Month",
+            font=("Arial", 18, "bold"),
+            text_color = self.text_color,
+        )
+        self.total_spent_label = ctk.CTkLabel(
+            self.right_panel,
+            text="₪0",
+            font=("Arial", 16, "bold"),
+            text_color = self.text_color,
+        )
+        self.top_category_label = ctk.CTkLabel(
+            self.right_panel,
+            text="Top: -",
+            font=("Arial", 16),
+            text_color = self.text_color,
+        )
+        self.quick_info = ctk.CTkLabel(
+            self.right_panel,
+            text="Quick Menu",
+            font=("Arial", 18, "bold"),
+            text_color = self.text_color,
+        )
+        self.last_title = ctk.CTkLabel(
+            self.right_panel,
+            text="Last Transaction:",
+            font=("Arial", 16, "bold"),
+            text_color = self.text_color,
+        )
+        self.last_transaction_label = ctk.CTkLabel(
+            self.right_panel,
+            text="-",
+            font=("Arial", 15),
+            text_color = self.text_color,
+        )
+
+        self.summary_title.place(relx=0.07, rely=0.5)
+        self.total_spent_label.place(relx=0.07, rely=0.6)
+        self.top_category_label.place(relx=0.07, rely=0.7)
+        self.quick_info.place(relx=0.07, rely=0.8)
+        self.last_title.place(relx=0.07, rely=0.9)
+        self.last_transaction_label.place(relx=0.07, rely=0.95)
+
+
 
         # Connection Status
         self.connection_status_label = ctk.CTkLabel(
@@ -359,6 +439,7 @@ class CClientGUI(CClientBL):
 
         return theme_frame
 
+
     def update_connection_status(self):
         if self.connection_status:
             self.connection_status_label.configure(text="connected")
@@ -448,7 +529,9 @@ class CClientGUI(CClientBL):
             self.bank_name_label.pack(pady=(40, 20))
             self.bank_name_label.configure(text=f"Hi {self.first_name} {self.last_name}", font=("Arial", 30, "bold"))
             self.balance_label.pack(pady=20)
+            self.right_panel.place(relx=0.55, rely=0.3, relwidth=0.35, relheight=0.55)
             self.update_balance_label()
+            self.update_right_panel()
             self.transactions_frame.place(relx=0.1, rely=0.3, relheight=0.55, relwidth=0.4)
             self.welcome_frame.place_forget()
             self.bank_img_label.place_forget()
@@ -479,6 +562,50 @@ class CClientGUI(CClientBL):
     def update_login_id_page(self):
             self.login_page.id_exists = self.id_exists
 
+    def update_right_panel(self):
+        self.user_name_label.configure(
+            text=f"{self.first_name} {self.last_name}",
+            text_color = self.text_color,
+        )
+        self.account_label.configure(
+            text=f"Account: {self.account_number}",
+            text_color = self.text_color,
+        )
+        self.phone_label.configure(
+            text=f"Phone: {self.phone_number}",
+            text_color = self.text_color,
+        )
+
+        print(self.sizes)
+        print(self.labels)
+        if len(self.sizes) > 0:
+            total = sum(self.sizes)
+            self.total_spent_label.configure(text=f"{total}₪")
+
+            max_value = max(self.sizes)
+            index = self.sizes.index(max_value)
+            top_category = self.labels[index]
+
+            self.top_category_label.configure(text=f"Top: {top_category}")
+        else:
+            self.total_spent_label.configure(text="₪0")
+            self.top_category_label.configure(text="Top: -")
+
+
+        if self.transactions and len(self.transactions) > 0:
+            last = self.transactions[-1]
+            current = last[1]
+            destination = last[2]
+            amount = last[3]
+
+            if current == self.account_number:
+                text = f"Sent ₪{amount}"
+            else:
+                text = f"Received ₪{amount}"
+
+            self.last_transaction_label.configure(text=text)
+        else:
+            self.last_transaction_label.configure(text="-")
     def display_transactions(self):
 
         for widget in self.transactions_list_frame.winfo_children():
@@ -629,6 +756,7 @@ class CClientGUI(CClientBL):
     def on_click_close_transfer(self):
         self.on_click_transfer.place_forget()
         self.transfer_frame.place_forget()
+        self.display_transactions()
         self.destination_user_entry.delete(0, "end")
         self.transfer_amount_entry.delete(0, "end")
 
@@ -659,6 +787,6 @@ class CClientGUI(CClientBL):
 
 
 if __name__ == "__main__":
-    client = CClientGUI(CLIENT_HOST, PORT)
+    client = CClientGUI("172.16.3.137", PORT)
     client.run()
 
