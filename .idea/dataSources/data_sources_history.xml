@@ -1,35 +1,53 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="dataSourceStorageLocal" created-in="PY-261.22158.340">
-    <data-source name="Bank_Test.sqlite" uuid="0495c2b2-03e4-4230-a672-13dd8e6b02ed">
+<DataSourcesHistory>
+  <DataSourceFromHistory isRemovedFromProject="false">
+    <data-source source="LOCAL" name="Bank_Test.sqlite" uuid="0495c2b2-03e4-4230-a672-13dd8e6b02ed">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" />
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:identifier.sqlite</jdbc-url>
       <secret-storage>master_key</secret-storage>
       <auth-provider>no-auth</auth-provider>
       <schema-mapping />
+      <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source name="Bank" uuid="411577ea-6408-42ef-8c70-694130b571be">
+  </DataSourceFromHistory>
+  <DataSourceFromHistory isRemovedFromProject="false">
+    <data-source source="LOCAL" name="Bank" uuid="411577ea-6408-42ef-8c70-694130b571be">
       <database-info product="SQLite" version="3.45.1" jdbc-version="4.2" driver-name="SQLite JDBC" driver-version="3.45.1.0" dbms="SQLITE" exact-version="3.45.1" exact-driver-version="3.45">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/Bank.db</jdbc-url>
       <auth-provider>no-auth</auth-provider>
       <schema-mapping>
         <introspection-scope>
           <node kind="schema" qname="@" />
         </introspection-scope>
       </schema-mapping>
+      <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source name="Bank [2]" uuid="ee420840-3e41-4dfe-ab79-3da8862de8a2">
+  </DataSourceFromHistory>
+  <DataSourceFromHistory isRemovedFromProject="false">
+    <data-source source="LOCAL" name="Bank [2]" uuid="ee420840-3e41-4dfe-ab79-3da8862de8a2">
       <database-info product="SQLite" version="3.45.1" jdbc-version="4.2" driver-name="SQLite JDBC" driver-version="3.45.1.0" dbms="SQLITE" exact-version="3.45.1" exact-driver-version="3.45">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/Bank.db</jdbc-url>
       <auth-provider>no-auth</auth-provider>
       <schema-mapping>
         <introspection-scope>
           <node kind="schema" qname="@" />
         </introspection-scope>
       </schema-mapping>
+      <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-  </component>
-</project>
+  </DataSourceFromHistory>
+</DataSourcesHistory>
