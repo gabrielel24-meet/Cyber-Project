@@ -281,7 +281,8 @@ class CExpensesGUI():
         self.update_monthly_pie_data()
 
         if self.monthly_insights_frame.winfo_manager() != '':
-            self.pie_canvas.get_tk_widget().place_forget()
+            if self.pie_canvas:
+                self.pie_canvas.get_tk_widget().place_forget()
             self.show_pie()
         else:
             self.show_bar()
@@ -314,7 +315,8 @@ class CExpensesGUI():
             self.monthly_insights_label_4.place_forget()
             self.bold_monthly_total_amount.place_forget()
             self.bold_montly_expense_label.place_forget()
-            self.pie_canvas.get_tk_widget().place_forget()
+            if self.pie_canvas:
+                self.pie_canvas.get_tk_widget().place_forget()
 
 
         self.switch_chart_btn_1.place(relx=0.9, rely=0.5)
@@ -403,26 +405,29 @@ class CExpensesGUI():
         self.monthly_insights_label_3.place(x=5, y=310)
 
 
-
-
     def create_bar_insights(self):
+        self.yearly_expense = 0
         biggest_expense = 0
         biggest_expense_label = ''
         for i in range(5):
             expense = sum(self.yearly_data[self.expense_types[i]])
+            self.yearly_expense += expense
             if expense > biggest_expense:
                 biggest_expense = expense
                 biggest_expense_label = self.expense_types[i]
 
-        color_index = self.expense_types.index(biggest_expense_label)
-        color = self.colors[color_index]
-
-        self.bold_yearly_expense_label.configure(text=f"""{biggest_expense_label}""", text_color=color)
 
         self.yearly_insights_frame.place(anchor='s', relx=0.55, rely=0.9)
         self.yearly_title.place(x=90, y=50)
-        self.yearly_insights_label.place(x=10, y=100)
-        self.bold_yearly_expense_label.place(x=270, y=100)
+
+        if self.yearly_expense:
+            color_index = self.expense_types.index(biggest_expense_label)
+            color = self.colors[color_index]
+
+            self.bold_yearly_expense_label.configure(text=f"""{biggest_expense_label}""", text_color=color)
+
+            self.yearly_insights_label.place(x=10, y=100)
+            self.bold_yearly_expense_label.place(x=270, y=100)
 
      
 
