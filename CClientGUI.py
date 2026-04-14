@@ -94,51 +94,96 @@ class CClientGUI(CClientBL):
             text_color=self.text_color
         )
 
-        # Transfer Button
+
+
+        # Transfer Frame
         self.transfer_frame = ctk.CTkFrame(
             self.main_frame,
-            # fg_color=self.secondary_color
+            fg_color=self.secondary_color,
         )
+
+        # Cancel button — top right corner
         self.cancel_transfer_button = ctk.CTkButton(
             self.transfer_frame,
-            text="Cancel Transfer",
-            width=110,
+            text="✕ Cancel",
+            width=90,
             height=30,
             border_width=1,
             fg_color=self.primary_color,
             hover_color=self.accent_color,
             command=self.on_click_close_transfer
         )
+        self.cancel_transfer_button.place(relx=0.85, rely=0.05, anchor="center")
 
+        # Destination account block
+        self.destination_user_frame = ctk.CTkFrame(self.transfer_frame, fg_color=self.card_color, corner_radius=8)
+        self.destination_user_label = ctk.CTkLabel(
+            self.destination_user_frame,
+            text="Destination Account",
+            font=("Arial", 13, "bold"),
+            text_color=self.text_color,
+            anchor="w"
+        )
+        self.destination_user_entry = ctk.CTkEntry(
+            self.destination_user_frame,
+            width=220,
+            height=32,
+            border_width=1,
+            placeholder_text="Account number..."
+        )
+        self.destination_user_label.place(relx=0.05, rely=0.15, anchor="w")
+        self.destination_user_entry.place(relx=0.5, rely=0.6, anchor="center")
 
-        self.destination_user_frame = ctk.CTkFrame(self.transfer_frame, fg_color=self.secondary_color)
-        self.destination_user_label = ctk.CTkLabel(self.destination_user_frame, text="Transfer destination account", font=("Arial", 15, "bold"))
-        self.destination_user_entry = ctk.CTkEntry(self.destination_user_frame, width=220, height=25, border_width=1)
-        self.destination_error_message = ctk.CTkLabel(self.transfer_frame,text="can't transfer to yourself")
+        self.destination_error_message = ctk.CTkLabel(
+            self.transfer_frame,
+            text="⚠ Can't transfer to yourself",
+            font=("Arial", 11),
+            text_color="red"
+        )
 
-        self.destination_user_label.pack(anchor="w", padx=10)
-        self.destination_user_entry.pack()
+        self.destination_user_frame.place(relx=0.5, rely=0.25, anchor="center", relwidth=0.7, relheight=0.15)
 
-        self.transfer_amount_frame = ctk.CTkFrame(self.transfer_frame, fg_color=self.secondary_color)
-        self.transfer_amount_label = ctk.CTkLabel(self.transfer_amount_frame, text="Amount", font=("Arial", 15, "bold"))
-        self.transfer_amount_entry = ctk.CTkEntry(self.transfer_amount_frame, width=220, height=25, border_width=1)
-        self.amount_error_message = ctk.CTkLabel(self.transfer_frame)
+        # Amount block
+        self.transfer_amount_frame = ctk.CTkFrame(self.transfer_frame, fg_color=self.card_color, corner_radius=8)
+        self.transfer_amount_label = ctk.CTkLabel(
+            self.transfer_amount_frame,
+            text="Amount",
+            font=("Arial", 13, "bold"),
+            text_color=self.text_color,
+            anchor="w"
+        )
+        self.transfer_amount_entry = ctk.CTkEntry(
+            self.transfer_amount_frame,
+            width=220,
+            height=32,
+            border_width=1,
+            placeholder_text="₪0.00"
+        )
+        self.transfer_amount_label.place(relx=0.05, rely=0.15, anchor="w")
+        self.transfer_amount_entry.place(relx=0.5, rely=0.6, anchor="center")
 
-        self.destination_user_frame.place(relx=0.4, rely=0.4)
-        self.transfer_amount_frame.place(relx=0.41, rely=0.55)
-        self.transfer_amount_label.pack(anchor="w", padx=10)
-        self.transfer_amount_entry.pack()
+        self.amount_error_message = ctk.CTkLabel(
+            self.transfer_frame,
+            text="⚠ please enter a positive number",
+            font=("Arial", 11),
+            text_color="red"
+        )
 
+        self.transfer_amount_frame.place(relx=0.5, rely=0.5, anchor="center", relwidth=0.7, relheight=0.15)
+
+        # Transfer button — centered at bottom
         self.on_click_transfer = ctk.CTkButton(
             self.transfer_frame,
             text="Transfer Money",
-            font = ("Arial", 15, "bold"),
-            width=130, height=40,
+            font=("Arial", 15, "bold"),
+            width=160,
+            height=42,
             border_width=1,
-            fg_color= "blue",
-            command= self.on_click_transfer_money
+            corner_radius=8,
+            fg_color="blue",
+            command=self.on_click_transfer_money
         )
-        self.on_click_transfer.place(relx=0.44, rely=0.7)
+        self.on_click_transfer.place(relx=0.5, rely=0.78, anchor="center")
 
 
 
@@ -216,90 +261,117 @@ class CClientGUI(CClientBL):
             width=400,
             height=400,
             fg_color=self.card_color
-
         )
-        self.transactions_title.pack(pady=10)
-        self.transactions_list_frame.pack(padx=10, pady=10, fill="both", expand=True)
+        self.transactions_title.pack(anchor="w", padx=16, pady=(14, 4))
+        self.transactions_list_frame.pack(padx=10, pady=(0, 10), fill="both", expand=True)
 
-        # Quick menu
+
+        # Right panel
         self.right_panel = ctk.CTkFrame(
             self.main_frame,
             fg_color=self.secondary_color,
         )
 
+        self.user_block = ctk.CTkFrame(self.right_panel, fg_color="transparent")
+        self.user_block.pack(fill="x", padx=16, pady=(16, 8))
+
         self.user_title = ctk.CTkLabel(
-            self.right_panel,
+            self.user_block,
             text="User",
-            font=("Arial", 25, "bold"),
+            font=("Arial", 13, "bold"),
             text_color=self.text_color,
+            anchor="w"
         )
         self.user_name_label = ctk.CTkLabel(
-            self.right_panel,
+            self.user_block,
             text="",
-            font=("Arial", 18, "bold"),
-            text_color = self.text_color,
-        )
-        self.account_label = ctk.CTkLabel(
-            self.right_panel,
-            text="",
-            font=("Arial", 16),
-            text_color = self.text_color,
+            font=("Arial", 20, "bold"),
+            text_color=self.text_color,
+            anchor="w"
         )
         self.phone_label = ctk.CTkLabel(
-            self.right_panel,
+            self.user_block,
             text="",
-            font=("Arial", 16),
-            text_color = self.text_color,
+            font=("Arial", 13),
+            text_color=self.text_color,
+            anchor="w"
         )
-        self.user_title.place(relx=0.07, rely=0.07)
-        self.user_name_label.place(relx=0.07, rely=0.1)
-        self.phone_label.place(relx=0.07, rely=0.2)
-        self.account_label.place(relx=0.07, rely=0.3)
+        self.account_label = ctk.CTkLabel(
+            self.user_block,
+            text="",
+            font=("Arial", 13),
+            text_color=self.text_color,
+            anchor="w"
+        )
+        self.user_title.pack(anchor="w")
+        self.user_name_label.pack(anchor="w", pady=(2, 6))
+        self.phone_label.pack(anchor="w")
+        self.account_label.pack(anchor="w", pady=(2, 0))
 
+        ctk.CTkFrame(self.right_panel, height=1, fg_color=self.text_color).pack(
+            fill="x", padx=16, pady=12
+        )
+
+        self.summary_block = ctk.CTkFrame(self.right_panel, fg_color="transparent")
+        self.summary_block.pack(fill="x", padx=16, pady=(0, 8))
 
         self.summary_title = ctk.CTkLabel(
-            self.right_panel,
+            self.summary_block,
             text="This Month",
-            font=("Arial", 18, "bold"),
-            text_color = self.text_color,
+            font=("Arial", 13, "bold"),
+            text_color=self.text_color,
+            anchor="w"
         )
         self.total_spent_label = ctk.CTkLabel(
-            self.right_panel,
+            self.summary_block,
             text="₪0",
-            font=("Arial", 16, "bold"),
-            text_color = self.text_color,
+            font=("Arial", 26, "bold"),
+            text_color=self.text_color,
+            anchor="w"
         )
         self.top_category_label = ctk.CTkLabel(
-            self.right_panel,
+            self.summary_block,
             text="Top: -",
-            font=("Arial", 16),
-            text_color = self.text_color,
+            font=("Arial", 13),
+            text_color=self.text_color,
+            anchor="w"
         )
-        self.quick_info = ctk.CTkLabel(
-            self.right_panel,
-            text="Quick Menu",
-            font=("Arial", 18, "bold"),
-            text_color = self.text_color,
-        )
-        self.last_title = ctk.CTkLabel(
-            self.right_panel,
-            text="Last Transaction:",
-            font=("Arial", 16, "bold"),
-            text_color = self.text_color,
-        )
-        self.last_transaction_label = ctk.CTkLabel(
-            self.right_panel,
-            text="-",
-            font=("Arial", 15),
-            text_color = self.text_color,
+        self.summary_title.pack(anchor="w")
+        self.total_spent_label.pack(anchor="w", pady=(2, 4))
+        self.top_category_label.pack(anchor="w")
+
+        ctk.CTkFrame(self.right_panel, height=1, fg_color=self.text_color).pack(
+            fill="x", padx=16, pady=12
         )
 
-        self.summary_title.place(relx=0.07, rely=0.5)
-        self.total_spent_label.place(relx=0.07, rely=0.6)
-        self.top_category_label.place(relx=0.07, rely=0.7)
-        self.quick_info.place(relx=0.07, rely=0.8)
-        self.last_title.place(relx=0.07, rely=0.9)
-        self.last_transaction_label.place(relx=0.07, rely=0.95)
+        self.quick_block = ctk.CTkFrame(self.right_panel, fg_color="transparent")
+        self.quick_block.pack(fill="x", padx=16, pady=(0, 8))
+
+        self.quick_info = ctk.CTkLabel(
+            self.quick_block,
+            text="Quick Menu",
+            font=("Arial", 13, "bold"),
+            text_color=self.text_color,
+            anchor="w"
+        )
+        self.last_title = ctk.CTkLabel(
+            self.quick_block,
+            text="Last Transaction",
+            font=("Arial", 13, "bold"),
+            text_color=self.text_color,
+            anchor="w"
+        )
+        self.last_transaction_label = ctk.CTkLabel(
+            self.quick_block,
+            text="-",
+            font=("Arial", 13),
+            text_color=self.text_color,
+            anchor="w",
+            wraplength=180
+        )
+        self.quick_info.pack(anchor="w", pady=(0, 8))
+        self.last_title.pack(anchor="w")
+        self.last_transaction_label.pack(anchor="w", pady=(2, 0))
 
 
 
@@ -750,28 +822,27 @@ class CClientGUI(CClientBL):
 
     def on_click_open_transfer(self):
         self.toggle_menu()
-        self.cancel_transfer_button.place(relx=0.5, rely=0.1)
-        self.transfer_frame.place(relx=0.4, rely=0.3, relheight=0.55, relwidth=0.4)
-
+        self.transactions_frame.place_forget()
+        self.right_panel.place_forget()
+        self.transfer_frame.place(relx=0.3, rely=0.3, relheight=0.55, relwidth=0.4)
     def on_click_close_transfer(self):
-        self.on_click_transfer.place_forget()
         self.transfer_frame.place_forget()
-        self.display_transactions()
+        self.right_panel.place(relx=0.55, rely=0.3, relwidth=0.35, relheight=0.55)
+        self.transactions_frame.place(relx=0.1, rely=0.3, relheight=0.55, relwidth=0.4)
         self.destination_user_entry.delete(0, "end")
         self.transfer_amount_entry.delete(0, "end")
 
 
     def on_click_transfer_money(self):
         error_flag = True
-        self.destination_error_message.pack_forget()
-        self.amount_error_message.pack_forget()
+        self.destination_error_message.place_forget()
+        self.amount_error_message.place_forget()
 
         if self.destination_user_entry.get() == self.account_number:
-            self.destination_error_message.pack(anchor="w")
+            self.destination_error_message.place(relx=0.5, rely=0.37, anchor="center")
             error_flag = False
         if not is_positive_number(self.transfer_amount_entry.get()):
-            self.amount_error_message.configure(text="please enter a positive number")
-            self.amount_error_message.pack(anchor="w")
+            self.amount_error_message.place(relx=0.5, rely=0.62, anchor="center")
             error_flag = False
 
         if error_flag:
@@ -787,6 +858,6 @@ class CClientGUI(CClientBL):
 
 
 if __name__ == "__main__":
-    client = CClientGUI("172.16.3.137", PORT)
+    client = CClientGUI(CLIENT_HOST, PORT)
     client.run()
 

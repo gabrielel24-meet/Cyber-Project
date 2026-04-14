@@ -34,6 +34,9 @@ class CClientBL:
             'Gifts': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             'Other': [0,0,0,0,0,0,0,0,0,0,0,0]
         }
+        self.expense_types = ["Food", "Clothes", "Gadgets", "Gifts","Other"]
+        self.current_month_index = datetime.now().month - 1
+
 
 
         self.responses_flag = (False, None)
@@ -214,11 +217,6 @@ class CClientBL:
             expense_amount = expense[3]
             dictionary[expense_type] += expense_amount
 
-        # for key in dictionary:
-        #     if dictionary[key] > 0:
-        #         self.sizes.append(dictionary[key])
-        #         self.labels.append(key)
-
         for expense in response:
             expense_month = expense[4]
             month_index = self.yearly_data['Month'].index(expense_month)
@@ -226,6 +224,15 @@ class CClientBL:
             expense_amount = expense[3]
 
             self.yearly_data[expense_type][month_index] += expense_amount
+
+            self.sizes = []
+            self.labels = []
+
+            for expense_type in self.expense_types:
+                value = self.yearly_data[expense_type][self.current_month_index]
+                if value > 0:
+                    self.sizes.append(value)
+                    self.labels.append(expense_type)
 
 if __name__ == "__main__":
     pass
