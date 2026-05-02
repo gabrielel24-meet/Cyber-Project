@@ -26,12 +26,12 @@ class CClientGUI(CClientBL):
         self.secondary_color = ("#8A2BE2", "#3E2A6D")
         self.accent_color = ("#9370DB", "#9B5DE5")
         self.text_color = "#FFFFFF"
-        self.card_color = ("#a187d6", "#4B357D")  # סגול מעושן עדין
-        self.rows_color = ("#D8C7F7", "#5B3B8C")  # יותר מודגש אבל רגוע
+        self.card_color = ("#a187d6", "#4B357D")
+        self.rows_color = ("#D8C7F7", "#5B3B8C")
 
         self.hidden_secondary_color = ("#6E2DB5", "#2A1F3D")
-        self.hidden_card_color = ("#E0CFFF", "#3A2A5A")
-        self.hidden_rows_color = ("#D8C2F0", "#4A3475")
+        self.hidden_card_color = ("#534473", "#2b1c42")
+        self.hidden_rows_color = ("#726785", "#3b2b54")
 
         # Set the background color
         self.root.configure(fg_color=self.primary_color)
@@ -171,7 +171,7 @@ class CClientGUI(CClientBL):
 
         self.transfer_amount_frame.place(relx=0.5, rely=0.5, anchor="center", relwidth=0.7, relheight=0.15)
 
-        # Transfer button — centered at bottom
+        # Transfer button
         self.on_click_transfer = ctk.CTkButton(
             self.transfer_frame,
             text="Transfer Money",
@@ -204,7 +204,6 @@ class CClientGUI(CClientBL):
             self.welcome_frame,
             text="Finance Plan is the first and only bank that cares for you! \n Here, our top priorities are to make sure you always know your financial situation \n & help you spend your money smarter.",
             font=("Arial", 20),
-            # text_color=self.accent_color,
             text_color=self.text_color,
 
         )
@@ -317,7 +316,7 @@ class CClientGUI(CClientBL):
 
         self.summary_title = ctk.CTkLabel(
             self.summary_block,
-            text="This Month",
+            text="This Month Expenses",
             font=("Arial", 13, "bold"),
             text_color=self.text_color,
             anchor="w"
@@ -331,7 +330,7 @@ class CClientGUI(CClientBL):
         )
         self.top_category_label = ctk.CTkLabel(
             self.summary_block,
-            text="Top: -",
+            text="Top Expense: -",
             font=("Arial", 13),
             text_color=self.text_color,
             anchor="w"
@@ -339,39 +338,6 @@ class CClientGUI(CClientBL):
         self.summary_title.pack(anchor="w")
         self.total_spent_label.pack(anchor="w", pady=(2, 4))
         self.top_category_label.pack(anchor="w")
-
-        ctk.CTkFrame(self.right_panel, height=1, fg_color=self.text_color).pack(
-            fill="x", padx=16, pady=12
-        )
-
-        self.quick_block = ctk.CTkFrame(self.right_panel, fg_color="transparent")
-        self.quick_block.pack(fill="x", padx=16, pady=(0, 8))
-
-        self.quick_info = ctk.CTkLabel(
-            self.quick_block,
-            text="Quick Menu",
-            font=("Arial", 13, "bold"),
-            text_color=self.text_color,
-            anchor="w"
-        )
-        self.last_title = ctk.CTkLabel(
-            self.quick_block,
-            text="Last Transaction",
-            font=("Arial", 13, "bold"),
-            text_color=self.text_color,
-            anchor="w"
-        )
-        self.last_transaction_label = ctk.CTkLabel(
-            self.quick_block,
-            text="-",
-            font=("Arial", 13),
-            text_color=self.text_color,
-            anchor="w",
-            wraplength=180
-        )
-        self.quick_info.pack(anchor="w", pady=(0, 8))
-        self.last_title.pack(anchor="w")
-        self.last_transaction_label.pack(anchor="w", pady=(2, 0))
 
 
 
@@ -485,7 +451,6 @@ class CClientGUI(CClientBL):
 
         self.menu_signout_btn.place(relx=0.5, rely=0.95, anchor="s")
 
-
         self.time_thread.start()
         self.connection_status_thread.start()
 
@@ -506,6 +471,9 @@ class CClientGUI(CClientBL):
             text_color=self.text_color,
             command=self.toggle_theme
         )
+
+        if self.is_dark_mode:
+            theme_switch.select()
 
         theme_switch.pack(anchor="w")
 
@@ -534,6 +502,8 @@ class CClientGUI(CClientBL):
 
     def open_menu(self):
         self.main_frame.configure(fg_color=self.hidden_secondary_color)
+        self.right_panel.configure(fg_color=self.hidden_secondary_color)
+        self.update_right_panel_color()
         self.transactions_frame.configure(fg_color=self.hidden_card_color)
         self.transactions_list_frame.configure(fg_color=self.hidden_card_color)
         self.update_transaction_rows_color()
@@ -546,6 +516,8 @@ class CClientGUI(CClientBL):
 
     def close_menu(self):
         self.main_frame.configure(fg_color=self.secondary_color)
+        self.right_panel.configure(fg_color=self.secondary_color)
+        self.update_right_panel_color()
         self.transactions_frame.configure(fg_color=self.card_color)
         self.transactions_list_frame.configure(fg_color=self.card_color)
         self.update_transaction_rows_color()
@@ -560,7 +532,7 @@ class CClientGUI(CClientBL):
     def check_for_responses(self):
         flag, cmd = self.responses_flag
         if flag == True:
-            if cmd == "TRANSFER":
+            if cmd == "BALANCE":
                 self.update_balance_label()
             elif cmd in register_cmd:
                 self.update_register_page(cmd)
@@ -648,21 +620,7 @@ class CClientGUI(CClientBL):
             text_color = self.text_color,
         )
 
-        print(self.sizes)
-        print(self.labels)
-        if len(self.sizes) > 0:
-            total = sum(self.sizes)
-            self.total_spent_label.configure(text=f"{total}₪")
-
-            max_value = max(self.sizes)
-            index = self.sizes.index(max_value)
-            top_category = self.labels[index]
-
-            self.top_category_label.configure(text=f"Top: {top_category}")
-        else:
-            self.total_spent_label.configure(text="₪0")
-            self.top_category_label.configure(text="Top: -")
-
+        self.update_month_expense()
 
         if self.transactions and len(self.transactions) > 0:
             last = self.transactions[-1]
@@ -675,9 +633,23 @@ class CClientGUI(CClientBL):
             else:
                 text = f"Received ₪{amount}"
 
-            self.last_transaction_label.configure(text=text)
+
+
+    def update_month_expense(self):
+        if len(self.sizes) > 0:
+            total = sum(self.sizes)
+            self.total_spent_label.configure(text=f"{total}₪")
+
+            max_value = max(self.sizes)
+            index = self.sizes.index(max_value)
+            top_category = self.labels[index]
+
+            self.top_category_label.configure(text=f"Top Expense: {top_category}")
         else:
-            self.last_transaction_label.configure(text="-")
+            self.total_spent_label.configure(text="₪0")
+            self.top_category_label.configure(text="Top: -")
+
+
     def display_transactions(self):
 
         for widget in self.transactions_list_frame.winfo_children():
@@ -778,6 +750,7 @@ class CClientGUI(CClientBL):
             self.root.after(0, self.expenses_page.expense_window.root.destroy)
             self.update_expenses_window()
             self.root.after(0,self.expenses_page.update_graphs)
+            self.update_month_expense()
 
         self.main_frame.pack_forget()
         if self.expenses_page == None:
@@ -810,7 +783,6 @@ class CClientGUI(CClientBL):
         self.expenses_page.yearly_data = self.yearly_data
 
     def update_transaction_rows_color(self):
-
         if self.menu_open:
             color = self.rows_color
         else:
@@ -819,16 +791,30 @@ class CClientGUI(CClientBL):
         for row in self.transaction_rows:
             row.configure(fg_color=color)
 
+    def update_right_panel_color(self):
+        if self.menu_open:
+            color = self.text_color
+        else:
+            color = "#928f94"
+
+        self.user_title.configure(text_color=color)
+        self.user_name_label.configure(text_color=color)
+        self.phone_label.configure(text_color=color)
+        self.account_label.configure(text_color=color)
+        self.summary_title.configure(text_color=color)
+        self.total_spent_label.configure(text_color=color)
+        self.top_category_label.configure(text_color=color)
+
 
     def on_click_open_transfer(self):
         self.toggle_menu()
         self.transactions_frame.place_forget()
         self.right_panel.place_forget()
         self.transfer_frame.place(relx=0.3, rely=0.3, relheight=0.55, relwidth=0.4)
+
     def on_click_close_transfer(self):
         self.transfer_frame.place_forget()
-        # --------------------------------------------------------------------------------
-        # self.send_data("TRANSACTIONS", self.account_number)
+        self.send_data("TRANSACTIONS", self.account_number)
         self.right_panel.place(relx=0.55, rely=0.3, relwidth=0.35, relheight=0.55)
         self.transactions_frame.place(relx=0.1, rely=0.3, relheight=0.55, relwidth=0.4)
         self.destination_user_entry.delete(0, "end")

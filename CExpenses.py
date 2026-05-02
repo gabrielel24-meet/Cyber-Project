@@ -363,7 +363,15 @@ class CExpensesGUI():
 
         ax.pie(self.sizes, labels=self.labels, colors=self.colors, autopct='%1.1f%%', textprops={'fontsize': 12, 'color': 'white'})
         ax.axis('equal')
-        fig.set_facecolor(self.secondary_color[1])
+
+        current_mode = ctk.get_appearance_mode()
+        print(current_mode)
+        if current_mode == "Light":
+            fg_color = self.secondary_color[0]
+        else:
+            fg_color = self.secondary_color[1]
+
+        fig.set_facecolor(fg_color)
 
         self.pie_canvas = FigureCanvasTkAgg(fig, master=self.monthly_insights_frame)
         self.pie_canvas.draw()
@@ -436,7 +444,14 @@ class CExpensesGUI():
         df = pd.DataFrame(self.yearly_data)
         df.set_index('Month', inplace=True)
 
-        fig, ax = plt.subplots(figsize=(7,5), dpi=100, facecolor=self.secondary_color[1],)
+        current_mode = ctk.get_appearance_mode()
+        print(current_mode)
+        if current_mode == "Light":
+            fg_color = self.secondary_color[0]
+        else:
+            fg_color = self.secondary_color[1]
+
+        fig, ax = plt.subplots(figsize=(7,5), dpi=100, facecolor=fg_color,)
         
         df.plot(kind='bar', stacked=True, ax=ax, color=self.colors)
 

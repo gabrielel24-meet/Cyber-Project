@@ -124,6 +124,7 @@ class CClientBL:
 
     def update_balance(self,data):
         self.balance = float(data)
+        self.responses_flag = (True, "BALANCE")
 
     def update_transactions(self, data):
         self.transactions = data
@@ -184,7 +185,6 @@ class CClientBL:
         write_to_log(f"[CLIENT_BL] transferred {amount}₪ to client {destination}")
 
         self.send_data("GET_BALANCE", self.account_number)
-        self.responses_flag = (True, "TRANSFER")
 
     def receive_money(self, data):
         amount = data[0]

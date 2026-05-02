@@ -85,7 +85,7 @@ cursor.execute("PRAGMA foreign_keys = ON;")
 # cursor.execute("ALTER TABLE transfers ADD COLUMN date TEXT")
 
 # Delete Data
-cursor.execute("DELETE FROM user_expenses WHERE expenses_id > 269",())
+cursor.execute("DELETE FROM transfers WHERE transfer_id > 0",())
 
 # cursor.execute(f"SELECT * FROM users WHERE id = ?", (1,))
 # user = cursor.fetchone()
