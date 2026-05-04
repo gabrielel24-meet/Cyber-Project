@@ -95,7 +95,6 @@ class CClientGUI(CClientBL):
         )
 
 
-
         # Transfer Frame
         self.transfer_frame = ctk.CTkFrame(
             self.main_frame,
@@ -219,11 +218,8 @@ class CClientGUI(CClientBL):
             command=self.open_login_page
 
         )
-        self.welcome_title.place(relx = 0.5, rely=0.1, anchor = 'center')
-        self.welcome_text.place(relx = 0.5, rely=0.4, anchor = 'center')
-        if not self.login_successfully_flag:
-            self.welcome_frame.place(relx = 0.5, rely=0.5, anchor = 'center')
-            self.login_button.place(relx = 0.5, rely=0.75, anchor = 'center')
+
+        self.open_welcome_page()
 
 
         image_path = "Images/bank.png"
@@ -446,7 +442,7 @@ class CClientGUI(CClientBL):
             height=40,
             fg_color="#8B0000",  # darker red for emphasis
             hover_color="#A52A2A",
-            # command=self.on_click_sign_out
+            command=self.on_click_sign_out
         )
 
         self.menu_signout_btn.place(relx=0.5, rely=0.95, anchor="s")
@@ -527,6 +523,13 @@ class CClientGUI(CClientBL):
 
         self.menu_open = False
         self.menu_frame.configure(width=0)
+
+    def open_welcome_page(self):
+        self.welcome_title.place(relx = 0.5, rely=0.1, anchor = 'center')
+        self.welcome_text.place(relx = 0.5, rely=0.4, anchor = 'center')
+        if not self.login_successfully_flag:
+            self.welcome_frame.place(relx = 0.5, rely=0.5, anchor = 'center')
+            self.login_button.place(relx = 0.5, rely=0.75, anchor = 'center')
 
 
     def check_for_responses(self):
@@ -838,6 +841,15 @@ class CClientGUI(CClientBL):
             self.send_data("TRANSFER", args)
             self.on_click_close_transfer()
 
+    def on_click_sign_out(self):
+        self.login_successfully_flag = False
+        self.login_page.main_frame.destroy()
+        self.login_page.register_page.main_frame.destroy()
+        self.expenses_page.main_frame.destroy()
+        self.main_frame.destroy()
+
+        self.toggle_menu()
+        self.open_welcome_page()
 
     def run(self):
         self._client_socket = threading.Thread(target=self.connect_to_server, daemon=True).start()
