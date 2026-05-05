@@ -104,7 +104,7 @@ def get_cmd_and_args(request):
 
 
 def protocol_send_data(cmd, args, socket, fernet):
-     try:
+     # try:
         def send_message(msg):
             # Encrypt msg
             request = str(msg).encode()
@@ -114,11 +114,12 @@ def protocol_send_data(cmd, args, socket, fernet):
             socket.send(struct.pack("!I", length))
             socket.send(request)
 
+        print(cmd)
         send_message(cmd)
         send_message(args)
 
-     except Exception as e:
-        write_to_log("[CLIENT_BL] Exception on send_data: {}".format(e))
+     # except Exception as e:
+     #    write_to_log("Exception on send_data: {}".format(e))
 
 
 def protocol_receive_data( socket, fernet) -> tuple:
@@ -134,7 +135,6 @@ def protocol_receive_data( socket, fernet) -> tuple:
 
             # Decrypt request
             msg =fernet.decrypt(msg).decode()
-
             return msg
 
         cmd = receive_msg()
@@ -191,8 +191,11 @@ def transfer(data):
         cursor.execute(f"SELECT balance FROM users WHERE account_number = ?", (current,))
         current_balance = cursor.fetchone()[0]
 
-        cursor.execute(f"SELECT balance FROM users WHERE account_number = ?", (destination,))
-        destination_balance = cursor.fetchone()[0]
+        try:
+            cursor.execute(f"SELECT balance FROM users WHERE account_number = ?", (destination,))
+            destination_balance = cursor.fetchone()[0]
+        except:
+            return False, "TRANSFER_USER_NOT_FOUND"
 
         cursor.execute(f"UPDATE users SET balance = ? WHERE account_number = ?",((current_balance - amount),current))
         cursor.execute(f"UPDATE users SET balance = ? WHERE account_number = ?",(destination_balance + amount,destination))
@@ -247,8 +250,7 @@ def get_expenses(data) -> list:
         return lst
 
     except Exception as e:
-        print(e)
-
+        write_to_log(e)
 
 
 def is_positive_number(str):
@@ -261,7 +263,47 @@ def is_positive_number(str):
     except:
         return  False
 
+def is_legitimate_string(str):
+    chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'- "
+    try:
+        if str == "":
+            return False
 
+        for char in str:
+            if char not in chars:
+                return False
+
+        return True
+    except:
+        return False
+
+def is_legitimate_id(str):
+    digits = "0123456789-"
+    try:
+        if str == "":
+            return False
+
+        for char in str:
+            if char not in digits:
+                return False
+
+        return True
+    except:
+        return False
+
+def is_legitimate_password(str):
+    chars = """'()[]{},\/<>;:="#*"""
+    try:
+        if str == "":
+            return False
+
+        for char in str:
+            if char in chars:
+                return False
+
+        return True
+    except:
+        return False
 
 if __name__ == "__main__":
     get_transactions('777')

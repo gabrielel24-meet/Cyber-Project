@@ -56,6 +56,7 @@ class CClientBL:
                     self._client_socket.connect((self._host, self._port))
                     write_to_log(f"[CLIENT_BL] connected to server {CLIENT_HOST}")
                     self.connection_status = ast.literal_eval(self._client_socket.recv(1024).decode())
+                    self.responses_flag = (True, "CONNECTION")
 
                     # Setting encryption
                     public_pem = self._client_socket.recv(1024)
@@ -69,7 +70,6 @@ class CClientBL:
                     encrypted_session_key = self.encrypt_session_key(public_key,session_key)
                     self._client_socket.send(encrypted_session_key)
                     write_to_log("[CLIENT_BL] Encrypted session key sent to server")
-
 
                     server_handler = threading.Thread(target=self.handle_responses, daemon=True)
                     server_handler.start()
@@ -92,9 +92,7 @@ class CClientBL:
             while True:
                 cmd, response = self.receive_data()
 
-                if cmd == "CLOSE":
-                    self.connection_status = False
-                elif cmd == "GET_BALANCE":
+                if cmd == "GET_BALANCE":
                     self.update_balance(response)
                 elif cmd == "LOGIN-1":
                     self.update_user_data(response)
@@ -119,6 +117,7 @@ class CClientBL:
         except Exception as e:
             write_to_log("[CLIENT_BL] Exception on handle_responses: {}".format(e))
             self.connection_status = False
+            self.responses_flag = (True,"CONNECTION")
             return False
 
 
@@ -154,6 +153,8 @@ class CClientBL:
             self.account_number = account_data[5]
             self.balance = account_data[6]
 
+        self.responses_flag = True, "LOGIN-1"
+
 
     def update_face_id_login_data(self, data):
         flag = data[0]
@@ -167,7 +168,6 @@ class CClientBL:
             self.phone_number = account_data[3]
             self.password = account_data[4]
             self.account_number = account_data[5]
-            print(type(self.account_number))
             self.balance = account_data[6]
 
             self.face_matches = True
@@ -180,11 +180,16 @@ class CClientBL:
         self.responses_flag = (True, "CHECK_ID")
 
     def transfer_money(self, data):
-        amount = data[0]
-        destination = data[1]
-        write_to_log(f"[CLIENT_BL] transferred {amount}₪ to client {destination}")
+        if data[0] == True:
+            amount = data[1][0]
+            destination = data[1][1]
+            self.responses_flag = (True,"TRANSFER")
+            time.sleep(0.1)
+            self.send_data("GET_BALANCE", self.account_number)
+            write_to_log(f"[CLIENT_BL] transferred {amount}₪ to client {destination}")
+        else:
+            self.responses_flag = (True,data[1])
 
-        self.send_data("GET_BALANCE", self.account_number)
 
     def receive_money(self, data):
         amount = data[0]
@@ -199,8 +204,6 @@ class CClientBL:
         self.responses_flag = (True, message)
 
     def update_expenses(self, response):
-        # self.sizes = []
-        # self.labels = []
         self.yearly_data = {
             'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             'Food': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

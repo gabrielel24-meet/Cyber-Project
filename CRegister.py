@@ -174,6 +174,16 @@ class CRegister:
             command=self.try_again
         )
 
+        self.try_again_2_button = ctk.CTkButton(
+            self.main_frame,
+            image=try_again_img,
+            text="",
+            width=20,
+            fg_color=self.primary_color,
+            hover_color=self.accent_color,
+            command=self.try_again
+        )
+
         self.try_again_later_button = ctk.CTkButton(
             self.camera_frame,
             text="try again later",
@@ -220,7 +230,10 @@ class CRegister:
 
     def create_form(self):
         self.first_name_frame, self.first_name_entry  = self.create_entry(self.main_frame, "First Name", 0.2, 0.2)
+        self.first_name_error_message = ctk.CTkLabel(self.main_frame, text_color= self.text_color, text="Please enter a valid string")
+
         self.last_name_frame, self.last_name_entry = self.create_entry(self.main_frame, "Last Name", 0.2, 0.4)
+        self.last_name_error_message = ctk.CTkLabel(self.main_frame, text_color= self.text_color, text="Please enter a valid string")
 
         self.id_frame,  self.id_entry = self.create_entry(self.main_frame, "ID", 0.2, 0.6)
         self.id_error_message = ctk.CTkLabel(self.main_frame, text_color= self.text_color, text="ID taken")
@@ -229,8 +242,12 @@ class CRegister:
         self.phone_error_message = ctk.CTkLabel(self.main_frame, text_color= self.text_color, text="Phone Number taken")
 
         self.password_frame, self.password_entry = self.create_entry(self.main_frame, "Password", 0.6, 0.4)
-        self.face_id_label.place(relx=0.67, rely=0.52)
-        self.face_id_button.place(relx=0.65, rely=0.57)
+        self.password_error_message = ctk.CTkLabel(self.main_frame, text_color= self.text_color, text="Please enter a valid password")
+
+        self.face_id_label.place(relx=0.67, rely=0.53)
+        self.face_id_button.place(relx=0.65, rely=0.58)
+        self.face_id_error_message = ctk.CTkLabel(self.main_frame, text_color= self.text_color, text="Please enter a face ID")
+
 
         self.submit_button.place(relx=0.45,rely=0.8)
 
@@ -245,10 +262,11 @@ class CRegister:
         if len(self.face_encodings) != 0:
             self.face_id_label.configure(text="Face ID ✅")
             self.face_id_label.place(relx=0.61, rely=0.63)
-            self.try_again_button.place(relx=0.7, rely=0.63)
+            self.try_again_2_button.place(relx=0.73, rely=0.63)
         else:
-            self.face_id_label.place(relx=0.67, rely=0.52)
-            self.face_id_button.place(relx=0.65, rely=0.57)
+            self.face_id_label.configure(text="Face ID")
+            self.face_id_label.place(relx=0.67, rely=0.53)
+            self.face_id_button.place(relx=0.65, rely=0.58)
 
         self.submit_button.place(relx=0.45,rely=0.8)
 
@@ -261,6 +279,13 @@ class CRegister:
         self.face_id_button.place_forget()
         self.face_id_label.place_forget()
         self.submit_button.place_forget()
+        self.phone_error_message.place_forget()
+        self.password_error_message.place_forget()
+        self.id_error_message.place_forget()
+        self.first_name_error_message.place_forget()
+        self.last_name_error_message.place_forget()
+        self.face_id_error_message.place_forget()
+        self.try_again_2_button.place_forget()
 
     def open_camera(self):
         self.hide_form()
@@ -287,6 +312,8 @@ class CRegister:
                 self.camera_label.after(1500, stop_camera)
 
             self.back_button.place_forget()
+            self.face_locations = []
+            self.face_encodings = []
 
             ret, frame = self.video_capture.read()
             if not ret:
@@ -305,7 +332,7 @@ class CRegister:
             )
             self.camera_label.configure(image=face_image)
             self.camera_label.image = face_image
-            self.timer -= 20
+            self.timer -= 40
 
             if self.timer <= 950:
                 self.face_frame = frame
@@ -370,9 +397,10 @@ class CRegister:
         self.previous_page.pack(fill="both", expand=True, padx=20, pady=20)
 
     def update_time(self):
-        current_time = datetime.now().strftime("%H:%M:%S")
-        self.time_label.configure(text=f"{current_time}")
-        self.root.after(1000, self.update_time)  # Update every second
+        if self.time_label is not None and self.time_label.winfo_exists():
+            current_time = datetime.now().strftime("%H:%M:%S")
+            self.time_label.configure(text=f"{current_time}")
+            self.root.after(1000, self.update_time)
 
     def handle_register_message(self, response):
         if response == "ID_PHONE_TAKEN":
@@ -386,26 +414,54 @@ class CRegister:
             self.main_frame.pack_forget()
             self.previous_page.pack(fill="both", expand=True, padx=20, pady=20)
 
+    def handle_errors(self):
+        if not is_legitimate_string(self.first_name_entry.get()):
+            self.first_name_error_message.place(relx=0.2, rely=0.28)
+            self.register_error_flag = False
+        if not is_legitimate_string(self.last_name_entry.get()):
+            self.last_name_error_message.place(relx=0.2, rely=0.48)
+            self.register_error_flag = False
+        if not is_legitimate_id(self.id_entry.get()):
+            self.id_error_message.configure(text="Please enter a valid id")
+            self.id_error_message.place(relx=0.2, rely=0.68)
+            self.register_error_flag = False
+        if not is_legitimate_id(self.phone_number_entry.get()):
+            self.phone_error_message.configure(text="Please enter a valid phone number")
+            self.phone_error_message.place(relx=0.6, rely=0.28)
+            self.register_error_flag = False
+        if not is_legitimate_password(self.password_entry.get()):
+            self.password_error_message.place(relx=0.6, rely=0.48)
+            self.register_error_flag = False
+        if len(self.face_encodings) == 0:
+            self.face_id_error_message.place(relx=0.64, rely=0.74)
+            self.register_error_flag = False
+
+
+    def on_click_register(self):
+        self.register_error_flag = True
+        self.phone_error_message.place_forget()
+        self.id_error_message.place_forget()
+        self.first_name_error_message.place_forget()
+        self.last_name_error_message.place_forget()
+        self.password_error_message.place_forget()
+        self.face_id_error_message.place_forget()
+
+        self.handle_errors()
+
+        if self.register_error_flag:
+            data = {"first_name": self.first_name_entry.get(),
+                    "last_name":self.last_name_entry.get(),
+                    "id": self.id_entry.get(),
+                    "phone_number": self.phone_number_entry.get(),
+                    "password": self.password_entry.get(),
+                    "face_encodings": self.face_encodings}
+
+            self.callback_register(data)
 
 
     def run(self):
         self.create_ui()
         self.root.mainloop()
-
-    def on_click_register(self):
-        self.phone_error_message.place_forget()
-        self.id_error_message.place_forget()
-
-        data = {"first_name": self.first_name_entry.get(),
-                "last_name":self.last_name_entry.get(),
-                "id": self.id_entry.get(),
-                "phone_number": self.phone_number_entry.get(),
-                "password": self.password_entry.get(),
-                "face_encodings": self.face_encodings}
-
-        self.callback_register(data)
-
-
 
 if __name__ == "__main__":
     pass

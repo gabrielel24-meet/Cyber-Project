@@ -1,7 +1,6 @@
 from protocol import *
 import random
 from argon2 import PasswordHasher
-from argon2.exceptions import VerifyMismatchError
 
 login_cmd = ["LOGIN-1","LOGIN-2","CHECK_ID", "REGISTER"]
 register_cmd = ["ID_PHONE_TAKEN", "ID_TAKEN", "PHONE_TAKEN", "REGISTERED"]
@@ -33,13 +32,16 @@ def regular_login(data):
     conn.close()
 
     if user == None:
-        return "None"
+        return False, None
     else:
         phone_number = data["phone_number"]
 
         ph = PasswordHasher()
         password = data["password"]
-        password_flag = (ph.verify(user[4],password))
+        try:
+            password_flag = (ph.verify(user[4],password))
+        except:
+            return False, None
 
         if (phone_number == user[3] and password_flag):
             return True, user

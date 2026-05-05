@@ -11,7 +11,6 @@ class CServerBL:
 
         self._server_socket = None
         self.stop_event = threading.Event()
-        self._is_srv_running = True
 
 
     def start_server(self):
@@ -26,7 +25,7 @@ class CServerBL:
             self._server_socket.settimeout(1.0)
             write_to_log(f"[SERVER_BL] listening...")
 
-            while self._is_srv_running and not self.stop_event.is_set():
+            while not self.stop_event.is_set():
                 try:
                     client_socket, address = self._server_socket.accept()
                 except socket.timeout:
@@ -98,7 +97,6 @@ class CClientHandler():
 
 
     def run(self):
-        #This code run in separate thread for every client
         try:
             while True:
                 cmd, args = self.receive_data(self._address)
@@ -110,14 +108,15 @@ class CClientHandler():
                 else:
                     response = "Non-supported cmd"
 
-                if cmd == "LOGIN-1" and response[0] == True:
-                    clients_data[self._address] = response[1]
+                if cmd == "LOGIN-1":
+                    if response[0] == True:
+                        clients_data[self._address] = response[1]
                     self.send_data(cmd,response,self._address)
                 elif cmd == "LOGIN-2" and response[0] == True:
                     clients_data[self._address] = response[1]
                     self.send_data(cmd,response,self._address)
-                elif cmd == "TRANSFER" and response[0] == True:
-                    self.notify_transfer(response[1])
+                elif cmd == "TRANSFER":
+                    self.notify_transfer(response)
                 else:
                     self.send_data(cmd, response, self._address)
 
@@ -138,26 +137,29 @@ class CClientHandler():
 
 
     def notify_transfer(self, data):
-        try:
-            current = data["source"]
-            destination = data["destination"]
-            amount = data["amount"]
+        # try:
+            if data[0] == True:
+                current = data[1]["source"]
+                destination = data[1]["destination"]
+                amount = data[1]["amount"]
 
-            response = amount, destination
-            self.send_data("TRANSFER-1", response, self._address)
+                response = (True, (amount, destination))
+                self.send_data("TRANSFER-1", response, self._address)
 
-            for address, client in clients_data.items():
-                if client[5] == destination:
-                    destination_ip = address
-                    response = amount, current
-                    destination_fernet = client_handlers[destination_ip].fernet
-                    destination_socket = client_handlers[destination_ip]._client_socket
-                    protocol_send_data("TRANSFER-2", response, destination_socket, destination_fernet)
-                    write_to_log(f"[SERVER_BL] send to {address}: 'TRANSFER-2' > {response}")
+                for address, client in clients_data.items():
+                    if client[5] == destination:
+                        destination_ip = address
+                        response = amount, current
+                        destination_fernet = client_handlers[destination_ip].fernet
+                        destination_socket = client_handlers[destination_ip]._client_socket
+                        protocol_send_data("TRANSFER-2", response, destination_socket, destination_fernet)
+                        write_to_log(f"[SERVER_BL] send to {address}: 'TRANSFER-2' > {response}")
+            else:
+                self.send_data("TRANSFER-1", data, self._address)
 
-        except Exception as e:
-            self.send_data("TRANSFER-1", "Error", self._address)
-            write_to_log(f"[SERVER_BL] Error on notify_transfer: {e}")
+        # except Exception as e:
+        #     self.send_data("TRANSFER-1", "Error", self._address)
+        #     write_to_log(f"[SERVER_BL] Error on notify_transfer: {e}")
 
 
     def stop(self):

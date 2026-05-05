@@ -277,6 +277,7 @@ class CExpensesGUI():
             write_to_log(f"Error on char: {e}")
 
 
+
     def update_graphs(self):
         self.update_monthly_pie_data()
 
@@ -337,14 +338,15 @@ class CExpensesGUI():
 
     def hide_bar(self):
         if self.bar_canvas:
-            self.bar_canvas.get_tk_widget().place_forget()
+            self.bar_canvas.get_tk_widget().destroy()
         self.yearly_insights_frame.place_forget()
         self.switch_chart_btn_2.place_forget()
 
     def update_time(self):
-        current_time = datetime.now().strftime("%H:%M:%S")
-        self.time_label.configure(text=f"{current_time}")
-        self.root.after(1000, self.update_time)  # Update every second
+        if self.time_label is not None and self.time_label.winfo_exists():
+            current_time = datetime.now().strftime("%H:%M:%S")
+            self.time_label.configure(text=f"{current_time}")
+            self.root.after(1000, self.update_time)
 
     def update_monthly_pie_data(self):
         self.sizes = []
@@ -365,7 +367,6 @@ class CExpensesGUI():
         ax.axis('equal')
 
         current_mode = ctk.get_appearance_mode()
-        print(current_mode)
         if current_mode == "Light":
             fg_color = self.secondary_color[0]
         else:
@@ -445,7 +446,6 @@ class CExpensesGUI():
         df.set_index('Month', inplace=True)
 
         current_mode = ctk.get_appearance_mode()
-        print(current_mode)
         if current_mode == "Light":
             fg_color = self.secondary_color[0]
         else:
@@ -545,8 +545,12 @@ class CExpensesGUI():
         previous_frame.pack_forget()
 
     def open_previous_page(self):
+        if self.expense_window:
+            self.expense_window.root.destroy()
+            self.expense_window = None
         self.main_frame.pack_forget()
         self.previous_page.pack(fill="both", expand=True, padx=20, pady=20)
+
 
     def run(self):
         self.create_ui()

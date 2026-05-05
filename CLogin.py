@@ -43,6 +43,7 @@ class CLogin:
         self.choose_flag = False
         self.form_flag = False
         self.face_id_flag = False
+        self.opened_form_flag = False
 
         # Camera
         self.video_capture = None
@@ -271,7 +272,7 @@ class CLogin:
 
         self.show_choose_frame()
 
-        self.empty_entry_error_message = ctk.CTkLabel(self.main_frame,text="Please enter all fields",font=("Arial",18,"bold"))
+        self.error_message = ctk.CTkLabel(self.main_frame,text="One of the fields is incorrect",font=("Arial",18,"bold"),text_color=self.text_color)
         self.submit_button = ctk.CTkButton(
             self.main_frame,
             text="Submit",
@@ -331,6 +332,13 @@ class CLogin:
             self.choose_frame.place(relx = 0.17, rely = 0.15)
             self.choose_flag = True
 
+        if self.opened_form_flag:
+            self.phone_error_message.place_forget()
+            self.id_error_message.place_forget()
+            self.password_error_message.place_forget()
+            self.error_message.place_forget()
+
+
     def hide_choose_frame(self,):
         if self.choose_flag:
             self.choose_frame.place_forget()
@@ -339,11 +347,18 @@ class CLogin:
 
     def show_regular_login(self):
         if not self.form_flag:
+            self.opened_form_flag = True
             self.hide_choose_frame()
+
             self.id_frame, self.id_entry = self.create_entry(self.main_frame, "ID",0.4,0.2)
+            self.id_error_message = ctk.CTkLabel(self.main_frame, text_color=self.text_color, text="Please enter a valid ID")
+
             self.phone_number_frame, self.phone_number_entry = self.create_entry(self.main_frame, "Phone Number",0.4, 0.4)
-            self.phone_error_message = ctk.CTkLabel(self.main_frame,text="Please enter numbers only")
+            self.phone_error_message = ctk.CTkLabel(self.main_frame, text_color=self.text_color, text="Please enter a valid phone number")
+
             self.password_frame, self.password_entry = self.create_entry(self.main_frame, "Password",0.4, 0.6)
+            self.password_error_message = ctk.CTkLabel(self.main_frame, text_color=self.text_color, text="Please enter a valid password")
+
             self.submit_button.place(relx=0.45,rely=0.8)
             self.form_flag = True
 
@@ -429,8 +444,6 @@ class CLogin:
                 else:
                     cv2.rectangle(frame, (left, top), (right, bottom), (255, 255, 255), 2)
 
-
-
             captured_image = Image.fromarray(frame)
             face_image = ctk.CTkImage(
                 light_image=captured_image,
@@ -450,6 +463,7 @@ class CLogin:
             self.timer -= 10
 
             if self.timer <= 0:
+                self.camera_label.after(1500, face_not_match_func)
                 return
 
             self.camera_label.after(10, start_camera)
@@ -516,9 +530,10 @@ class CLogin:
             self.register_page.show_form()
 
     def update_time(self):
-        current_time = datetime.now().strftime("%H:%M:%S")
-        self.time_label.configure(text=f"{current_time}")
-        self.root.after(1000, self.update_time)  # Update every second
+        if self.time_label is not None and self.time_label.winfo_exists():
+            current_time = datetime.now().strftime("%H:%M:%S")
+            self.time_label.configure(text=f"{current_time}")
+            self.root.after(1000, self.update_time)
 
     def show_page(self, next_frame, previous_frame):
         next_frame.pack(fill="both", expand=True, padx=20, pady=20)
@@ -528,18 +543,16 @@ class CLogin:
         self.close_camera()
         self.show_page(self.previous_page, self.main_frame)
 
-    def run(self):
-        self.create_ui()
-        self.root.mainloop()
-
-
     def on_click_login(self):
-        self.empty_entry_error_message.pack_forget()
-        self.phone_error_message.pack_forget()
+        self.register_error_flag = True
+        self.phone_error_message.place_forget()
+        self.id_error_message.place_forget()
+        self.password_error_message.place_forget()
+        self.error_message.place_forget()
 
-        flag = self.handle_error_messages()
+        self.handle_errors()
 
-        if flag:
+        if self.register_error_flag:
             data = {"id": self.id_entry.get(),
                     "phone_number": self.phone_number_entry.get(),
                     "password": self.password_entry.get(),
@@ -556,12 +569,28 @@ class CLogin:
         data = {"id": self.id_entry.get(),}
         self.callback_login(("CHECK_ID", data))
 
-    def handle_error_messages(self):
-        if self.id_entry.get() == "" or self.phone_number_entry.get() == "" or self.password_entry.get() == "":
-            self.empty_entry_error_message.place(relx=0.4, rely=0.7)
-            return False
+    def handle_errors(self):
+        if not is_legitimate_id(self.id_entry.get()):
+            self.id_error_message.configure(text="Please enter a valid id")
+            self.id_error_message.place(relx=0.4, rely=0.28)
+            self.register_error_flag = False
+        if not is_legitimate_id(self.phone_number_entry.get()):
+            self.phone_error_message.configure(text="Please enter a valid phone number")
+            self.phone_error_message.place(relx=0.4, rely=0.48)
+            self.register_error_flag = False
+        if not is_legitimate_password(self.password_entry.get()):
+            self.password_error_message.place(relx=0.4, rely=0.68)
+            self.register_error_flag = False
 
-        return True
+    def handle_login_message(self):
+        self.error_message.place(relx=0.4  , rely=0.7)
+
+
+    def run(self):
+        self.create_ui()
+        self.root.mainloop()
+
+
 
 if __name__ == "__main__":
     pass

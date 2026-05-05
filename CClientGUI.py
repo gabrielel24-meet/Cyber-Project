@@ -65,7 +65,33 @@ class CClientGUI(CClientBL):
     def create_ui(self):
         # Main container
         self.main_frame = ctk.CTkFrame(self.root, fg_color=self.secondary_color)
-        self.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
+
+        # No connection frame
+        self.connection_frame = ctk.CTkFrame(self.root, fg_color=self.secondary_color)
+
+        self.connection_status_label = ctk.CTkLabel(
+            self.connection_frame,
+            text="Not connected",
+            text_color = self.text_color,
+            font=("Arial", 30, "bold"),
+        )
+
+        image_path = "Images/bank.png"
+        pil_image = Image.open(image_path)
+
+        self.connection_bank_img = ctk.CTkImage(
+            light_image=pil_image,
+            dark_image=pil_image,
+            size=(200, 200)
+        )
+
+        self.connection_bank_img_label = ctk.CTkLabel(
+            self.connection_frame,
+            image=self.connection_bank_img,
+            text = "",
+        )
+        self.connection_bank_img_label.place(relx = 0.5, rely=0.3, anchor = 'center')
+        self.connection_status_label.place(relx=0.3, rely=0.8, anchor="sw")
 
         # Bank name header
         self.bank_name_label = ctk.CTkLabel(
@@ -74,7 +100,14 @@ class CClientGUI(CClientBL):
             font=("Arial", 50, "bold"),
             text_color=self.text_color
         )
-        self.bank_name_label.pack(pady=(80, 20))
+
+        self.name_title =  ctk.CTkLabel(
+            self.main_frame,
+            text="",
+            font=("Arial", 30, "bold"),
+            text_color=self.text_color
+        )
+
 
         # Time display
         self.time_label = ctk.CTkLabel(
@@ -221,10 +254,6 @@ class CClientGUI(CClientBL):
 
         self.open_welcome_page()
 
-
-        image_path = "Images/bank.png"
-        pil_image = Image.open(image_path)
-
         self.bank_img = ctk.CTkImage(
             light_image=pil_image,
             dark_image=pil_image,
@@ -334,16 +363,6 @@ class CClientGUI(CClientBL):
         self.summary_title.pack(anchor="w")
         self.total_spent_label.pack(anchor="w", pady=(2, 4))
         self.top_category_label.pack(anchor="w")
-
-
-
-        # Connection Status
-        self.connection_status_label = ctk.CTkLabel(
-            self.main_frame,
-            text="Not connected",
-            text_color = self.text_color,
-        )
-        self.connection_status_label.place(relx=0.01, rely=1.0, anchor="sw")
 
         # Menu
         self.menu_img = ctk.CTkImage(
@@ -455,6 +474,7 @@ class CClientGUI(CClientBL):
         self.theme_frame.place(relx=0.45, rely = 0.9)
 
 
+
     def create_theme_switch(self, frame):
         theme_frame = ctk.CTkFrame(
             frame,
@@ -479,16 +499,22 @@ class CClientGUI(CClientBL):
     def update_connection_status(self):
         if self.connection_status:
             self.connection_status_label.configure(text="connected")
+            self.connection_frame.pack_forget()
+            self.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
         else:
+            self.on_click_sign_out()
+            self.main_frame.pack_forget()
             self.connection_status_label.configure(text="Not connected")
+            self.connection_frame.pack(fill="both", expand=True, padx=20, pady=20)
 
-        self.root.after(1000, self.update_connection_status)
+        # self.root.after(1000, self.update_connection_status)
 
 
     def update_time(self):
-        current_time = datetime.now().strftime("%H:%M:%S")
-        self.time_label.configure(text=f"{current_time}")
-        self.root.after(1000, self.update_time)  # Update every second
+        if self.time_label is not None and self.time_label.winfo_exists():
+            current_time = datetime.now().strftime("%H:%M:%S")
+            self.time_label.configure(text=f"{current_time}")
+            self.root.after(1000, self.update_time)
 
     def toggle_menu(self):
         if not self.menu_open:
@@ -525,6 +551,7 @@ class CClientGUI(CClientBL):
         self.menu_frame.configure(width=0)
 
     def open_welcome_page(self):
+        self.bank_name_label.pack(pady=(80, 20))
         self.welcome_title.place(relx = 0.5, rely=0.1, anchor = 'center')
         self.welcome_text.place(relx = 0.5, rely=0.4, anchor = 'center')
         if not self.login_successfully_flag:
@@ -541,12 +568,20 @@ class CClientGUI(CClientBL):
                 self.update_register_page(cmd)
             elif cmd == "EXPENSES-2":
                 self.update_expenses_window()
+            elif cmd == "LOGIN-1":
+                self.handle_login()
             elif cmd == "LOGIN-2":
                 self.update_login_page()
             elif cmd == "CHECK_ID":
                 self.update_login_id_page()
             elif cmd == "TRANSACTIONS":
                 self.display_transactions()
+            elif cmd == "TRANSFER":
+                self.on_click_close_transfer()
+            elif cmd == "TRANSFER_USER_NOT_FOUND":
+                self.show_destination_error_message()
+            elif cmd == "CONNECTION":
+                self.update_connection_status()
 
         self.responses_flag = False,None
         self.root.after(10, self.check_for_responses)
@@ -558,36 +593,15 @@ class CClientGUI(CClientBL):
             cmd, args = data
             self.send_data(cmd, args)
             time.sleep(0.1)
-            if cmd == "LOGIN-1":
-                if self.login_successfully_flag:
-                    create_home_page()
-                    self.show_page(self.main_frame, self.login_page.main_frame)
             if cmd == "LOGIN-2":
                 if self.login_successfully_flag:
-                    create_home_page()
+                    self.create_home_page()
 
         def callback_register(data):
             write_to_log(f"[CLIENT_GUI] Received data from Register page: {data}")
             self.send_data("REGISTER", data)
             time.sleep(0.1)
 
-        def create_home_page():
-            self.menu_button.place(relx=0.01, rely=0.05, anchor="nw")
-            self.bank_name_label.pack(pady=(40, 20))
-            self.bank_name_label.configure(text=f"Hi {self.first_name} {self.last_name}", font=("Arial", 30, "bold"))
-            self.balance_label.pack(pady=20)
-            self.right_panel.place(relx=0.55, rely=0.3, relwidth=0.35, relheight=0.55)
-            self.update_balance_label()
-            self.update_right_panel()
-            self.transactions_frame.place(relx=0.1, rely=0.3, relheight=0.55, relwidth=0.4)
-            self.welcome_frame.place_forget()
-            self.bank_img_label.place_forget()
-            self.theme_frame.destroy()
-            self.theme_frame = self.create_theme_switch(self.menu_frame)
-            self.theme_frame.place(relx=0.05, rely=0.4)
-
-            self.send_data("EXPENSES-2", self.id)
-            self.send_data("TRANSACTIONS", self.account_number)
 
         self.main_frame.pack_forget()
         if self.login_page == None:
@@ -597,6 +611,33 @@ class CClientGUI(CClientBL):
             self.login_page.show_choose_frame()
             self.login_page.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
 
+    def handle_login(self):
+        if self.login_successfully_flag:
+            self.create_home_page()
+            self.show_page(self.main_frame, self.login_page.main_frame)
+        else:
+            self.login_page.handle_login_message()
+
+
+    def create_home_page(self,):
+        print(11111111111111111)
+        self.menu_button.place(relx=0.01, rely=0.05, anchor="nw")
+        self.bank_name_label.pack_forget()
+        self.name_title.pack(pady=(40, 20))
+        self.name_title.configure(text=f"Hi {self.first_name} {self.last_name}")
+        self.balance_label.pack(pady=20)
+        self.right_panel.place(relx=0.55, rely=0.3, relwidth=0.35, relheight=0.55)
+        self.update_balance_label()
+        self.update_right_panel()
+        self.transactions_frame.place(relx=0.1, rely=0.3, relheight=0.55, relwidth=0.4)
+        self.welcome_frame.place_forget()
+        self.bank_img_label.place_forget()
+        self.theme_frame.destroy()
+        self.theme_frame = self.create_theme_switch(self.menu_frame)
+        self.theme_frame.place(relx=0.05, rely=0.4)
+
+        self.send_data("EXPENSES-2", self.id)
+        self.send_data("TRANSACTIONS", self.account_number)
 
     def update_login_page(self):
         self.login_page.face_recognized = True
@@ -751,6 +792,7 @@ class CClientGUI(CClientBL):
             self.send_data(cmd, data)
             time.sleep(0.1)
             self.root.after(0, self.expenses_page.expense_window.root.destroy)
+            self.expenses_page.expense_window = None
             self.update_expenses_window()
             self.root.after(0,self.expenses_page.update_graphs)
             self.update_month_expense()
@@ -825,31 +867,81 @@ class CClientGUI(CClientBL):
 
 
     def on_click_transfer_money(self):
-        error_flag = True
+        self.transfer_error_flag = True
         self.destination_error_message.place_forget()
         self.amount_error_message.place_forget()
 
         if self.destination_user_entry.get() == self.account_number:
+            self.destination_error_message.configure(text="⚠ Can't transfer to yourself")
             self.destination_error_message.place(relx=0.5, rely=0.37, anchor="center")
-            error_flag = False
+            self.transfer_error_flag = False
         if not is_positive_number(self.transfer_amount_entry.get()):
             self.amount_error_message.place(relx=0.5, rely=0.62, anchor="center")
-            error_flag = False
+            self.transfer_error_flag = False
 
-        if error_flag:
+        if self.transfer_error_flag:
             args = (self.account_number, self.destination_user_entry.get(), int(self.transfer_amount_entry.get()))
             self.send_data("TRANSFER", args)
-            self.on_click_close_transfer()
+
+    def show_destination_error_message(self):
+        self.destination_error_message.configure(text="⚠ User not found")
+        self.destination_error_message.place(relx=0.5, rely=0.37, anchor="center")
+        self.transfer_error_flag = False
 
     def on_click_sign_out(self):
-        self.login_successfully_flag = False
-        self.login_page.main_frame.destroy()
-        self.login_page.register_page.main_frame.destroy()
-        self.expenses_page.main_frame.destroy()
-        self.main_frame.destroy()
 
-        self.toggle_menu()
-        self.open_welcome_page()
+        if self.login_page:
+
+            if self.login_page.register_page:
+                self.login_page.register_page.main_frame.destroy()
+                self.login_page.register_page = None
+
+            self.login_successfully_flag = False
+            self.login_page.main_frame.destroy()
+            self.login_page = None
+
+        if self.expenses_page:
+            self.expenses_page.main_frame.destroy()
+            self.expenses_page = None
+
+        self.first_name = None
+        self.last_name = None
+        self.id = None
+        self.phone_number = None
+        self.password = None
+        self.account_number = None
+        self.balance = None
+        self.expenses = []
+        self.sizes = []
+        self.labels = []
+        self.yearly_data = {
+            'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            'Food': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            'Clothes': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            'Gadgets': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            'Gifts': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            'Other': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+
+        self.balance_label.pack_forget()
+        self.name_title.pack_forget()
+        self.transactions_frame.place_forget()
+        self.right_panel.place_forget()
+        self.transactions = None
+        self.face_matches = False
+        self.id_exists = False
+
+        if self.menu_open:
+            self.toggle_menu()
+
+        self.menu_button.place_forget()
+        self.bank_name_label.pack(pady=(80, 20))
+        self.welcome_frame.place(relx=0.5, rely=0.5, anchor='center')
+        self.bank_img_label.place(relx = 0.5, rely=0.8, anchor = 'center')
+
+        self.theme_frame = self.create_theme_switch(self.main_frame)
+        self.theme_frame.place(relx=0.45, rely = 0.9)
+
 
     def run(self):
         self._client_socket = threading.Thread(target=self.connect_to_server, daemon=True).start()
