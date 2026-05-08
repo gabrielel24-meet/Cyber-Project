@@ -114,7 +114,6 @@ def protocol_send_data(cmd, args, socket, fernet):
             socket.send(struct.pack("!I", length))
             socket.send(request)
 
-        print(cmd)
         send_message(cmd)
         send_message(args)
 

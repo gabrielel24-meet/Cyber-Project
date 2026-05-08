@@ -620,7 +620,6 @@ class CClientGUI(CClientBL):
 
 
     def create_home_page(self,):
-        print(11111111111111111)
         self.menu_button.place(relx=0.01, rely=0.05, anchor="nw")
         self.bank_name_label.pack_forget()
         self.name_title.pack(pady=(40, 20))

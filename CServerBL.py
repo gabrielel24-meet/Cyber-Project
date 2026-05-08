@@ -122,6 +122,7 @@ class CClientHandler():
 
         except Exception as e:
             self._client_socket.close()
+            clients_data.pop(self._address)
             write_to_log(f"[SERVER_BL] error - '{e}'")
             write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")
 
@@ -145,7 +146,7 @@ class CClientHandler():
 
                 response = (True, (amount, destination))
                 self.send_data("TRANSFER-1", response, self._address)
-
+                print(clients_data)
                 for address, client in clients_data.items():
                     if client[5] == destination:
                         destination_ip = address
