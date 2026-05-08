@@ -584,7 +584,7 @@ class CClientGUI(CClientBL):
                 self.update_connection_status()
 
         self.responses_flag = False,None
-        self.root.after(10, self.check_for_responses)
+        self.root.after(1, self.check_for_responses)
 
     def open_login_page(self):
         write_to_log("[CLIENT_GUI] opened Login page")
@@ -859,7 +859,6 @@ class CClientGUI(CClientBL):
 
     def on_click_close_transfer(self):
         self.transfer_frame.place_forget()
-        self.send_data("TRANSACTIONS", self.account_number)
         self.right_panel.place(relx=0.55, rely=0.3, relwidth=0.35, relheight=0.55)
         self.transactions_frame.place(relx=0.1, rely=0.3, relheight=0.55, relwidth=0.4)
         self.destination_user_entry.delete(0, "end")
@@ -950,6 +949,6 @@ class CClientGUI(CClientBL):
 
 
 if __name__ == "__main__":
-    client = CClientGUI(CLIENT_HOST, PORT)
+    client = CClientGUI("192.168.1.100", PORT)
     client.run()
 

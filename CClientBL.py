@@ -186,6 +186,8 @@ class CClientBL:
             self.responses_flag = (True,"TRANSFER")
             time.sleep(0.1)
             self.send_data("GET_BALANCE", self.account_number)
+            time.sleep(0.1)
+            self.send_data("TRANSACTIONS", self.account_number)
             write_to_log(f"[CLIENT_BL] transferred {amount}₪ to client {destination}")
         else:
             self.responses_flag = (True,data[1])
@@ -197,7 +199,10 @@ class CClientBL:
         write_to_log(f"[CLIENT_BL] Received {amount}₪ from client {source}")
 
         self.send_data("GET_BALANCE", self.account_number)
-        self.responses_flag = (True, "TRANSFER")
+        time.sleep(0.1)
+        self.send_data("TRANSACTIONS", self.account_number)
+
+
 
     def handle_register(self, response):
         message = response[1]
