@@ -148,8 +148,13 @@ class CClientBL:
             self.password = account_data[4]
             self.account_number = account_data[5]
             self.balance = account_data[6]
+            response = "LOGIN-1"
+        elif data[1] == "CLIENT_ALREADY_CONNECTED":
+            response = "CLIENT_ALREADY_CONNECTED"
+        else:
+            response = "LOGIN-1"
 
-        self.responses_flag = True, "LOGIN-1"
+        self.responses_flag = True, response
 
 
     def update_face_id_login_data(self, data):

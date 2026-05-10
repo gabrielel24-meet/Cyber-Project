@@ -27,6 +27,13 @@ def regular_login(data):
     cursor = conn.cursor()
 
     id = data["id"]
+    global clients_data
+
+    for address, client_data in clients_data.items():
+        client_id = client_data["id"]
+        if id == client_id:
+            return False, "CLIENT_ALREADY_CONNECTED"
+
 
     cursor.execute(f"SELECT * FROM users WHERE id = ?", (id,))
     user = cursor.fetchone()

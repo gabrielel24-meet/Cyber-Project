@@ -579,6 +579,8 @@ class CClientGUI(CClientBL):
                 self.handle_login()
             elif cmd == "LOGIN-2":
                 self.update_login_page()
+            elif cmd == "CLIENT_ALREADY_CONNECTED":
+                self.update_client_connected()
             elif cmd == "CHECK_ID":
                 self.update_login_id_page()
             elif cmd == "TRANSACTIONS":
@@ -625,6 +627,8 @@ class CClientGUI(CClientBL):
         else:
             self.login_page.handle_login_message()
 
+    def update_client_connected(self):
+        self.login_page.update_client_connected_error()
 
     def create_home_page(self,):
         self.menu_button.place(relx=0.01, rely=0.05, anchor="nw")

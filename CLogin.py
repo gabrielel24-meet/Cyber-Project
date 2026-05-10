@@ -580,7 +580,13 @@ class CLogin:
             self.register_error_flag = False
 
     def handle_login_message(self):
+        self.error_message.configure(text="One of the fields is incorrect")
         self.error_message.place(relx=0.4  , rely=0.7)
+        
+    def update_client_connected_error(self):
+        self.error_message.configure(text="User already connected")
+        self.error_message.place(relx=0.4  , rely=0.7)
+
 
 
     def run(self):
