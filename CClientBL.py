@@ -39,6 +39,7 @@ class CClientBL:
         self.login_successfully_flag = None
         self.face_matches = False
         self.id_exists = False
+        self.id_taken = False
         self.transactions = None
 
 
@@ -136,8 +137,8 @@ class CClientBL:
 
 
     def update_user_data(self,data):
-        write_to_log(data)
         flag = data[0]
+
         if flag:
             account_data = data[1]
             self.login_successfully_flag = True
@@ -172,12 +173,12 @@ class CClientBL:
             self.balance = account_data[6]
 
             self.face_matches = True
-            self.responses_flag = (True, "LOGIN-2")
-        else:
-            self.responses_flag = (True, "LOGIN-2")
+
+        self.responses_flag = (True, "LOGIN-2")
 
     def update_id_login(self, data):
-        self.id_exists = data
+        self.id_exists = data[0]
+        self.id_taken = data[1]
         self.responses_flag = (True, "CHECK_ID")
 
     def transfer_money(self, data):

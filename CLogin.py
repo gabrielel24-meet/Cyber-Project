@@ -49,6 +49,7 @@ class CLogin:
         self.face_recognized = False
         self.face_matches = None
         self.id_exists = None
+        self.id_taken = None
 
         self.white_bg = ctk.CTkImage(
             light_image=Image.open("Images/WhiteBG.png"),
@@ -376,26 +377,37 @@ class CLogin:
         self.submit_face_id_button.place(relx = 0.45, rely = 0.55)
 
     def submit_face_id_button(self):
+
         self.id_exists = None
+        self.id_taken = None
 
         def return_answer():
             if self.id_exists != None:
                 if self.id_exists:
-                    self.id_error_message.place_forget()
-                    self.open_camera()
+                    if not self.id_taken:
+                        self.id_error_message.place_forget()
+                        self.open_camera()
+                    else:
+                        self.id_error_message.configure(text=f"User already connected")
+                        self.id_error_message.place(relx=0.4, rely=0.65)
                 else:
                     self.id_error_message.configure(text=f"ID '{self.id_entry.get()}' not found")
                     self.id_error_message.place(relx=0.4, rely=0.65)
                     self.id_entry.delete(0, "end")
                     self.camera_label.after(1000, self.id_error_message.place_forget)
                     self.id_exists = None
+                    self.id_taken = None
 
                 return
             else:
                 self.camera_label.after(10, return_answer)
 
-        self.id_check()
-        return_answer()
+        if not is_legitimate_id(self.id_entry.get()):
+            self.id_error_message.configure(text=f"Please enter a valid id")
+            self.id_error_message.place(relx=0.4, rely=0.65)
+        else:
+            self.id_check()
+            return_answer()
 
 
     def open_camera(self):

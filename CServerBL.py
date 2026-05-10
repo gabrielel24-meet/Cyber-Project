@@ -15,10 +15,8 @@ class CServerBL:
 
     def start_server(self):
         try:
-            global clients_data
-            global client_handlers
-            clients_data = {}
-            client_handlers = {}
+            clients_data.clear()
+            client_handlers.clear()
             self._server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self._server_socket.bind((self._host, self._port))
             self._server_socket.listen(5)
@@ -108,15 +106,14 @@ class CClientHandler():
                 else:
                     response = "Non-supported cmd"
 
-                if cmd == "LOGIN-1":
+                if cmd == "LOGIN-1" or cmd == "LOGIN-2":
                     if response[0] == True:
                         clients_data[self._address] = response[1]
                     self.send_data(cmd,response,self._address)
-                elif cmd == "LOGIN-2" and response[0] == True:
-                    clients_data[self._address] = response[1]
-                    self.send_data(cmd,response,self._address)
                 elif cmd == "TRANSFER":
                     self.notify_transfer(response)
+                elif cmd == "SIGN_OUT":
+                    clients_data.pop(self._address)
                 else:
                     self.send_data(cmd, response, self._address)
 

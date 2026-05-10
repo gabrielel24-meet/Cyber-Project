@@ -659,6 +659,8 @@ class CClientGUI(CClientBL):
 
     def update_login_id_page(self):
             self.login_page.id_exists = self.id_exists
+            self.login_page.id_taken = self.id_taken
+
 
     def update_right_panel(self):
         self.user_name_label.configure(
@@ -905,6 +907,7 @@ class CClientGUI(CClientBL):
                 self.login_page.register_page.main_frame.destroy()
                 self.login_page.register_page = None
 
+            self.send_data("SIGN_OUT", None)
             self.login_successfully_flag = False
             self.login_page.main_frame.destroy()
             self.login_page = None
@@ -939,6 +942,7 @@ class CClientGUI(CClientBL):
         self.transactions = None
         self.face_matches = False
         self.id_exists = False
+        self.id_taken = False
 
         if self.menu_open:
             self.toggle_menu()

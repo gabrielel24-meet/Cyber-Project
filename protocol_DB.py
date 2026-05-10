@@ -30,7 +30,7 @@ def regular_login(data):
     global clients_data
 
     for address, client_data in clients_data.items():
-        client_id = client_data["id"]
+        client_id = client_data[0]
         if id == client_id:
             return False, "CLIENT_ALREADY_CONNECTED"
 
@@ -68,7 +68,7 @@ def face_id_login(data):
     conn.close()
 
     if user == None:
-        return "None"
+        return False, None
     else:
         face_encodings = data["face_encodings"]
         face_encodings = json.loads(face_encodings)
@@ -91,15 +91,21 @@ def check_id(data):
     cursor = conn.cursor()
 
     id = data["id"]
+    global clients_data
+
+    for address, client_data in clients_data.items():
+        client_id = client_data[0]
+        if id == client_id:
+            return True, True
 
     cursor.execute(f"SELECT * FROM users WHERE id = ?", (id,))
     user = cursor.fetchone()
     conn.close()
 
     if user == None:
-        return False
+        return False, False
     else:
-        return True
+        return True, False
 
 
 def register(data):
