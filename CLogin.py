@@ -14,7 +14,6 @@ class CLogin:
         self.callback_login = callback_login
         self.callback_register = callback_register
 
-        # Configure purple color scheme
         self.primary_color = ("#6A0DAD", "#2D1B4E")
         self.secondary_color = ("#8A2BE2", "#3E2A6D")
         self.accent_color = ("#9370DB", "#9B5DE5")
@@ -283,15 +282,6 @@ class CLogin:
             command=self.on_click_login,
         )
 
-
-        # self.connection_status = ctk.CTkLabel(
-        #     self.main_frame,
-        #     text="connected",
-        #     text_color = self.text_color,
-
-        # )
-        # self.connection_status.pack()
-        # self.connection_status.place(relx=0.01, rely=1.0, anchor="sw")
         self.time_thread.start()
 
 
@@ -603,9 +593,5 @@ class CLogin:
 
     def run(self):
         self.create_ui()
-        self.root.mainloop()
 
 
-
-if __name__ == "__main__":
-    pass

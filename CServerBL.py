@@ -146,7 +146,6 @@ class CClientHandler():
 
                 response = (True, (amount, destination))
                 self.send_data("TRANSFER-1", response, self._address)
-                print(clients_data)
                 for address, client in clients_data.items():
                     if client[5] == destination:
                         destination_ip = address

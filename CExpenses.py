@@ -10,7 +10,6 @@ class CExpensesGUI():
         self.root.title("Purple Trust Bank")
         self.root.geometry("1100x700")
 
-        # Configure purple color scheme
         self.primary_color = ("#6A0DAD", "#2D1B4E")
         self.secondary_color = ("#8A2BE2", "#3E2A6D")
         self.accent_color = ("#9370DB", "#9B5DE5")
@@ -127,14 +126,6 @@ class CExpensesGUI():
         )
 
 
-        # Connection Status
-        self.connection_status = ctk.CTkLabel(
-            self.main_frame,
-            text="connected",
-            text_color=self.text_color,
-        )
-        self.connection_status.pack()
-        self.connection_status.place(relx=0.01, rely=1.0, anchor="sw")
         self.time_thread.start()
 
         self.back_button = ctk.CTkButton(
@@ -554,7 +545,6 @@ class CExpensesGUI():
 
     def run(self):
         self.create_ui()
-        self.root.mainloop()
 
 
 
@@ -570,7 +560,6 @@ class CExpensesWnd:
         self.root.geometry("420x390")
         self.root.resizable(False, False)
 
-        # Configure purple color scheme
         self.primary_color = ("#6A0DAD", "#2D1B4E")
         self.secondary_color = ("#8A2BE2", "#3E2A6D")
         self.accent_color = ("#9370DB", "#9B5DE5")
@@ -659,14 +648,11 @@ class CExpensesWnd:
 
 
     def run(self):
-        self.create_ui()
-        self.root.mainloop()
+        try:
+            self.create_ui()
+            self.root.mainloop()
+        except KeyboardInterrupt as e:
+            pass
 
 
 
-
-def test():
-    pass
-if __name__ == "__main__":
-    exp = CExpensesGUI()
-    exp.run()

@@ -19,7 +19,6 @@ class CClientGUI(CClientBL):
         ctk.set_appearance_mode("light")
         self.is_dark_mode = False
 
-        # Configure purple color scheme
         self.primary_color = ("#6A0DAD", "#2D1B4E")
         self.secondary_color = ("#8A2BE2", "#3E2A6D")
         self.accent_color = ("#9370DB", "#9B5DE5")
@@ -466,7 +465,7 @@ class CClientGUI(CClientBL):
             text="Sign Out",
             width=180,
             height=40,
-            fg_color="#8B0000",  # darker red for emphasis
+            fg_color="#8B0000",
             hover_color="#A52A2A",
             command=self.on_click_sign_out
         )
@@ -514,7 +513,6 @@ class CClientGUI(CClientBL):
             self.connection_status_label.configure(text="Not connected")
             self.connection_frame.pack(fill="both", expand=True, padx=20, pady=20)
 
-        # self.root.after(1000, self.update_connection_status)
 
 
     def update_time(self):
@@ -567,33 +565,36 @@ class CClientGUI(CClientBL):
 
 
     def check_for_responses(self):
-        flag, cmd = self.responses_flag
-        if flag == True:
-            if cmd == "BALANCE":
-                self.update_balance_label()
-            elif cmd in register_cmd:
-                self.update_register_page(cmd)
-            elif cmd == "EXPENSES-2":
-                self.update_expenses_window()
-            elif cmd == "LOGIN-1":
-                self.handle_login()
-            elif cmd == "LOGIN-2":
-                self.update_login_page()
-            elif cmd == "CLIENT_ALREADY_CONNECTED":
-                self.update_client_connected()
-            elif cmd == "CHECK_ID":
-                self.update_login_id_page()
-            elif cmd == "TRANSACTIONS":
-                self.display_transactions()
-            elif cmd == "TRANSFER":
-                self.on_click_close_transfer()
-            elif cmd == "TRANSFER_USER_NOT_FOUND":
-                self.show_destination_error_message()
-            elif cmd == "CONNECTION":
-                self.update_connection_status()
+        try:
+            flag, cmd = self.responses_flag
+            if flag == True:
+                if cmd == "BALANCE":
+                    self.update_balance_label()
+                elif cmd in register_cmd:
+                    self.update_register_page(cmd)
+                elif cmd == "EXPENSES-2":
+                    self.update_expenses_window()
+                elif cmd == "LOGIN-1":
+                    self.handle_login()
+                elif cmd == "LOGIN-2":
+                    self.update_login_page()
+                elif cmd == "CLIENT_ALREADY_CONNECTED":
+                    self.update_client_connected()
+                elif cmd == "CHECK_ID":
+                    self.update_login_id_page()
+                elif cmd == "TRANSACTIONS":
+                    self.display_transactions()
+                elif cmd == "TRANSFER":
+                    self.on_click_close_transfer()
+                elif cmd == "TRANSFER_USER_NOT_FOUND":
+                    self.show_destination_error_message()
+                elif cmd == "CONNECTION":
+                    self.update_connection_status()
 
-        self.responses_flag = False,None
-        self.root.after(1, self.check_for_responses)
+            self.responses_flag = False,None
+            self.root.after(1, self.check_for_responses)
+        except:
+            pass
 
     def open_login_page(self):
         write_to_log("[CLIENT_GUI] opened Login page")
@@ -957,9 +958,12 @@ class CClientGUI(CClientBL):
 
 
     def run(self):
-        self.client_socket_thread = threading.Thread(target=self.connect_to_server, daemon=True).start()
-        self.create_ui()
-        self.root.mainloop()
+        try:
+            self.client_socket_thread = threading.Thread(target=self.connect_to_server, daemon=True).start()
+            self.create_ui()
+            self.root.mainloop()
+        except KeyboardInterrupt as e:
+            pass
 
 
 if __name__ == "__main__":

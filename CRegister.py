@@ -1,9 +1,5 @@
 from protocol import *
 
-# Set appearance mode and color theme
-ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("dark-blue")
-
 
 class CRegister:
 
@@ -16,7 +12,6 @@ class CRegister:
         self.previous_page = previous_page
         self.callback_register = callback_register
 
-        # Configure purple color scheme
         self.primary_color = ("#6A0DAD", "#2D1B4E")
         self.secondary_color = ("#8A2BE2", "#3E2A6D")
         self.accent_color = ("#9370DB", "#9B5DE5")
@@ -119,13 +114,6 @@ class CRegister:
             command=self.on_click_register,
         )
 
-
-        self.connection_status = ctk.CTkLabel(
-            self.main_frame,
-            text="connected",
-            text_color=self.text_color,
-        )
-
         # Camera
         self.camera_frame = ctk.CTkFrame(
             self.main_frame,
@@ -190,8 +178,6 @@ class CRegister:
             command=self.try_again_later
         )
 
-        self.connection_status.pack()
-        self.connection_status.place(relx=0.01, rely=1.0, anchor="sw")
         self.time_thread.start()
         self.create_form()
 
@@ -252,7 +238,6 @@ class CRegister:
         self.id_frame.place(relx = 0.2, rely = 0.6)
         self.phone_number_frame.place(relx = 0.6, rely = 0.2)
         self.password_frame.place(relx = 0.6, rely = 0.4)
-        print(len(self.face_encodings))
         if len(self.face_encodings) != 0:
             self.face_id_label.configure(text="Face ID ✅")
             self.face_id_label.place(relx=0.61, rely=0.63)
@@ -345,7 +330,7 @@ class CRegister:
             analyze_frame()
 
         def analyze_frame():
-            self.face_locations = face_recognition.face_locations(self.face_frame, model="hog")
+            self.face_locations = face_recognition.face_locations(self.face_frame, model="hog") # Detects face from camera
             self.face_encodings = face_recognition.face_encodings(self.face_frame, self.face_locations)  # Encodes the face
 
             if len(self.face_locations) == 0:
@@ -455,7 +440,4 @@ class CRegister:
 
     def run(self):
         self.create_ui()
-        self.root.mainloop()
 
-if __name__ == "__main__":
-    pass

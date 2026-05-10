@@ -243,6 +243,3 @@ class CClientBL:
                 if value > 0:
                     self.sizes.append(value)
                     self.labels.append(expense_type)
-
-if __name__ == "__main__":
-    pass

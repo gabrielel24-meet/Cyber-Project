@@ -147,6 +147,4 @@ def register(data):
 
 
 
-if __name__ == "__main__":
-    data = "{'first_name': 'aaa', 'last_name': 'aaa', 'id': '11', 'phone_number': '90', 'password': '1111', }"
-    print(register(data))
+

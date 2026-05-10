@@ -304,5 +304,3 @@ def is_legitimate_password(str):
     except:
         return False
 
-if __name__ == "__main__":
-    get_transactions('777')
