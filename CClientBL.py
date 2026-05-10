@@ -1,7 +1,3 @@
-import time
-
-from fontTools.misc.eexec import encrypt
-
 from protocol import *
 
 

@@ -1,9 +1,6 @@
-import time
-
-from protocol import *
-from CClientBL import *
 from CRegister import *
-# Set appearance mode and color theme
+from protocol import *
+
 
 class CLogin:
 

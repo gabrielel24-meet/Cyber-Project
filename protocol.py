@@ -104,7 +104,7 @@ def get_cmd_and_args(request):
 
 
 def protocol_send_data(cmd, args, socket, fernet):
-     # try:
+     try:
         def send_message(msg):
             # Encrypt msg
             request = str(msg).encode()
@@ -117,8 +117,8 @@ def protocol_send_data(cmd, args, socket, fernet):
         send_message(cmd)
         send_message(args)
 
-     # except Exception as e:
-     #    write_to_log("Exception on send_data: {}".format(e))
+     except Exception as e:
+        write_to_log("Exception on send_data: {}".format(e))
 
 
 def protocol_receive_data( socket, fernet) -> tuple:

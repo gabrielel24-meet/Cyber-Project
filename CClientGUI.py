@@ -1,5 +1,3 @@
-from doctest import master
-
 from protocol import *
 from protocol_DB import *
 from CClientBL import *
@@ -82,7 +80,14 @@ class CClientGUI(CClientBL):
         self.connection_bank_img = ctk.CTkImage(
             light_image=pil_image,
             dark_image=pil_image,
-            size=(200, 200)
+            size=(300, 300)
+        )
+
+        self.bank_name_label_2 = ctk.CTkLabel(
+            self.connection_frame,
+            text="FINANCE PLAN BANK",
+            font=("Arial", 50, "bold"),
+            text_color=self.text_color
         )
 
         self.connection_bank_img_label = ctk.CTkLabel(
@@ -90,8 +95,10 @@ class CClientGUI(CClientBL):
             image=self.connection_bank_img,
             text = "",
         )
-        self.connection_bank_img_label.place(relx = 0.5, rely=0.3, anchor = 'center')
-        self.connection_status_label.place(relx=0.3, rely=0.8, anchor="sw")
+
+        self.bank_name_label_2.place(relx = 0.25, rely=0.1)
+        self.connection_bank_img_label.place(relx = 0.5, rely=0.5, anchor = 'center')
+        self.connection_status_label.place(relx=0.4, rely=0.8, anchor="sw")
 
         # Bank name header
         self.bank_name_label = ctk.CTkLabel(
@@ -942,7 +949,7 @@ class CClientGUI(CClientBL):
 
 
     def run(self):
-        self._client_socket = threading.Thread(target=self.connect_to_server, daemon=True).start()
+        self.client_socket_thread = threading.Thread(target=self.connect_to_server, daemon=True).start()
         self.create_ui()
         self.root.mainloop()
 

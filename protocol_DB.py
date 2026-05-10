@@ -1,6 +1,8 @@
 from protocol import *
 import random
 from argon2 import PasswordHasher
+
+
 login_cmd = ["LOGIN-1","LOGIN-2","CHECK_ID", "REGISTER"]
 register_cmd = ["ID_PHONE_TAKEN", "ID_TAKEN", "PHONE_TAKEN", "REGISTERED"]
 

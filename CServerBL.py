@@ -122,7 +122,10 @@ class CClientHandler():
 
         except Exception as e:
             self._client_socket.close()
-            clients_data.pop(self._address)
+            try:
+                clients_data.pop(self._address)
+            except:
+                pass
             write_to_log(f"[SERVER_BL] error - '{e}'")
             write_to_log(f"[SERVER_BL] Thread closed for : {self._address} ")
 
@@ -138,7 +141,7 @@ class CClientHandler():
 
 
     def notify_transfer(self, data):
-        # try:
+        try:
             if data[0] == True:
                 current = data[1]["source"]
                 destination = data[1]["destination"]
@@ -158,9 +161,9 @@ class CClientHandler():
             else:
                 self.send_data("TRANSFER-1", data, self._address)
 
-        # except Exception as e:
-        #     self.send_data("TRANSFER-1", "Error", self._address)
-        #     write_to_log(f"[SERVER_BL] Error on notify_transfer: {e}")
+        except Exception as e:
+            self.send_data("TRANSFER-1", "Error", self._address)
+            write_to_log(f"[SERVER_BL] Error on notify_transfer: {e}")
 
 
     def stop(self):
